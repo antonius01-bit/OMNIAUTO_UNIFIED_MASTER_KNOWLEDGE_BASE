@@ -1,0 +1,30 @@
+{
+  "sync_timestamp": "2026-09-25 10:27:10",
+  "agy_bridge_daemon": {
+    "host": "127.0.0.1",
+    "port": 5050,
+    "endpoints": [
+      "/api/status",
+      "/api/chat",
+      "/api/notes",
+      "/api/search",
+      "/api/health"
+    ],
+    "gemini_failover_keys_count": 7,
+    "active_model": "gemini-flash-latest"
+  },
+  "cognitive_epistemology": {
+    "paradigm": "Observational Epistemology (Zero Speculative Patching)",
+    "minimal_surgical_diff": true,
+    "silent_execution_rule": true
+  },
+  "memory_persistence": {
+    "obsidian_vault_root": "C:\\Users\\antoni\\Dola\\obsidian_vault",
+    "harvested_repos_count": 20,
+    "cloud_backup_triad": [
+      "OneDrive",
+      "Git Snapshot",
+      "Compressed Mesh"
+    ]
+  }
+}

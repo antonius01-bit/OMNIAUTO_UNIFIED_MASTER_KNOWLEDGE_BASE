@@ -1,0 +1,348 @@
+{
+  "nodes": [
+    {
+      "id": "group-head",
+      "type": "group",
+      "x": -1050,
+      "y": -480,
+      "width": 540,
+      "height": 960,
+      "label": "\ud83d\udc51 PHASE 0: HEAD PROMPT MASTER & TOKEN OPTIMIZER",
+      "color": "4"
+    },
+    {
+      "id": "node-raw-input",
+      "type": "text",
+      "x": -1020,
+      "y": -420,
+      "width": 480,
+      "height": 130,
+      "text": "### \ud83d\udce5 Raw User Command / Intent\n- Captures any raw instruction, thesis topic, or code task.\n- Intercepted by **`/omni-auto` Head Meta-Router** before execution.",
+      "color": "6"
+    },
+    {
+      "id": "node-token-compressor",
+      "type": "text",
+      "x": -1020,
+      "y": -260,
+      "width": 480,
+      "height": 200,
+      "text": "### \u26a1 Token & Credit Optimizer (Prompt Master Pack)\n- Strips conversational bloat while preserving 100% intent.\n- **Universal 8-Part Template**:\n  - **Role** & **Objective**\n  - **Context** & **Task**\n  - **Inputs** & **Constraints**\n  - **Method** & **Output Format**\n- **\ud83d\udca1 Micro-Learning**: Injects 2-line Prompt Insight.",
+      "color": "4"
+    },
+    {
+      "id": "node-evidence-sep",
+      "type": "text",
+      "x": -1020,
+      "y": -30,
+      "width": 480,
+      "height": 190,
+      "text": "### \ud83d\udd0d Evidence Separation Protocol\n- **FACT**: Verified data from Scopus/WoS/files/APIs.\n- **INFERENCE**: Logical deductions derived from evidence.\n- **ASSUMPTION**: Explicitly labeled defaults.\n- **UNKNOWN**: Explicitly marked \"DATA TIDAK TERSEDIA\".",
+      "color": "1"
+    },
+    {
+      "id": "node-triad-bridge",
+      "type": "text",
+      "x": -1020,
+      "y": 190,
+      "width": 480,
+      "height": 220,
+      "text": "### \ud83d\udd04 AI Agent Triad Collaboration\n- **\ud83e\udd16 Dola**: Autonomous Workflow Engine\n- **\u26a1 Antigravity (AGY)**: Surgical Execution & Code Engine\n- **\ud83c\udf1f Gemini**: SOTA Multimodal Reasoning & Discovery\n- **\ud83e\udde0 Obsidian**: Local Persistent Knowledge Memory Store",
+      "color": "5"
+    },
+    {
+      "id": "group-router",
+      "type": "group",
+      "x": -450,
+      "y": -480,
+      "width": 640,
+      "height": 960,
+      "label": "\ud83e\udded PHASE 1: MASTER SKILL ROUTER (207 SUPER-SKILLS DISPATCH)",
+      "color": "5"
+    },
+    {
+      "id": "node-router-hub",
+      "type": "text",
+      "x": -420,
+      "y": -420,
+      "width": 580,
+      "height": 110,
+      "text": "### \ud83d\udd00 Automated Intent Classifier (S1\u2013S207)\nDynamically routes tasks into the optimal combination of 207 Super-Skills and 18,200+ Sub-Skills without prompt overhead.",
+      "color": "5"
+    },
+    {
+      "id": "node-cat-acad",
+      "type": "text",
+      "x": -420,
+      "y": -280,
+      "width": 580,
+      "height": 130,
+      "text": "### \ud83c\udf93 1. Core Academic & Research (S1\u2013S6, S20, S22, S194)\n- `omni-auto` v4.0 \u00b7 `publication-shield` \u00b7 `mendeley-ris-linker`\n- `master-journal-tracking` \u00b7 `markitdown-academic-parser`\n- `kuliah-s2-master-management-curriculum` \u00b7 `ai-research-deep-engine`",
+      "color": "2"
+    },
+    {
+      "id": "node-cat-eng",
+      "type": "text",
+      "x": -420,
+      "y": -120,
+      "width": 580,
+      "height": 150,
+      "text": "### \u2699\ufe0f 2. Engineering, Swarms & Cloud (S7\u2013S14, S21, S173, S185, S201)\n- `agentic-engineering-suite` \u00b7 `master-senior-software-engineer`\n- `ruflow-omniroute-agent-swarms` \u00b7 `founder-railway-cloud-os`\n- `trueforge-agent-harness-platform` \u00b7 `langgraph-orchestrator`",
+      "color": "5"
+    },
+    {
+      "id": "node-cat-multi",
+      "type": "text",
+      "x": -420,
+      "y": 60,
+      "width": 580,
+      "height": 160,
+      "text": "### \ud83c\udf10 3. Multi-Model Gateway & Local Mesh (S206, S207, S189)\n- `ashna-ai-no-code-agent-cloud` (62+ Models via unified gateway)\n- `obsidian-community-plugin-powerhouse` (51 Active Plugins)\n- `lmstudio-developer-local-mesh` (Bionic MCP Bridge on port 27124)",
+      "color": "3"
+    },
+    {
+      "id": "node-cat-pabrik",
+      "type": "text",
+      "x": -420,
+      "y": 250,
+      "width": 580,
+      "height": 160,
+      "text": "### \ud83c\udfed 4. High-Conversion, Business & Media (S29\u2013S32, S192, S202)\n- `pabrik-ai-access-hub` (22 Cloned AI Tools) \u00b7 `hyper-copywriting-seo`\n- `hypit-viral-video-replicator` (SVML Headless Render)\n- `fleetbase-logistics-supply-chain-os` \u00b7 `enterprise-financial-analyzer`",
+      "color": "4"
+    },
+    {
+      "id": "group-forensics",
+      "type": "group",
+      "x": 250,
+      "y": -480,
+      "width": 520,
+      "height": 960,
+      "label": "\ud83d\udee1\ufe0f PHASE 2-4: FORENSIC VERIFICATION & PUBLICATION SHIELD",
+      "color": "1"
+    },
+    {
+      "id": "node-chain",
+      "type": "text",
+      "x": 280,
+      "y": -420,
+      "width": 460,
+      "height": 150,
+      "text": "### \ud83d\udd17 Source-to-Claim Evidence Chain\n$$\\text{Claim} \\to \\text{Evidence} \\to \\text{Source} \\to \\text{Quality} \\to \\text{Limitation}$$\n- Zero fabricated statistics or imaginary citations.\n- Real Scopus/WoS/PubMed empirical grounding.",
+      "color": "2"
+    },
+    {
+      "id": "node-triple-shield",
+      "type": "text",
+      "x": 280,
+      "y": -240,
+      "width": 460,
+      "height": 220,
+      "text": "### \ud83d\udee1\ufe0f Triple Publication Shield Verification\n- **FK-16**: 4-Layer Plagiarism & Similarity Audit (Target $\\le 5\\%$).\n- **FK-17**: 29 AI Pattern Scanner with Natural Humanization.\n- **FK-19**: 100% Authentic DOI & Mendeley/Scopus Citation Validation.",
+      "color": "1"
+    },
+    {
+      "id": "node-anti-bias",
+      "type": "text",
+      "x": 280,
+      "y": 10,
+      "width": 460,
+      "height": 170,
+      "text": "### \u2696\ufe0f Anti-Bias & Reproducibility Audit\n- Validates mathematical proofs and statistical outputs.\n- Cross-checks code against test suites and edge cases.\n- Zero-regression non-destructive Ponytail discipline.",
+      "color": "6"
+    },
+    {
+      "id": "node-self-evolve",
+      "type": "text",
+      "x": 280,
+      "y": 210,
+      "width": 460,
+      "height": 200,
+      "text": "### \ud83e\uddec Continuous Self-Improvement (S78 & S99)\n- Reflexion loop evaluates execution outcomes.\n- LLM-as-a-Judge self-grading rubrics.\n- Updates `13_SELF_IMPROVEMENT` and mutates heuristics.",
+      "color": "3"
+    },
+    {
+      "id": "group-outputs",
+      "type": "group",
+      "x": 830,
+      "y": -480,
+      "width": 500,
+      "height": 960,
+      "label": "\ud83d\udce6 PHASE 5: 100% VERIFIED WORKING DELIVERABLES",
+      "color": "4"
+    },
+    {
+      "id": "node-docx",
+      "type": "text",
+      "x": 860,
+      "y": -420,
+      "width": 440,
+      "height": 140,
+      "text": "### \ud83d\udcc4 Dual-Language Academic Naskah (.docx)\n- `Naskah \u2014 Bahasa Indonesia.docx`\n- `Naskah \u2014 English Version.docx`\n- 100% Synchronized `[N#E]` numbered claims.",
+      "color": "4"
+    },
+    {
+      "id": "node-pptx",
+      "type": "text",
+      "x": 860,
+      "y": -250,
+      "width": 440,
+      "height": 130,
+      "text": "### \ud83d\udcca Formatted Slide Deck (.pptx)\n- `Presentasi \u2014 Proposal / Sidang.pptx`\n- High-impact visual slides with presenter notes.",
+      "color": "3"
+    },
+    {
+      "id": "node-ris",
+      "type": "text",
+      "x": 860,
+      "y": -90,
+      "width": 440,
+      "height": 130,
+      "text": "### \ud83d\udcda Synchronized Mendeley RIS (.ris)\n- `Daftar Pustaka \u2014 Mendeley.ris`\n- 1-Click Mendeley/Zotero import with matching `ID - N`.",
+      "color": "5"
+    },
+    {
+      "id": "node-code-biz",
+      "type": "text",
+      "x": 860,
+      "y": 70,
+      "width": 440,
+      "height": 140,
+      "text": "### \ud83d\udcbb Working Code & Executables\n- Zero-regression verified Python/TypeScript codebases.\n- Native MCP integrations & terminal scripts.",
+      "color": "6"
+    },
+    {
+      "id": "node-obsidian-mem",
+      "type": "text",
+      "x": 860,
+      "y": 240,
+      "width": 440,
+      "height": 170,
+      "text": "### \ud83e\udde0 Permanent Obsidian Graph Nodes (.md)\n- Atomic notes with YAML frontmatter and `[[Wikilinks]]`.\n- Automatically surfaced by Dataview DQL & Graph View.",
+      "color": "2"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "fromNode": "node-raw-input",
+      "fromSide": "bottom",
+      "toNode": "node-token-compressor",
+      "toSide": "top"
+    },
+    {
+      "id": "e2",
+      "fromNode": "node-token-compressor",
+      "fromSide": "bottom",
+      "toNode": "node-evidence-sep",
+      "toSide": "top"
+    },
+    {
+      "id": "e3",
+      "fromNode": "node-evidence-sep",
+      "fromSide": "bottom",
+      "toNode": "node-triad-bridge",
+      "toSide": "top"
+    },
+    {
+      "id": "e4",
+      "fromNode": "node-token-compressor",
+      "fromSide": "right",
+      "toNode": "node-router-hub",
+      "toSide": "left",
+      "label": "Optimized Prompt"
+    },
+    {
+      "id": "e5",
+      "fromNode": "node-router-hub",
+      "fromSide": "bottom",
+      "toNode": "node-cat-acad",
+      "toSide": "top"
+    },
+    {
+      "id": "e6",
+      "fromNode": "node-cat-acad",
+      "fromSide": "bottom",
+      "toNode": "node-cat-eng",
+      "toSide": "top"
+    },
+    {
+      "id": "e7",
+      "fromNode": "node-cat-eng",
+      "fromSide": "bottom",
+      "toNode": "node-cat-multi",
+      "toSide": "top"
+    },
+    {
+      "id": "e8",
+      "fromNode": "node-cat-multi",
+      "fromSide": "bottom",
+      "toNode": "node-cat-pabrik",
+      "toSide": "top"
+    },
+    {
+      "id": "e9",
+      "fromNode": "node-cat-acad",
+      "fromSide": "right",
+      "toNode": "node-chain",
+      "toSide": "left",
+      "label": "Synthesis"
+    },
+    {
+      "id": "e10",
+      "fromNode": "node-chain",
+      "fromSide": "bottom",
+      "toNode": "node-triple-shield",
+      "toSide": "top"
+    },
+    {
+      "id": "e11",
+      "fromNode": "node-triple-shield",
+      "fromSide": "bottom",
+      "toNode": "node-anti-bias",
+      "toSide": "top"
+    },
+    {
+      "id": "e12",
+      "fromNode": "node-anti-bias",
+      "fromSide": "bottom",
+      "toNode": "node-self-evolve",
+      "toSide": "top"
+    },
+    {
+      "id": "e13",
+      "fromNode": "node-triple-shield",
+      "fromSide": "right",
+      "toNode": "node-docx",
+      "toSide": "left",
+      "label": "Verified"
+    },
+    {
+      "id": "e14",
+      "fromNode": "node-docx",
+      "fromSide": "bottom",
+      "toNode": "node-pptx",
+      "toSide": "top"
+    },
+    {
+      "id": "e15",
+      "fromNode": "node-pptx",
+      "fromSide": "bottom",
+      "toNode": "node-ris",
+      "toSide": "top"
+    },
+    {
+      "id": "e16",
+      "fromNode": "node-ris",
+      "fromSide": "bottom",
+      "toNode": "node-code-biz",
+      "toSide": "top"
+    },
+    {
+      "id": "e17",
+      "fromNode": "node-code-biz",
+      "fromSide": "bottom",
+      "toNode": "node-obsidian-mem",
+      "toSide": "top"
+    }
+  ]
+}

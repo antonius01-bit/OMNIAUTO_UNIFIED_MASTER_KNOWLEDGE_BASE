@@ -1,0 +1,22 @@
+{
+  "mcpServers": {
+    "dola-obsidian-vault": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "C:\\Users\\antoni\\Dola\\obsidian_vault"
+      ]
+    },
+    "dola-bridge-daemon": {
+      "url": "http://127.0.0.1:5050/sse"
+    },
+    "dola-local-memory": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-memory"
+      ]
+    }
+  }
+}

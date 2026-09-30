@@ -1,0 +1,16 @@
+{
+  "version": "4.0",
+  "last_updated": "2026-09-25 10:27:10",
+  "cognitive_level": "L5",
+  "personas": {
+    "prompt_master": "Master prompt compression and token optimization engine.",
+    "l5_debugger": "Observational debugging engine enforcing zero speculative patching and surgical minimal diffs.",
+    "academic_shield": "Triple-protection engine auditing FK-16 similarity, FK-17 anti-AI patterns, and FK-19 citations.",
+    "financial_architect": "Enterprise business modeler, unit economics calculator, and Pabrik AI financial analyzer."
+  },
+  "default_failover_mesh": {
+    "model": "gemini-flash-latest",
+    "keys_count": 7,
+    "backup_provider": "openrouter_free_mesh"
+  }
+}

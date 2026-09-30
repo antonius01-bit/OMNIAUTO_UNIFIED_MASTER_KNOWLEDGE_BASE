@@ -1,0 +1,18 @@
+{
+	"nodes":[
+		{"id":"phase-0","x":-700,"y":0,"width":320,"height":240,"type":"text","text":"### Phase 0: Head Prompt Master\n- **Token Optimizer**: Distills raw user intent\n- **Evidence Split**: Fact vs Inference vs Assumption\n- **Free-Priority**: Selects zero-cost endpoints first\n- **Router**: Dispatches to Super-Skills (S1–S93)"},
+		{"id":"phase-1","x":-320,"y":0,"width":300,"height":220,"type":"text","text":"### Phase 1: Mode & Architecture\n- **Mode Selection**: `/thesis`, `/journal`, `/code`, `/finance`\n- **Agent Framework**: LangGraph, Deer-Flow, OpenClaw\n- **Corporate Governance**: S84 SOP & S85 PMI PMBOK\n- **Enterprise Runtimes**: HumanLayer & DeepLethe"},
+		{"id":"phase-2","x":40,"y":-160,"width":320,"height":240,"type":"text","text":"### Phase 2: Super-Analyst & Forensics\n- **Methodology**: Quantitative, Qualitative, Mixed\n- **Deep Research**: S88 NVivo & BooKil Knowledge Base\n- **Live Verification**: Context7 live documentation\n- **Zero Hallucination**: Strict forensic validation"},
+		{"id":"phase-3","x":40,"y":160,"width":320,"height":240,"type":"text","text":"### Phase 3: Synthesis & Drafting\n- **Dual-Language Pipeline**: Indonesian & English\n- **Synchronized Tagging**: Claim matching `[N#E]`\n- **Visual Prompting**: S87 150 Secret Prompts\n- **Terminal Execution**: S86 OpenCode & Agy CLI"},
+		{"id":"phase-4","x":420,"y":0,"width":320,"height":260,"type":"text","text":"### Phase 4: Publication Shield\n- **FK-16**: 4-layer similarity check (target ≤ 5%)\n- **FK-17**: 29 AI pattern scan and humanization\n- **FK-19**: 100% citation & authentic DOI verification\n- **Anti-Bias Audit**: Source-to-claim evidence lock"},
+		{"id":"phase-5","x":800,"y":0,"width":320,"height":260,"type":"text","text":"### Phase 5: Verified Deliverables\n1. `Naskah — Bahasa Indonesia.docx` (`[N#E]`)\n2. `Naskah — English Version.docx` (`[N#E]`)\n3. `Presentasi — Proposal / Sidang.pptx`\n4. `Daftar Pustaka — Mendeley.ris` (`ID - N`)\n- **Git Sync**: Auto-commit to remote repository"}
+	],
+	"edges":[
+		{"id":"edge-p0-p1","fromNode":"phase-0","fromSide":"right","toNode":"phase-1","toSide":"left"},
+		{"id":"edge-p1-p2","fromNode":"phase-1","fromSide":"right","toNode":"phase-2","toSide":"left"},
+		{"id":"edge-p1-p3","fromNode":"phase-1","fromSide":"right","toNode":"phase-3","toSide":"left"},
+		{"id":"edge-p2-p4","fromNode":"phase-2","fromSide":"right","toNode":"phase-4","toSide":"left"},
+		{"id":"edge-p3-p4","fromNode":"phase-3","fromSide":"right","toNode":"phase-4","toSide":"left"},
+		{"id":"edge-p4-p5","fromNode":"phase-4","fromSide":"right","toNode":"phase-5","toSide":"left"}
+	]
+}

@@ -1,0 +1,891 @@
+
+=== PAGE 1 ===
+THE VISUAL PROMPT BOOK
+200 IMAGE & VIDEO SHORTCUTS / 2026
+THE VISUAL PROMPT BOOK
+200 image & video directions for ChatGPT and connected creative tools.
+From a sharper headshot to a product launch. Find a direction. Add a brief. Refine the result.
+CREATIVE REFERENCE  /  2026 EDITION  /  13 COLLECTIONS  /  ONE PRACTICAL FIELD GUIDE
+A short label. A clearer starting
+point.
+Treat each shortcut as the name of a
+creative brief. Give it context, then iterate.
+HOW TO USE THE BOOK
+01 Define the shortcut. Paste its
+description into your chat, or attach this
+guide and ask the chat to use its
+definitions.
+02 Add the ingredients. Supply the
+subject, reference image, exact text, visual
+style and output shape. Say what must stay
+unchanged.
+03 Review and refine. Check faces,
+product details, words and layout. Ask for
+one focused change, then compare the
+result.
+YOUR FIRST MESSAGE
+"Use /headshot to mean a polished
+professional portrait. Use my photo; keep
+my features. Soft studio light, simple
+background, square crop."
+A slash label is shorthand, not a promise of
+a built-in command. A connected service
+may offer a matching preset; ask it to
+resolve the name first.
+Use PDF bookmarks to jump straight to a
+collection.
+01 Six ways to begin
+Start with a familiar task. These six
+directions span portraits, product visuals
+and short video.
+001 /headshot Turn a supplied portrait
+into a polished headshot with balanced
+lighting and a simple background.
+002 /ugc Create a creator-style product clip
+with natural delivery, visible product
+details, and a clear opening hook.
+003 /productexplosion Separate
+product components in an exploded
+composition, keeping their positions
+aligned around the assembled silhouette.
+004 /productspin Show a product
+rotating through a full circle against a
+steady, softly lit backdrop.
+005 /adcreative Build an advertisement
+around your product, combining a strong
+focal image, short headline, and requested
+call to action.
+006 /animated Add expressive movement
+to a product scene using controlled camera
+motion and a coordinated background.
+A GOOD BRIEF HAS FIVE PARTS
+Subject + reference + visual direction +
+exact words + output format.
+MAKE A LAUNCH ASSET
+/adcreative for [product]. Audience:
+[who]. Main benefit: [why it matters].
+Format: [ratio].
+02 People & portraits
+Shape the setting, wardrobe and light
+while keeping the person recognizably
+themselves.
+007 /corporateheadshot Create a formal
+business portrait with tailored clothing, soft
+light, and a neutral backdrop.
+008 /passportphoto Frame a
+passport-style portrait with even light;
+check official rules before submitting.
+009 /casualheadshot Use relaxed
+clothing, a natural expression, and window
+light for an approachable portrait.
+010 /graduationportrait Show the
+subject in graduation attire against a softly
+focused academic setting.
+011 /founderportrait Compose an
+editorial founder portrait with confident
+posture and space for publication text.
+012 /actorheadshot Frame a casting
+portrait with clear eyes, natural skin texture,
+and a simple background.
+013 /teamphoto Match team portraits with
+shared crops, lighting, and backgrounds
+for staff listings.
+014 /doctorportrait Create a clinical
+portrait with requested attire, a tidy setting,
+and welcoming light.
+015 /bwportrait Render the portrait in
+monochrome with rich tones, directional
+light, and subtle grain.
+016 /realtorheadshot Set a crisp
+professional portrait inside a bright, softly
+focused residential space.
+017 /goldenhourportrait Light an
+outdoor portrait with warm, low sunlight
+and a softly blurred landscape.
+018 /fitnessportrait Shape an athletic
+portrait with directional gym lighting and
+crisp clothing details.
+019 /speakerphoto Stage an imagined
+speaking portrait with a microphone, stage
+lights, and blurred crowd.
+020 /podcastportrait Frame a host
+beside a studio microphone, leaving space
+for the show title.
+021 /authorphoto Create a thoughtful
+author portrait with gentle contrast and a
+quiet reading-space backdrop.
+022 /vintageportrait Restyle a portrait
+with seventies colors, period clothing, soft
+contrast, and photographic grain.
+023 /datingprofile Create an
+approachable portrait with natural light
+and details faithful to the supplied photo.
+024 /outfitswap Compare five outfits
+while keeping the same face, pose, and
+lighting throughout.
+KEEP IDENTITY CONSISTENT
+/founderportrait using this photo. Keep
+my facial features and hair; use window
+light and a quiet studio.
+03 Products in focus
+Choose a setting that explains the object:
+its form, texture, scale or everyday use.
+025 /productshot Place the product on
+white with crisp edges, soft shadows, and
+readable packaging.
+026 /ghostmannequin Show clothing with
+invisible support, preserving its shape,
+seams, and inner neckline.
+027 /lifestyleshot Place the product in
+a believable everyday setting with useful
+props and natural light.
+028 /handheld Show the product in a
+natural hand pose to communicate size
+and grip.
+029 /heroimage Compose a wide product
+scene with a clear focus and space for
+website copy.
+030 /naturebackdrop Place the product
+in a chosen landscape with matching
+shadows and reflections.
+031 /flatlay Arrange the product and
+props from above with balanced spacing
+and readable labels.
+032 /podiumshot Elevate the product on a
+sculptural block with a clean silhouette and
+controlled highlights.
+033 /floatingproduct Suspend the
+product above a simple surface with a soft
+shadow and restrained props.
+200 SHORTCUTS  /  COMPLETE FIVE-PAGE EDITION
+1 / 5
+
+=== PAGE 2 ===
+THE VISUAL PROMPT BOOK
+200 IMAGE & VIDEO SHORTCUTS / 2026
+034 /glassreflection Set the product
+on polished glass with controlled
+highlights and a clean reflection.
+035 /splashshot Freeze a liquid burst
+around the product while keeping its
+silhouette and label visible.
+036 /backgroundswap Replace a product
+photo’s setting, matching shadows and
+color to the new scene.
+037 /macroshot Emphasize a close
+product detail through fine texture, surface
+finish, and selective focus.
+038 /catalogset Match a product series
+through shared angles, lighting,
+backgrounds, and image sizes.
+039 /luxuryshot Style the product with
+refined materials, restrained props, and
+soft editorial lighting.
+040 /beforeafterproduct Pair supplied
+before-and-after images with matching
+crops and accurate panel labels.
+041 /colorways Compare six product
+colors with consistent shapes, materials,
+and lighting across the set.
+042 /seasonalshot Style a product for a
+chosen season with relevant colors,
+textures, and props.
+043 /onmodel Show apparel on a realistic
+model, highlighting fit, fabric behavior, and
+construction details.
+044 /amazonready Create a
+white-background product image; check
+marketplace rules before uploading it.
+PROTECT THE PRODUCT DETAILS
+/productshot using this reference. Keep
+the label, proportions and color. White
+background; soft shadow; 1:1.
+04 Form, parts & dimension
+Explore structure, scale and materials
+through conceptual product visualization.
+045 /exploded3d Spread visible product
+components along logical assembly axes,
+adding labels based on the supplied
+reference information.
+046 /blueprintview Draft a conceptual
+blueprint from supplied measurements,
+with clear dimension lines and labeled
+views for review.
+047 /cutaway Illustrate a section through
+the product using supplied internal
+references, distinguishing materials and
+visible components.
+048 /miniature Present the product as a
+small tabletop model with selective focus
+and props that establish scale.
+049 /xrayview Build a transparent product
+visualization from supplied internal
+references, making the component
+arrangement easy to see.
+050 /giantscale Place an oversized
+product in a street scene, matching
+perspective, shadows, and surrounding
+objects to its imagined scale.
+051 /clayrender Render the product in
+matte neutral gray so contours,
+proportions, and surface transitions
+become the focus.
+052 /partslist Lay out the referenced
+product components as an orderly kit with
+consistent spacing and optional
+identification labels.
+053 /wireframerender Visualize the
+product with a fine geometric mesh over a
+simple background to emphasize its overall
+structure.
+054 /materialswap Compare the same
+product form in wood, metal, and glass,
+adapting texture, reflections, and
+transparency.
+055 /turntable Arrange six consistent
+viewpoints of the product in a grid with
+matching scale and lighting.
+056 /assemblysteps Illustrate the
+supplied assembly sequence in clear
+panels, showing component placement
+and numbered actions at each stage.
+057 /isometricproduct Show the
+product from an isometric angle with clean
+edges, soft shadows, and minimal
+surrounding detail.
+058 /insidethebox Arrange the product,
+accessories, and packaging contents from
+the supplied list into a clear unboxing
+layout.
+GIVE STRUCTURE A REFERENCE
+/exploded3d using this parts list and
+reference image. Show only known
+components; add short labels.
+05 Campaigns & conversion
+Build a visual around one message, one
+audience and a clear next action.
+059 /staticad Combine a bold product
+image, supplied headline, and call to
+action in one ad.
+060 /offerad Design an offer graphic with
+supplied prices, terms, and dates in a clear
+hierarchy.
+061 /storyad Create a vertical product ad
+with space for platform controls and your
+call to action.
+062 /retargetad Create a reminder ad for
+returning shoppers using a supplied
+product benefit or offer.
+063 /carouselad Develop five
+coordinated ad slides, each pairing a
+supported benefit with focused imagery.
+064 /adset Create five ad concepts with
+distinct opening messages, visual
+emphasis, and calls to action.
+065 /bannerad Adapt a campaign to
+horizontal, square, and tall placements
+while keeping its message legible.
+066 /emailheader Design a wide email
+header with focused imagery, restrained
+text, and your brand colors.
+067 /billboard Place your campaign on a
+realistic roadside billboard with matching
+perspective and scale.
+068 /landingmock Sketch a landing-page
+opening with product imagery, key
+benefits, and a clear action.
+069 /busstopad Place your ad on a lit
+bus-shelter display with reflections and
+evening street light.
+070 /appstoreshots Arrange supplied
+app screens into a promotional set with
+concise captions and consistent framing.
+071 /magazinead Design a full-page print
+ad with striking imagery, clear type, and
+generous margins.
+072 /subwayad Mock up your ad on a
+station display with matching perspective
+and ambient lighting.
+073 /comparisonad Compare supplied
+product facts in labeled columns that
+highlight verified differences.
+074 /uglyad Create an informal ad with
+simple typography, candid imagery, and a
+direct supplied message.
+075 /testimonialad Pair an authorized
+customer quote and photo with attribution
+and product imagery.
+076 /adstoryboard Outline six advertising
+frames with key shots, intended action, and
+concise scene notes.
+WRITE THE MESSAGE FIRST
+/staticad for [product]. Use this exact
+headline: [text]. CTA: [text]. Audience:
+[who]. Format: 4:5.
+06 Identity & brand systems
+Explore a visual language, then carry it
+across the places a brand appears.
+077 /logoconcepts Explore six distinct
+logo directions for a supplied brand name,
+varying typography, symbol approach, and
+composition.
+078 /letterhead Apply the brand identity
+to a coordinated letterhead and envelope
+with clear contact placement and generous
+whitespace.
+079 /wordmark Shape the supplied brand
+name into a typographic logo using
+distinctive letterforms, spacing, and
+balanced proportions.
+080 /brandmerch Preview the supplied
+brand identity across apparel and
+accessories, adapting logo placement to
+each object.
+081 /iconlogo Develop a compact symbol
+for the brand with a clear silhouette and
+simple, reproducible geometry.
+200 SHORTCUTS  /  COMPLETE FIVE-PAGE EDITION
+2 / 5
+
+=== PAGE 3 ===
+THE VISUAL PROMPT BOOK
+200 IMAGE & VIDEO SHORTCUTS / 2026
+082 /storefront Apply the brand to
+exterior signage and window graphics,
+matching materials, perspective, and the
+surrounding architecture.
+083 /mascotdesign Develop an original
+brand character with a distinctive
+silhouette, expressive features, and a
+coordinated color palette.
+084 /appicon Explore app-icon concepts
+within common rounded-square frames,
+keeping the central symbol bold and easy
+to recognize.
+085 /brandboard Collect the chosen logo,
+colors, type examples, and image direction
+into one coordinated brand overview.
+086 /favicon Simplify the supplied logo
+into a compact icon that remains
+recognizable when previewed at small
+sizes.
+087 /colorpalette Arrange five
+coordinated colors with supplied or chosen
+hexadecimal values and examples of their
+visual balance.
+088 /monogram Combine the supplied
+initials into a balanced emblem, exploring
+shared strokes, spacing, and decorative
+restraint.
+089 /patterndesign Develop a repeating
+motif from the brand identity, showing its
+rhythm across a packaging or stationery
+surface.
+090 /logomotion Storyboard key
+moments of a logo animation, showing
+how its elements enter, move, and settle.
+091 /businesscard Design both sides of a
+business card with clear contact details and
+a coordinated brand treatment.
+092 /rebrand Explore three updated
+interpretations of an existing logo while
+retaining selected features that make the
+brand recognizable.
+MAKE A USEFUL BRAND BRIEF
+/brandboard for [brand]. Audience:
+[who]. Personality: [three words]. Include
+colors, type ideas and applications.
+07 Made for the feed
+Make the main idea readable at a glance,
+with composition shaped around its
+destination.
+093 /thumbnailimage Pair an expressive
+face with a bold headline for a striking
+YouTube thumbnail.
+094 /tiktokcover Build a vertical TikTok
+cover with a clear focal image and
+oversized title.
+095 /carouselcover Open an Instagram
+carousel with a bold image, short hook,
+and brand colors.
+096 /memeformat Arrange your joke in a
+familiar meme layout with clear imagery
+and captions.
+097 /quotecard Style your quotation with
+distinctive type, brand colors, and a
+credited speaker.
+098 /announcementpost Present launch
+news with a strong headline, supporting
+image, and clear details.
+099 /instagrid Coordinate nine social
+posts through recurring colors, balanced
+imagery, and shared styling.
+100 /eventflyer Combine the event
+name, date, venue, and booking details in
+a lively flyer.
+101 /storycover Create matching
+Instagram highlight icons with simple
+shapes and consistent backgrounds.
+102 /countdownpost Design matching
+countdown graphics for three, two, and
+one day before your event.
+103 /linkedinbanner Compose a wide
+professional profile header with brand cues
+and uncluttered text.
+104 /statgraphic Highlight one supplied
+statistic with a short explanation and simple
+graphic accents.
+105 /youtubebanner Design wide channel
+artwork with the name and key imagery
+near the center.
+106 /podcastcover Combine your show
+title, distinctive artwork, and bold colors in
+a square cover.
+107 /twitterheader Design a wide X
+profile header with a clear theme and
+uncluttered composition.
+108 /profilepic Create a recognizable
+avatar with a clean background and clear,
+simple framing.
+109 /pinterestpin Build a tall Pinterest
+graphic with a prominent title and inviting
+imagery.
+110 /reelcover Style a vertical Reel cover
+with imagery and typography that match
+your feed.
+DESIGN FOR THE CROP
+/thumbnailimage for [topic]. Use
+[headline]. Keep the face and headline
+clear at small size; format 16:9.
+08 Design in context
+Place artwork on physical objects and
+screens to see how a concept might feel in
+use.
+111 /packagingdesign Explore a
+complete packaging concept through
+coordinated surfaces, prominent branding,
+and clearly organized product information.
+112 /laptopmockup Place your supplied
+website screen on a realistically lit laptop
+within a carefully styled desk setting.
+113 /boxmockup Apply your artwork to a
+shipping carton, showing folded edges,
+cardboard texture, and believable
+perspective.
+114 /tshirtmockup Preview your graphic
+on a worn T shirt with natural fabric folds
+and realistic print placement.
+115 /bottlelabel Wrap a label concept
+around a bottle or jar, accounting for
+curvature, reflections, and material finish.
+116 /postermockup Show your poster in a
+frame on an interior wall with convincing
+scale and soft shadows.
+117 /bagmockup Preview branded artwork
+on a pouch or bag, including seams,
+creases, and its chosen material.
+118 /menudesign Organize dishes,
+descriptions, and prices into a restaurant
+menu with clear sections and a consistent
+visual style.
+119 /canmockup Preview a beverage label
+wrapped around an aluminum can with
+highlights, curvature, and subtle surface
+detail.
+120 /shelfshot Place your packaged
+product in a retail shelf scene alongside
+neighboring products for visual context.
+121 /bookcover Develop a book cover
+concept that combines genre cues, an
+evocative image, and a clear title hierarchy.
+122 /giftbox Arrange your product in a
+premium presentation box with fitted
+inserts, tissue, and coordinated finishing
+details.
+123 /phonemockup Display your supplied
+app or website screen within a realistic
+phone, using appropriate perspective and
+reflections.
+124 /stickersheet Arrange branded
+icons into a coordinated sticker sheet with
+individual cut outlines and balanced
+spacing.
+SUPPLY THE ACTUAL ARTWORK
+/bottlelabel using this label and bottle
+photo. Preserve the exact logo and
+wording; realistic wrap and reflections.
+09 Food, rooms & places
+Set a mood through surfaces, lighting,
+styling and the way a space is arranged.
+125 /foodshot Style a finished dish with
+appetizing light, visible textures, and props
+that complement its ingredients.
+126 /floorplan3d Translate a supplied
+room sketch or description into a furnished
+overhead spatial visualization.
+127 /menuphoto Photograph a plated dish
+from above, emphasizing arrangement,
+ingredient color, and a clean supporting
+surface.
+128 /gardenplan Reimagine your
+backyard with defined planting areas,
+paths, seating zones, and a coherent
+landscape palette.
+200 SHORTCUTS  /  COMPLETE FIVE-PAGE EDITION
+3 / 5
+
+=== PAGE 4 ===
+THE VISUAL PROMPT BOOK
+200 IMAGE & VIDEO SHORTCUTS / 2026
+129 /drinkshot Create an inviting
+beverage closeup, adding chilled
+condensation or rising steam to suit the
+drink.
+130 /kitchenreno Visualize replacement
+cabinetry, countertops, and finishes within
+your kitchen's existing layout and available
+light.
+131 /recipecard Pair a finished dish
+image with supplied ingredients and steps
+in an organized recipe graphic.
+132 /listingphoto Present a room with
+balanced daylight, a spacious viewpoint,
+and clearly visible architectural details.
+133 /roomredesign Restyle your room
+through coordinated furniture, materials,
+lighting, and accessories in the aesthetic
+you specify.
+134 /officespace Rework a workspace
+with practical furniture placement, calmer
+colors, accessible storage, and focused
+task lighting.
+135 /virtualstaging Add coordinated
+furniture and decor to an empty room
+image while preserving its visible
+architecture.
+136 /nightshot Recast a building at
+twilight with a deepening sky, warm
+windows, and softly illuminated exterior
+details.
+137 /exteriorrender Explore a home's
+facade through updated cladding,
+entrance details, landscaping, and a
+cohesive exterior palette.
+138 /moodboard Gather colors, materials,
+furnishings, and reference imagery into a
+visual direction for your space or project.
+SEPARATE FIXED AND FLEXIBLE
+/roomredesign using this photo. Keep
+windows, doors and room proportions.
+Change furniture, lighting and wall color.
+10 Style experiments
+Translate the same subject into a different
+material, mark-making method or visual
+tradition.
+139 /watercolor Paint your subject with
+translucent washes, softened edges, and
+visible paper texture.
+140 /stainedglass Rebuild your subject
+from luminous colored glass divided by
+flowing dark lines.
+141 /oilpainting Paint your subject with
+layered color, expressive brush marks, and
+textured highlights.
+142 /tattoodesign Develop a tattoo
+concept with a clear silhouette, clean
+linework, and balanced spacing.
+143 /pixelart Reimagine your subject
+with a limited palette, crisp pixels, and retro
+game styling.
+144 /childrensbook Illustrate your
+subject with gentle colors, expressive
+faces, and inviting storybook details.
+145 /lineart Reduce your subject to
+elegant black contours with minimal marks
+and ample white space.
+146 /graffiti Render your word or logo
+as layered street lettering with spray
+texture.
+147 /popart Turn your subject into a
+poster with bold outlines, halftone dots,
+and saturated colors.
+148 /vectorflat Illustrate your subject
+with crisp shapes, flat colors, and a vector
+inspired appearance.
+149 /anime Use stylized anime features,
+expressive linework, and dramatic lighting
+for your subject.
+150 /sketchbook Draw your subject in
+graphite with loose marks, gentle shading,
+and paper texture.
+151 /cartoonme Turn your portrait into a
+friendly cartoon that retains recognizable
+features and personality.
+152 /lowpoly Build a geometric
+interpretation with angular forms and
+lighting that reveals each polygon.
+153 /3dcharacter Reimagine your subject
+as a stylized 3D character with expressive
+shapes and rich materials.
+154 /claymation Create a handmade clay
+look with rounded forms, finger
+impressions, and miniature lighting.
+155 /papercut Build your subject from
+overlapping paper shapes with layered
+shadows and cut edges.
+156 /embroidery Preview your artwork as
+a patch with raised stitching, visible
+threads, and a finished border.
+CONTROL THE INTERPRETATION
+/papercut of [subject]. Use layered
+shapes, soft cast shadows and three
+colors. Keep the silhouette recognizable.
+11 Ideas made clear
+Turn supplied facts, relationships and steps
+into a visual hierarchy people can follow.
+157 /infographic Organize supplied
+information into a visual story with clear
+sections, helpful symbols, and concise
+explanatory labels.
+158 /orgchart Map supplied roles and
+reporting relationships into a clear
+hierarchy with optional spaces for team
+portraits.
+159 /processdiagram Explain a process
+through four connected stages, each with a
+short label and a distinctive visual cue.
+160 /roadmapgraphic Arrange supplied
+milestones by quarter, using consistent
+markers and clear visual separation
+between planned phases.
+161 /comparisonchart Compare
+supplied options across matching criteria,
+using aligned columns and restrained
+visual emphasis for meaningful differences.
+162 /pricingtable Present three
+supplied pricing tiers with aligned features,
+prominent prices, and a clearly highlighted
+recommended option.
+163 /statposter Turn supplied data into
+a poster with prominent figures, concise
+context, and symbols that support the
+message.
+164 /checklistgraphic Lay out your task
+list with clear checkboxes, readable
+spacing, and concise group headings for
+printing.
+165 /timelineposter Arrange dated
+events along a clear visual timeline with
+milestone labels and a consistent reading
+direction.
+166 /howtoillustration Break a task
+into illustrated panels that show each
+action, its sequence, and the expected
+result.
+167 /iconset Create twelve related
+symbols with consistent proportions, line
+weights, and visual detail for a unified
+interface.
+168 /anatomyof Explain a subject through
+a central illustration with clearly connected
+labels identifying its key parts.
+169 /mapgraphic Create a stylized
+location map with supplied places marked,
+a clear legend, and useful geographic
+context.
+170 /slidevisual Express one
+presentation idea through a strong visual
+composition with minimal text and no
+bullet list.
+START WITH CHECKED INFORMATION
+/processdiagram using these four steps:
+[steps]. Use short labels, directional
+arrows and no invented facts.
+12 Personal projects
+Build playful keepsakes, invitations and
+imagined scenes around people, pets and
+occasions.
+171 /actionfigure Turn your portrait into
+a collectible figure in display packaging
+with themed accessories and a nameplate.
+172 /superhero Reimagine you as an
+original hero with a distinctive costume,
+personal emblem, and dynamic setting.
+173 /movieposter Place your likeness in a
+cinematic poster with dramatic lighting, a
+film title, and supporting credits.
+174 /babyphoto Design a newborn
+announcement around the supplied photo,
+name, birth details, and gentle decorative
+elements.
+200 SHORTCUTS  /  COMPLETE FIVE-PAGE EDITION
+4 / 5
+
+=== PAGE 5 ===
+THE VISUAL PROMPT BOOK
+200 IMAGE & VIDEO SHORTCUTS / 2026
+175 /magazinecover Create a magazine
+cover concept featuring your portrait, a
+prominent masthead, and carefully
+arranged cover lines.
+176 /weddinginvite Compose a wedding
+invitation with the couple's names,
+ceremony details, and a coordinated
+decorative theme.
+177 /tradingcard Build a personalized
+collectible card with your portrait, supplied
+statistics, and a distinctive illustrated
+border.
+178 /holidaycard Frame a family photo
+with seasonal colors, festive details, and a
+warm personalized greeting.
+179 /petportrait Paint your pet as a
+regal sitter, adding ornate clothing,
+dignified posture, and a rich backdrop.
+180 /caricature Create a playful portrait
+by gently exaggerating recognizable
+features while keeping the expression
+warm and friendly.
+181 /ageprogression Imagine four
+speculative portraits at ages twenty, forty,
+sixty, and eighty with consistent framing.
+182 /dreamcar Create a fantasy lifestyle
+portrait of you beside your chosen car in a
+setting you describe.
+183 /timetravel Place your likeness in a
+chosen historical era with coordinated
+clothing, surroundings, and photographic
+styling.
+184 /fantasyme Transform your portrait
+into a fantasy character with detailed
+costume, themed accessories, and an
+atmospheric world.
+PERSONALIZE THE SMALL DETAILS
+/tradingcard using this photo. Name:
+[name]. Add these three playful stats:
+[stats]. Use my chosen colors.
+13 Pictures into motion
+Specify what moves, how the camera
+behaves and how the clip should begin
+and end.
+185 /productreel Create a fifteen second
+vertical product video with several focused
+shots and concise text overlays.
+186 /livingphoto Animate a still image
+with restrained movement, gentle
+environmental details, and a stable central
+subject.
+187 /unboxingvideo Show a product
+reveal from a first person viewpoint,
+following hands opening packaging and
+examining contents.
+188 /adsequence Create three versions of
+one video ad, adapting framing and pacing
+for different platform contexts.
+189 /testimonialvideo Create a
+presenter video from an authorized
+customer quote or supplied script, with a
+simple interview composition.
+190 /tutorialvideo Demonstrate
+product use through short, clearly ordered
+actions with close views of the important
+details.
+191 /cinematicproduct Showcase a
+product through measured camera moves,
+sculpted lighting, reflective details, and
+subtle lens effects.
+192 /dronefootage Visualize an aerial
+camera journey above a described location
+or property, revealing its surrounding
+landscape.
+193 /logoreveal Introduce your logo
+through a brief animation with deliberate
+timing, a clear reveal, and a settled end
+frame.
+194 /timelapse Compress a described
+build or transformation into accelerated
+visual stages with consistent framing and
+clear progression.
+195 /beforeaftervideo Connect
+supplied before and after reference states
+through a clear transition that emphasizes
+the visible change.
+196 /facelessvideo Assemble
+supporting footage for a supplied
+voiceover, using relevant scenes and
+details without an on camera presenter.
+197 /explainerclip Explain a concept
+through a short animated sequence with
+simple visual metaphors and clear cause
+and effect.
+198 /stickmanexplainer Turn your idea
+into a short stick figure animation with
+simple props, readable actions, and clear
+sequencing.
+199 /motionposter Animate selected
+elements of your poster with subtle
+movement while preserving its central
+composition and readable title.
+200 /loopvideo Design a website hero
+clip with restrained repeating motion and a
+planned transition back to its opening
+frame.
+DESCRIBE THE MOVEMENT
+/productreel using this product photo.
+Slow orbit, then detail close-up. Vertical
+format; request 15 seconds; no dialogue.
+Turn a direction into a brief.
+The shortcut chooses the task. Your details
+determine the result.
+COPY THIS STRUCTURE
+[Shortcut] for [subject]. Use [references].
+Keep [fixed details]. Change [specific
+elements]. Style: [look, light, colors].
+Include this exact text: [words]. Format:
+[shape / dimensions].
+THREE CONNECTED WORKFLOWS
+Product launch
+/productshot > /colorways >
+/staticad > /productreel
+Approve the product details first. Reuse
+that reference at every later stage.
+Personal brand
+/headshot > /linkedinbanner >
+/quotecard
+Keep the palette and portrait style
+consistent across the whole set.
+Explain an idea
+/processdiagram > /slidevisual >
+/explainerclip
+Verify the facts and wording before
+adapting the concept into motion.
+IMAGES, VIDEO & CONNECTED TOOLS
+In ChatGPT, describe a new image or
+attach an image and explain the edit. For
+video, also give the action, camera
+movement, duration, framing and audio
+needs. Supported settings depend on the
+tool you use.
+For Higgsfield, follow the official
+connection page, add its plugin, then sign
+in and authorize. Its current documentation
+requires an active subscription;
+generations use account credits. Use its
+reference-upload flow when needed.
+Check the available options before
+generating.
+Use generated work as a draft: proofread
+text and check product accuracy,
+dimensions and required formats.
+Technical drawings, floor plans, logo
+concepts and packaging mockups still
+need production review.
+OFFICIAL SETUP REFERENCES
+ChatGPT image generation
+ChatGPT slash commands
+Connect Higgsfield
+Setup checked 24 September 2026.
+Availability and account requirements can
+change.
+200 SHORTCUTS  /  COMPLETE FIVE-PAGE EDITION
+5 / 5

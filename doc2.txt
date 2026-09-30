@@ -1,0 +1,322 @@
+﻿150 Kode Rahasia ChatGPT
+
+📸 1. Fotografi & Efek Realistis
+Efek Foto & Kamera
+1. /photorealistic — bikin hasil edit keliatan kayak foto asli
+2. /hyperreal — bikin gambar super detail dan nyata banget
+3. /cinematic — kasih nuansa kayak adegan film
+4. /imax — tampilan film layar lebar yang dramatis
+5. /hdr — pertajam detail & kontras antara bagian terang dan gelap
+6. /filmgrain — tambah tekstur berbintik ala film jadul
+7. /polaroid — bikin foto keliatan kayak hasil kamera Polaroid
+8. /retro90s — nuansa nostalgia tahun 90-an
+9. /y2k — gaya futuristik awal 2000-an
+10. /bokeh — background jadi blur lembut
+11. /fisheye — efek lensa melengkung super lebar
+12. /macro — tampilan close-up ekstrem
+13. /droneview — kayak difoto dari atas (drone)
+14. /silhouette — objek jadi siluet gelap
+15. /doubleexposure — gabungin dua gambar/scene jadi satu
+Pencahayaan & Efek Visual
+16. /goldenhour — cahaya matahari keemasan yang hangat & lembut
+17. /sunset — suasana hangat matahari terbenam
+18. /sunrise — suasana cerah matahari terbit
+19. /moonlight — nuansa dingin diterangi bulan
+20. /neon — tambah lampu neon menyala terang
+21. /cyberpunk — nuansa futuristik penuh neon
+22. /synthwave — estetika neon retro
+23. /outrun — tampilan retro-futuristik
+24. /glitch — tambah distorsi digital
+25. /hologram — objek jadi kayak proyeksi hologram
+26. /holographic — tambah pantulan hologram warna-warni
+27. /iridescent — permukaan jadi berubah warna kayak pelangi
+28. /pearlescent — kilau lembut kayak mutiara
+29. /bioluminescent — bagian gambar menyala alami
+30. /fire — tambah api atau efek berapi
+31. /electric — tambah energi listrik menyala
+32. /lightning — tambah petir dan kilat
+33. /smoke — tambah asap di sekitar objek/scene
+34. /fog — suasana berkabut tebal
+35. /mist — kabut tipis yang lembut
+36. /cloudscape — tambah awan dramatis atau artistik
+37. /aurora — cahaya warna-warni ala Aurora Borealis
+🎨 2. Gaya Artistik
+Seni & Ilustrasi
+38. /mangacover — foto jadi sampul komik manga
+39. /comicbook — foto jadi adegan komik
+40. /watercolor — jadi lukisan cat air yang lembut
+41. /vaporwave — estetika retro pink-biru
+42. /pixelart — foto jadi seni piksel
+43. /lego — objek jadi kayak susunan balok LEGO
+44. /ascii — gambar dibentuk ulang pakai karakter keyboard
+45. /lowpoly — objek jadi gaya 3D poligon sederhana
+46. /origami — objek jadi kayak seni lipat kertas
+47. /claymation — tampilan animasi tanah liat
+48. /papercut — gambar jadi karya seni potongan kertas berlapis
+49. /stainedglass — objek jadi kaca patri
+50. /oilpainting — foto jadi lukisan cat minyak
+51. /charcoal — foto jadi gambar arang
+52. /pencilsketch — jadi sketsa pensil kayak gambar tangan
+53. /inkdrawing — foto jadi karya tinta hitam
+54. /ghibli — nuansa animasi lukis tangan yang lembut
+55. /anime — objek jadi karakter anime
+56. /chibi — orangnya jadi karakter imut proporsi kecil
+57. /disney — tampilan film animasi klasik
+58. /pixar — objek jadi animasi 3D yang halus
+59. /dreamworks — foto jadi gaya animasi 3D
+60. /noir — hitam-putih gelap ala film detektif
+61. /popart — gaya pop-art warna berani
+62. /cubism — objek dipecah jadi bentuk-bentuk geometris
+63. /surreal — versi aneh kayak mimpi
+64. /abstract — jadi seni abstrak nggak realistis
+65. /expressionism — gaya lukisan yang penuh emosi
+66. /renaissance — objek jadi kayak lukisan zaman Renaisans
+67. /baroque — tampilan lukisan klasik yang dramatis
+68. /gothic — suasana gotik abad pertengahan yang gelap
+69. /fantasy — foto jadi scene fantasi ajaib
+70. /mythology — objek dikasih tampilan mitologi
+71. /medieval — foto kayak dari zaman abad pertengahan
+Gaya Gambar & Desain
+72. /lineart — foto jadi gambar garis luar yang bersih
+73. /doodle — gaya coret-coretan tangan
+74. /graffiti — gambar jadi seni jalanan grafiti
+75. /spraypaint — kayak disemprot cat pilox
+76. /marker — ilustrasi gambar spidol
+77. /crayon — gaya gambar krayon
+78. /pastel — tampilan seni pastel yang lembut
+79. /gouache — jadi lukisan gouache
+80. /acrylic — tampilan cat akrilik
+81. /impasto — tambah sapuan cat tebal yang keliatan
+82. /fresco — kayak lukisan dinding kuno
+83. /mosaic — gambar dibentuk dari ubin kecil warna-warni
+84. /mandala — tambah desain mandala melingkar yang detail
+85. /zentangle — tambah pola garis berulang yang detail
+86. /tattoo — karya jadi desain gaya tato
+87. /tribal — tambah pola tribal yang tegas
+88. /boho — estetika bohemian yang santai
+89. /artdeco — gaya geometris elegan Art Deco
+90. /bauhaus — bentuk geometris sederhana, desain bersih
+91. /brutalist — desain mentah dan tegas
+92. /memphis — bentuk geometris warna-warni ala 80-an
+93. /gradientmesh — gradasi warna halus yang mengalir
+🤖 3. Karakter & Transformasi 3D
+94. /aiavatar — bikin versi avatar AI dari orangnya
+95. /robot — orang/objek jadi robot
+96. /android — orangnya jadi robot mirip manusia
+97. /cyborg — gabungan manusia + bagian robot
+98. /virtualreality — objek ditaruh di dunia ala VR
+99. /metaverse — tampilan dunia digital futuristik
+100. /matrix — estetika kode digital ala film Matrix
+101. /voxel — objek jadi balok-balok 3D
+102. /blockworld — dunia dari balok 3D besar
+103. /minecraft — tampilan ala Minecraft
+104. /roblox — orangnya jadi karakter Roblox
+105. /fortnite — objek jadi karakter game bergaya
+106. /funko — orangnya jadi figur koleksi ala Funko
+107. /actionfigure — orangnya jadi action figure
+108. /toybox — objek jadi keliatan kayak mainan
+109. /miniature — orang/scene jadi kayak miniatur kecil
+🧱 4. Material & Tekstur
+110. /woodcarving — objek kayak diukir dari kayu
+111. /icecarving — objek jadi patung es
+112. /marble — objek jadi patung marmer
+113. /bronze — tampilan patung perunggu
+114. /ceramic — objek jadi keramik
+115. /porcelain — finishing porselen yang halus
+116. /crystal — objek jadi benda bening kayak kristal
+117. /diamond — tampilan berkilau kayak berlian
+118. /goldleaf — objek dilapisi emas
+119. /silverchrome — tampilan krom mengkilap
+120. /rusted — tekstur logam berkarat & tua
+121. /oxidized — logam jadi kehijauan kayak tembaga teroksidasi
+122. /carbonfiber — tekstur serat karbon
+123. /liquidmetal — objek jadi kayak logam cair mengalir
+124. /moltengold — tampilan emas meleleh
+125. /glassart — objek jadi kaca artistik
+126. /mirror — permukaan jadi memantul kayak cermin
+🖼️ 5. Desain & Format Kreatif
+127. /magazinecover — foto jadi sampul majalah
+128. /newspaper — gambar jadi kayak cetakan koran
+129. /passportphoto — versi foto paspor
+130. /idcard — orangnya ditaruh di desain kartu ID
+131. /tradingcard — orangnya jadi kartu koleksi
+132. /poster — bikin poster dengan foto sebagai visual utama
+133. /billboard — objek ditaruh di iklan billboard
+134. /albumcover — foto jadi sampul album musik
+135. /bookcover — bikin desain sampul buku
+136. /storybookcover — jadi sampul buku cerita anak
+137. /magicalbook — gambar jadi kayak buku sihir kuno
+138. /scroll — gambar ditaruh di desain gulungan kuno
+139. /map — scene jadi peta ilustrasi
+140. /playingcard — objek jadi desain kartu remi
+141. /tarotcard — versi kartu tarot
+142. /stamp — foto jadi desain perangko
+143. /coin — objek kayak diukir di koin
+144. /currency — gambar jadi desain uang kertas
+145. /emblem — bikin emblem premium dengan objeknya
+146. /crest — objek/desain jadi lambang dekoratif
+147. /coatofarms — desain lambang kerajaan
+148. /badge — objek jadi lencana penghargaan/koleksi
+149. /sticker — versi stiker dengan garis luar rapi
+150. /emoji — objek jadi karakter emoji 3D
+151. /icon — objek disederhanain jadi ikon app/profil
+📸 1. Fotografi & Efek Realistis
+Efek Foto & Kamera
+1. /photorealistic — bikin hasil edit keliatan kayak foto asli
+2. /hyperreal — bikin gambar super detail dan nyata banget
+3. /cinematic — kasih nuansa kayak adegan film
+4. /imax — tampilan film layar lebar yang dramatis
+5. /hdr — pertajam detail & kontras antara bagian terang dan gelap
+6. /filmgrain — tambah tekstur berbintik ala film jadul
+7. /polaroid — bikin foto keliatan kayak hasil kamera Polaroid
+8. /retro90s — nuansa nostalgia tahun 90-an
+9. /y2k — gaya futuristik awal 2000-an
+10. /bokeh — background jadi blur lembut
+11. /fisheye — efek lensa melengkung super lebar
+12. /macro — tampilan close-up ekstrem
+13. /droneview — kayak difoto dari atas (drone)
+14. /silhouette — objek jadi siluet gelap
+15. /doubleexposure — gabungin dua gambar/scene jadi satu
+Pencahayaan & Efek Visual
+16. /goldenhour — cahaya matahari keemasan yang hangat & lembut
+17. /sunset — suasana hangat matahari terbenam
+18. /sunrise — suasana cerah matahari terbit
+19. /moonlight — nuansa dingin diterangi bulan
+20. /neon — tambah lampu neon menyala terang
+21. /cyberpunk — nuansa futuristik penuh neon
+22. /synthwave — estetika neon retro
+23. /outrun — tampilan retro-futuristik
+24. /glitch — tambah distorsi digital
+25. /hologram — objek jadi kayak proyeksi hologram
+26. /holographic — tambah pantulan hologram warna-warni
+27. /iridescent — permukaan jadi berubah warna kayak pelangi
+28. /pearlescent — kilau lembut kayak mutiara
+29. /bioluminescent — bagian gambar menyala alami
+30. /fire — tambah api atau efek berapi
+31. /electric — tambah energi listrik menyala
+32. /lightning — tambah petir dan kilat
+33. /smoke — tambah asap di sekitar objek/scene
+34. /fog — suasana berkabut tebal
+35. /mist — kabut tipis yang lembut
+36. /cloudscape — tambah awan dramatis atau artistik
+37. /aurora — cahaya warna-warni ala Aurora Borealis
+🎨 2. Gaya Artistik
+Seni & Ilustrasi
+38. /mangacover — foto jadi sampul komik manga
+39. /comicbook — foto jadi adegan komik
+40. /watercolor — jadi lukisan cat air yang lembut
+41. /vaporwave — estetika retro pink-biru
+42. /pixelart — foto jadi seni piksel
+43. /lego — objek jadi kayak susunan balok LEGO
+44. /ascii — gambar dibentuk ulang pakai karakter keyboard
+45. /lowpoly — objek jadi gaya 3D poligon sederhana
+46. /origami — objek jadi kayak seni lipat kertas
+47. /claymation — tampilan animasi tanah liat
+48. /papercut — gambar jadi karya seni potongan kertas berlapis
+49. /stainedglass — objek jadi kaca patri
+50. /oilpainting — foto jadi lukisan cat minyak
+51. /charcoal — foto jadi gambar arang
+52. /pencilsketch — jadi sketsa pensil kayak gambar tangan
+53. /inkdrawing — foto jadi karya tinta hitam
+54. /ghibli — nuansa animasi lukis tangan yang lembut
+55. /anime — objek jadi karakter anime
+56. /chibi — orangnya jadi karakter imut proporsi kecil
+57. /disney — tampilan film animasi klasik
+58. /pixar — objek jadi animasi 3D yang halus
+59. /dreamworks — foto jadi gaya animasi 3D
+60. /noir — hitam-putih gelap ala film detektif
+61. /popart — gaya pop-art warna berani
+62. /cubism — objek dipecah jadi bentuk-bentuk geometris
+63. /surreal — versi aneh kayak mimpi
+64. /abstract — jadi seni abstrak nggak realistis
+65. /expressionism — gaya lukisan yang penuh emosi
+66. /renaissance — objek jadi kayak lukisan zaman Renaisans
+67. /baroque — tampilan lukisan klasik yang dramatis
+68. /gothic — suasana gotik abad pertengahan yang gelap
+69. /fantasy — foto jadi scene fantasi ajaib
+70. /mythology — objek dikasih tampilan mitologi
+71. /medieval — foto kayak dari zaman abad pertengahan
+Gaya Gambar & Desain
+72. /lineart — foto jadi gambar garis luar yang bersih
+73. /doodle — gaya coret-coretan tangan
+74. /graffiti — gambar jadi seni jalanan grafiti
+75. /spraypaint — kayak disemprot cat pilox
+76. /marker — ilustrasi gambar spidol
+77. /crayon — gaya gambar krayon
+78. /pastel — tampilan seni pastel yang lembut
+79. /gouache — jadi lukisan gouache
+80. /acrylic — tampilan cat akrilik
+81. /impasto — tambah sapuan cat tebal yang keliatan
+82. /fresco — kayak lukisan dinding kuno
+83. /mosaic — gambar dibentuk dari ubin kecil warna-warni
+84. /mandala — tambah desain mandala melingkar yang detail
+85. /zentangle — tambah pola garis berulang yang detail
+86. /tattoo — karya jadi desain gaya tato
+87. /tribal — tambah pola tribal yang tegas
+88. /boho — estetika bohemian yang santai
+89. /artdeco — gaya geometris elegan Art Deco
+90. /bauhaus — bentuk geometris sederhana, desain bersih
+91. /brutalist — desain mentah dan tegas
+92. /memphis — bentuk geometris warna-warni ala 80-an
+93. /gradientmesh — gradasi warna halus yang mengalir
+🤖 3. Karakter & Transformasi 3D
+94. /aiavatar — bikin versi avatar AI dari orangnya
+95. /robot — orang/objek jadi robot
+96. /android — orangnya jadi robot mirip manusia
+97. /cyborg — gabungan manusia + bagian robot
+98. /virtualreality — objek ditaruh di dunia ala VR
+99. /metaverse — tampilan dunia digital futuristik
+100. /matrix — estetika kode digital ala film Matrix
+101. /voxel — objek jadi balok-balok 3D
+102. /blockworld — dunia dari balok 3D besar
+103. /minecraft — tampilan ala Minecraft
+104. /roblox — orangnya jadi karakter Roblox
+105. /fortnite — objek jadi karakter game bergaya
+106. /funko — orangnya jadi figur koleksi ala Funko
+107. /actionfigure — orangnya jadi action figure
+108. /toybox — objek jadi keliatan kayak mainan
+109. /miniature — orang/scene jadi kayak miniatur kecil
+🧱 4. Material & Tekstur
+110. /woodcarving — objek kayak diukir dari kayu
+111. /icecarving — objek jadi patung es
+112. /marble — objek jadi patung marmer
+113. /bronze — tampilan patung perunggu
+114. /ceramic — objek jadi keramik
+115. /porcelain — finishing porselen yang halus
+116. /crystal — objek jadi benda bening kayak kristal
+117. /diamond — tampilan berkilau kayak berlian
+118. /goldleaf — objek dilapisi emas
+119. /silverchrome — tampilan krom mengkilap
+120. /rusted — tekstur logam berkarat & tua
+121. /oxidized — logam jadi kehijauan kayak tembaga teroksidasi
+122. /carbonfiber — tekstur serat karbon
+123. /liquidmetal — objek jadi kayak logam cair mengalir
+124. /moltengold — tampilan emas meleleh
+125. /glassart — objek jadi kaca artistik
+126. /mirror — permukaan jadi memantul kayak cermin
+🖼️ 5. Desain & Format Kreatif
+127. /magazinecover — foto jadi sampul majalah
+128. /newspaper — gambar jadi kayak cetakan koran
+129. /passportphoto — versi foto paspor
+130. /idcard — orangnya ditaruh di desain kartu ID
+131. /tradingcard — orangnya jadi kartu koleksi
+132. /poster — bikin poster dengan foto sebagai visual utama
+133. /billboard — objek ditaruh di iklan billboard
+134. /albumcover — foto jadi sampul album musik
+135. /bookcover — bikin desain sampul buku
+136. /storybookcover — jadi sampul buku cerita anak
+137. /magicalbook — gambar jadi kayak buku sihir kuno
+138. /scroll — gambar ditaruh di desain gulungan kuno
+139. /map — scene jadi peta ilustrasi
+140. /playingcard — objek jadi desain kartu remi
+141. /tarotcard — versi kartu tarot
+142. /stamp — foto jadi desain perangko
+143. /coin — objek kayak diukir di koin
+144. /currency — gambar jadi desain uang kertas
+145. /emblem — bikin emblem premium dengan objeknya
+146. /crest — objek/desain jadi lambang dekoratif
+147. /coatofarms — desain lambang kerajaan
+148. /badge — objek jadi lencana penghargaan/koleksi
+149. /sticker — versi stiker dengan garis luar rapi
+150. /emoji — objek jadi karakter emoji 3D
+151. /icon — objek disederhanain jadi ikon app/profil

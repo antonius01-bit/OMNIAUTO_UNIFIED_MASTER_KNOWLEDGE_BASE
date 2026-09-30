@@ -1,0 +1,32 @@
+{
+  "system": "Google Antigravity (AGY) Skills & Knowledge Index",
+  "version": "2.0",
+  "updated": "2026-09-06",
+  "categories": {
+    "core_engine": [
+      "OMNI-AUTO-MASTER.md",
+      "THESIS-ENGINE.md",
+      "PUBLICATION-SHIELD.md"
+    ],
+    "hr_knowledge_base": [
+      "01-AI-Research-Prompts.md",
+      "02-Research-Methodology.md",
+      "03-HR-Forms-Templates.md",
+      "04-Dave-Ulrich-HR-Theory.md",
+      "05-HR-Training-Curriculum.md",
+      "06-Job-Descriptions.md",
+      "07-SOP-Operations.md",
+      "08-Labor-Laws-Regulations.md",
+      "09-HR-Metrics-KPI.md"
+    ],
+    "psychometric_assessment": [
+      "29-Instruments-Overview.md",
+      "BFI-Personality.md",
+      "DISC.md",
+      "MBTI.md",
+      "CFIT.md",
+      "IST.md",
+      "Raven-SPM.md"
+    ]
+  }
+}

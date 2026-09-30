@@ -1,0 +1,36 @@
+# Environment & Secrets
+.env
+*.env
+.env.*
+!.env.example
+
+# Large Backup & Storage Dumps
+harvested_repos/
+cloud_backups/
+DolaAI-Complete-Cloud-Backup/
+clones/
+repos/
+backups/
+
+# Logs & Temporary Files
+logs/
+*.log
+*.tmp
+*.zip
+*.tar.gz
+*.sqlite3-journal
+
+# Python & Node Runtime Caches
+__pycache__/
+*.pyc
+node_modules/
+
+# Obsidian Internal Cache, Plugins & Seekstone
+.obsidian/
+.claudian/
+.claude/
+.seekstone/
+.obsidian-mcp/
+.trash/
+
+

@@ -1,0 +1,24 @@
+{
+  "code_style": "clean, surgical, ponytail-discipline, minimal diffs",
+  "languages": [
+    "Python",
+    "TypeScript",
+    "PowerShell",
+    "Markdown"
+  ],
+  "bilingual": true,
+  "default_languages": [
+    "id",
+    "en"
+  ],
+  "research_standard": "PRISMA, Bradford Hill, Toulmin, FK-16/17/19",
+  "free_mesh_priority": [
+    "Groq",
+    "Google AI Studio",
+    "Mistral",
+    "Cloudflare",
+    "Local Ollama"
+  ],
+  "vfs_protocol": "viking://",
+  "total_super_skills": 134
+}

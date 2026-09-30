@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FeralUI Physics & Tactile Components Showcase | Dola & AGY Office</title>
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --card-bg: rgba(18, 24, 38, 0.85);
+      --border: rgba(255, 255, 255, 0.12);
+      --accent: #38bdf8;
+      --accent-glow: rgba(56, 189, 248, 0.35);
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --surface: rgba(30, 41, 59, 0.7);
+      --success: #10b981;
+      --warning: #f59e0b;
+    }
+
+    [data-theme="light"] {
+      --bg: #f8fafc;
+      --card-bg: rgba(255, 255, 255, 0.9);
+      --border: rgba(0, 0, 0, 0.1);
+      --accent: #0284c7;
+      --accent-glow: rgba(2, 132, 199, 0.2);
+      --text: #0f172a;
+      --text-muted: #64748b;
+      --surface: rgba(241, 245, 249, 0.8);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+      transition: background-color 0.4s ease, color 0.4s ease;
+      position: relative;
+    }
+
+    /* Ambient Background Glow */
+    .ambient-glow {
+      position: fixed;
+      top: -100px;
+      right: -100px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+      filter: blur(80px);
+    }
+
+    /* Header & Navigation Bar */
+    header {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background: var(--card-bg);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-badge {
+      background: linear-gradient(135deg, #0284c7, #38bdf8);
+      color: #fff;
+      font-weight: 800;
+      font-size: 14px;
+      padding: 4px 10px;
+      border-radius: 8px;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 12px var(--accent-glow);
+    }
+
+    .brand h1 {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .nav-btn {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .nav-btn:hover {
+      border-color: var(--accent);
+      box-shadow: 0 0 12px var(--accent-glow);
+      transform: translateY(-1px);
+    }
+
+    /* PullCord Floating System */
+    #pullcord-container {
+      position: fixed;
+      top: 0;
+      right: 120px;
+      width: 60px;
+      height: 380px;
+      z-index: 100;
+      pointer-events: none;
+    }
+
+    #pullcord-canvas {
+      width: 100%;
+      height: 100%;
+      pointer-events: auto;
+      cursor: grab;
+    }
+
+    #pullcord-canvas:active {
+      cursor: grabbing;
+    }
+
+    .cord-tooltip {
+      position: absolute;
+      top: 140px;
+      right: 70px;
+      background: var(--card-bg);
+      border: 1px solid var(--accent);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--accent);
+      white-space: nowrap;
+      pointer-events: none;
+      animation: pulse 2s infinite;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.8; transform: translateX(0); }
+      50% { opacity: 1; transform: translateX(-4px); }
+    }
+
+    /* Main Showcase Container */
+    main {
+      position: relative;
+      z-index: 1;
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+
+    .hero-banner {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .hero-banner h2 {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, #fff 30%, #94a3b8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    [data-theme="light"] .hero-banner h2 {
+      background: linear-gradient(135deg, #0f172a 30%, #475569 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-banner p {
+      font-size: 15px;
+      color: var(--text-muted);
+      max-width: 650px;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
+
+    /* 3-Column Component Grid */
+    .components-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .component-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: border-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .component-card:hover {
+      border-color: rgba(56, 189, 248, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .card-header h3 {
+      font-size: 16px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tech-pill {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 6px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--accent);
+      font-family: monospace;
+    }
+
+    /* Component 1: DeskFolio Interactive Workspace */
+    .deskfolio-stage {
+      height: 320px;
+      background: radial-gradient(circle at 50% 50%, var(--surface), var(--card-bg));
+      border: 1px dashed var(--border);
+      border-radius: 12px;
+      position: relative;
+      overflow: hidden;
+      cursor: crosshair;
+    }
+
+    .desk-item {
+      position: absolute;
+      cursor: grab;
+      border-radius: 8px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+      transition: transform 0.15s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.15s ease;
+      touch-action: none;
+    }
+
+    .desk-item:active {
+      cursor: grabbing;
+      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.5);
+    }
+
+    .polaroid {
+      width: 130px;
+      height: 155px;
+      background: #fdfbf7;
+      padding: 10px 10px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      top: 40px;
+      left: 30px;
+    }
+
+    .polaroid-img {
+      width: 100%;
+      height: 105px;
+      background: linear-gradient(135deg, #0284c7, #6366f1);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+    }
+
+    .polaroid-caption {
+      font-size: 11px;
+      color: #334155;
+      font-family: "Brush Script MT", cursive, sans-serif;
+      margin-top: 6px;
+      font-weight: 700;
+    }
+
+    .sticky-note {
+      width: 120px;
+      height: 120px;
+      background: #fef08a;
+      color: #713f12;
+      padding: 12px;
+      font-size: 12px;
+      font-family: "Segoe UI", sans-serif;
+      font-weight: 600;
+      line-height: 1.4;
+      top: 60px;
+      right: 40px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+    }
+
+    .badge-id {
+      width: 150px;
+      height: 80px;
+      background: #1e293b;
+      border: 1px solid #475569;
+      color: #f8fafc;
+      padding: 10px;
+      border-radius: 8px;
+      top: 190px;
+      left: 100px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .badge-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #38bdf8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    .badge-info {
+      font-size: 11px;
+    }
+
+    .badge-name {
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .badge-role {
+      color: #94a3b8;
+    }
+
+    /* Component 2: Crumple Note */
+    .crumple-stage {
+      height: 320px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at 50% 50%, var(--surface), var(--card-bg));
+      border: 1px dashed var(--border);
+      border-radius: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .crumple-paper {
+      width: 200px;
+      height: 200px;
+      background: #fff;
+      color: #0f172a;
+      padding: 16px;
+      border-radius: 6px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), border-radius 0.4s ease, filter 0.3s ease;
+      position: relative;
+    }
+
+    .crumple-paper.crumpled {
+      transform: scale(0.4) rotate(45deg);
+      border-radius: 50% 40% 60% 50% / 45% 65% 35% 55%;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), inset -5px -5px 15px rgba(0, 0, 0, 0.3), inset 5px 5px 15px rgba(255, 255, 255, 0.6);
+      filter: contrast(130%) brightness(90%);
+    }
+
+    .crumple-content h4 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: #0284c7;
+    }
+
+    .crumple-content p {
+      font-size: 11px;
+      line-height: 1.4;
+      color: #475569;
+    }
+
+    .crumple-hint {
+      margin-top: 14px;
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Component 3: Vacuum & Magnetic Attraction */
+    .vacuum-stage {
+      height: 320px;
+      background: radial-gradient(circle at 50% 50%, var(--surface), var(--card-bg));
+      border: 1px dashed var(--border);
+      border-radius: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .vortex-center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--accent) 0%, transparent 80%);
+      border: 2px solid var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      cursor: pointer;
+      box-shadow: 0 0 20px var(--accent-glow);
+      animation: spin 8s linear infinite;
+    }
+
+    @keyframes spin {
+      100% { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    .vacuum-orb {
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--accent);
+      pointer-events: none;
+      box-shadow: 0 0 8px var(--accent);
+      transition: transform 0.05s linear;
+    }
+
+    /* Live Telemetry Dock */
+    .telemetry-bar {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .telemetry-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .dot-live {
+      width: 8px;
+      height: 8px;
+      background: var(--success);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--success);
+      animation: blink 1.5s infinite ease-in-out;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+  </style>
+</head>
+<body data-theme="dark">
+
+  <div class="ambient-glow"></div>
+
+  <!-- PullCord Interactive Canvas Container -->
+  <div id="pullcord-container">
+    <canvas id="pullcord-canvas"></canvas>
+    <div class="cord-tooltip">⬇️ Tarik Tali (Toggle Theme)</div>
+  </div>
+
+  <header>
+    <div class="brand">
+      <span class="brand-badge">FERAL UI</span>
+      <h1>Physics & Tactile Interactive Playground</h1>
+    </div>
+    <div class="nav-links">
+      <a href="http://127.0.0.1:5050" class="nav-btn" target="_blank">🏢 Back to Office (:5050)</a>
+      <a href="https://feralui.dev" class="nav-btn" target="_blank">🌐 feralui.dev</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-banner">
+      <h2>Tactile Physics UI for Dola & AGY Office</h2>
+      <p>Interactive Verlet integration, spring constraints, and skeuomorphic physics recreated directly in vanilla browser canvas. Tarik tali di kanan atas untuk menyalakan/mematikan lampu (Dark/Light mode)!</p>
+    </section>
+
+    <div class="components-grid">
+      <!-- 1. DeskFolio -->
+      <div class="component-card">
+        <div class="card-header">
+          <h3>📁 DeskFolio Workspace</h3>
+          <span class="tech-pill">Skeuomorphic Drag</span>
+        </div>
+        <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">
+          Setiap elemen meja memiliki rotasi dinamis, bayangan bertingkat, dan momentum saat dilepas.
+        </p>
+        <div class="deskfolio-stage" id="deskfolioStage">
+          <!-- Polaroid Item -->
+          <div class="desk-item polaroid" id="item1" style="transform: rotate(-6deg);">
+            <div class="polaroid-img">🚀</div>
+            <div class="polaroid-caption">AGY Office 2026</div>
+          </div>
+          <!-- Sticky Note -->
+          <div class="desk-item sticky-note" id="item2" style="transform: rotate(8deg);">
+            📌 <b>Sprint Goal:</b><br>
+            • Seedance 2.5 API<br>
+            • FeralUI Physics<br>
+            • Autonomic Swarm
+          </div>
+          <!-- ID Badge -->
+          <div class="desk-item badge-id" id="item3" style="transform: rotate(-3deg);">
+            <div class="badge-avatar">👤</div>
+            <div class="badge-info">
+              <div class="badge-name">Antonius W.</div>
+              <div class="badge-role">Master Architect</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Crumple Paper Note -->
+      <div class="component-card">
+        <div class="card-header">
+          <h3>📄 Crumple Dynamic Note</h3>
+          <span class="tech-pill">Mesh Crumple</span>
+        </div>
+        <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">
+          Klik catatan untuk meremas kertas menjadi bola 3D. Klik lagi untuk membuka lipatannya!
+        </p>
+        <div class="crumple-stage">
+          <div class="crumple-paper" id="crumplePaper">
+            <div class="crumple-content">
+              <h4>📝 Prompt Master v4.0</h4>
+              <p>Role: Autonomic Swarm<br>
+              Obj: Zero Hallucination<br>
+              Constraint: FK-16 &le; 5%<br>
+              Status: 100% Operational</p>
+            </div>
+            <div style="font-size: 10px; color: #94a3b8; font-weight: 600;">KLIK UNTUK CRUMPLE</div>
+          </div>
+          <div class="crumple-hint">
+            <span>💡</span> <span id="crumpleStatus">Status: Terbuka rapi (Uncrumpled)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Vacuum Gravity Vortex -->
+      <div class="component-card">
+        <div class="card-header">
+          <h3>🌀 Vacuum & Swarm Orbs</h3>
+          <span class="tech-pill">Gravitational Verlet</span>
+        </div>
+        <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">
+          Pusaran magnetik menarik agen orbs ke tengah. Gerakkan kursor di dalam arena untuk mengganggu gravitasi.
+        </p>
+        <div class="vacuum-stage" id="vacuumStage">
+          <div class="vortex-center" id="vortexCenter">🧲</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Live Telemetry Status -->
+    <div class="telemetry-bar">
+      <div class="telemetry-item">
+        <span class="dot-live"></span>
+        <span><b>Verlet Physics Engine:</b> Active 60 FPS</span>
+      </div>
+      <div class="telemetry-item">
+        <span><b>Integrated Models:</b> OpenAI, Groq 120B, OpenRouter, Gemini 7-Key Pool</span>
+      </div>
+      <div class="telemetry-item">
+        <span><b>Office Sync:</b> Connected to <code>127.0.0.1:5050</code></span>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    /* =========================================================================
+       1. VERLET PHYSICS PULLCORD ENGINE
+       ========================================================================= */
+    const cordCanvas = document.getElementById("pullcord-canvas");
+    const ctx = cordCanvas.getContext("2d");
+    let cw, ch;
+
+    function resizeCord() {
+      const rect = cordCanvas.getBoundingClientRect();
+      cw = cordCanvas.width = rect.width;
+      ch = cordCanvas.height = rect.height;
+    }
+    window.addEventListener("resize", resizeCord);
+    resizeCord();
+
+    // Verlet Particle Chain
+    const NUM_POINTS = 9;
+    const SEG_LEN = 26;
+    const GRAVITY = 0.45;
+    const DAMPING = 0.96;
+    let points = [];
+
+    function initPoints() {
+      points = [];
+      const originX = cw / 2;
+      const originY = 0;
+      for (let i = 0; i < NUM_POINTS; i++) {
+        points.push({
+          x: originX,
+          y: originY + i * SEG_LEN,
+          oldX: originX,
+          oldY: originY + i * SEG_LEN,
+          pinned: i === 0
+        });
+      }
+    }
+    initPoints();
+
+    let isDraggingCord = false;
+    let dragYOffset = 0;
+    let hasTriggeredPull = false;
+
+    cordCanvas.addEventListener("mousedown", (e) => {
+      const rect = cordCanvas.getBoundingClientRect();
+      const my = e.clientY - rect.top;
+      const handle = points[points.length - 1];
+      if (Math.abs(my - handle.y) < 40) {
+        isDraggingCord = true;
+        dragYOffset = my - handle.y;
+        hasTriggeredPull = false;
+      }
+    });
+
+    window.addEventListener("mousemove", (e) => {
+      if (!isDraggingCord) return;
+      const rect = cordCanvas.getBoundingClientRect();
+      const mx = e.clientX - rect.left;
+      const my = e.clientY - rect.top;
+      const handle = points[points.length - 1];
+      handle.x = mx;
+      handle.y = Math.max(120, my - dragYOffset);
+
+      // Trigger threshold check
+      if (handle.y > 300 && !hasTriggeredPull) {
+        hasTriggeredPull = true;
+        toggleTheme();
+      }
+    });
+
+    window.addEventListener("mouseup", () => {
+      if (isDraggingCord) {
+        isDraggingCord = false;
+      }
+    });
+
+    function toggleTheme() {
+      const body = document.body;
+      const current = body.getAttribute("data-theme");
+      const next = current === "dark" ? "light" : "dark";
+      body.setAttribute("data-theme", next);
+
+      // Haptic visual shake on card
+      document.querySelectorAll(".component-card").forEach(c => {
+        c.style.transform = "scale(0.99)";
+        setTimeout(() => c.style.transform = "", 200);
+      });
+    }
+
+    function updateVerlet() {
+      const originX = cw / 2;
+      points[0].x = originX;
+      points[0].y = 0;
+
+      for (let i = 0; i < points.length; i++) {
+        const p = points[i];
+        if (p.pinned) continue;
+
+        if (i === points.length - 1 && isDraggingCord) {
+          continue;
+        }
+
+        const vx = (p.x - p.oldX) * DAMPING;
+        const vy = (p.y - p.oldY) * DAMPING;
+
+        p.oldX = p.x;
+        p.oldY = p.y;
+
+        p.x += vx;
+        p.y += vy + GRAVITY;
+      }
+
+      // Constraints resolution (16 iterations for stiff rope)
+      for (let iter = 0; iter < 16; iter++) {
+        for (let i = 0; i < points.length - 1; i++) {
+          const p1 = points[i];
+          const p2 = points[i + 1];
+
+          const dx = p2.x - p1.x;
+          const dy = p2.y - p1.y;
+          const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+          const diff = (SEG_LEN - dist) / dist;
+
+          const offsetX = dx * diff * 0.5;
+          const offsetY = dy * diff * 0.5;
+
+          if (!p1.pinned) {
+            p1.x -= offsetX;
+            p1.y -= offsetY;
+          }
+          if (!(p2 === points[points.length - 1] && isDraggingCord)) {
+            p2.x += offsetX;
+            p2.y += offsetY;
+          }
+        }
+      }
+    }
+
+    function renderVerlet() {
+      ctx.clearRect(0, 0, cw, ch);
+
+      // Draw Cord Line
+      ctx.beginPath();
+      ctx.moveTo(points[0].x, points[0].y);
+      for (let i = 1; i < points.length - 1; i++) {
+        const xc = (points[i].x + points[i + 1].x) / 2;
+        const yc = (points[i].y + points[i + 1].y) / 2;
+        ctx.quadraticCurveTo(points[i].x, points[i].y, xc, yc);
+      }
+      ctx.lineTo(points[points.length - 1].x, points[points.length - 1].y);
+      ctx.strokeStyle = document.body.getAttribute("data-theme") === "dark" ? "#38bdf8" : "#0284c7";
+      ctx.lineWidth = 3.5;
+      ctx.lineCap = "round";
+      ctx.shadowColor = "rgba(56, 189, 248, 0.4)";
+      ctx.shadowBlur = 8;
+      ctx.stroke();
+
+      // Draw Handle (Pull Knob)
+      const handle = points[points.length - 1];
+      ctx.beginPath();
+      ctx.arc(handle.x, handle.y, 14, 0, Math.PI * 2);
+      ctx.fillStyle = hasTriggeredPull ? "#10b981" : "#f59e0b";
+      ctx.fill();
+      ctx.strokeStyle = "#fff";
+      ctx.lineWidth = 2.5;
+      ctx.stroke();
+
+      // Ring inside knob
+      ctx.beginPath();
+      ctx.arc(handle.x, handle.y, 5, 0, Math.PI * 2);
+      ctx.fillStyle = "#fff";
+      ctx.fill();
+
+      requestAnimationFrame(() => {
+        updateVerlet();
+        renderVerlet();
+      });
+    }
+    renderVerlet();
+
+    /* =========================================================================
+       2. DESKFOLIO SKEUOMORPHIC DRAG & MOMENTUM
+       ========================================================================= */
+    const deskItems = document.querySelectorAll(".desk-item");
+    const deskStage = document.getElementById("deskfolioStage");
+
+    deskItems.forEach(item => {
+      let isDragging = false;
+      let startX, startY, origX, origY;
+      let rot = (Math.random() - 0.5) * 16;
+
+      item.addEventListener("mousedown", (e) => {
+        isDragging = true;
+        startX = e.clientX;
+        startY = e.clientY;
+        const rect = item.getBoundingClientRect();
+        const stageRect = deskStage.getBoundingClientRect();
+        origX = rect.left - stageRect.left;
+        origY = rect.top - stageRect.top;
+        item.style.zIndex = "20";
+        item.style.transform = `scale(1.08) rotate(${rot + 4}deg)`;
+      });
+
+      window.addEventListener("mousemove", (e) => {
+        if (!isDragging) return;
+        const dx = e.clientX - startX;
+        const dy = e.clientY - startY;
+        item.style.left = (origX + dx) + "px";
+        item.style.top = (origY + dy) + "px";
+      });
+
+      window.addEventListener("mouseup", () => {
+        if (isDragging) {
+          isDragging = false;
+          item.style.zIndex = "5";
+          rot = (Math.random() - 0.5) * 16;
+          item.style.transform = `scale(1.0) rotate(${rot}deg)`;
+        }
+      });
+    });
+
+    /* =========================================================================
+       3. CRUMPLE NOTE TOGGLE
+       ========================================================================= */
+    const crumplePaper = document.getElementById("crumplePaper");
+    const crumpleStatus = document.getElementById("crumpleStatus");
+
+    crumplePaper.addEventListener("click", () => {
+      crumplePaper.classList.toggle("crumpled");
+      if (crumplePaper.classList.contains("crumpled")) {
+        crumpleStatus.textContent = "Status: Diremas menjadi bola 3D (Crumpled)";
+      } else {
+        crumpleStatus.textContent = "Status: Terbuka rapi (Uncrumpled)";
+      }
+    });
+
+    /* =========================================================================
+       4. VACUUM & ORB ATTRACTION
+       ========================================================================= */
+    const vacuumStage = document.getElementById("vacuumStage");
+    const numOrbs = 14;
+    const orbs = [];
+
+    for (let i = 0; i < numOrbs; i++) {
+      const orbEl = document.createElement("div");
+      orbEl.className = "vacuum-orb";
+      vacuumStage.appendChild(orbEl);
+
+      const angle = (i / numOrbs) * Math.PI * 2;
+      const radius = 80 + Math.random() * 50;
+      orbs.push({
+        el: orbEl,
+        angle: angle,
+        radius: radius,
+        speed: 0.02 + Math.random() * 0.03
+      });
+    }
+
+    let centerX = 190;
+    let centerY = 160;
+
+    vacuumStage.addEventListener("mousemove", (e) => {
+      const rect = vacuumStage.getBoundingClientRect();
+      centerX = e.clientX - rect.left;
+      centerY = e.clientY - rect.top;
+      document.getElementById("vortexCenter").style.left = centerX + "px";
+      document.getElementById("vortexCenter").style.top = centerY + "px";
+    });
+
+    function animateVacuum() {
+      orbs.forEach(orb => {
+        orb.angle += orb.speed;
+        const x = centerX + Math.cos(orb.angle) * orb.radius;
+        const y = centerY + Math.sin(orb.angle) * orb.radius;
+        orb.el.style.left = (x - 7) + "px";
+        orb.el.style.top = (y - 7) + "px";
+      });
+      requestAnimationFrame(animateVacuum);
+    }
+    animateVacuum();
+  </script>
+</body>
+</html>

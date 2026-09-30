@@ -1,0 +1,37 @@
+{
+  "engine": "Dola AI Super-Skills Ecosystem v4.0",
+  "updated_at": "2026-09-30T09:43:35.435347",
+  "total_super_skills": 240,
+  "skills_directory": "C:\\Users\\antoni\\.gemini\\config\\plugins\\dola-ai\\skills",
+  "principles": [
+    "L5 Observational Epistemology (read & understand raw trace first)",
+    "Silent Execution Rule (run 100% silently if no delta)",
+    "Ponytail Minimal Diff Discipline (zero bloat, surgical edits)",
+    "Publication Shield FK-16 (<=5%), FK-17 (anti-AI), FK-19 (verified citations)"
+  ],
+  "categories": {
+    "academic_research": [
+      "S1 omni-auto",
+      "S2 publication-shield",
+      "S3 mendeley-ris-linker",
+      "S20 ai-research-deep-engine"
+    ],
+    "agentic_engineering": [
+      "S7 agentic-engineering-suite",
+      "S11 master-senior-software-engineer",
+      "S14 langgraph-orchestrator",
+      "S159 google-artemis-mobile-agent",
+      "S160 shannon-autonomous-ai-pentester",
+      "S163 open-terminal-agentic-substrate"
+    ],
+    "business_sales_growth": [
+      "S164 altersend-utell-makerschool-suite",
+      "S165 deskcomm-crm-sales-os",
+      "S166 deskconn-remote-device-mesh"
+    ],
+    "reasoning_inference": [
+      "S168 autonomous-pentest-swarm-engine",
+      "S169 kimi-k3-warp-inference-engine"
+    ]
+  }
+}

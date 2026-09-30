@@ -1,0 +1,34 @@
+﻿To set up OpenCode, the AI coding agent for your terminal, follow these steps.
+
+
+Note: There is no standard tool called "Command Code"; this guide covers OpenCode, which is the primary tool matching your description.1. Installation
+
+
+Open your terminal and run the official install script (works on Linux, macOS, and WSL):
+curl -fsSL https://opencode.ai/install | bash
+(Alternatively, you can use brew install anomalyco/tap/opencode on macOS/Linux or npm install -g opencode-ai via Node.js).-----2. Authentication (Connecting to GitHub/Providers)
+
+
+OpenCode requires you to connect an AI provider (like GitHub Copilot, Anthropic, or OpenAI). You can do this via the Terminal UI or the CLI.
+
+
+Option A: Using the Terminal UI (Recommended)
+1. Run opencode in your terminal.
+2. Type /connect in the chat window.
+3. Follow the prompts to select your provider (e.g., GitHub Copilot or others) and authorize access via the browser when prompted.
+Option B: Using the CLI
+Run the following command to log in directly:
+opencode auth login
+Follow the interactive steps to authenticate with your chosen provider.-----3. Initialize Your Project
+
+
+Once installed and authenticated, you must initialize OpenCode within your project to allow it to analyze your codebase.
+1. Navigate to your project directory:
+cd /path/to/your/project
+2. Start OpenCode:
+opencode
+3. Run the init command:
+/init
+This generates an AGENTS.md file in your root directory, which provides the context and "house rules" for the AI agent in that project.-----Useful Links
+   * Official Website: opencode.ai
+   * Documentation: opencode.ai/docs

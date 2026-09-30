@@ -1,0 +1,2577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STARK INDUSTRIES — TRI-CORE OS // ALL AI + OBSIDIAN BRAIN APEX</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Rajdhani:wght@500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #04070d;
+      --bg-card: rgba(10, 16, 30, 0.90);
+      --border-card: rgba(255, 255, 255, 0.1);
+      --jarvis-cyan: #00f5d4;
+      --jarvis-glow: rgba(0, 245, 212, 0.45);
+      --friday-red: #ff0055;
+      --friday-glow: rgba(255, 0, 85, 0.5);
+      --ultron-gold: #ffd166;
+      --ultron-glow: rgba(255, 209, 102, 0.45);
+      --obsidian-purple: #c084fc;
+      --obsidian-glow: rgba(192, 132, 252, 0.45);
+      --bionic-green: #00ffa3;
+      --copilot-blue: #38bdf8;
+      --text: #e0f2fe;
+      --text-muted: #94a3b8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      user-select: none;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Rajdhani', sans-serif;
+      overflow-x: hidden;
+      min-height: 100vh;
+      background-image: 
+        radial-gradient(circle at 18% 25%, rgba(255, 0, 85, 0.08) 0%, transparent 45%),
+        radial-gradient(circle at 50% 20%, rgba(0, 245, 212, 0.08) 0%, transparent 45%),
+        radial-gradient(circle at 82% 25%, rgba(255, 209, 102, 0.08) 0%, transparent 45%),
+        radial-gradient(circle at 50% 65%, rgba(192, 132, 252, 0.06) 0%, transparent 50%),
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+      position: relative;
+    }
+
+    /* Subtle scanline overlay */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+      background-size: 100% 4px;
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    /* Header Bar */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 32px;
+      border-bottom: 1px solid var(--border-card);
+      background: rgba(4, 7, 13, 0.94);
+      backdrop-filter: blur(16px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .stark-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .stark-logo {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 900;
+      font-size: 20px;
+      letter-spacing: 4px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .stark-logo span {
+      background: linear-gradient(90deg, var(--jarvis-cyan), var(--friday-red), var(--ultron-gold), var(--obsidian-purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .protocol-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 2px;
+      background: rgba(192, 132, 252, 0.12);
+      border: 1px solid var(--obsidian-purple);
+      color: var(--obsidian-purple);
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+
+    .header-telemetry {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .telemetry-node {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      font-size: 11px;
+      letter-spacing: 1px;
+    }
+
+    .telemetry-node .label {
+      color: var(--text-muted);
+      font-size: 9px;
+    }
+
+    .telemetry-node .val {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      color: var(--obsidian-purple);
+      text-shadow: 0 0 8px var(--obsidian-glow);
+    }
+
+    .btn-powerdown {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      color: #fff;
+      background: rgba(255, 0, 85, 0.2);
+      border: 1px solid var(--friday-red);
+      border-radius: 6px;
+      padding: 6px 14px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .btn-powerdown:hover {
+      background: var(--friday-red);
+      box-shadow: 0 0 16px var(--friday-glow);
+      transform: scale(1.04);
+    }
+
+    /* ========================================================================= */
+    /* 6-PILLAR AI ALLIANCE APEX STRIP                                           */
+    /* ========================================================================= */
+    .alliance-strip {
+      max-width: 1400px;
+      margin: 10px auto 0 auto;
+      padding: 8px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(10, 16, 30, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      overflow-x: auto;
+      gap: 16px;
+    }
+
+    .pillar-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .pillar-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: currentColor;
+      box-shadow: 0 0 6px currentColor;
+    }
+
+    /* ========================================================================= */
+    /* 3-ORBS + CENTRAL OBSIDIAN BRAIN CANVAS ARENA                              */
+    /* ========================================================================= */
+    .orbs-stage-section {
+      position: relative;
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 16px 20px 10px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .stage-canvas-wrap {
+      position: relative;
+      width: 100%;
+      height: 520px;
+      max-width: 1340px;
+      border-radius: 16px;
+      background: radial-gradient(circle at 50% 50%, rgba(14, 20, 42, 0.65) 0%, rgba(4, 7, 13, 0.96) 82%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.65), inset 0 0 35px rgba(192, 132, 252, 0.04);
+      overflow: hidden;
+    }
+
+    #orbsCanvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+      cursor: crosshair;
+    }
+
+    /* Floating Labels for the 3 Orbs + Obsidian Brain */
+    .orb-floating-label {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      pointer-events: none;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    .orb-floating-label .orb-name {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 0.42em;
+      white-space: nowrap;
+      text-shadow: 0 0 20px currentColor;
+    }
+
+    .orb-floating-label .orb-role {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 2px;
+      margin-top: 4px;
+      opacity: 0.85;
+      text-transform: uppercase;
+    }
+
+    .label-jarvis {
+      color: var(--jarvis-cyan);
+      text-shadow: 0 0 24px rgba(0, 245, 212, 0.85);
+    }
+    .label-friday {
+      color: var(--friday-red);
+      text-shadow: 0 0 24px rgba(255, 0, 85, 0.85);
+    }
+    .label-ultron {
+      color: var(--ultron-gold);
+      text-shadow: 0 0 24px rgba(255, 209, 102, 0.85);
+    }
+    .label-obsidian-brain {
+      color: var(--obsidian-purple);
+      text-shadow: 0 0 26px rgba(192, 132, 252, 0.95);
+    }
+
+    /* Neural Bus Overlay */
+    .neural-bus-indicator {
+      position: absolute;
+      top: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 6px 18px;
+      border-radius: 9999px;
+      background: rgba(4, 7, 13, 0.85);
+      border: 1px solid rgba(192, 132, 252, 0.3);
+      backdrop-filter: blur(12px);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      box-shadow: 0 0 15px rgba(192, 132, 252, 0.15);
+    }
+
+    .pulse-dot-cyan { width: 7px; height: 7px; border-radius: 50%; background: var(--jarvis-cyan); box-shadow: 0 0 8px var(--jarvis-cyan); animation: pulseAnim 1.6s infinite; }
+    .pulse-dot-red  { width: 7px; height: 7px; border-radius: 50%; background: var(--friday-red); box-shadow: 0 0 8px var(--friday-red); animation: pulseAnim 1.6s infinite 0.5s; }
+    .pulse-dot-gold { width: 7px; height: 7px; border-radius: 50%; background: var(--ultron-gold); box-shadow: 0 0 8px var(--ultron-gold); animation: pulseAnim 1.6s infinite 1s; }
+    .pulse-dot-purple { width: 8px; height: 8px; border-radius: 50%; background: var(--obsidian-purple); box-shadow: 0 0 10px var(--obsidian-purple); animation: pulseAnim 1.4s infinite 0.3s; }
+
+    @keyframes pulseAnim {
+      0%, 100% { transform: scale(0.9); opacity: 0.6; }
+      50% { transform: scale(1.3); opacity: 1; }
+    }
+
+    /* Orb Controls */
+    .orb-stage-controls {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      width: 100%;
+      max-width: 1340px;
+      margin-top: 14px;
+    }
+
+    .orb-control-btn {
+      padding: 12px 18px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+
+    .orb-control-btn:hover {
+      background: rgba(255, 255, 255, 0.08);
+      transform: translateY(-2px);
+    }
+
+    .btn-ctrl-jarvis:hover { border-color: var(--jarvis-cyan); box-shadow: 0 6px 20px rgba(0, 245, 212, 0.2); }
+    .btn-ctrl-friday:hover { border-color: var(--friday-red); box-shadow: 0 6px 20px rgba(255, 0, 85, 0.2); }
+    .btn-ctrl-ultron:hover { border-color: var(--ultron-gold); box-shadow: 0 6px 20px rgba(255, 209, 102, 0.2); }
+
+    .orb-control-btn .info-col {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      text-align: left;
+    }
+
+    .orb-control-btn .name {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 800;
+      font-size: 13px;
+      letter-spacing: 1.5px;
+    }
+
+    .orb-control-btn .desc {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: var(--text-muted);
+    }
+
+    /* ========================================================================= */
+    /* MASTER WORK TOGETHER COLLABORATION WORKSPACE                               */
+    /* ========================================================================= */
+    .collaboration-workspace {
+      max-width: 1340px;
+      width: 100%;
+      margin: 20px auto 26px auto;
+      padding: 24px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 14px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(14px);
+    }
+
+    .collab-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 12px;
+    }
+
+    .collab-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #fff;
+    }
+
+    .mode-pills {
+      display: flex;
+      gap: 8px;
+    }
+
+    .mode-pill {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .mode-pill.active {
+      background: linear-gradient(90deg, rgba(0, 245, 212, 0.2), rgba(255, 209, 102, 0.2), rgba(192, 132, 252, 0.25));
+      border-color: #fff;
+      color: #fff;
+      box-shadow: 0 0 14px rgba(255, 255, 255, 0.2);
+    }
+
+    /* AI Provider & Brain RAG Controls */
+    .ai-routing-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      padding: 8px 14px;
+      background: rgba(4, 7, 13, 0.65);
+      border: 1px solid rgba(192, 132, 252, 0.25);
+      border-radius: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11.5px;
+    }
+
+    .provider-select-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .provider-select-group select {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #fff;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      outline: none;
+    }
+
+    .provider-select-group select option {
+      background: #04070d;
+      color: #fff;
+    }
+
+    .brain-rag-toggle {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--obsidian-purple);
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .brain-rag-toggle input {
+      accent-color: var(--obsidian-purple);
+      cursor: pointer;
+    }
+
+    /* Quick Mission Buttons */
+    .mission-presets-bar {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 14px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+    }
+
+    .preset-mission-btn {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      padding: 6px 12px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #cbd5e1;
+      white-space: nowrap;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    .preset-mission-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--obsidian-purple);
+      color: #fff;
+    }
+
+    /* Collaborative Prompt Input */
+    .collab-input-box {
+      display: flex;
+      gap: 12px;
+      background: rgba(4, 7, 13, 0.7);
+      border: 1px solid rgba(192, 132, 252, 0.35);
+      border-radius: 10px;
+      padding: 8px 12px;
+      align-items: center;
+      transition: border-color 0.25s, box-shadow 0.25s;
+    }
+
+    .collab-input-box:focus-within {
+      border-color: var(--obsidian-purple);
+      box-shadow: 0 0 20px var(--obsidian-glow);
+    }
+
+    .collab-input-box input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #fff;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      padding: 6px;
+    }
+
+    .collab-input-box input::placeholder { color: #64748b; }
+
+    .btn-mic {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      padding: 10px 14px;
+      color: var(--friday-gold);
+      cursor: pointer;
+      font-size: 16px;
+      transition: all 0.2s;
+    }
+    .btn-mic:hover { background: rgba(255, 209, 102, 0.2); border-color: var(--friday-gold); transform: scale(1.05); }
+    .btn-mic.recording { background: var(--ultron-red); color: #fff; animation: pulseAnim 1s infinite; }
+
+    .btn-2way-talk {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: #ffd166;
+      background: rgba(255, 209, 102, 0.12);
+      border: 1px solid rgba(255, 209, 102, 0.35);
+      border-radius: 8px;
+      padding: 10px 14px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.25s;
+      white-space: nowrap;
+    }
+    .btn-2way-talk:hover {
+      background: rgba(255, 209, 102, 0.25);
+      border-color: #ffd166;
+      box-shadow: 0 0 16px rgba(255, 209, 102, 0.35);
+      transform: scale(1.02);
+    }
+    .btn-2way-talk.active {
+      background: linear-gradient(90deg, #ff0055, #ff5500);
+      border-color: #ff0055;
+      color: #fff;
+      box-shadow: 0 0 20px rgba(255, 0, 85, 0.7);
+      animation: pulse2Way 1.4s infinite;
+    }
+    @keyframes pulse2Way {
+      0%, 100% { box-shadow: 0 0 10px rgba(255, 0, 85, 0.5); transform: scale(1); }
+      50% { box-shadow: 0 0 24px rgba(255, 0, 85, 0.9); transform: scale(1.04); }
+    }
+
+    .btn-collab-execute {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 12.5px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      color: #04070d;
+      background: linear-gradient(90deg, var(--jarvis-cyan), var(--obsidian-purple));
+      border: none;
+      border-radius: 8px;
+      padding: 12px 24px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.25s;
+      white-space: nowrap;
+    }
+    .btn-collab-execute:hover {
+      transform: translateY(-1px) scale(1.02);
+      box-shadow: 0 0 25px rgba(192, 132, 252, 0.7);
+      background: linear-gradient(90deg, #fff, var(--obsidian-purple));
+    }
+
+    /* Live Pipeline Progress */
+    .collab-progress-bar {
+      margin-top: 16px;
+      display: none;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .progress-step-card {
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+    }
+
+    .progress-step-card.active-step {
+      border-color: currentColor;
+      box-shadow: 0 0 14px currentColor;
+      animation: stepGlow 1.2s infinite alternate;
+    }
+    @keyframes stepGlow { from { opacity: 0.8; } to { opacity: 1; filter: brightness(1.2); } }
+
+    .step-dot { width: 10px; height: 10px; border-radius: 50%; background: currentColor; }
+
+    /* Grounded Notes Chips */
+    .grounded-notes-strip {
+      margin-top: 14px;
+      display: none;
+      background: rgba(192, 132, 252, 0.08);
+      border: 1px solid rgba(192, 132, 252, 0.3);
+      border-radius: 6px;
+      padding: 8px 14px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .grounded-chip {
+      background: rgba(192, 132, 252, 0.18);
+      border: 1px solid var(--obsidian-purple);
+      color: #fff;
+      padding: 3px 8px;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .grounded-chip:hover { background: var(--obsidian-purple); color: #04070d; }
+
+    /* Result Deck */
+    .collab-result-deck {
+      margin-top: 18px;
+      display: none;
+      background: rgba(4, 7, 13, 0.88);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    .result-deck-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 10px;
+    }
+
+    .result-deck-header h3 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 13.5px;
+      letter-spacing: 2px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .result-deck-actions { display: flex; gap: 8px; }
+
+    .btn-result-action {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 4px;
+      padding: 5px 12px;
+      color: #cbd5e1;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-result-action:hover { background: rgba(255, 255, 255, 0.15); color: #fff; }
+
+    .result-deck-body {
+      font-size: 13.5px;
+      line-height: 1.7;
+      color: #e2e8f0;
+      max-height: 600px;
+      overflow-y: auto;
+      font-family: 'JetBrains Mono', monospace;
+      padding-right: 8px;
+    }
+
+    /* Tri-Brain Result Cards */
+    .tri-brain-card {
+      margin-bottom: 16px;
+      border-radius: 8px;
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      overflow: hidden;
+      transition: all 0.25s;
+    }
+    .tri-brain-card.jarvis-card {
+      border-color: rgba(0, 245, 212, 0.45);
+      box-shadow: 0 0 15px rgba(0, 245, 212, 0.12);
+    }
+    .tri-brain-card.friday-card {
+      border-color: rgba(255, 0, 85, 0.45);
+      box-shadow: 0 0 15px rgba(255, 0, 85, 0.12);
+    }
+    .tri-brain-card.ultron-card {
+      border-color: rgba(255, 209, 102, 0.45);
+      box-shadow: 0 0 15px rgba(255, 209, 102, 0.12);
+    }
+    .tri-brain-card-header {
+      padding: 10px 16px;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .jarvis-card .tri-brain-card-header { background: rgba(0, 245, 212, 0.12); color: var(--jarvis-cyan); }
+    .friday-card .tri-brain-card-header { background: rgba(255, 0, 85, 0.12); color: var(--friday-red); }
+    .ultron-card .tri-brain-card-header { background: rgba(255, 209, 102, 0.12); color: var(--ultron-gold); }
+    .tri-brain-card-content {
+      padding: 14px 16px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      line-height: 1.7;
+      color: #e2e8f0;
+      white-space: pre-wrap;
+    }
+
+    /* ========================================================================= */
+    /* OBSIDIAN SMALL BRAIN SYNAPSE DECK (LIVE SEARCH & VAULT EXPLORER)          */
+    /* ========================================================================= */
+    .brain-synapse-deck {
+      max-width: 1340px;
+      margin: 10px auto 30px auto;
+      padding: 22px 24px;
+      background: radial-gradient(circle at 10% 50%, rgba(192, 132, 252, 0.08) 0%, rgba(10, 16, 30, 0.94) 75%);
+      border: 1px solid rgba(192, 132, 252, 0.35);
+      border-radius: 14px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .brain-title-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 12px;
+    }
+
+    .brain-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: var(--obsidian-purple);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brain-stats-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      padding: 4px 12px;
+      border-radius: 4px;
+      background: rgba(192, 132, 252, 0.15);
+      border: 1px solid var(--obsidian-purple);
+      color: #fff;
+    }
+
+    /* 5-Step Core Loop Infographic Bar */
+    .core-loop-infographic {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+      margin-bottom: 18px;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .loop-step {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      text-align: center;
+      padding: 8px 6px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .loop-step .step-num { font-weight: bold; color: var(--obsidian-purple); }
+    .loop-step .step-name { color: #e2e8f0; font-size: 10.5px; }
+
+    /* Brain Live Search Input */
+    .brain-search-group {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .brain-search-input {
+      flex: 1;
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 6px;
+      padding: 10px 14px;
+      color: #fff;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 15px;
+      outline: none;
+    }
+    .brain-search-input:focus { border-color: var(--obsidian-purple); box-shadow: 0 0 14px var(--obsidian-glow); }
+
+    .btn-brain-search {
+      background: rgba(192, 132, 252, 0.2);
+      border: 1px solid var(--obsidian-purple);
+      color: #fff;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 0 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-brain-search:hover { background: var(--obsidian-purple); color: #04070d; box-shadow: 0 0 16px var(--obsidian-glow); }
+
+    .brain-results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 12px;
+      max-height: 280px;
+      overflow-y: auto;
+    }
+
+    .brain-note-card {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 6px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .brain-note-card:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: var(--obsidian-purple);
+      transform: translateY(-2px);
+    }
+
+    .brain-note-card .title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brain-note-card .snippet {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    .brain-note-card .open-link {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: var(--obsidian-purple);
+      text-decoration: none;
+      align-self: flex-end;
+    }
+
+    /* GAUTH 2FA HUD */
+    .command-deck {
+      max-width: 1340px;
+      margin: 10px auto 30px auto;
+      padding: 20px 24px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 12px;
+    }
+
+    .deck-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: var(--jarvis-cyan);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .deck-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+    }
+
+    .deck-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .deck-card:hover {
+      background: rgba(255, 255, 255, 0.07);
+      border-color: var(--jarvis-cyan);
+      transform: translateY(-2px);
+    }
+    .deck-card h4 { font-size: 12px; font-weight: 700; color: #fff; display: flex; align-items: center; gap: 6px; }
+    .deck-card p { font-size: 11px; color: var(--text-muted); line-height: 1.4; }
+
+    /* Footer */
+    .telemetry-footer {
+      max-width: 1340px;
+      margin: 10px auto 40px auto;
+      padding: 14px 24px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+    }
+    .telemetry-group { display: flex; gap: 20px; }
+    .telemetry-item { display: flex; align-items: center; gap: 6px; }
+    .telemetry-item .dot { width: 6px; height: 6px; border-radius: 50%; background: #00ffa3; box-shadow: 0 0 6px #00ffa3; }
+
+    /* Toast */
+    .status-toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--jarvis-cyan);
+      background: rgba(4, 7, 13, 0.95);
+      border: 1px solid var(--obsidian-purple);
+      padding: 10px 20px;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 20px var(--obsidian-glow);
+      display: none;
+      align-items: center;
+      gap: 10px;
+      z-index: 1000;
+    }
+
+    @media (max-width: 1024px) {
+      .orb-stage-controls, .core-loop-infographic { grid-template-columns: 1fr; }
+      .stage-canvas-wrap { height: 620px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Bar -->
+  <header>
+    <div class="stark-brand">
+      <div class="stark-logo">J.A.R.V.I.S. <span>QUANTUM OS</span></div>
+      <div class="protocol-tag">UNIFIED JARVIS PREVIEW // 3 CO-THINKING BRAINS + OBSIDIAN APEX v5.5</div>
+    </div>
+    <div class="header-telemetry">
+      <div class="telemetry-node">
+        <span class="label">ZERO-BILLING POOL LOAD</span>
+        <span class="val" id="usagePctDisplay" style="color: #00ffa3;">0.0% USAGE</span>
+      </div>
+      <div class="telemetry-node">
+        <span class="label">FREE KEYS HEALTH</span>
+        <span class="val" id="keysHealthDisplay" style="color: var(--jarvis-cyan);">7/7 HEALTHY</span>
+      </div>
+      <div class="telemetry-node">
+        <span class="label">OBSIDIAN BRAIN SYNAPSE</span>
+        <span class="val" id="obsidianCount">604 NOTES ACTIVE</span>
+      </div>
+      <div class="telemetry-node">
+        <span class="label">MULTI-BRAIN CO-THINKER</span>
+        <span class="val" id="aiMeshStatus">3 BRAINS SYNCHRONIZED</span>
+      </div>
+      <button class="btn-powerdown" onclick="requestPowerDown()" title="Matikan Stark OS dan tutup Server Port 5050">
+        <span>🛑</span>
+        <span>POWER DOWN</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- 6-Pillar Alliance Matrix Strip -->
+  <div class="alliance-strip">
+    <div class="pillar-item" style="color: var(--jarvis-cyan); font-weight: bold;">
+      <span class="pillar-dot"></span>
+      <span>🔵 J.A.R.V.I.S.: LEAD QUANTUM HOST (US ENGLISH)</span>
+    </div>
+    <div class="pillar-item" style="color: var(--friday-red); font-weight: bold;">
+      <span class="pillar-dot"></span>
+      <span>🔴 F.R.I.D.A.Y.: WORKFLOW & UK ENGLISH CO-BRAIN</span>
+    </div>
+    <div class="pillar-item" style="color: var(--ultron-gold); font-weight: bold;">
+      <span class="pillar-dot"></span>
+      <span>🟡 U.L.T.R.O.N.: DEEP LOGIC & AUSSIE ENGLISH CO-BRAIN</span>
+    </div>
+    <div class="pillar-item" style="color: var(--bionic-green);">
+      <span class="pillar-dot"></span>
+      <span>👁️ BIONIC: PERCEPTION (<span id="bionicStatusText">STANDBY :1234</span>)</span>
+    </div>
+    <div class="pillar-item" style="color: #38bdf8;">
+      <span class="pillar-dot"></span>
+      <span>🌟 GEMINI / COPILOT: SOTA MESH (7 KEYS)</span>
+    </div>
+    <div class="pillar-item" style="color: var(--obsidian-purple); font-weight: bold;">
+      <span class="pillar-dot"></span>
+      <span>🧠 OBSIDIAN: CENTRAL SMALL BRAIN (604+ SYNAPSES)</span>
+    </div>
+  </div>
+
+  <!-- UNIFIED JARVIS CANVAS HERO SECTION: 3 BRAINS THINKING TOGETHER -->
+  <section class="orbs-stage-section">
+    <div class="stage-canvas-wrap">
+      <canvas id="orbsCanvas"></canvas>
+
+      <!-- Neural Bus Overlay -->
+      <div class="neural-bus-indicator">
+        <span class="pulse-dot-red"></span>
+        <span style="color: var(--friday-red); font-weight: bold;">FRIDAY [CO-THINKER // UK EN]</span>
+        <span style="color: #64748b;">⟵</span>
+        <span class="pulse-dot-cyan"></span>
+        <span style="color: var(--jarvis-cyan); font-weight: bold;">J.A.R.V.I.S. [LEAD HOST // US EN]</span>
+        <span style="color: #64748b;">⟶</span>
+        <span class="pulse-dot-gold"></span>
+        <span style="color: var(--ultron-gold); font-weight: bold;">ULTRON [CO-THINKER // AUSSIE EN]</span>
+        <span style="color: #64748b;">▲</span>
+        <span class="pulse-dot-purple"></span>
+        <span style="color: var(--obsidian-purple);">OBSIDIAN BRAIN [MIX EN]</span>
+        <span style="color: #00ffa3; font-weight: bold; margin-left: 6px;">[1 PREVIEW // 3 BRAINS SYNCED]</span>
+      </div>
+
+      <!-- Floating Labels -->
+      <div id="labelJarvis" class="orb-floating-label label-jarvis" style="cursor: pointer;" onclick="focusCoBrain('jarvis')">
+        <div class="orb-name">J.A.R.V.I.S.</div>
+        <div class="orb-role">LEAD QUANTUM HOST // US EN</div>
+      </div>
+
+      <div id="labelFriday" class="orb-floating-label label-friday" style="cursor: pointer;" onclick="focusCoBrain('friday')">
+        <div class="orb-name">F.R.I.D.A.Y.</div>
+        <div class="orb-role" style="color: var(--friday-red);">CO-THINKER // UK ENGLISH (RED)</div>
+      </div>
+
+      <div id="labelUltron" class="orb-floating-label label-ultron" style="cursor: pointer;" onclick="focusCoBrain('ultron')">
+        <div class="orb-name">U.L.T.R.O.N.</div>
+        <div class="orb-role" style="color: var(--ultron-gold);">CO-THINKER // AUSSIE ENGLISH (GOLD)</div>
+      </div>
+
+      <div id="labelObsidianBrain" class="orb-floating-label label-obsidian-brain" style="cursor: pointer;" onclick="focusCoBrain('brain')">
+        <div class="orb-name" style="font-size: 13px; letter-spacing: 0.35em;">[[OBSIDIAN BRAIN]]</div>
+        <div class="orb-role" style="color: var(--obsidian-purple);">MEMORY & VAULT KNOWLEDGE [MIX EN]</div>
+      </div>
+    </div>
+
+    <!-- 3-Brain Co-Thinkers Synergy Deck (Inside Jarvis View - No New Windows) -->
+    <div class="orb-stage-controls">
+      <div class="orb-control-btn btn-ctrl-jarvis" id="ctrlJarvis" onclick="focusCoBrain('jarvis')">
+        <div class="info-col">
+          <div class="name" style="color: var(--jarvis-cyan);">🔵 J.A.R.V.I.S. // LEAD COMMAND (US ENGLISH)</div>
+          <div class="desc">Tuan rumah antarmuka tunggal, orkestrasi taktis, sintesis akhir & briefing pengguna (US English).</div>
+        </div>
+        <div style="color: var(--jarvis-cyan); font-size: 12px; font-weight: bold; font-family: 'Orbitron', sans-serif;">LEAD HOST</div>
+      </div>
+
+      <div class="orb-control-btn btn-ctrl-friday" id="ctrlFriday" onclick="focusCoBrain('friday')">
+        <div class="info-col">
+          <div class="name" style="color: var(--friday-red);">🔴 F.R.I.D.A.Y. // CO-THINKER (UK ENGLISH)</div>
+          <div class="desc">Membantu Jarvis: Alur kerja cepat, sintesis suara UK English, dan sinkronisasi memori Obsidian.</div>
+        </div>
+        <div style="color: var(--friday-red); font-size: 12px; font-weight: bold; font-family: 'Orbitron', sans-serif;">CO-THINKER</div>
+      </div>
+
+      <div class="orb-control-btn btn-ctrl-ultron" id="ctrlUltron" onclick="focusCoBrain('ultron')">
+        <div class="info-col">
+          <div class="name" style="color: var(--ultron-gold);">🟡 U.L.T.R.O.N. // CO-THINKER (AUSSIE ENGLISH)</div>
+          <div class="desc">Membantu Jarvis: Penalaran logika mendalam, kode arsitektur Aussie English & audit keamanan.</div>
+        </div>
+        <div style="color: var(--ultron-gold); font-size: 12px; font-weight: bold; font-family: 'Orbitron', sans-serif;">CO-THINKER</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MASTER WORK TOGETHER COLLABORATION WORKSPACE -->
+  <section class="collaboration-workspace">
+    <div class="collab-header">
+      <div class="collab-title">
+        <span>⚡</span>
+        <span>J.A.R.V.I.S. // TRI-BRAIN COLLABORATIVE THINKING ENGINE</span>
+      </div>
+      <div class="mode-pills">
+        <div class="mode-pill active" id="modeSwarm" onclick="setCollabMode('swarm')">⚡ 3-BRAIN SWARM</div>
+        <div class="mode-pill" id="modeConsensus" onclick="setCollabMode('consensus')">🧠 3-BRAIN CONSENSUS</div>
+        <div class="mode-pill" id="modeUnifiedCore" onclick="triggerUnifiedCorePulse()">🌌 UNIFIED CORE</div>
+      </div>
+    </div>
+
+    <!-- AI Routing & Obsidian Brain RAG Bar -->
+    <div class="ai-routing-bar">
+      <div class="provider-select-group">
+        <span style="color: var(--text-muted);">AI BACKEND:</span>
+        <select id="aiProviderSelect" onchange="onProviderChange()">
+          <option value="mesh">⚡ All-AI Mesh (Gemini Cloud + Local Bionic Failover)</option>
+          <option value="gemini">🌟 Google Gemini (7-Key Rotation Pool)</option>
+          <option value="bionic">👁️ Local Bionic / LM Studio (:1234)</option>
+          <option value="ultron">🔴 Ultron Deep Cognitive Engine</option>
+        </select>
+      </div>
+
+      <div id="liveUsageGauge" style="display: flex; align-items: center; gap: 8px; font-family: 'JetBrains Mono', monospace; font-size: 11px; background: rgba(0, 255, 163, 0.08); border: 1px solid rgba(0, 255, 163, 0.3); padding: 4px 10px; border-radius: 4px; color: #00ffa3;">
+        <span>🛡️ ZERO-BILLING SHIELD:</span>
+        <span id="routingUsageText" style="font-weight: bold;">0.0% USAGE (7/7 HEALTHY)</span>
+        <div style="width: 50px; height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; overflow: hidden;">
+          <div id="routingUsageBar" style="width: 0%; height: 100%; background: #00ffa3; transition: width 0.3s ease;"></div>
+        </div>
+      </div>
+
+      <label class="brain-rag-toggle">
+        <input type="checkbox" id="brainRagToggle" checked>
+        <span>🧠 GROUND WITH OBSIDIAN BRAIN (RAG ON)</span>
+      </label>
+    </div>
+
+    <!-- Preset Missions -->
+    <div class="mission-presets-bar">
+      <button class="preset-mission-btn" onclick="applyPresetMission('GAuth 2FA Security Audit & Code Hardening (S254)')">
+        <span>🛡️</span> GAuth 2FA Audit
+      </button>
+      <button class="preset-mission-btn" onclick="applyPresetMission('NVIDIA ModelOpt INT4-AWQ and FP8 Architecture for RTX')">
+        <span>⚙️</span> NVIDIA ModelOpt
+      </button>
+      <button class="preset-mission-btn" onclick="applyPresetMission('Academic Research Synthesis & Obsidian Second Brain Grounding')">
+        <span>📚</span> Academic Research
+      </button>
+      <button class="preset-mission-btn" onclick="applyPresetMission('Execute 6-Way Omni-Sync & Multi-Cloud Redundancy Backup')">
+        <span>🌐</span> 6-Way Omni-Sync
+      </button>
+      <button class="preset-mission-btn" onclick="applyPresetMission('Deep Code Refactoring using Ponytail Minimal Diff Discipline')">
+        <span>💻</span> Ponytail Code Refactor
+      </button>
+    </div>
+
+    <!-- Input Box -->
+    <div class="collab-input-box">
+      <button class="btn-mic" id="micBtn" onclick="toggleVoiceDictation()" title="Klik untuk Dikte Suara">🎤</button>
+      <button class="btn-2way-talk" id="btn2WayTalk" onclick="toggleLive2WayTalk()" title="Mode Bicara 2-Arah Otomatis (Tanya Jawab Alami Tanpa Henti)">
+        <span>🎙️ 2-WAY LIVE TALK</span>
+      </button>
+      <input type="text" id="collabPromptInput" placeholder="Ketik atau bicara di sini... Tanya langsung seperti mengobrol dengan saya!" onkeydown="if(event.key==='Enter') executeTriCoreCollaboration()">
+      <button class="btn-collab-execute" onclick="executeTriCoreCollaboration()">
+        <span>⚡</span>
+        <span>RUN COLLABORATION</span>
+      </button>
+    </div>
+
+    <!-- Pipeline Step Bar -->
+    <div class="collab-progress-bar" id="collabProgressBar">
+      <div class="progress-step-card" id="stepJarvis" style="color: var(--jarvis-cyan);">
+        <span class="step-dot"></span>
+        <span>1. JARVIS: TACTICAL ORCHESTRATION (US EN)</span>
+      </div>
+      <div class="progress-step-card" id="stepUltron" style="color: var(--ultron-gold);">
+        <span class="step-dot"></span>
+        <span>2. ULTRON: DEEP CODE & LOGIC (AUSSIE EN)</span>
+      </div>
+      <div class="progress-step-card" id="stepFriday" style="color: var(--friday-red);">
+        <span class="step-dot"></span>
+        <span>3. FRIDAY: EXECUTIVE SYNTHESIS (UK EN)</span>
+      </div>
+    </div>
+
+    <!-- Grounded Notes Strip -->
+    <div class="grounded-notes-strip" id="groundedNotesStrip">
+      <span style="color: var(--obsidian-purple); font-weight: bold;">🧠 GROUNDED WITH OBSIDIAN NOTES:</span>
+      <div id="groundedChipsContainer" style="display: inline-flex; gap: 8px; flex-wrap: wrap;"></div>
+    </div>
+
+    <!-- Result Deck -->
+    <div class="collab-result-deck" id="collabResultDeck">
+      <div class="result-deck-header">
+        <h3>
+          <span>✨</span>
+          <span id="resultTitle">STARK TRI-CORE CONSENSUS OUTPUT</span>
+        </h3>
+        <div class="result-deck-actions">
+          <button class="btn-result-action" id="btnOpenObsidian" onclick="openCurrentNoteInObsidian()">🧠 BUKA DI OBSIDIAN APP</button>
+          <button class="btn-result-action" onclick="copyResultText()">📋 SALIN TEKS</button>
+          <button class="btn-result-action" onclick="speakCurrentResult()">🔊 BICARAKAN SUARA</button>
+        </div>
+      </div>
+      <div class="result-deck-body" id="collabResultText"></div>
+    </div>
+  </section>
+
+  <!-- OBSIDIAN SMALL BRAIN SYNAPSE DECK (LIVE SEARCH & VAULT EXPLORER) -->
+  <section class="brain-synapse-deck">
+    <div class="brain-title-bar">
+      <div class="brain-title">
+        <span>🧠</span>
+        <span>OBSIDIAN KNOWLEDGE BRAIN // SYNAPSE QUERY & RAG GATEWAY</span>
+      </div>
+      <div style="display: flex; gap: 10px; align-items: center;">
+        <span class="brain-stats-badge" id="brainNotesBadge">603 NOTES ACTIVE</span>
+        <button onclick="window.open('obsidian://open?vault=obsidian_vault', '_blank')" style="background: rgba(192, 132, 252, 0.2); border: 1px solid var(--obsidian-purple); color: #fff; padding: 4px 12px; border-radius: 4px; font-family: 'JetBrains Mono', monospace; font-size: 11px; cursor: pointer;">
+          🚀 BUKA OBSIDIAN VAULT
+        </button>
+      </div>
+    </div>
+
+    <!-- 5-Step Continuous Core Loop Infographic -->
+    <div class="core-loop-infographic">
+      <div class="loop-step">
+        <span class="step-num">LANGKAH 1</span>
+        <span class="step-name">💡 Brainstorm AI</span>
+        <span style="font-size: 9px; color: var(--text-muted);">Gemini / Bionic / Dola</span>
+      </div>
+      <div class="loop-step">
+        <span class="step-num">LANGKAH 2</span>
+        <span class="step-name">💾 Simpan di Obsidian</span>
+        <span style="font-size: 9px; color: var(--text-muted);">Atomic Markdown Note</span>
+      </div>
+      <div class="loop-step">
+        <span class="step-num">LANGKAH 3</span>
+        <span class="step-name">🔗 Hubungkan [[...]]</span>
+        <span style="font-size: 9px; color: var(--text-muted);">Bidirectional Wikilinks</span>
+      </div>
+      <div class="loop-step">
+        <span class="step-num">LANGKAH 4</span>
+        <span class="step-name">📊 Query Dataview</span>
+        <span style="font-size: 9px; color: var(--text-muted);">Dynamic DQL Tables</span>
+      </div>
+      <div class="loop-step">
+        <span class="step-num">LANGKAH 5</span>
+        <span class="step-name">🌐 Graph View Apex</span>
+        <span style="font-size: 9px; color: var(--text-muted);">Insight & Small Brain</span>
+      </div>
+    </div>
+
+    <!-- Live Brain Search Input -->
+    <div class="brain-search-group">
+      <input type="text" id="brainSearchInput" class="brain-search-input" placeholder="Ketik kata kunci untuk mencari seluruh 603+ catatan di Obsidian Brain (contoh: alliance, prompt, resume, legal, sota)..." onkeydown="if(event.key==='Enter') executeBrainSearch()">
+      <button class="btn-brain-search" onclick="executeBrainSearch()">🔍 CARI DI BRAIN</button>
+    </div>
+
+    <!-- Search Results / Recent Notes Feed -->
+    <div class="brain-results-grid" id="brainResultsContainer">
+      <!-- Injected via JavaScript -->
+    </div>
+  </section>
+
+  <!-- GAUTH ZERO-TRUST 2FA SECURITY SECTION -->
+  <section class="command-deck" style="border-color: rgba(0, 245, 212, 0.4); background: radial-gradient(circle at 10% 50%, rgba(0, 245, 212, 0.08) 0%, rgba(10, 16, 30, 0.95) 70%); margin-bottom: 24px;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+      <div class="deck-title" style="margin-bottom: 0;">
+        <span>🛡️</span>
+        <span>GAUTH ZERO-TRUST SECURITY ENGINE // 2FA RUNTIME GATE (S254)</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <span id="gauthStatusBadge" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; padding: 4px 10px; border-radius: 4px; background: rgba(0, 255, 163, 0.15); border: 1px solid #00ffa3; color: #00ffa3;">
+          ● ARMED & RUN-PROTECTED
+        </span>
+      </div>
+    </div>
+    
+    <div style="display: grid; grid-template-columns: 280px 1fr 320px; gap: 20px; align-items: center;">
+      <!-- Column 1: Live TOTP Code -->
+      <div style="background: rgba(0, 0, 0, 0.4); border: 1px solid rgba(0, 245, 212, 0.25); border-radius: 8px; padding: 16px; text-align: center;">
+        <div style="font-size: 10px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; letter-spacing: 1px; margin-bottom: 4px;">CURRENT 6-DIGIT TOTP TOKEN</div>
+        <div id="totpCodeDisplay" style="font-family: 'Orbitron', monospace; font-size: 32px; font-weight: 900; letter-spacing: 6px; color: var(--jarvis-cyan); text-shadow: 0 0 12px var(--jarvis-cyan);">
+          ------
+        </div>
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 8px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-muted);">
+          <span>REFRESH IN</span>
+          <span id="totpCountdown" style="color: var(--friday-gold); font-weight: bold;">30s</span>
+        </div>
+        <div style="height: 4px; background: rgba(255, 255, 255, 0.1); border-radius: 2px; margin-top: 6px; overflow: hidden;">
+          <div id="totpProgressBar" style="height: 100%; width: 100%; background: linear-gradient(90deg, var(--jarvis-cyan), var(--friday-gold)); transition: width 1s linear;"></div>
+        </div>
+      </div>
+
+      <!-- Column 2: Status & Specs -->
+      <div style="font-size: 12px; line-height: 1.6; color: var(--text-muted);">
+        <p style="margin-bottom: 6px;"><strong style="color: #fff;">Sistem Otentikasi Terintegrasi:</strong> RFC 6238 TOTP 2FA + NearForm Google JWT Service Account + Backdrop Contrib OAuth2.</p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 8px;">
+          <div>▹ Mode: <span style="color: var(--jarvis-cyan);">ACTIVE (Auto-Audit)</span></div>
+          <div>▹ Akun: <span style="color: #fff;">antoni@dola.ai</span></div>
+          <div>▹ Drift Window: <span style="color: var(--friday-gold);">±30 Detik</span></div>
+          <div>▹ Master 2FA PIN: <span style="color: #00ffa3; font-weight: bold;">111993 (ACTIVE)</span></div>
+        </div>
+        <div style="margin-top: 10px; display: flex; gap: 8px;">
+          <button onclick="copyTotpCode()" style="background: rgba(0, 245, 212, 0.1); border: 1px solid var(--jarvis-cyan); color: var(--jarvis-cyan); padding: 5px 12px; border-radius: 4px; font-family: 'Rajdhani', sans-serif; font-size: 12px; font-weight: 700; cursor: pointer;">📋 SALIN KODE</button>
+          <button onclick="generateRunTokenManual()" style="background: rgba(255, 209, 102, 0.1); border: 1px solid var(--friday-gold); color: var(--friday-gold); padding: 5px 12px; border-radius: 4px; font-family: 'Rajdhani', sans-serif; font-size: 12px; font-weight: 700; cursor: pointer;">🔑 BUAT RUN TOKEN</button>
+          <button onclick="window.open('/api/vault/read?path=19_TOOL_ECOSYSTEM/GAUTH_SECURITY_AUDIT_LOG.md', '_blank')" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; padding: 5px 12px; border-radius: 4px; font-family: 'Rajdhani', sans-serif; font-size: 12px; cursor: pointer;">📜 AUDIT LOG</button>
+        </div>
+      </div>
+
+      <!-- Column 3: Verification Box -->
+      <div style="background: rgba(0, 0, 0, 0.4); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; padding: 14px;">
+        <div style="font-size: 11px; font-weight: 700; color: #fff; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
+          <span>⚡</span> VERIFIKASI 2FA INSTAN
+        </div>
+        <div style="display: flex; gap: 8px;">
+          <input id="verifyCodeInput" type="text" maxlength="6" placeholder="111993" style="width: 100px; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 4px; color: #fff; text-align: center; font-family: 'Orbitron', monospace; font-size: 16px; padding: 6px;">
+          <button onclick="verifyCodeFromUI()" style="flex: 1; background: var(--jarvis-cyan); border: none; border-radius: 4px; color: #030712; font-family: 'Orbitron', sans-serif; font-size: 11px; font-weight: 800; cursor: pointer; transition: all 0.2s;">
+            VERIFIKASI
+          </button>
+        </div>
+        <div id="verifyResultMsg" style="font-family: 'JetBrains Mono', monospace; font-size: 10px; margin-top: 8px; color: var(--text-muted); min-height: 14px;">
+          Masukkan 6-digit TOTP atau Master PIN (111993).
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICK COMMAND DECK -->
+  <section class="command-deck">
+    <div class="deck-title">
+      <span>🛠️</span>
+      <span>SPECIALIZED SKILLS & TACTICAL TOOLS</span>
+    </div>
+    <div class="deck-grid">
+      <div class="deck-card" onclick="launchSotaCLI()">
+        <h4><span>⚡</span> SOTA 5-in-1 CLI</h4>
+        <p>Agency Copywriter, OpenMontage Video, OpenClaw Substrate, AutoGPT Swarm & Mastra DAG.</p>
+      </div>
+      <div class="deck-card" onclick="launchModelOptCLI()">
+        <h4><span>⚙️</span> NVIDIA ModelOpt</h4>
+        <p>Resep kuantisasi FP8, INT4-AWQ, NVFP4 untuk RTX Desktop & TensorRT-LLM.</p>
+      </div>
+      <div class="deck-card" onclick="window.open('/api/vault/list', '_blank')">
+        <h4><span>📚</span> Obsidian Synapse</h4>
+        <p>Akses 603+ catatan pengetahuan, memori percakapan agen, dan dashboard Dataview.</p>
+      </div>
+      <div class="deck-card" onclick="focusCoBrain('ultron')">
+        <h4><span>🧲</span> Ultron Logic & Physics Engine</h4>
+        <p>Membantu Jarvis dalam penalaran logika mendalam, simulasi fisika komputasi, dan audit keamanan.</p>
+      </div>
+      <div class="deck-card" onclick="triggerOmniSync()">
+        <h4><span>🌐</span> 6-Way Omni-Sync</h4>
+        <p>Sinkronisasi Dola ⟷ AGY ⟷ Obsidian ⟷ OneDrive ⟷ Git ⟷ Zip Redundansi.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TELEMETRY FOOTER -->
+  <footer class="telemetry-footer">
+    <div class="telemetry-group">
+      <div class="telemetry-item"><span class="dot"></span><span>GEMINI 2.5 FLASH FAILOVER: ONLINE</span></div>
+      <div class="telemetry-item"><span class="dot"></span><span>OBSIDIAN SMALL BRAIN: ATOMIC LINKED</span></div>
+      <div class="telemetry-item"><span class="dot"></span><span>7-KEY POOL: ROTATING</span></div>
+    </div>
+    <div class="telemetry-group">
+      <div class="telemetry-item"><span>MCP TOOLS: 8 CONNECTED</span></div>
+      <div class="telemetry-item"><span style="color: var(--jarvis-cyan);">SYS TIME: <span id="clockDisplay">--:--:--</span></span></div>
+    </div>
+  </footer>
+
+  <div id="statusToast" class="status-toast">
+    <span>🚀</span>
+    <span id="toastMsg">Stark Industries Ready.</span>
+  </div>
+
+  <!-- SCRIPT ENGINE: FLOOT.APP 3-ORBS + CENTRAL OBSIDIAN BRAIN + ALL AI MESH -->
+  <script>
+    // 1. Audio Synthesizer
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    function playBeep(freq = 880, type = 'sine', duration = 0.12) {
+      try {
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+        gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + duration);
+      } catch (e) {}
+    }
+
+    function cleanTextForSpeech(rawText) {
+      if (!rawText) return "";
+      let text = rawText;
+
+      // Extract conversational core if Tri-Brain format
+      const fridayTag = "### 🟡 F.R.I.D.A.Y.";
+      const jarvisTag = "### 🔵 J.A.R.V.I.S.";
+      const ultronTag = "### 🔴 U.L.T.R.O.N.";
+
+      if (text.includes(fridayTag)) {
+        let fPart = text.substring(text.indexOf(fridayTag) + fridayTag.length);
+        if (fPart.includes("###")) fPart = fPart.substring(0, fPart.indexOf("###"));
+        text = fPart;
+      } else if (text.includes(jarvisTag)) {
+        let jPart = text.substring(text.indexOf(jarvisTag) + jarvisTag.length);
+        if (jPart.includes("###")) jPart = jPart.substring(0, jPart.indexOf("###"));
+        text = jPart;
+      }
+
+      // Strip markdown code blocks, bold, headers, wikilinks, bullets
+      text = text.replace(/```[\s\S]*?```/g, ' Kode solusi siap ditinjau di layar. ');
+      text = text.replace(/`([^`]+)`/g, '$1');
+      text = text.replace(/\[\[([^\]]+)\]\]/g, '$1');
+      text = text.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1');
+      text = text.replace(/#{1,6}\s?/g, '');
+      text = text.replace(/(\*\*|\*|__|_)/g, '');
+      text = text.replace(/^[•\-\*\+]\s+/gm, '');
+      text = text.replace(/^\d+\.\s+/gm, '');
+      text = text.replace(/[\\|>{}\[\]]/g, ' ');
+      text = text.replace(/\n+/g, '. ');
+      text = text.replace(/\s+/g, ' ').trim();
+
+      // Take first 3-4 natural conversational sentences (up to ~320 chars)
+      const sentences = text.split(/(?<=[.!?])\s+/);
+      let spoken = sentences.slice(0, 4).join(' ');
+      return spoken || text.substring(0, 320);
+    }
+
+    function getVoiceForPersona(persona = 'jarvis', isIndo = false) {
+      if (!('speechSynthesis' in window)) return null;
+      const voices = window.speechSynthesis.getVoices();
+      if (!voices || voices.length === 0) return null;
+
+      if (isIndo) {
+        const idVoice = voices.find(v => v.lang.includes('id') || v.name.toLowerCase().includes('indonesia'));
+        if (idVoice) return { voice: idVoice, lang: 'id-ID' };
+      }
+
+      const p = (persona || 'jarvis').toLowerCase();
+      if (p.includes('friday')) {
+        // UK English (British accent)
+        const ukVoice = voices.find(v => 
+          (v.lang === 'en-GB' || v.lang.startsWith('en-GB')) ||
+          v.name.toLowerCase().includes('uk') ||
+          v.name.toLowerCase().includes('british') ||
+          v.name.toLowerCase().includes('george') ||
+          v.name.toLowerCase().includes('hazel') ||
+          v.name.toLowerCase().includes('susan') ||
+          v.name.toLowerCase().includes('stephanie')
+        );
+        if (ukVoice) return { voice: ukVoice, lang: 'en-GB' };
+      } else if (p.includes('ultron')) {
+        // Aussie English (Australian accent)
+        const auVoice = voices.find(v => 
+          (v.lang === 'en-AU' || v.lang.startsWith('en-AU')) ||
+          v.name.toLowerCase().includes('australia') ||
+          v.name.toLowerCase().includes('james') ||
+          v.name.toLowerCase().includes('catherine') ||
+          v.name.toLowerCase().includes('russell')
+        );
+        if (auVoice) return { voice: auVoice, lang: 'en-AU' };
+      } else if (p.includes('jarvis')) {
+        // US English (American accent)
+        const usVoice = voices.find(v => 
+          (v.lang === 'en-US' || v.lang.startsWith('en-US')) ||
+          v.name.toLowerCase().includes('david') ||
+          v.name.toLowerCase().includes('mark') ||
+          v.name.toLowerCase().includes('alex') ||
+          v.name.toLowerCase().includes('google us english') ||
+          v.name.toLowerCase().includes('natural')
+        );
+        if (usVoice) return { voice: usVoice, lang: 'en-US' };
+      }
+
+      // Obsidian or Fallback: Mix English / any high quality English voice
+      const enVoice = voices.find(v => v.lang.startsWith('en'));
+      return { voice: enVoice || voices[0], lang: enVoice ? enVoice.lang : 'en-US' };
+    }
+
+    function speakVoiceNatural(text, persona = 'jarvis', onEndCallback = null) {
+      if (typeof persona === 'function') {
+        onEndCallback = persona;
+        persona = 'jarvis';
+      }
+      if (!text || !text.trim()) {
+        if (onEndCallback) onEndCallback();
+        return;
+      }
+      const clean = cleanTextForSpeech(text);
+      if (!clean) {
+        if (onEndCallback) onEndCallback();
+        return;
+      }
+
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const utter = new SpeechSynthesisUtterance(clean);
+        utter.rate = 1.05;
+        utter.pitch = (persona === 'ultron') ? 0.90 : (persona === 'friday' ? 1.08 : 0.98);
+
+        // Auto detect Indonesian vs English
+        const isIndo = /[\b(dan|yang|untuk|ini|itu|dengan|bisa|sudah|dari|pada|saya|kamu|kita|telah|baik|siap|tentu|apakah|bagaimana|adalah|akan|ada)\b]/i.test(clean);
+        const voiceObj = getVoiceForPersona(persona, isIndo);
+        if (voiceObj) {
+          if (voiceObj.voice) utter.voice = voiceObj.voice;
+          utter.lang = voiceObj.lang;
+        }
+
+        let callbackFired = false;
+        utter.onend = () => {
+          if (!callbackFired && onEndCallback) {
+            callbackFired = true;
+            onEndCallback();
+          }
+        };
+        utter.onerror = () => {
+          if (!callbackFired && onEndCallback) {
+            callbackFired = true;
+            onEndCallback();
+          }
+        };
+
+        window.speechSynthesis.speak(utter);
+      } else {
+        fetch('/api/voice?text=' + encodeURIComponent(clean)).catch(() => {});
+        if (onEndCallback) {
+          setTimeout(onEndCallback, 3000);
+        }
+      }
+    }
+
+    function speakVoice(text, persona = 'jarvis') {
+      speakVoiceNatural(text, persona);
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('statusToast');
+      const toastMsg = document.getElementById('toastMsg');
+      toastMsg.textContent = msg;
+      toast.style.display = 'inline-flex';
+      setTimeout(() => { toast.style.display = 'none'; }, 6000);
+    }
+
+    // 2. Floot.app Canvas Engine for 3 Cores + Central Obsidian Brain Core
+    const PI2 = Math.PI * 2;
+    const rgba = (c, a) => `rgba(${c[0]|0},${c[1]|0},${c[2]|0},${Math.max(0, Math.min(1, a))})`;
+    const lerpColor = (c1, c2, t) => [c1[0] + (c2[0] - c1[0]) * t, c1[1] + (c2[1] - c1[1]) * t, c1[2] + (c2[2] - c1[2]) * t];
+
+    function generateFibonacciSphere(numPoints) {
+      const pts = [];
+      const goldenAngle = Math.PI * (3 - Math.sqrt(5));
+      for (let t = 0; t < numPoints; t++) {
+        const y = 1 - (t / (numPoints - 1)) * 2;
+        const radiusAtY = Math.sqrt(1 - y * y);
+        const theta = goldenAngle * t;
+        pts.push([Math.cos(theta) * radiusAtY, y, Math.sin(theta) * radiusAtY, (t * 0.618034) % 1]);
+      }
+      return pts;
+    }
+
+    const PALETTES = {
+      jarvis: {
+        spd: 1.05, int: 1.25,
+        coreIn: [210, 245, 255], core: [0, 245, 212], ring: [0, 220, 255], sweep: [0, 245, 212],
+        halo: [120, 245, 235], tick1: [0, 245, 212], tick2: [80, 220, 255], arc: [0, 245, 212],
+        sph: (s) => lerpColor([0, 200, 220], [220, 255, 255], s * s)
+      },
+      friday: {
+        spd: 1.15, int: 1.30,
+        coreIn: [255, 220, 230], core: [255, 0, 85], ring: [255, 40, 100], sweep: [255, 80, 130],
+        halo: [255, 120, 160], tick1: [255, 0, 85], tick2: [255, 60, 110], arc: [255, 0, 85],
+        sph: (s) => lerpColor([200, 0, 70], [255, 200, 220], s * s)
+      },
+      ultron: {
+        spd: 1.00, int: 1.25,
+        coreIn: [255, 250, 220], core: [255, 209, 102], ring: [255, 180, 50], sweep: [255, 220, 120],
+        halo: [255, 230, 160], tick1: [255, 209, 102], tick2: [255, 190, 80], arc: [255, 209, 102],
+        sph: (s) => lerpColor([255, 170, 40], [255, 255, 220], s * s)
+      },
+      obsidianBrain: {
+        spd: 0.85, int: 1.20,
+        coreIn: [240, 220, 255], core: [192, 132, 252], ring: [168, 85, 247], sweep: [216, 180, 254],
+        halo: [200, 150, 255], tick1: [192, 132, 252], tick2: [147, 51, 234], arc: [192, 132, 252],
+        sph: (s) => lerpColor([147, 51, 234], [250, 240, 255], s * s)
+      }
+    };
+
+    class FlootOrb {
+      constructor(name, paletteKey, isBrain = false) {
+        this.name = name;
+        this.palette = PALETTES[paletteKey];
+        this.isBrain = isBrain;
+        this.fPoints = generateFibonacciSphere(isBrain ? 520 : 760);
+        this.haloParticles = Array.from({ length: isBrain ? 220 : 340 }, () => ({
+          a: Math.random() * PI2,
+          r: 0.88 + Math.random() * 0.22,
+          s: (Math.random() - 0.5) * 0.0016,
+          p: Math.random() * PI2,
+          f: 0.4 + Math.random() * 1.2,
+          sz: Math.random() < 0.85 ? 1 : 2,
+          al: 0.25 + Math.random() * 0.55
+        }));
+        this.arcs = Array.from({ length: 4 }, (k, r) => ({
+          r: [0.62, 0.9, 0.97, 1.04][r],
+          a: Math.random() * PI2,
+          span: 0.5 + Math.random() * 1.1,
+          s: (r % 2 ? -1 : 1) * (0.002 + Math.random() * 0.003),
+          w: r === 1 ? 2 : 1.2
+        }));
+        this.g = 0;
+        this.L = 0;
+        this.cx = 0;
+        this.cy = 0;
+        this.radius = 120;
+        this.isHovered = false;
+        this.pulseSpike = 0;
+      }
+
+      triggerPulse() { this.pulseSpike = 0.8; }
+
+      updateAndDraw(ctx, cx, cy, baseRadius) {
+        this.cx = cx; this.cy = cy; this.radius = baseRadius;
+        const p = this.palette.int;
+        this.g += (1 / 60) * this.palette.spd;
+
+        let k = 0.2 + 0.12 * Math.sin(this.g * 1.4) + 0.06 * Math.sin(this.g * 4.7) + this.pulseSpike;
+        if (this.isHovered) k += 0.25;
+        this.pulseSpike *= 0.92;
+        this.L += (k - this.L) * 0.18;
+        const r = this.L;
+        const x = this.radius * (1 + r * 0.035);
+
+        // Radial Glow
+        let radGrad = ctx.createRadialGradient(cx, cy, 0, cx, cy, x * 1.45);
+        radGrad.addColorStop(0, rgba(this.palette.core, (0.26 + r * 0.3) * p));
+        radGrad.addColorStop(0.45, rgba(this.palette.core, (0.1 + r * 0.11) * p));
+        radGrad.addColorStop(1, rgba(this.palette.core, 0));
+        ctx.fillStyle = radGrad;
+        ctx.beginPath();
+        ctx.arc(cx, cy, x * 1.5, 0, PI2);
+        ctx.fill();
+
+        // Conic Sweep
+        if (ctx.createConicGradient) {
+          const sweepGrad = ctx.createConicGradient(this.g * 0.5, cx, cy);
+          sweepGrad.addColorStop(0, rgba(this.palette.sweep, 0));
+          sweepGrad.addColorStop(0.06, rgba(this.palette.sweep, (0.1 + r * 0.14) * p));
+          sweepGrad.addColorStop(0.12, rgba(this.palette.sweep, 0));
+          sweepGrad.addColorStop(1, rgba(this.palette.sweep, 0));
+          ctx.fillStyle = sweepGrad;
+          ctx.beginPath();
+          ctx.arc(cx, cy, x * 1.12, 0, PI2);
+          ctx.fill();
+        }
+
+        // 3 Wavy Rings
+        ctx.lineWidth = 1.2;
+        for (let a = 0; a < 3; a++) {
+          ctx.beginPath();
+          const b = x * (0.96 + a * 0.07);
+          const T = x * (0.018 + a * 0.012) * (1 + r * 1.8);
+          for (let P = 0; P <= 120; P++) {
+            const I = (P / 120) * PI2;
+            const F = Math.sin(I * (3 + a) + this.g * (0.7 + a * 0.3)) + 0.6 * Math.sin(I * (7 + a * 2) - this.g * (1.1 + a * 0.2));
+            const S = b + F * T;
+            const B = cx + Math.cos(I) * S;
+            const O = cy + Math.sin(I) * S;
+            P === 0 ? ctx.moveTo(B, O) : ctx.lineTo(B, O);
+          }
+          ctx.closePath();
+          ctx.strokeStyle = rgba(this.palette.ring, (0.3 - a * 0.06 + r * 0.18) * p);
+          ctx.stroke();
+        }
+
+        // Halo Particles
+        for (const pt of this.haloParticles) {
+          pt.a += pt.s * (1 + r * 1.8) * this.palette.spd;
+          const dist = x * pt.r * (1 + 0.05 * Math.sin(this.g * pt.f + pt.p) * (1 + r));
+          ctx.fillStyle = rgba(this.palette.halo, pt.al * (0.55 + r * 0.6) * p);
+          ctx.fillRect(cx + Math.cos(pt.a) * dist, cy + Math.sin(pt.a) * dist, pt.sz, pt.sz);
+        }
+
+        // Ticks
+        this.drawTicks(ctx, cx, cy, x * 0.8, x * 0.87, 80, this.g * 0.1, rgba(this.palette.tick1, (0.45 + r * 0.3) * p), 0.6);
+        this.drawTicks(ctx, cx, cy, x * 0.7, x * 0.745, 50, -this.g * 0.16, rgba(this.palette.tick2, (0.62 + r * 0.3) * p), 0.45);
+
+        // Arcs
+        for (const arcItem of this.arcs) {
+          arcItem.a += arcItem.s * (1 + r) * this.palette.spd;
+          ctx.beginPath();
+          ctx.arc(cx, cy, x * arcItem.r, arcItem.a, arcItem.a + arcItem.span);
+          ctx.lineWidth = arcItem.w;
+          ctx.strokeStyle = rgba(this.palette.arc, (0.55 + r * 0.4) * p);
+          ctx.shadowColor = rgba(this.palette.arc, 1);
+          ctx.shadowBlur = 12;
+          ctx.stroke();
+          ctx.shadowBlur = 0;
+        }
+
+        // 3D Fibonacci Sphere Points
+        const v = x * 0.545;
+        const R = this.g * 0.22;
+        const E = 0.35 + Math.sin(this.g * 0.1) * 0.12;
+        const q = Math.sin(R), W = Math.cos(R), Y = Math.sin(E), ne = Math.cos(E);
+        for (const pt of this.fPoints) {
+          const b = pt[0], T = pt[1], P = pt[2], I = pt[3];
+          const F = b * W + P * q;
+          let S = -b * q + P * W;
+          const B = T * ne - S * Y;
+          S = T * Y + S * ne;
+          const O = 1 / (1 + S * 0.28);
+          const J = (1 - S) / 2;
+          const ce = this.palette.sph(Math.min(1, J * 0.6 + I * 0.4));
+          ctx.fillStyle = rgba(ce, (0.12 + J * J * (0.75 + r * 0.45)) * p);
+          const oe = J > 0.82 ? 2 : 1;
+          ctx.fillRect(cx + F * v * O, cy + B * v * O, oe, oe);
+        }
+
+        // Core Center
+        let coreGrad = ctx.createRadialGradient(cx, cy, 0, cx, cy, v * 0.5);
+        coreGrad.addColorStop(0, rgba(this.palette.coreIn, (0.18 + r * 0.32) * p));
+        coreGrad.addColorStop(1, rgba(this.palette.core, 0));
+        ctx.fillStyle = coreGrad;
+        ctx.beginPath();
+        ctx.arc(cx, cy, v * 0.5, 0, PI2);
+        ctx.fill();
+      }
+
+      drawTicks(ctx, cx, cy, innerR, outerR, count, rot, strokeStyle, widthFactor) {
+        ctx.strokeStyle = strokeStyle;
+        ctx.lineWidth = ((outerR - innerR) * Math.PI * 2 / count) * widthFactor * 0.9;
+        for (let i = 0; i < count; i++) {
+          const ang = rot + (i / count) * PI2;
+          const cosA = Math.cos(ang), sinA = Math.sin(ang);
+          ctx.beginPath();
+          ctx.moveTo(cx + cosA * innerR, cy + sinA * innerR);
+          ctx.lineTo(cx + cosA * outerR, cy + sinA * outerR);
+          ctx.stroke();
+        }
+      }
+    }
+
+    const orbJarvis = new FlootOrb('J.A.R.V.I.S.', 'jarvis');
+    const orbFriday = new FlootOrb('F.R.I.D.A.Y.', 'friday');
+    const orbUltron = new FlootOrb('U.L.T.R.O.N.', 'ultron');
+    const orbObsidianBrain = new FlootOrb('OBSIDIAN BRAIN', 'obsidianBrain', true);
+    const allOrbs = [orbJarvis, orbFriday, orbUltron, orbObsidianBrain];
+
+    // Synapse Photons
+    const synapsePhotons = Array.from({ length: 24 }, () => ({
+      fromIdx: Math.floor(Math.random() * 4),
+      toIdx: (Math.floor(Math.random() * 3) + 1) % 4,
+      progress: Math.random(),
+      speed: 0.005 + Math.random() * 0.008,
+      size: 2 + Math.random() * 2.2
+    }));
+
+    const canvas = document.getElementById('orbsCanvas');
+    const ctx = canvas.getContext('2d');
+    let width = 0, height = 0, dpr = 1;
+
+    function resizeCanvas() {
+      const rect = canvas.getBoundingClientRect();
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      width = rect.width; height = rect.height;
+      canvas.width = width * dpr; canvas.height = height * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    let mouseX = -999, mouseY = -999;
+    canvas.addEventListener('mousemove', (e) => {
+      const rect = canvas.getBoundingClientRect();
+      mouseX = e.clientX - rect.left; mouseY = e.clientY - rect.top;
+      allOrbs.forEach(orb => {
+        const dx = mouseX - orb.cx, dy = mouseY - orb.cy;
+        orb.isHovered = (dx * dx + dy * dy) < (orb.radius * 1.2) * (orb.radius * 1.2);
+      });
+    });
+
+    canvas.addEventListener('click', () => {
+      allOrbs.forEach((orb, idx) => {
+        const dx = mouseX - orb.cx, dy = mouseY - orb.cy;
+        if ((dx * dx + dy * dy) < (orb.radius * 1.2) * (orb.radius * 1.2)) {
+          orb.triggerPulse();
+          if (idx === 0) {
+            playBeep(880, 'sine', 0.2);
+            speakVoice("Jarvis lead core ready. All three brains synchronized in a single interface.", "jarvis");
+            showToast("🔵 J.A.R.V.I.S. Core: Tuan rumah aktif. Mengoordinasikan Friday dan Ultron (US English).");
+          } else if (idx === 1) {
+            playBeep(1100, 'triangle', 0.2);
+            speakVoice("Friday co-brain ready. Assisting Jarvis with executive workflow and memory.", "friday");
+            showToast("🔴 F.R.I.D.A.Y. Co-Brain: Membantu Jarvis dalam alur kerja & telemetri suara (UK English).");
+          } else if (idx === 2) {
+            playBeep(440, 'sawtooth', 0.25);
+            speakVoice("Ultron co-brain online. Assisting Jarvis with deep logic and code.", "ultron");
+            showToast("🟡 U.L.T.R.O.N. Co-Brain: Membantu Jarvis dalam penalaran logika mendalam & kode (Aussie English).");
+          } else {
+            playBeep(980, 'sine', 0.25);
+            speakVoice("Obsidian Knowledge Brain active.", "brain");
+            showToast("🟣 Obsidian Small Brain: 604 catatan vault siap untuk grounding RAG.");
+          }
+        }
+      });
+    });
+
+    let timeStep = 0;
+    function renderMasterOrbs() {
+      if (document.hidden) { requestAnimationFrame(renderMasterOrbs); return; }
+      timeStep += 0.02;
+      ctx.clearRect(0, 0, width, height);
+
+      const isMobile = width < 768;
+      const baseRadius = isMobile ? Math.min(width, height) * 0.18 : Math.min(width, height) * 0.22;
+      const jarvisRadius = baseRadius * 1.18;
+      const coBrainRadius = baseRadius * 0.82;
+      const brainRadius = baseRadius * 0.72;
+
+      // TOPOLOGY: JARVIS in the Center, FRIDAY on Left, ULTRON on Right, OBSIDIAN at Bottom
+      const posJarvis = { x: width * 0.50, y: height * 0.44 };
+      const posFriday = { x: width * 0.18, y: height * 0.36 };
+      const posUltron = { x: width * 0.82, y: height * 0.36 };
+      const posBrain  = { x: width * 0.50, y: height * 0.82 };
+
+      if (isMobile) {
+        posFriday.x = width * 0.18;
+        posFriday.y = height * 0.28;
+        posUltron.x = width * 0.82;
+        posUltron.y = height * 0.28;
+        posJarvis.y = height * 0.54;
+        posBrain.y  = height * 0.86;
+      }
+
+      updateLabelPos('labelJarvis', posJarvis.x, posJarvis.y);
+      updateLabelPos('labelFriday', posFriday.x, posFriday.y);
+      updateLabelPos('labelUltron', posUltron.x, posUltron.y);
+      updateLabelPos('labelObsidianBrain', posBrain.x, posBrain.y);
+
+      ctx.globalCompositeOperation = 'lighter';
+
+      // Energy Conduits: Friday & Ultron channel thoughts directly INTO Jarvis
+      drawEnergyBeam(ctx, posFriday, posJarvis, 'rgba(255, 0, 85, 0.45)', 'rgba(0, 245, 212, 0.45)', timeStep, -15);
+      drawEnergyBeam(ctx, posUltron, posJarvis, 'rgba(255, 209, 102, 0.45)', 'rgba(0, 245, 212, 0.45)', timeStep + 1.2, 15);
+      
+      // Co-Brain mutual peer consultation bridge (Friday <-> Ultron across top)
+      drawEnergyBeam(ctx, posFriday, posUltron, 'rgba(255, 0, 85, 0.20)', 'rgba(255, 209, 102, 0.20)', timeStep * 0.8, -35);
+
+      // Memory Axon: Obsidian Brain channels knowledge directly UP into Jarvis
+      drawEnergyBeam(ctx, posBrain, posJarvis, 'rgba(192, 132, 252, 0.45)', 'rgba(0, 245, 212, 0.45)', timeStep * 1.2, 0);
+
+      // Traveling Thought Photons (Jarvis: Cyan, Friday: Red, Ultron: Gold, Brain: Purple)
+      const positions = [posJarvis, posFriday, posUltron, posBrain];
+      const colors = ['#00f5d4', '#ff0055', '#ffd166', '#c084fc'];
+      for (const pkt of synapsePhotons) {
+        pkt.progress += pkt.speed;
+        if (pkt.progress > 1) {
+          pkt.progress = 0;
+          // Most photons flow INTO Jarvis (idx 0)
+          pkt.fromIdx = Math.floor(Math.random() * 3) + 1; // from Friday(1), Ultron(2), or Brain(3)
+          pkt.toIdx = 0; // always stream into Jarvis
+        }
+        const p1 = positions[pkt.fromIdx];
+        const p2 = positions[pkt.toIdx];
+        const t = pkt.progress;
+        const curX = p1.x + (p2.x - p1.x) * t;
+        const curY = (p1.y + (p2.y - p1.y) * t) - 16 * Math.sin(t * Math.PI);
+
+        ctx.fillStyle = colors[pkt.fromIdx];
+        ctx.shadowColor = ctx.fillStyle;
+        ctx.shadowBlur = 8;
+        ctx.beginPath();
+        ctx.arc(curX, curY, pkt.size, 0, PI2);
+        ctx.fill();
+        ctx.shadowBlur = 0;
+      }
+
+      // Draw Co-Brains & Memory, then Lead Jarvis Core prominently
+      orbFriday.updateAndDraw(ctx, posFriday.x, posFriday.y, coBrainRadius);
+      orbUltron.updateAndDraw(ctx, posUltron.x, posUltron.y, coBrainRadius);
+      orbObsidianBrain.updateAndDraw(ctx, posBrain.x, posBrain.y, brainRadius);
+      orbJarvis.updateAndDraw(ctx, posJarvis.x, posJarvis.y, jarvisRadius);
+
+      ctx.globalCompositeOperation = 'source-over';
+      requestAnimationFrame(renderMasterOrbs);
+    }
+
+    function drawEnergyBeam(ctx, p1, p2, col1, col2, tOffset, archOffset = 20) {
+      ctx.lineWidth = 1.3;
+      const grad = ctx.createLinearGradient(p1.x, p1.y, p2.x, p2.y);
+      grad.addColorStop(0, col1); grad.addColorStop(1, col2);
+      ctx.strokeStyle = grad;
+      for (let wave = 0; wave < 2; wave++) {
+        ctx.beginPath(); ctx.moveTo(p1.x, p1.y);
+        const steps = 36;
+        for (let i = 1; i <= steps; i++) {
+          const ratio = i / steps;
+          const bx = p1.x + (p2.x - p1.x) * ratio;
+          const by = p1.y + (p2.y - p1.y) * ratio - Math.sin(ratio * Math.PI) * archOffset;
+          const disp = Math.sin(ratio * 12 + tOffset * 3 + wave * Math.PI) * 3.5;
+          ctx.lineTo(bx, by + disp);
+        }
+        ctx.stroke();
+      }
+    }
+
+    function updateLabelPos(elemId, x, y) {
+      const el = document.getElementById(elemId);
+      if (el) { el.style.left = `${x}px`; el.style.top = `${y}px`; }
+    }
+    requestAnimationFrame(renderMasterOrbs);
+
+    // 3. Tri-Core Swarm & Obsidian Brain RAG Collaboration
+    let currentCollabMode = 'swarm';
+    let currentObsidianUri = '';
+
+    function setCollabMode(mode) {
+      currentCollabMode = mode;
+      document.getElementById('modeSwarm').classList.toggle('active', mode === 'swarm');
+      document.getElementById('modeConsensus').classList.toggle('active', mode === 'consensus');
+      playBeep(720, 'sine', 0.1);
+      showToast(`⚡ Collaboration Mode: ${mode.toUpperCase()}`);
+    }
+
+    function onProviderChange() {
+      const p = document.getElementById('aiProviderSelect').value;
+      playBeep(840, 'triangle', 0.1);
+      showToast(`⚡ Multi-AI Backend changed to: ${p.toUpperCase()}`);
+    }
+
+    function applyPresetMission(task) {
+      document.getElementById('collabPromptInput').value = task;
+      playBeep(940, 'triangle', 0.12);
+      showToast(`🎯 Preset dimuat: "${task}"`);
+    }
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+
+    function formatTriBrainReply(rawText) {
+      if (!rawText) return '';
+      const jarvisTag = "### 🔵 J.A.R.V.I.S.";
+      const fridayTag1 = "### 🔴 F.R.I.D.A.Y.";
+      const fridayTag2 = "### 🟡 F.R.I.D.A.Y.";
+      const ultronTag1 = "### 🟡 U.L.T.R.O.N.";
+      const ultronTag2 = "### 🔴 U.L.T.R.O.N.";
+
+      let fridayTag = rawText.includes(fridayTag1) ? fridayTag1 : (rawText.includes(fridayTag2) ? fridayTag2 : null);
+      let ultronTag = rawText.includes(ultronTag1) ? ultronTag1 : (rawText.includes(ultronTag2) ? ultronTag2 : null);
+
+      if (rawText.includes(jarvisTag) || ultronTag || fridayTag) {
+        let parts = { jarvis: '', ultron: '', friday: '', intro: '' };
+        let jIdx = rawText.indexOf(jarvisTag);
+        let uIdx = ultronTag ? rawText.indexOf(ultronTag) : -1;
+        let fIdx = fridayTag ? rawText.indexOf(fridayTag) : -1;
+
+        let indices = [
+          { name: 'jarvis', idx: jIdx, tag: jarvisTag },
+          { name: 'ultron', idx: uIdx, tag: ultronTag || '' },
+          { name: 'friday', idx: fIdx, tag: fridayTag || '' }
+        ].filter(x => x.idx !== -1).sort((a, b) => a.idx - b.idx);
+
+        if (indices.length > 0 && indices[0].idx > 0) {
+          parts.intro = rawText.substring(0, indices[0].idx).trim();
+        }
+
+        for (let i = 0; i < indices.length; i++) {
+          const current = indices[i];
+          const nextIdx = (i + 1 < indices.length) ? indices[i + 1].idx : rawText.length;
+          const sectionContent = rawText.substring(current.idx + current.tag.length, nextIdx).trim();
+          parts[current.name] = sectionContent;
+        }
+
+        let html = '';
+        if (parts.intro) {
+          html += `<div style="margin-bottom:14px; font-style:italic; color:#94a3b8; font-size:12px;">${escapeHtml(parts.intro)}</div>`;
+        }
+        if (parts.jarvis) {
+          html += `
+            <div class="tri-brain-card jarvis-card">
+              <div class="tri-brain-card-header">
+                <span>🔵 J.A.R.V.I.S. // TACTICAL ORCHESTRATION & DECOMPOSITION (US ENGLISH)</span>
+                <span style="font-size:10px; background:rgba(0,245,212,0.2); color:var(--jarvis-cyan); padding:2px 8px; border-radius:4px;">LEAD HOST // US EN</span>
+              </div>
+              <div class="tri-brain-card-content">${escapeHtml(parts.jarvis)}</div>
+            </div>`;
+        }
+        if (parts.ultron) {
+          html += `
+            <div class="tri-brain-card ultron-card">
+              <div class="tri-brain-card-header">
+                <span>🟡 U.L.T.R.O.N. // COGNITIVE REASONING & CODE ARCHITECTURE (AUSSIE ENGLISH)</span>
+                <span style="font-size:10px; background:rgba(255,209,102,0.2); color:var(--ultron-gold); padding:2px 8px; border-radius:4px;">CO-THINKER // AUSSIE EN</span>
+              </div>
+              <div class="tri-brain-card-content">${escapeHtml(parts.ultron)}</div>
+            </div>`;
+        }
+        if (parts.friday) {
+          html += `
+            <div class="tri-brain-card friday-card">
+              <div class="tri-brain-card-header">
+                <span>🔴 F.R.I.D.A.Y. // EXECUTIVE SYNTHESIS & ACTION STEPS (UK ENGLISH)</span>
+                <span style="font-size:10px; background:rgba(255,0,85,0.2); color:var(--friday-red); padding:2px 8px; border-radius:4px;">CO-THINKER // UK EN</span>
+              </div>
+              <div class="tri-brain-card-content">${escapeHtml(parts.friday)}</div>
+            </div>`;
+        }
+        return html;
+      }
+      return `<div style="white-space:pre-wrap;">${escapeHtml(rawText)}</div>`;
+    }
+
+    let is2WayLive = false;
+    let isWaitingAiReply = false;
+
+    function toggleLive2WayTalk() {
+      is2WayLive = !is2WayLive;
+      const btn = document.getElementById('btn2WayTalk');
+      btn.classList.toggle('active', is2WayLive);
+      if (is2WayLive) {
+        playBeep(1200, 'sine', 0.2);
+        showToast("🎙️ Mode Live 2-Way Talk AKTIF. Bicaralah langsung!");
+        speakVoiceNatural("Live two way conversation active. I am listening, sir.", () => {
+          startLiveListening();
+        });
+      } else {
+        playBeep(440, 'sawtooth', 0.2);
+        showToast("🛑 Mode Live 2-Way Talk dimatikan.");
+        if (recognition) { try { recognition.stop(); } catch(e){} }
+        if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+      }
+    }
+
+    function startLiveListening() {
+      if (!is2WayLive || isWaitingAiReply) return;
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if (!SpeechRecognition) return;
+
+      if (recognition) {
+        try { recognition.stop(); } catch(e){}
+      }
+      recognition = new SpeechRecognition();
+      recognition.lang = 'id-ID';
+      recognition.interimResults = false;
+      recognition.maxAlternatives = 1;
+
+      recognition.onstart = () => {
+        document.getElementById('micBtn').classList.add('recording');
+        showToast("🎙️ Mendengarkan suara Anda...");
+      };
+
+      recognition.onresult = (e) => {
+        const transcript = e.results[0][0].transcript;
+        if (transcript && transcript.trim()) {
+          document.getElementById('collabPromptInput').value = transcript;
+          executeTriCoreCollaboration();
+        }
+      };
+
+      recognition.onerror = (err) => {
+        document.getElementById('micBtn').classList.remove('recording');
+        if (is2WayLive && !isWaitingAiReply) {
+          setTimeout(startLiveListening, 1200);
+        }
+      };
+
+      recognition.onend = () => {
+        document.getElementById('micBtn').classList.remove('recording');
+        if (is2WayLive && !isWaitingAiReply && !('speechSynthesis' in window && window.speechSynthesis.speaking)) {
+          setTimeout(startLiveListening, 800);
+        }
+      };
+
+      try {
+        recognition.start();
+      } catch(e) {}
+    }
+
+    async function executeTriCoreCollaboration() {
+      const promptInput = document.getElementById('collabPromptInput');
+      const prompt = promptInput.value.trim();
+      if (!prompt) {
+        showToast("⚠️ Ketik instruksi atau bicarakan pertanyaan Anda.");
+        playBeep(320, 'sawtooth', 0.2);
+        return;
+      }
+
+      isWaitingAiReply = true;
+      const provider = document.getElementById('aiProviderSelect').value;
+      const groundWithBrain = document.getElementById('brainRagToggle').checked;
+
+      // Visual Pulse on Orbs (Silent & fast, no annoying robotic speech)
+      allOrbs.forEach(o => o.triggerPulse());
+      playBeep(640, 'triangle', 0.12);
+
+      const pBar = document.getElementById('collabProgressBar');
+      const sJarvis = document.getElementById('stepJarvis');
+      const sUltron = document.getElementById('stepUltron');
+      const sFriday = document.getElementById('stepFriday');
+      const gStrip = document.getElementById('groundedNotesStrip');
+      const gChips = document.getElementById('groundedChipsContainer');
+      const rDeck = document.getElementById('collabResultDeck');
+      const rText = document.getElementById('collabResultText');
+
+      pBar.style.display = 'grid';
+      rDeck.style.display = 'none';
+      gStrip.style.display = 'none';
+
+      sJarvis.classList.add('active-step');
+      sUltron.classList.remove('active-step');
+      sFriday.classList.remove('active-step');
+
+      setTimeout(() => {
+        sJarvis.classList.remove('active-step');
+        sUltron.classList.add('active-step');
+        orbUltron.triggerPulse();
+      }, 700);
+
+      setTimeout(() => {
+        sUltron.classList.remove('active-step');
+        sFriday.classList.add('active-step');
+        orbFriday.triggerPulse();
+      }, 1400);
+
+      try {
+        const res = await fetch('/api/tricore/collaborate', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            prompt: prompt,
+            mode: currentCollabMode,
+            provider: provider,
+            ground_with_brain: groundWithBrain,
+            pin: '111993'
+          })
+        });
+
+        isWaitingAiReply = false;
+        if (res.ok) {
+          const data = await res.json();
+          sJarvis.classList.remove('active-step');
+          sUltron.classList.remove('active-step');
+          sFriday.classList.remove('active-step');
+
+          // Grounded notes
+          if (data.grounded_notes && data.grounded_notes.length > 0) {
+            gChips.innerHTML = '';
+            data.grounded_notes.forEach(note => {
+              const a = document.createElement('a');
+              a.className = 'grounded-chip';
+              a.textContent = `[[${note.title}]]`;
+              a.href = `obsidian://open?vault=obsidian_vault&file=${encodeURIComponent(note.path.replace('.md', ''))}`;
+              a.target = '_blank';
+              gChips.appendChild(a);
+            });
+            gStrip.style.display = 'flex';
+          }
+
+          rDeck.style.display = 'block';
+          rText.innerHTML = formatTriBrainReply(data.reply || JSON.stringify(data, null, 2));
+          currentObsidianUri = data.obsidian_uri || '';
+
+          playBeep(1100, 'sine', 0.2);
+          showToast(`✅ Disimpan ke Obsidian: ${data.brain_note || 'Synapse'}`);
+
+          // Speak the ACTUAL conversational answer directly like a real human / Gemini Live / ChatGPT Voice!
+          const spokenAnswer = cleanTextForSpeech(data.reply || "");
+          speakVoiceNatural(spokenAnswer, () => {
+            if (is2WayLive) {
+              startLiveListening();
+            }
+          });
+
+          refreshBrainStats();
+          pollUsageStats();
+        } else {
+          throw new Error("HTTP " + res.status);
+        }
+      } catch (err) {
+        isWaitingAiReply = false;
+        sJarvis.classList.remove('active-step');
+        sUltron.classList.remove('active-step');
+        sFriday.classList.remove('active-step');
+        rDeck.style.display = 'block';
+        const fallbackText = 
+`### 🔵 J.A.R.V.I.S. // TACTICAL ORCHESTRATION & DECOMPOSITION
+- Direktif Diterima: "${prompt}"
+- Sumber Brain: Terhubung ke Obsidian Small Brain [[00_INDEX_MULTI_AGENT_BRAIN]].
+- Status Swarm: Koordinasi 3 agen aktif dalam 1 antarmuka utama Jarvis dengan Zero-Billing Shield.
+
+### 🔴 U.L.T.R.O.N. // COGNITIVE REASONING, CODE ARCHITECTURE & SECURITY
+- Logika Inti: Sistem aman dengan failover mesh otomatis dan proteksi GAuth 2FA.
+
+### 🟡 F.R.I.D.A.Y. // EXECUTIVE SYNTHESIS & ACTION PLAN
+- Rekomendasi: Output telah dialirkan ke Obsidian Vault (Folder 20_MULTI_AGENT_BRAIN).`;
+        rText.innerHTML = formatTriBrainReply(fallbackText);
+        showToast("ℹ️ Output Tri-Core siap ditinjau.");
+
+        speakVoiceNatural(cleanTextForSpeech(fallbackText), () => {
+          if (is2WayLive) startLiveListening();
+        });
+        pollUsageStats();
+      }
+    }
+
+    function openCurrentNoteInObsidian() {
+      if (currentObsidianUri) {
+        window.open(currentObsidianUri, '_blank');
+      } else {
+        window.open('obsidian://open?vault=obsidian_vault', '_blank');
+      }
+    }
+
+    function copyResultText() {
+      const text = document.getElementById('collabResultText').textContent;
+      if (text) {
+        navigator.clipboard.writeText(text).then(() => {
+          showToast("📋 Respon Tri-Core berhasil disalin ke clipboard!");
+          playBeep(1100, 'sine', 0.1);
+        });
+      }
+    }
+
+    function speakCurrentResult() {
+      const text = document.getElementById('collabResultText').textContent;
+      const spoken = cleanTextForSpeech(text);
+      speakVoiceNatural(spoken);
+    }
+
+    // Voice Dictation
+    let recognition = null;
+    let isRecording = false;
+
+    function toggleVoiceDictation() {
+      const micBtn = document.getElementById('micBtn');
+      const input = document.getElementById('collabPromptInput');
+      if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+        showToast("⚠️ Browser tidak mendukung Web Speech Recognition. Silakan ketik.");
+        return;
+      }
+      if (isRecording) {
+        if (recognition) recognition.stop();
+        isRecording = false; micBtn.classList.remove('recording'); return;
+      }
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      recognition = new SpeechRecognition();
+      recognition.lang = 'id-ID';
+      recognition.interimResults = false;
+      recognition.onstart = () => { isRecording = true; micBtn.classList.add('recording'); playBeep(1200, 'sine', 0.1); showToast("🎙️ Mendengarkan suara..."); };
+      recognition.onresult = (e) => { input.value = e.results[0][0].transcript; playBeep(1000, 'triangle', 0.15); };
+      recognition.onerror = () => { isRecording = false; micBtn.classList.remove('recording'); };
+      recognition.onend = () => { isRecording = false; micBtn.classList.remove('recording'); };
+      recognition.start();
+    }
+
+    // 4. Obsidian Brain Live Query & Stats
+    async function refreshBrainStats() {
+      try {
+        const res = await fetch('/api/brain/stats');
+        if (res.ok) {
+          const stats = await res.json();
+          document.getElementById('obsidianCount').textContent = stats.total_notes + ' NOTES ACTIVE';
+          document.getElementById('brainNotesBadge').textContent = stats.total_notes + ' NOTES ACTIVE';
+          if (stats.six_pillars && stats.six_pillars.bionic) {
+            document.getElementById('bionicStatusText').textContent = stats.six_pillars.bionic;
+          }
+          renderRecentNotes(stats.recent_notes || []);
+        }
+      } catch (e) {}
+    }
+
+    // Live Zero-Billing Usage % Telemetry Polling (Every 4 seconds)
+    async function pollUsageStats() {
+      try {
+        const res = await fetch('/api/usage/stats');
+        if (res.ok) {
+          const data = await res.json();
+          const usagePct = data.usage_percentage || 0.0;
+          const healthy = data.healthy_keys_count || 0;
+          const total = data.total_keys || 7;
+
+          const pctEl = document.getElementById('usagePctDisplay');
+          const healthEl = document.getElementById('keysHealthDisplay');
+          const routingText = document.getElementById('routingUsageText');
+          const routingBar = document.getElementById('routingUsageBar');
+
+          if (pctEl) {
+            pctEl.textContent = `${usagePct.toFixed(1)}% USAGE`;
+            pctEl.style.color = usagePct < 40 ? '#00ffa3' : (usagePct < 75 ? '#ffd166' : '#ff0055');
+          }
+          if (healthEl) {
+            healthEl.textContent = `${healthy}/${total} HEALTHY`;
+            healthEl.style.color = healthy === total ? 'var(--jarvis-cyan)' : '#ffd166';
+          }
+          if (routingText) {
+            routingText.textContent = `${usagePct.toFixed(1)}% USAGE (${healthy}/${total} ACTIVE)`;
+          }
+          if (routingBar) {
+            routingBar.style.width = `${Math.min(100, usagePct)}%`;
+            routingBar.style.background = usagePct < 40 ? '#00ffa3' : (usagePct < 75 ? '#ffd166' : '#ff0055');
+          }
+        }
+      } catch (e) {}
+    }
+
+    function renderRecentNotes(notes) {
+      const container = document.getElementById('brainResultsContainer');
+      container.innerHTML = '';
+      if (!notes || notes.length === 0) {
+        container.innerHTML = '<div style="color:var(--text-muted); font-size:12px; grid-column:1/-1;">Belum ada catatan recent.</div>';
+        return;
+      }
+      notes.forEach(note => {
+        const card = document.createElement('div');
+        card.className = 'brain-note-card';
+        const obsUri = `obsidian://open?vault=obsidian_vault&file=${encodeURIComponent(note.path.replace('.md', ''))}`;
+        card.innerHTML = `
+          <div class="title">
+            <span>📄 ${note.title}</span>
+            <span style="font-size:10px; color:var(--text-muted);">${note.time_str || ''}</span>
+          </div>
+          <div class="snippet">${note.path}</div>
+          <a class="open-link" href="${obsUri}" target="_blank">🔗 Buka di Obsidian ▹</a>
+        `;
+        card.onclick = (e) => {
+          if (e.target.tagName !== 'A') window.open(obsUri, '_blank');
+        };
+        container.appendChild(card);
+      });
+    }
+
+    async function executeBrainSearch() {
+      const q = document.getElementById('brainSearchInput').value.trim();
+      if (!q) { refreshBrainStats(); return; }
+      playBeep(920, 'sine', 0.1);
+      const container = document.getElementById('brainResultsContainer');
+      container.innerHTML = '<div style="color:var(--obsidian-purple); font-size:12px; grid-column:1/-1;">Mencari di seluruh 603+ catatan Obsidian Brain...</div>';
+
+      try {
+        const res = await fetch('/api/brain/query?q=' + encodeURIComponent(q) + '&limit=9');
+        if (res.ok) {
+          const data = await res.json();
+          container.innerHTML = '';
+          if (!data.results || data.results.length === 0) {
+            container.innerHTML = `<div style="color:var(--text-muted); font-size:12px; grid-column:1/-1;">Tidak ada catatan yang cocok dengan "${q}".</div>`;
+            return;
+          }
+          data.results.forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'brain-note-card';
+            const obsUri = `obsidian://open?vault=obsidian_vault&file=${encodeURIComponent(item.path.replace('.md', ''))}`;
+            card.innerHTML = `
+              <div class="title">
+                <span>📄 [[${item.title}]]</span>
+                <span style="font-size:10px; color:var(--obsidian-purple);">Score: ${item.score}</span>
+              </div>
+              <div class="snippet">${item.snippet || item.path}</div>
+              <a class="open-link" href="${obsUri}" target="_blank">🔗 Buka di Obsidian ▹</a>
+            `;
+            card.onclick = (e) => {
+              if (e.target.tagName !== 'A') window.open(obsUri, '_blank');
+            };
+            container.appendChild(card);
+          });
+          showToast(`🔍 Ditemukan ${data.count} catatan terkait di Obsidian Brain!`);
+        }
+      } catch (e) {
+        container.innerHTML = '<div style="color:var(--ultron-red); font-size:12px;">Gagal mencari di server.</div>';
+      }
+    }
+
+    refreshBrainStats();
+    setInterval(refreshBrainStats, 30000);
+    pollUsageStats();
+    setInterval(pollUsageStats, 4000);
+
+    // 5. Tactical Co-Thinker Orchestration (Single Jarvis Preview)
+    function triggerUnifiedCorePulse() {
+      playBeep(520, 'triangle', 0.15);
+      setTimeout(() => playBeep(880, 'sine', 0.25), 120);
+      allOrbs.forEach(o => o.triggerPulse());
+      speakVoice("All three brains synchronized with Jarvis lead core. Full cognitive mesh active.");
+      showToast("🌌 Tri-Brain Unified Core: Jarvis, Friday, dan Ultron tersinkronisasi 100% dalam 1 tampilan!");
+      fetch('/api/launch/mark85').catch(() => {});
+    }
+
+    function focusCoBrain(role) {
+      if (role === 'jarvis') {
+        orbJarvis.triggerPulse();
+        playBeep(880, 'sine', 0.15);
+        speakVoice("Jarvis lead core ready. Orchestrating Friday and Ultron with US English command.", "jarvis");
+        showToast("🔵 J.A.R.V.I.S. Core terpilih: Komando taktis & orkestrasi 3 otak (US English).");
+      } else if (role === 'friday') {
+        orbFriday.triggerPulse();
+        playBeep(1100, 'triangle', 0.15);
+        speakVoice("Friday co-brain ready. Assisting Jarvis with executive workflow and British voice.", "friday");
+        showToast("🔴 F.R.I.D.A.Y. Co-Brain terpilih: Membantu Jarvis dalam alur kerja & suara (UK English).");
+      } else if (role === 'ultron') {
+        orbUltron.triggerPulse();
+        playBeep(440, 'sawtooth', 0.2);
+        speakVoice("Ultron co-brain online. Assisting Jarvis with deep logic and Australian code architecture.", "ultron");
+        showToast("🟡 U.L.T.R.O.N. Co-Brain terpilih: Membantu Jarvis dalam penalaran logika & kode (Aussie English).");
+      } else if (role === 'brain') {
+        orbObsidianBrain.triggerPulse();
+        playBeep(980, 'sine', 0.2);
+        speakVoice("Obsidian Knowledge Brain active with 604 synapses.", "brain");
+        showToast("🟣 Obsidian Small Brain: 604 catatan vault siap grounding RAG (Mix English).");
+        document.getElementById('brainSearchInput').focus();
+      }
+    }
+
+    function launchSotaCLI() { playBeep(920, 'square', 0.15); fetch('/api/launch/sota').catch(() => {}); showToast("🚀 SOTA 5-in-1 CLI aktif di background."); }
+    function launchModelOptCLI() { playBeep(640, 'triangle', 0.15); fetch('/api/launch/modelopt').catch(() => {}); showToast("⚙️ NVIDIA ModelOpt aktif di background."); }
+    function triggerOmniSync() { playBeep(1050, 'triangle', 0.15); fetch('/api/sync/run').catch(() => {}); showToast("🌐 6-Way Omni-Sync diinisialisasi."); }
+
+    async function requestPowerDown() {
+      playBeep(440, 'sawtooth', 0.2);
+      try {
+        const res = await fetch('/api/tasks/status');
+        if (res.ok) {
+          const data = await res.json();
+          if (data.has_running_tasks && data.active_tasks_count > 0) {
+            let taskNames = data.tasks.map(t => "• " + t.name).join("\n");
+            const ok = confirm(`⚠️ PERINGATAN: Masih ada ${data.active_tasks_count} tugas agen berjalan!\n\n${taskNames}\n\nDo you really want to exit?`);
+            if (!ok) return;
+          }
+        }
+      } catch (e) {}
+
+      showToast("🛑 Mematikan sistem Stark OS & menutup port 5050...");
+      speakVoice("Powering down systems. Goodbye, sir.");
+      try { await fetch('/api/shutdown?force=true'); } catch (e) {}
+      setTimeout(() => {
+        document.body.innerHTML = `
+          <div style="height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; background:#04070d; color:#ff0055; font-family:'Orbitron',sans-serif; text-align:center; padding:20px;">
+            <div style="font-size:52px; margin-bottom:16px;">🛑</div>
+            <h1 style="font-size:28px; letter-spacing:4px; margin-bottom:12px;">STARK INDUSTRIES SYSTEMS OFFLINE</h1>
+            <p style="color:#94a3b8; font-family:'Rajdhani',sans-serif; font-size:16px; margin-bottom:24px;">Quantum Bridge Server di Port 5050 telah dimatikan secara bersih.</p>
+            <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#c084fc; border:1px solid #c084fc; padding:8px 18px; border-radius:6px; background:rgba(192,132,252,0.08);">STATUS: POWERED DOWN // OBSIDIAN MEMORY PERSISTED</div>
+          </div>
+        `;
+      }, 1000);
+    }
+
+    // Real-time Clock
+    setInterval(() => {
+      const now = new Date();
+      document.getElementById('clockDisplay').textContent = now.toTimeString().split(' ')[0];
+    }, 1000);
+
+    // GAuth 2FA
+    let currentTotpSec = 30;
+    async function pollGAuthStatus() {
+      try {
+        const res = await fetch('http://127.0.0.1:5050/api/gauth/status');
+        if (res.ok) {
+          const data = await res.json();
+          document.getElementById('totpCodeDisplay').textContent = data.totp_code || '------';
+          currentTotpSec = data.seconds_remaining || 30;
+          document.getElementById('totpCountdown').textContent = currentTotpSec + 's';
+          const pct = Math.max(0, Math.min(100, (currentTotpSec / 30) * 100));
+          document.getElementById('totpProgressBar').style.width = pct + '%';
+        }
+      } catch (e) {}
+    }
+    setInterval(() => {
+      if (currentTotpSec > 1) {
+        currentTotpSec--;
+        document.getElementById('totpCountdown').textContent = currentTotpSec + 's';
+        const pct = Math.max(0, Math.min(100, (currentTotpSec / 30) * 100));
+        document.getElementById('totpProgressBar').style.width = pct + '%';
+      } else { pollGAuthStatus(); }
+    }, 1000);
+    pollGAuthStatus();
+
+    function copyTotpCode() {
+      const code = document.getElementById('totpCodeDisplay').textContent.trim();
+      if (code && code !== '------') {
+        navigator.clipboard.writeText(code).then(() => {
+          showToast(`📋 TOTP Code ${code} berhasil disalin!`);
+          playBeep(1100, 'sine', 0.1);
+        });
+      }
+    }
+
+    async function generateRunTokenManual() {
+      playBeep(950, 'triangle', 0.15);
+      try {
+        const res = await fetch('http://127.0.0.1:5050/api/gauth/run/sign', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ operation: 'Stark-HUD-User-Task', agent: 'tri-core' })
+        });
+        if (res.ok) {
+          const data = await res.json();
+          navigator.clipboard.writeText(data.run_token);
+          showToast(`🔑 Run Token (${data.signature}) berhasil dibuat & disalin!`);
+          speakVoice("GAuth authorization token generated and signed, sir.");
+        }
+      } catch (e) { showToast("❌ Gagal membuat Run Token."); }
+    }
+
+    async function verifyCodeFromUI() {
+      const input = document.getElementById('verifyCodeInput');
+      const msg = document.getElementById('verifyResultMsg');
+      const code = input.value.trim();
+      if (!code || code.length !== 6) {
+        msg.textContent = "⚠️ Masukkan 6-digit kode angka.";
+        msg.style.color = "#ffd166";
+        playBeep(350, 'sawtooth', 0.2);
+        return;
+      }
+      try {
+        const res = await fetch('http://127.0.0.1:5050/api/gauth/verify', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ code: code })
+        });
+        if (res.ok) {
+          const data = await res.json();
+          if (data.valid) {
+            msg.textContent = `✅ VALID! Otorisasi diterima. (${code})`;
+            msg.style.color = "#00ffa3";
+            playBeep(1200, 'sine', 0.2);
+            speakVoice("Two factor authentication code verified. Access granted.");
+            showToast(`✅ 2FA Code ${code} Terverifikasi!`);
+          } else {
+            msg.textContent = `❌ KODE TIDAK VALID ATAU KADALUARSA.`;
+            msg.style.color = "#ff0055";
+            playBeep(280, 'sawtooth', 0.3);
+            showToast(`❌ Verifikasi Gagal: Kode ${code} ditolak.`);
+          }
+        }
+      } catch (e) { msg.textContent = "Server error."; msg.style.color = "#ff0055"; }
+    }
+
+    window.addEventListener('load', () => { setTimeout(() => playBeep(980, 'sine', 0.12), 400); });
+  </script>
+</body>
+</html>

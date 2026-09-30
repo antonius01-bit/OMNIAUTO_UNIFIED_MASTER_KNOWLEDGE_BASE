@@ -1,0 +1,1 @@
+# Surgical Diff Guide (Ponytail Discipline)\n\n- Modify minimal contiguous lines.\n- Never rewrite entire files unnecessarily.\n- Preserve existing comments and docstrings.\n- Verify syntax and linter status.

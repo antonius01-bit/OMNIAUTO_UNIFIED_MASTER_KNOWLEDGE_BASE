@@ -1,0 +1,1002 @@
+[
+  {
+    "num": "001",
+    "command": "/headshot",
+    "description": "Turn a supplied portrait into a polished headshot with balanced lighting and a simple background."
+  },
+  {
+    "num": "002",
+    "command": "/ugc",
+    "description": "Create a creator-style product clip with natural delivery, visible product details, and a clear opening hook."
+  },
+  {
+    "num": "003",
+    "command": "/productexplosion",
+    "description": "Separate product components in an exploded composition, keeping their positions aligned around the assembled silhouette."
+  },
+  {
+    "num": "004",
+    "command": "/productspin",
+    "description": "Show a product rotating through a full circle against a steady, softly lit backdrop."
+  },
+  {
+    "num": "005",
+    "command": "/adcreative",
+    "description": "Build an advertisement around your product, combining a strong focal image, short headline, and requested call to action."
+  },
+  {
+    "num": "006",
+    "command": "/animated",
+    "description": "Add expressive movement to a product scene using controlled camera motion and a coordinated background. A GOOD BRIEF HAS FIVE PARTS Subject + reference + visual direction + exact words + output format. MAKE A LAUNCH ASSET /adcreative for [product]. Audience: [who]. Main benefit: [why it matters]. Format: [ratio]."
+  },
+  {
+    "num": "007",
+    "command": "/corporateheadshot",
+    "description": "Create a formal business portrait with tailored clothing, soft light, and a neutral backdrop."
+  },
+  {
+    "num": "008",
+    "command": "/passportphoto",
+    "description": "Frame a passport-style portrait with even light; check official rules before submitting."
+  },
+  {
+    "num": "009",
+    "command": "/casualheadshot",
+    "description": "Use relaxed clothing, a natural expression, and window light for an approachable portrait."
+  },
+  {
+    "num": "010",
+    "command": "/graduationportrait",
+    "description": "Show the subject in graduation attire against a softly focused academic setting."
+  },
+  {
+    "num": "011",
+    "command": "/founderportrait",
+    "description": "Compose an editorial founder portrait with confident posture and space for publication text."
+  },
+  {
+    "num": "012",
+    "command": "/actorheadshot",
+    "description": "Frame a casting portrait with clear eyes, natural skin texture, and a simple background."
+  },
+  {
+    "num": "013",
+    "command": "/teamphoto",
+    "description": "Match team portraits with shared crops, lighting, and backgrounds for staff listings."
+  },
+  {
+    "num": "014",
+    "command": "/doctorportrait",
+    "description": "Create a clinical portrait with requested attire, a tidy setting, and welcoming light."
+  },
+  {
+    "num": "015",
+    "command": "/bwportrait",
+    "description": "Render the portrait in monochrome with rich tones, directional light, and subtle grain."
+  },
+  {
+    "num": "016",
+    "command": "/realtorheadshot",
+    "description": "Set a crisp professional portrait inside a bright, softly focused residential space."
+  },
+  {
+    "num": "017",
+    "command": "/goldenhourportrait",
+    "description": "Light an outdoor portrait with warm, low sunlight and a softly blurred landscape."
+  },
+  {
+    "num": "018",
+    "command": "/fitnessportrait",
+    "description": "Shape an athletic portrait with directional gym lighting and crisp clothing details."
+  },
+  {
+    "num": "019",
+    "command": "/speakerphoto",
+    "description": "Stage an imagined speaking portrait with a microphone, stage lights, and blurred crowd."
+  },
+  {
+    "num": "020",
+    "command": "/podcastportrait",
+    "description": "Frame a host beside a studio microphone, leaving space for the show title."
+  },
+  {
+    "num": "021",
+    "command": "/authorphoto",
+    "description": "Create a thoughtful author portrait with gentle contrast and a quiet reading-space backdrop."
+  },
+  {
+    "num": "022",
+    "command": "/vintageportrait",
+    "description": "Restyle a portrait with seventies colors, period clothing, soft contrast, and photographic grain."
+  },
+  {
+    "num": "023",
+    "command": "/datingprofile",
+    "description": "Create an approachable portrait with natural light and details faithful to the supplied photo."
+  },
+  {
+    "num": "024",
+    "command": "/outfitswap",
+    "description": "Compare five outfits while keeping the same face, pose, and lighting throughout. KEEP IDENTITY CONSISTENT /founderportrait using this photo. Keep my facial features and hair; use window light and a quiet studio."
+  },
+  {
+    "num": "025",
+    "command": "/productshot",
+    "description": "Place the product on white with crisp edges, soft shadows, and readable packaging."
+  },
+  {
+    "num": "026",
+    "command": "/ghostmannequin",
+    "description": "Show clothing with invisible support, preserving its shape, seams, and inner neckline."
+  },
+  {
+    "num": "027",
+    "command": "/lifestyleshot",
+    "description": "Place the product in a believable everyday setting with useful props and natural light."
+  },
+  {
+    "num": "028",
+    "command": "/handheld",
+    "description": "Show the product in a natural hand pose to communicate size and grip."
+  },
+  {
+    "num": "029",
+    "command": "/heroimage",
+    "description": "Compose a wide product scene with a clear focus and space for website copy."
+  },
+  {
+    "num": "030",
+    "command": "/naturebackdrop",
+    "description": "Place the product in a chosen landscape with matching shadows and reflections."
+  },
+  {
+    "num": "031",
+    "command": "/flatlay",
+    "description": "Arrange the product and props from above with balanced spacing and readable labels."
+  },
+  {
+    "num": "032",
+    "command": "/podiumshot",
+    "description": "Elevate the product on a sculptural block with a clean silhouette and controlled highlights."
+  },
+  {
+    "num": "033",
+    "command": "/floatingproduct",
+    "description": "Suspend the product above a simple surface with a soft shadow and restrained props. 2"
+  },
+  {
+    "num": "034",
+    "command": "/glassreflection",
+    "description": "Set the product on polished glass with controlled highlights and a clean reflection."
+  },
+  {
+    "num": "035",
+    "command": "/splashshot",
+    "description": "Freeze a liquid burst around the product while keeping its silhouette and label visible."
+  },
+  {
+    "num": "036",
+    "command": "/backgroundswap",
+    "description": "Replace a product photo’s setting, matching shadows and color to the new scene."
+  },
+  {
+    "num": "037",
+    "command": "/macroshot",
+    "description": "Emphasize a close product detail through fine texture, surface finish, and selective focus."
+  },
+  {
+    "num": "038",
+    "command": "/catalogset",
+    "description": "Match a product series through shared angles, lighting, backgrounds, and image sizes."
+  },
+  {
+    "num": "039",
+    "command": "/luxuryshot",
+    "description": "Style the product with refined materials, restrained props, and soft editorial lighting."
+  },
+  {
+    "num": "040",
+    "command": "/beforeafterproduct",
+    "description": "Pair supplied before-and-after images with matching crops and accurate panel labels."
+  },
+  {
+    "num": "041",
+    "command": "/colorways",
+    "description": "Compare six product colors with consistent shapes, materials, and lighting across the set."
+  },
+  {
+    "num": "042",
+    "command": "/seasonalshot",
+    "description": "Style a product for a chosen season with relevant colors, textures, and props."
+  },
+  {
+    "num": "043",
+    "command": "/onmodel",
+    "description": "Show apparel on a realistic model, highlighting fit, fabric behavior, and construction details."
+  },
+  {
+    "num": "044",
+    "command": "/amazonready",
+    "description": "Create a white-background product image; check marketplace rules before uploading it. PROTECT THE PRODUCT DETAILS /productshot using this reference. Keep the label, proportions and color. White background; soft shadow; 1:1."
+  },
+  {
+    "num": "045",
+    "command": "/exploded3d",
+    "description": "Spread visible product components along logical assembly axes, adding labels based on the supplied reference information."
+  },
+  {
+    "num": "046",
+    "command": "/blueprintview",
+    "description": "Draft a conceptual blueprint from supplied measurements, with clear dimension lines and labeled views for review."
+  },
+  {
+    "num": "047",
+    "command": "/cutaway",
+    "description": "Illustrate a section through the product using supplied internal references, distinguishing materials and visible components."
+  },
+  {
+    "num": "048",
+    "command": "/miniature",
+    "description": "Present the product as a small tabletop model with selective focus and props that establish scale."
+  },
+  {
+    "num": "049",
+    "command": "/xrayview",
+    "description": "Build a transparent product visualization from supplied internal references, making the component arrangement easy to see."
+  },
+  {
+    "num": "050",
+    "command": "/giantscale",
+    "description": "Place an oversized product in a street scene, matching perspective, shadows, and surrounding objects to its imagined scale."
+  },
+  {
+    "num": "051",
+    "command": "/clayrender",
+    "description": "Render the product in matte neutral gray so contours, proportions, and surface transitions become the focus."
+  },
+  {
+    "num": "052",
+    "command": "/partslist",
+    "description": "Lay out the referenced product components as an orderly kit with consistent spacing and optional identification labels."
+  },
+  {
+    "num": "053",
+    "command": "/wireframerender",
+    "description": "Visualize the product with a fine geometric mesh over a simple background to emphasize its overall structure."
+  },
+  {
+    "num": "054",
+    "command": "/materialswap",
+    "description": "Compare the same product form in wood, metal, and glass, adapting texture, reflections, and transparency."
+  },
+  {
+    "num": "055",
+    "command": "/turntable",
+    "description": "Arrange six consistent viewpoints of the product in a grid with matching scale and lighting."
+  },
+  {
+    "num": "056",
+    "command": "/assemblysteps",
+    "description": "Illustrate the supplied assembly sequence in clear panels, showing component placement and numbered actions at each stage."
+  },
+  {
+    "num": "057",
+    "command": "/isometricproduct",
+    "description": "Show the product from an isometric angle with clean edges, soft shadows, and minimal surrounding detail."
+  },
+  {
+    "num": "058",
+    "command": "/insidethebox",
+    "description": "Arrange the product, accessories, and packaging contents from the supplied list into a clear unboxing layout. GIVE STRUCTURE A REFERENCE /exploded3d using this parts list and reference image. Show only known components; add short labels."
+  },
+  {
+    "num": "059",
+    "command": "/staticad",
+    "description": "Combine a bold product image, supplied headline, and call to action in one ad."
+  },
+  {
+    "num": "060",
+    "command": "/offerad",
+    "description": "Design an offer graphic with supplied prices, terms, and dates in a clear hierarchy."
+  },
+  {
+    "num": "061",
+    "command": "/storyad",
+    "description": "Create a vertical product ad with space for platform controls and your call to action."
+  },
+  {
+    "num": "062",
+    "command": "/retargetad",
+    "description": "Create a reminder ad for returning shoppers using a supplied product benefit or offer."
+  },
+  {
+    "num": "063",
+    "command": "/carouselad",
+    "description": "Develop five coordinated ad slides, each pairing a supported benefit with focused imagery."
+  },
+  {
+    "num": "064",
+    "command": "/adset",
+    "description": "Create five ad concepts with distinct opening messages, visual emphasis, and calls to action."
+  },
+  {
+    "num": "065",
+    "command": "/bannerad",
+    "description": "Adapt a campaign to horizontal, square, and tall placements while keeping its message legible."
+  },
+  {
+    "num": "066",
+    "command": "/emailheader",
+    "description": "Design a wide email header with focused imagery, restrained text, and your brand colors."
+  },
+  {
+    "num": "067",
+    "command": "/billboard",
+    "description": "Place your campaign on a realistic roadside billboard with matching perspective and scale."
+  },
+  {
+    "num": "068",
+    "command": "/landingmock",
+    "description": "Sketch a landing-page opening with product imagery, key benefits, and a clear action."
+  },
+  {
+    "num": "069",
+    "command": "/busstopad",
+    "description": "Place your ad on a lit bus-shelter display with reflections and evening street light."
+  },
+  {
+    "num": "070",
+    "command": "/appstoreshots",
+    "description": "Arrange supplied app screens into a promotional set with concise captions and consistent framing."
+  },
+  {
+    "num": "071",
+    "command": "/magazinead",
+    "description": "Design a full-page print ad with striking imagery, clear type, and generous margins."
+  },
+  {
+    "num": "072",
+    "command": "/subwayad",
+    "description": "Mock up your ad on a station display with matching perspective and ambient lighting."
+  },
+  {
+    "num": "073",
+    "command": "/comparisonad",
+    "description": "Compare supplied product facts in labeled columns that highlight verified differences."
+  },
+  {
+    "num": "074",
+    "command": "/uglyad",
+    "description": "Create an informal ad with simple typography, candid imagery, and a direct supplied message."
+  },
+  {
+    "num": "075",
+    "command": "/testimonialad",
+    "description": "Pair an authorized customer quote and photo with attribution and product imagery."
+  },
+  {
+    "num": "076",
+    "command": "/adstoryboard",
+    "description": "Outline six advertising frames with key shots, intended action, and concise scene notes. WRITE THE MESSAGE FIRST /staticad for [product]. Use this exact headline: [text]. CTA: [text]. Audience: [who]. Format: 4:5."
+  },
+  {
+    "num": "077",
+    "command": "/logoconcepts",
+    "description": "Explore six distinct logo directions for a supplied brand name, varying typography, symbol approach, and composition."
+  },
+  {
+    "num": "078",
+    "command": "/letterhead",
+    "description": "Apply the brand identity to a coordinated letterhead and envelope with clear contact placement and generous whitespace."
+  },
+  {
+    "num": "079",
+    "command": "/wordmark",
+    "description": "Shape the supplied brand name into a typographic logo using distinctive letterforms, spacing, and balanced proportions."
+  },
+  {
+    "num": "080",
+    "command": "/brandmerch",
+    "description": "Preview the supplied brand identity across apparel and accessories, adapting logo placement to each object."
+  },
+  {
+    "num": "081",
+    "command": "/iconlogo",
+    "description": "Develop a compact symbol for the brand with a clear silhouette and simple, reproducible geometry. 2"
+  },
+  {
+    "num": "082",
+    "command": "/storefront",
+    "description": "Apply the brand to exterior signage and window graphics, matching materials, perspective, and the surrounding architecture."
+  },
+  {
+    "num": "083",
+    "command": "/mascotdesign",
+    "description": "Develop an original brand character with a distinctive silhouette, expressive features, and a coordinated color palette."
+  },
+  {
+    "num": "084",
+    "command": "/appicon",
+    "description": "Explore app-icon concepts within common rounded-square frames, keeping the central symbol bold and easy to recognize."
+  },
+  {
+    "num": "085",
+    "command": "/brandboard",
+    "description": "Collect the chosen logo, colors, type examples, and image direction into one coordinated brand overview."
+  },
+  {
+    "num": "086",
+    "command": "/favicon",
+    "description": "Simplify the supplied logo into a compact icon that remains recognizable when previewed at small sizes."
+  },
+  {
+    "num": "087",
+    "command": "/colorpalette",
+    "description": "Arrange five coordinated colors with supplied or chosen hexadecimal values and examples of their visual balance."
+  },
+  {
+    "num": "088",
+    "command": "/monogram",
+    "description": "Combine the supplied initials into a balanced emblem, exploring shared strokes, spacing, and decorative restraint."
+  },
+  {
+    "num": "089",
+    "command": "/patterndesign",
+    "description": "Develop a repeating motif from the brand identity, showing its rhythm across a packaging or stationery surface."
+  },
+  {
+    "num": "090",
+    "command": "/logomotion",
+    "description": "Storyboard key moments of a logo animation, showing how its elements enter, move, and settle."
+  },
+  {
+    "num": "091",
+    "command": "/businesscard",
+    "description": "Design both sides of a business card with clear contact details and a coordinated brand treatment."
+  },
+  {
+    "num": "092",
+    "command": "/rebrand",
+    "description": "Explore three updated interpretations of an existing logo while retaining selected features that make the brand recognizable. MAKE A USEFUL BRAND BRIEF /brandboard for [brand]. Audience: [who]. Personality: [three words]. Include colors, type ideas and applications."
+  },
+  {
+    "num": "093",
+    "command": "/thumbnailimage",
+    "description": "Pair an expressive face with a bold headline for a striking YouTube thumbnail."
+  },
+  {
+    "num": "094",
+    "command": "/tiktokcover",
+    "description": "Build a vertical TikTok cover with a clear focal image and oversized title."
+  },
+  {
+    "num": "095",
+    "command": "/carouselcover",
+    "description": "Open an Instagram carousel with a bold image, short hook, and brand colors."
+  },
+  {
+    "num": "096",
+    "command": "/memeformat",
+    "description": "Arrange your joke in a familiar meme layout with clear imagery and captions."
+  },
+  {
+    "num": "097",
+    "command": "/quotecard",
+    "description": "Style your quotation with distinctive type, brand colors, and a credited speaker."
+  },
+  {
+    "num": "098",
+    "command": "/announcementpost",
+    "description": "Present launch news with a strong headline, supporting image, and clear details."
+  },
+  {
+    "num": "099",
+    "command": "/instagrid",
+    "description": "Coordinate nine social posts through recurring colors, balanced imagery, and shared styling."
+  },
+  {
+    "num": "100",
+    "command": "/eventflyer",
+    "description": "Combine the event name, date, venue, and booking details in a lively flyer."
+  },
+  {
+    "num": "101",
+    "command": "/storycover",
+    "description": "Create matching Instagram highlight icons with simple shapes and consistent backgrounds."
+  },
+  {
+    "num": "102",
+    "command": "/countdownpost",
+    "description": "Design matching countdown graphics for three, two, and one day before your event."
+  },
+  {
+    "num": "103",
+    "command": "/linkedinbanner",
+    "description": "Compose a wide professional profile header with brand cues and uncluttered text."
+  },
+  {
+    "num": "104",
+    "command": "/statgraphic",
+    "description": "Highlight one supplied statistic with a short explanation and simple graphic accents."
+  },
+  {
+    "num": "105",
+    "command": "/youtubebanner",
+    "description": "Design wide channel artwork with the name and key imagery near the center."
+  },
+  {
+    "num": "106",
+    "command": "/podcastcover",
+    "description": "Combine your show title, distinctive artwork, and bold colors in a square cover."
+  },
+  {
+    "num": "107",
+    "command": "/twitterheader",
+    "description": "Design a wide X profile header with a clear theme and uncluttered composition."
+  },
+  {
+    "num": "108",
+    "command": "/profilepic",
+    "description": "Create a recognizable avatar with a clean background and clear, simple framing."
+  },
+  {
+    "num": "109",
+    "command": "/pinterestpin",
+    "description": "Build a tall Pinterest graphic with a prominent title and inviting imagery."
+  },
+  {
+    "num": "110",
+    "command": "/reelcover",
+    "description": "Style a vertical Reel cover with imagery and typography that match your feed. DESIGN FOR THE CROP /thumbnailimage for [topic]. Use [headline]. Keep the face and headline clear at small size; format 16:9."
+  },
+  {
+    "num": "111",
+    "command": "/packagingdesign",
+    "description": "Explore a complete packaging concept through coordinated surfaces, prominent branding, and clearly organized product information."
+  },
+  {
+    "num": "112",
+    "command": "/laptopmockup",
+    "description": "Place your supplied website screen on a realistically lit laptop within a carefully styled desk setting."
+  },
+  {
+    "num": "113",
+    "command": "/boxmockup",
+    "description": "Apply your artwork to a shipping carton, showing folded edges, cardboard texture, and believable perspective."
+  },
+  {
+    "num": "114",
+    "command": "/tshirtmockup",
+    "description": "Preview your graphic on a worn T shirt with natural fabric folds and realistic print placement."
+  },
+  {
+    "num": "115",
+    "command": "/bottlelabel",
+    "description": "Wrap a label concept around a bottle or jar, accounting for curvature, reflections, and material finish."
+  },
+  {
+    "num": "116",
+    "command": "/postermockup",
+    "description": "Show your poster in a frame on an interior wall with convincing scale and soft shadows."
+  },
+  {
+    "num": "117",
+    "command": "/bagmockup",
+    "description": "Preview branded artwork on a pouch or bag, including seams, creases, and its chosen material."
+  },
+  {
+    "num": "118",
+    "command": "/menudesign",
+    "description": "Organize dishes, descriptions, and prices into a restaurant menu with clear sections and a consistent visual style."
+  },
+  {
+    "num": "119",
+    "command": "/canmockup",
+    "description": "Preview a beverage label wrapped around an aluminum can with highlights, curvature, and subtle surface detail."
+  },
+  {
+    "num": "120",
+    "command": "/shelfshot",
+    "description": "Place your packaged product in a retail shelf scene alongside neighboring products for visual context."
+  },
+  {
+    "num": "121",
+    "command": "/bookcover",
+    "description": "Develop a book cover concept that combines genre cues, an evocative image, and a clear title hierarchy."
+  },
+  {
+    "num": "122",
+    "command": "/giftbox",
+    "description": "Arrange your product in a premium presentation box with fitted inserts, tissue, and coordinated finishing details."
+  },
+  {
+    "num": "123",
+    "command": "/phonemockup",
+    "description": "Display your supplied app or website screen within a realistic phone, using appropriate perspective and reflections."
+  },
+  {
+    "num": "124",
+    "command": "/stickersheet",
+    "description": "Arrange branded icons into a coordinated sticker sheet with individual cut outlines and balanced spacing. SUPPLY THE ACTUAL ARTWORK /bottlelabel using this label and bottle photo. Preserve the exact logo and wording; realistic wrap and reflections."
+  },
+  {
+    "num": "125",
+    "command": "/foodshot",
+    "description": "Style a finished dish with appetizing light, visible textures, and props that complement its ingredients."
+  },
+  {
+    "num": "126",
+    "command": "/floorplan3d",
+    "description": "Translate a supplied room sketch or description into a furnished overhead spatial visualization."
+  },
+  {
+    "num": "127",
+    "command": "/menuphoto",
+    "description": "Photograph a plated dish from above, emphasizing arrangement, ingredient color, and a clean supporting surface."
+  },
+  {
+    "num": "128",
+    "command": "/gardenplan",
+    "description": "Reimagine your backyard with defined planting areas, paths, seating zones, and a coherent landscape palette. 2"
+  },
+  {
+    "num": "129",
+    "command": "/drinkshot",
+    "description": "Create an inviting beverage closeup, adding chilled condensation or rising steam to suit the drink."
+  },
+  {
+    "num": "130",
+    "command": "/kitchenreno",
+    "description": "Visualize replacement cabinetry, countertops, and finishes within your kitchen's existing layout and available light."
+  },
+  {
+    "num": "131",
+    "command": "/recipecard",
+    "description": "Pair a finished dish image with supplied ingredients and steps in an organized recipe graphic."
+  },
+  {
+    "num": "132",
+    "command": "/listingphoto",
+    "description": "Present a room with balanced daylight, a spacious viewpoint, and clearly visible architectural details."
+  },
+  {
+    "num": "133",
+    "command": "/roomredesign",
+    "description": "Restyle your room through coordinated furniture, materials, lighting, and accessories in the aesthetic you specify."
+  },
+  {
+    "num": "134",
+    "command": "/officespace",
+    "description": "Rework a workspace with practical furniture placement, calmer colors, accessible storage, and focused task lighting."
+  },
+  {
+    "num": "135",
+    "command": "/virtualstaging",
+    "description": "Add coordinated furniture and decor to an empty room image while preserving its visible architecture."
+  },
+  {
+    "num": "136",
+    "command": "/nightshot",
+    "description": "Recast a building at twilight with a deepening sky, warm windows, and softly illuminated exterior details."
+  },
+  {
+    "num": "137",
+    "command": "/exteriorrender",
+    "description": "Explore a home's facade through updated cladding, entrance details, landscaping, and a cohesive exterior palette."
+  },
+  {
+    "num": "138",
+    "command": "/moodboard",
+    "description": "Gather colors, materials, furnishings, and reference imagery into a visual direction for your space or project. SEPARATE FIXED AND FLEXIBLE /roomredesign using this photo. Keep windows, doors and room proportions. Change furniture, lighting and wall color. 10 Style experiments Translate the same subject into a different material, mark-making method or visual tradition."
+  },
+  {
+    "num": "139",
+    "command": "/watercolor",
+    "description": "Paint your subject with translucent washes, softened edges, and visible paper texture."
+  },
+  {
+    "num": "140",
+    "command": "/stainedglass",
+    "description": "Rebuild your subject from luminous colored glass divided by flowing dark lines."
+  },
+  {
+    "num": "141",
+    "command": "/oilpainting",
+    "description": "Paint your subject with layered color, expressive brush marks, and textured highlights."
+  },
+  {
+    "num": "142",
+    "command": "/tattoodesign",
+    "description": "Develop a tattoo concept with a clear silhouette, clean linework, and balanced spacing."
+  },
+  {
+    "num": "143",
+    "command": "/pixelart",
+    "description": "Reimagine your subject with a limited palette, crisp pixels, and retro game styling."
+  },
+  {
+    "num": "144",
+    "command": "/childrensbook",
+    "description": "Illustrate your subject with gentle colors, expressive faces, and inviting storybook details."
+  },
+  {
+    "num": "145",
+    "command": "/lineart",
+    "description": "Reduce your subject to elegant black contours with minimal marks and ample white space."
+  },
+  {
+    "num": "146",
+    "command": "/graffiti",
+    "description": "Render your word or logo as layered street lettering with spray texture."
+  },
+  {
+    "num": "147",
+    "command": "/popart",
+    "description": "Turn your subject into a poster with bold outlines, halftone dots, and saturated colors."
+  },
+  {
+    "num": "148",
+    "command": "/vectorflat",
+    "description": "Illustrate your subject with crisp shapes, flat colors, and a vector inspired appearance."
+  },
+  {
+    "num": "149",
+    "command": "/anime",
+    "description": "Use stylized anime features, expressive linework, and dramatic lighting for your subject."
+  },
+  {
+    "num": "150",
+    "command": "/sketchbook",
+    "description": "Draw your subject in graphite with loose marks, gentle shading, and paper texture."
+  },
+  {
+    "num": "151",
+    "command": "/cartoonme",
+    "description": "Turn your portrait into a friendly cartoon that retains recognizable features and personality."
+  },
+  {
+    "num": "152",
+    "command": "/lowpoly",
+    "description": "Build a geometric interpretation with angular forms and lighting that reveals each polygon."
+  },
+  {
+    "num": "153",
+    "command": "/3dcharacter",
+    "description": "Reimagine your subject as a stylized 3D character with expressive shapes and rich materials."
+  },
+  {
+    "num": "154",
+    "command": "/claymation",
+    "description": "Create a handmade clay look with rounded forms, finger impressions, and miniature lighting."
+  },
+  {
+    "num": "155",
+    "command": "/papercut",
+    "description": "Build your subject from overlapping paper shapes with layered shadows and cut edges."
+  },
+  {
+    "num": "156",
+    "command": "/embroidery",
+    "description": "Preview your artwork as a patch with raised stitching, visible threads, and a finished border. CONTROL THE INTERPRETATION /papercut of [subject]. Use layered shapes, soft cast shadows and three colors. Keep the silhouette recognizable. 11 Ideas made clear Turn supplied facts, relationships and steps into a visual hierarchy people can follow."
+  },
+  {
+    "num": "157",
+    "command": "/infographic",
+    "description": "Organize supplied information into a visual story with clear sections, helpful symbols, and concise explanatory labels."
+  },
+  {
+    "num": "158",
+    "command": "/orgchart",
+    "description": "Map supplied roles and reporting relationships into a clear hierarchy with optional spaces for team portraits."
+  },
+  {
+    "num": "159",
+    "command": "/processdiagram",
+    "description": "Explain a process through four connected stages, each with a short label and a distinctive visual cue."
+  },
+  {
+    "num": "160",
+    "command": "/roadmapgraphic",
+    "description": "Arrange supplied milestones by quarter, using consistent markers and clear visual separation between planned phases."
+  },
+  {
+    "num": "161",
+    "command": "/comparisonchart",
+    "description": "Compare supplied options across matching criteria, using aligned columns and restrained visual emphasis for meaningful differences."
+  },
+  {
+    "num": "162",
+    "command": "/pricingtable",
+    "description": "Present three supplied pricing tiers with aligned features, prominent prices, and a clearly highlighted recommended option."
+  },
+  {
+    "num": "163",
+    "command": "/statposter",
+    "description": "Turn supplied data into a poster with prominent figures, concise context, and symbols that support the message."
+  },
+  {
+    "num": "164",
+    "command": "/checklistgraphic",
+    "description": "Lay out your task list with clear checkboxes, readable spacing, and concise group headings for printing."
+  },
+  {
+    "num": "165",
+    "command": "/timelineposter",
+    "description": "Arrange dated events along a clear visual timeline with milestone labels and a consistent reading direction."
+  },
+  {
+    "num": "166",
+    "command": "/howtoillustration",
+    "description": "Break a task into illustrated panels that show each action, its sequence, and the expected result."
+  },
+  {
+    "num": "167",
+    "command": "/iconset",
+    "description": "Create twelve related symbols with consistent proportions, line weights, and visual detail for a unified interface."
+  },
+  {
+    "num": "168",
+    "command": "/anatomyof",
+    "description": "Explain a subject through a central illustration with clearly connected labels identifying its key parts."
+  },
+  {
+    "num": "169",
+    "command": "/mapgraphic",
+    "description": "Create a stylized location map with supplied places marked, a clear legend, and useful geographic context."
+  },
+  {
+    "num": "170",
+    "command": "/slidevisual",
+    "description": "Express one presentation idea through a strong visual composition with minimal text and no bullet list. START WITH CHECKED INFORMATION /processdiagram using these four steps: [steps]. Use short labels, directional arrows and no invented facts. 12 Personal projects Build playful keepsakes, invitations and imagined scenes around people, pets and occasions."
+  },
+  {
+    "num": "171",
+    "command": "/actionfigure",
+    "description": "Turn your portrait into a collectible figure in display packaging with themed accessories and a nameplate."
+  },
+  {
+    "num": "172",
+    "command": "/superhero",
+    "description": "Reimagine you as an original hero with a distinctive costume, personal emblem, and dynamic setting."
+  },
+  {
+    "num": "173",
+    "command": "/movieposter",
+    "description": "Place your likeness in a cinematic poster with dramatic lighting, a film title, and supporting credits."
+  },
+  {
+    "num": "174",
+    "command": "/babyphoto",
+    "description": "Design a newborn announcement around the supplied photo, name, birth details, and gentle decorative elements. 2"
+  },
+  {
+    "num": "175",
+    "command": "/magazinecover",
+    "description": "Create a magazine cover concept featuring your portrait, a prominent masthead, and carefully arranged cover lines."
+  },
+  {
+    "num": "176",
+    "command": "/weddinginvite",
+    "description": "Compose a wedding invitation with the couple's names, ceremony details, and a coordinated decorative theme."
+  },
+  {
+    "num": "177",
+    "command": "/tradingcard",
+    "description": "Build a personalized collectible card with your portrait, supplied statistics, and a distinctive illustrated border."
+  },
+  {
+    "num": "178",
+    "command": "/holidaycard",
+    "description": "Frame a family photo with seasonal colors, festive details, and a warm personalized greeting."
+  },
+  {
+    "num": "179",
+    "command": "/petportrait",
+    "description": "Paint your pet as a regal sitter, adding ornate clothing, dignified posture, and a rich backdrop."
+  },
+  {
+    "num": "180",
+    "command": "/caricature",
+    "description": "Create a playful portrait by gently exaggerating recognizable features while keeping the expression warm and friendly."
+  },
+  {
+    "num": "181",
+    "command": "/ageprogression",
+    "description": "Imagine four speculative portraits at ages twenty, forty, sixty, and eighty with consistent framing."
+  },
+  {
+    "num": "182",
+    "command": "/dreamcar",
+    "description": "Create a fantasy lifestyle portrait of you beside your chosen car in a setting you describe."
+  },
+  {
+    "num": "183",
+    "command": "/timetravel",
+    "description": "Place your likeness in a chosen historical era with coordinated clothing, surroundings, and photographic styling."
+  },
+  {
+    "num": "184",
+    "command": "/fantasyme",
+    "description": "Transform your portrait into a fantasy character with detailed costume, themed accessories, and an atmospheric world. PERSONALIZE THE SMALL DETAILS /tradingcard using this photo. Name: [name]. Add these three playful stats: [stats]. Use my chosen colors. 13 Pictures into motion Specify what moves, how the camera behaves and how the clip should begin and end."
+  },
+  {
+    "num": "185",
+    "command": "/productreel",
+    "description": "Create a fifteen second vertical product video with several focused shots and concise text overlays."
+  },
+  {
+    "num": "186",
+    "command": "/livingphoto",
+    "description": "Animate a still image with restrained movement, gentle environmental details, and a stable central subject."
+  },
+  {
+    "num": "187",
+    "command": "/unboxingvideo",
+    "description": "Show a product reveal from a first person viewpoint, following hands opening packaging and examining contents."
+  },
+  {
+    "num": "188",
+    "command": "/adsequence",
+    "description": "Create three versions of one video ad, adapting framing and pacing for different platform contexts."
+  },
+  {
+    "num": "189",
+    "command": "/testimonialvideo",
+    "description": "Create a presenter video from an authorized customer quote or supplied script, with a simple interview composition."
+  },
+  {
+    "num": "190",
+    "command": "/tutorialvideo",
+    "description": "Demonstrate product use through short, clearly ordered actions with close views of the important details."
+  },
+  {
+    "num": "191",
+    "command": "/cinematicproduct",
+    "description": "Showcase a product through measured camera moves, sculpted lighting, reflective details, and subtle lens effects."
+  },
+  {
+    "num": "192",
+    "command": "/dronefootage",
+    "description": "Visualize an aerial camera journey above a described location or property, revealing its surrounding landscape."
+  },
+  {
+    "num": "193",
+    "command": "/logoreveal",
+    "description": "Introduce your logo through a brief animation with deliberate timing, a clear reveal, and a settled end frame."
+  },
+  {
+    "num": "194",
+    "command": "/timelapse",
+    "description": "Compress a described build or transformation into accelerated visual stages with consistent framing and clear progression."
+  },
+  {
+    "num": "195",
+    "command": "/beforeaftervideo",
+    "description": "Connect supplied before and after reference states through a clear transition that emphasizes the visible change."
+  },
+  {
+    "num": "196",
+    "command": "/facelessvideo",
+    "description": "Assemble supporting footage for a supplied voiceover, using relevant scenes and details without an on camera presenter."
+  },
+  {
+    "num": "197",
+    "command": "/explainerclip",
+    "description": "Explain a concept through a short animated sequence with simple visual metaphors and clear cause and effect."
+  },
+  {
+    "num": "198",
+    "command": "/stickmanexplainer",
+    "description": "Turn your idea into a short stick figure animation with simple props, readable actions, and clear sequencing."
+  },
+  {
+    "num": "199",
+    "command": "/motionposter",
+    "description": "Animate selected elements of your poster with subtle movement while preserving its central composition and readable title."
+  },
+  {
+    "num": "200",
+    "command": "/loopvideo",
+    "description": "Design a website hero clip with restrained repeating motion and a planned transition back to its opening frame. DESCRIBE THE MOVEMENT /productreel using this product photo. Slow orbit, then detail close-up. Vertical format; request 15 seconds; no dialogue. Turn a direction into a brief. The shortcut chooses the task. Your details determine the result. COPY THIS STRUCTURE [Shortcut] for [subject]. Use [references]. Keep [fixed details]. Change [specific elements]. Style: [look, light, colors]. Include this exact text: [words]. Format: [shape / dimensions]. THREE CONNECTED WORKFLOWS Product launch /productshot > /colorways > /staticad > /productreel Approve the product details first. Reuse that reference at every later stage. Personal brand /headshot > /linkedinbanner > /quotecard Keep the palette and portrait style consistent across the whole set. Explain an idea /processdiagram > /slidevisual > /explainerclip Verify the facts and wording before adapting the concept into motion. IMAGES, VIDEO & CONNECTED TOOLS In ChatGPT, describe a new image or attach an image and explain the edit. For video, also give the action, camera movement, duration, framing and audio needs. Supported settings depend on the tool you use. For Higgsfield, follow the official connection page, add its plugin, then sign in and authorize. Its current documentation requires an active subscription; generations use account credits. Use its reference-upload flow when needed. Check the available options before generating. Use generated work as a draft: proofread text and check product accuracy, dimensions and required formats. Technical drawings, floor plans, logo concepts and packaging mockups still need production review. OFFICIAL SETUP REFERENCES ChatGPT image generation ChatGPT slash commands Connect Higgsfield Setup checked 24 September 2026. Availability and account requirements can change. 2"
+  }
+]

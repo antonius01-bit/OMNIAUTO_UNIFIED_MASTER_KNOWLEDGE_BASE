@@ -1,0 +1,1 @@
+# Testing Pattern\n\n1. Hypothesis definition.\n2. Unit test assertions before code edit.\n3. Dry-run execution.\n4. Coverage report verification.

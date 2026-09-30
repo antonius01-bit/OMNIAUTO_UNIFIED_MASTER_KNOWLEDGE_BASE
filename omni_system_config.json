@@ -1,0 +1,67 @@
+{
+  "auto_sync_enabled": true,
+  "sync_time": "03:00",
+  "last_sync": "2026-09-25 15:01:38",
+  "next_sync": "2026-09-26 03:00:00",
+  "fast_mode": "ON",
+  "cpu_priority": "HIGH",
+  "last_cache_clear": "2026-09-25 12:00:00",
+  "sync_history": [
+    {
+      "timestamp": "2026-09-25 15:01:38",
+      "status": "SUCCESS",
+      "notes": 559,
+      "skills": 224,
+      "duration_s": 0.02
+    },
+    {
+      "timestamp": "2026-09-25 09:38:41",
+      "status": "SUCCESS",
+      "notes": 557,
+      "skills": 222,
+      "duration_s": 1.4
+    },
+    {
+      "timestamp": "2026-09-24 03:00:00",
+      "status": "SUCCESS",
+      "notes": 542,
+      "skills": 218,
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-09-23 03:00:00",
+      "status": "SUCCESS",
+      "notes": 529,
+      "skills": 217,
+      "duration_s": 1.3
+    },
+    {
+      "timestamp": "2026-09-22 03:00:00",
+      "status": "SUCCESS",
+      "notes": 515,
+      "skills": 214,
+      "duration_s": 1.5
+    },
+    {
+      "timestamp": "2026-09-21 03:00:00",
+      "status": "SUCCESS",
+      "notes": 501,
+      "skills": 210,
+      "duration_s": 1.4
+    },
+    {
+      "timestamp": "2026-09-20 03:00:00",
+      "status": "SUCCESS",
+      "notes": 488,
+      "skills": 208,
+      "duration_s": 1.3
+    },
+    {
+      "timestamp": "2026-09-19 03:00:00",
+      "status": "SUCCESS",
+      "notes": 475,
+      "skills": 205,
+      "duration_s": 1.4
+    }
+  ]
+}

@@ -1,0 +1,2218 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DOLA AI — Jarvis Swarm OS v4.7 (Iron Man Voice Edition)</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  :root {
+    --bg-dark: #030114;
+    --bg-surface: #080422;
+    --bg-card: #0e0830;
+    --bg-card-hover: #150d45;
+    --border: rgba(139, 92, 246, 0.2);
+    --border-bright: rgba(139, 92, 246, 0.6);
+    --purple: #8b5cf6;
+    --purple-light: #a78bfa;
+    --purple-glow: rgba(139, 92, 246, 0.4);
+    --blue: #3b82f6;
+    --cyan: #06b6d4;
+    --cyan-glow: rgba(6, 182, 212, 0.4);
+    --pink: #ec4899;
+    --orange: #ff7a45;
+    --green: #10b981;
+    --gold: #faad14;
+    --text-main: #f1f0fb;
+    --text-muted: #94a3b8;
+    --text-dim: #64748b;
+    --font-sans: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', Consolas, monospace;
+    --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg-dark);
+    color: var(--text-main);
+    font-family: var(--font-sans);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    letter-spacing: -0.01em;
+  }
+
+  /* KEYFRAME ANIMATIONS */
+  @keyframes pulseSlow { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.45; transform: scale(1.15); } }
+  @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  @keyframes spinRev { from { transform: rotate(360deg); } to { transform: rotate(0deg); } }
+  @keyframes fadeInUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes laserFlow { 0% { stroke-dashoffset: 70; } 100% { stroke-dashoffset: 0; } }
+  @keyframes neonDeskGlow { 0%, 100% { box-shadow: 0 0 20px rgba(6,182,212,0.4), inset 0 0 15px rgba(6,182,212,0.2); } 50% { box-shadow: 0 0 45px rgba(6,182,212,0.8), inset 0 0 25px rgba(6,182,212,0.5); } }
+  @keyframes waveEqualizer { 0%, 100% { height: 6px; } 50% { height: 26px; } }
+  @keyframes syncBlink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+  @keyframes arcPulse { 0%, 100% { box-shadow: 0 0 25px rgba(6,182,212,0.6), inset 0 0 15px rgba(6,182,212,0.4); } 50% { box-shadow: 0 0 50px rgba(6,182,212,0.9), inset 0 0 30px rgba(6,182,212,0.8); } }
+  @keyframes micPulse { 0%, 100% { box-shadow: 0 0 12px #ef4444; transform: scale(1); } 50% { box-shadow: 0 0 30px #ef4444; transform: scale(1.08); } }
+
+  /* HEADER */
+  header {
+    height: 56px;
+    background: rgba(8, 4, 34, 0.95);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    backdrop-filter: blur(16px);
+    z-index: 100;
+    flex-shrink: 0;
+  }
+
+  .brand-group { display: flex; align-items: center; gap: 12px; }
+  .brand-logo {
+    width: 34px; height: 34px; border-radius: 8px;
+    background: linear-gradient(135deg, var(--purple), var(--blue));
+    box-shadow: 0 0 18px rgba(139,92,246,0.5);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 16px; color: #fff;
+    cursor: pointer; transition: transform 0.2s var(--ease-spring);
+  }
+  .brand-logo:hover { transform: scale(1.05); }
+  .brand-text { font-size: 15px; font-weight: 800; letter-spacing: 0.5px; }
+  .brand-pill {
+    font-size: 10px; font-family: var(--font-mono);
+    padding: 2px 8px; border-radius: 999px;
+    background: rgba(139,92,246,0.15); border: 1px solid var(--border);
+    color: var(--purple-light); margin-left: 6px;
+  }
+
+  /* TABS */
+  .nav-tabs {
+    display: flex; gap: 4px; background: rgba(0,0,0,0.45);
+    padding: 4px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.06);
+  }
+  .nav-tab {
+    background: transparent; border: none; color: var(--text-muted);
+    padding: 6px 14px; border-radius: 7px; font-size: 12px; font-weight: 600;
+    cursor: pointer; transition: all 0.22s var(--ease-spring); display: flex; align-items: center;
+    gap: 6px; font-family: var(--font-sans); outline: none;
+  }
+  .nav-tab:hover { color: var(--text-main); background: rgba(255,255,255,0.06); }
+  .nav-tab.active {
+    background: linear-gradient(135deg, var(--purple), var(--blue));
+    color: #fff; box-shadow: 0 0 16px rgba(139,92,246,0.45);
+  }
+
+  .header-actions { display: flex; align-items: center; gap: 8px; }
+  .status-pill {
+    display: flex; align-items: center; gap: 7px; font-size: 11px;
+    font-family: var(--font-mono); color: var(--text-muted);
+    background: rgba(255,255,255,0.03); padding: 5px 12px;
+    border-radius: 999px; border: 1px solid var(--border);
+    transition: all 0.2s var(--ease-spring);
+  }
+  .status-pill:hover { border-color: var(--purple-light); }
+  .dot-status {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--green); box-shadow: 0 0 8px var(--green);
+    animation: pulseSlow 2.5s infinite;
+  }
+
+  /* VIEWPORT & PANELS */
+  #main-viewport {
+    flex: 1; position: relative; overflow: hidden; display: flex; background: var(--bg-dark);
+  }
+  .view-panel {
+    position: absolute; inset: 0; display: none !important;
+    overflow: hidden; width: 100%; height: 100%;
+  }
+  .view-panel.active { display: flex !important; }
+
+  /* PURPOSE BANNER CARDS */
+  .purpose-banner {
+    position: absolute; top: 12px; left: 16px; right: 16px;
+    background: rgba(14, 8, 48, 0.9);
+    border: 1px solid var(--border);
+    backdrop-filter: blur(14px);
+    border-radius: 10px; padding: 10px 18px;
+    display: flex; align-items: center; justify-content: space-between;
+    z-index: 40; box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+  }
+  .purpose-title {
+    font-size: 12.5px; font-weight: 700; color: var(--text-main);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .purpose-desc { font-size: 11.5px; color: var(--text-muted); margin-left: 8px; font-weight: 400; }
+  .purpose-badge {
+    font-size: 10px; font-family: var(--font-mono); padding: 3px 8px;
+    border-radius: 4px; background: rgba(139,92,246,0.18);
+    border: 1px solid var(--purple); color: var(--purple-light);
+  }
+
+  /* ==========================================================
+     JARVIS ARC REACTOR VOICE HUD & CHAT
+     ========================================================== */
+  .chat-layout { display: flex; width: 100%; height: 100%; position: relative; }
+  .chat-main-column {
+    flex: 1; display: flex; flex-direction: column; height: 100%;
+    background: radial-gradient(circle at 50% 0%, rgba(139,92,246,0.06), transparent 70%);
+  }
+
+  /* JARVIS TOP HUD BAR IN CHAT */
+  .jarvis-hud-bar {
+    height: 72px; background: rgba(10, 6, 38, 0.85);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 24px; backdrop-filter: blur(12px);
+    flex-shrink: 0; z-index: 30;
+  }
+  .jarvis-arc-reactor {
+    width: 44px; height: 44px; border-radius: 50%;
+    border: 2px solid var(--cyan); position: relative;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 0 25px rgba(6,182,212,0.5);
+    animation: arcPulse 3s infinite; cursor: pointer;
+  }
+  .arc-inner-ring {
+    width: 30px; height: 30px; border-radius: 50%;
+    border: 1.5px dashed var(--cyan);
+    animation: spin 6s linear infinite; position: absolute;
+  }
+  .arc-core-dot {
+    width: 14px; height: 14px; border-radius: 50%;
+    background: radial-gradient(circle, #fff 10%, var(--cyan) 80%);
+    box-shadow: 0 0 12px var(--cyan);
+  }
+  .jarvis-hud-text h3 {
+    font-size: 13px; font-weight: 800; color: #fff; letter-spacing: 0.5px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .jarvis-hud-text p {
+    font-size: 11px; font-family: var(--font-mono); color: var(--cyan);
+  }
+
+  .chat-stream-area {
+    flex: 1; overflow-y: auto; padding: 20px 24px;
+    display: flex; flex-direction: column; gap: 16px;
+    scroll-behavior: smooth;
+  }
+
+  .msg-row {
+    display: flex; gap: 14px; max-width: 880px;
+    animation: fadeInUp 0.25s var(--ease-spring);
+  }
+  .msg-row.user-row { align-self: flex-end; flex-direction: row-reverse; }
+  .msg-avatar {
+    width: 34px; height: 34px; border-radius: 9px;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 14px; flex-shrink: 0;
+  }
+  .msg-avatar.ai {
+    background: linear-gradient(135deg, var(--purple), var(--blue));
+    box-shadow: 0 0 14px rgba(139,92,246,0.4); color: #fff;
+  }
+  .msg-avatar.user {
+    background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18); color: #fff;
+  }
+
+  .msg-bubble {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 14px 18px; font-size: 13.5px;
+    line-height: 1.65; position: relative; max-width: 100%;
+  }
+  .msg-bubble.user {
+    background: linear-gradient(135deg, rgba(139,92,246,0.22), rgba(59,130,246,0.18));
+    border-color: var(--purple-glow);
+  }
+
+  /* JARVIS HOLOGRAPHIC THINKING HUD */
+  .jarvis-thinking-hud {
+    background: rgba(8, 4, 34, 0.95);
+    border: 1px solid var(--cyan);
+    box-shadow: 0 0 32px rgba(6, 182, 212, 0.35), inset 0 0 20px rgba(6, 182, 212, 0.12);
+    border-radius: 14px; padding: 16px 20px; margin: 4px 0;
+    position: relative; overflow: hidden;
+  }
+  .jarvis-header {
+    display: flex; align-items: center; justify-content: space-between;
+    border-bottom: 1px solid rgba(6, 182, 212, 0.25);
+    padding-bottom: 10px; margin-bottom: 12px;
+  }
+  .jarvis-title {
+    display: flex; align-items: center; gap: 10px;
+    font-family: var(--font-mono); font-size: 11.5px; font-weight: 700;
+    color: var(--cyan); text-transform: uppercase; letter-spacing: 1px;
+  }
+  .jarvis-core-spinner {
+    width: 22px; height: 22px; border: 2px dashed var(--cyan);
+    border-radius: 50%; animation: spin 2.5s linear infinite;
+  }
+  .jarvis-waves { display: flex; align-items: center; gap: 3.5px; height: 26px; }
+  .jarvis-wave-bar {
+    width: 3.5px; background: var(--cyan); border-radius: 2px;
+    animation: waveEqualizer 1.1s ease-in-out infinite;
+  }
+  .jarvis-wave-bar:nth-child(2) { animation-delay: 0.15s; background: var(--purple-light); }
+  .jarvis-wave-bar:nth-child(3) { animation-delay: 0.3s; background: var(--blue); }
+  .jarvis-wave-bar:nth-child(4) { animation-delay: 0.45s; background: var(--gold); }
+  .jarvis-wave-bar:nth-child(5) { animation-delay: 0.6s; background: var(--cyan); }
+
+  .jarvis-steps {
+    display: flex; flex-direction: column; gap: 6px; font-family: var(--font-mono); font-size: 11px;
+  }
+  .jarvis-step { display: flex; align-items: center; gap: 10px; color: var(--text-muted); transition: color 0.2s; }
+  .jarvis-step.active { color: #fff; font-weight: 600; }
+  .jarvis-step-dot {
+    width: 6px; height: 6px; border-radius: 50%; background: var(--text-dim);
+  }
+  .jarvis-step.active .jarvis-step-dot {
+    background: var(--cyan); box-shadow: 0 0 10px var(--cyan); animation: pulseSlow 1s infinite;
+  }
+  .jarvis-step.done { color: var(--green); }
+  .jarvis-step.done .jarvis-step-dot { background: var(--green); box-shadow: 0 0 6px var(--green); }
+
+  /* MEMORY BADGE */
+  .memory-saved-pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 10.5px; font-family: var(--font-mono);
+    color: #6ee7b7; background: rgba(16, 185, 129, 0.12);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    padding: 3px 10px; border-radius: 6px; margin-top: 8px; cursor: pointer;
+    transition: all 0.2s;
+  }
+  .memory-saved-pill:hover { background: rgba(16, 185, 129, 0.2); }
+
+  /* CHAT INPUT BAR */
+  .chat-input-bar {
+    padding: 12px 20px; background: rgba(8, 4, 34, 0.98);
+    border-top: 1px solid var(--border); display: flex; flex-direction: column;
+    gap: 8px; z-index: 50;
+  }
+  .quick-chips-row {
+    display: flex; gap: 6px; overflow-x: auto; padding-bottom: 2px;
+  }
+  .quick-chip {
+    font-size: 11px; font-family: var(--font-mono); color: var(--text-muted);
+    background: rgba(255,255,255,0.03); border: 1px solid var(--border);
+    padding: 3px 10px; border-radius: 999px; cursor: pointer; white-space: nowrap;
+    transition: all 0.18s;
+  }
+  .quick-chip:hover { color: #fff; border-color: var(--cyan); background: rgba(6,182,212,0.1); }
+
+  .chat-input-row { display: flex; gap: 10px; align-items: flex-end; }
+  .chat-textarea {
+    flex: 1; background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 10px; color: #fff; font-size: 13.5px; padding: 10px 14px;
+    resize: none; max-height: 120px; font-family: inherit; line-height: 1.5;
+    outline: none; transition: all 0.2s;
+  }
+  .chat-textarea:focus { border-color: var(--cyan); box-shadow: 0 0 14px rgba(6,182,212,0.25); }
+
+  /* BUTTONS (SEND, MIC, VOICE) */
+  .btn-send {
+    background: linear-gradient(135deg, var(--cyan), var(--blue));
+    border: none; color: #fff; font-weight: 700; font-size: 13px;
+    padding: 10px 18px; border-radius: 10px; cursor: pointer;
+    display: flex; align-items: center; gap: 8px; transition: all 0.2s var(--ease-spring);
+    height: 42px; outline: none; flex-shrink: 0;
+  }
+  .btn-send:hover {
+    box-shadow: 0 0 20px rgba(6,182,212,0.5); transform: translateY(-1px);
+  }
+  .btn-send:active { transform: scale(0.97); }
+
+  /* MICROPHONE PUSH-TO-TALK BUTTON */
+  .btn-mic {
+    width: 42px; height: 42px; border-radius: 10px;
+    background: rgba(255,255,255,0.05); border: 1px solid var(--border);
+    color: var(--cyan); display: flex; align-items: center; justify-content: center;
+    font-size: 18px; cursor: pointer; transition: all 0.2s var(--ease-spring);
+    flex-shrink: 0; outline: none;
+  }
+  .btn-mic:hover {
+    border-color: var(--cyan); background: rgba(6,182,212,0.15); box-shadow: 0 0 16px rgba(6,182,212,0.4);
+  }
+  .btn-mic.mic-active {
+    background: #ef4444 !important; color: #fff !important;
+    border-color: #ef4444 !important; animation: micPulse 1.2s infinite;
+  }
+
+  /* CONTEXT TRAY */
+  .context-tray { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .context-badge {
+    background: rgba(139,92,246,0.18); border: 1px solid var(--purple);
+    color: var(--purple-light); font-size: 11px; font-family: var(--font-mono);
+    padding: 3px 10px; border-radius: 999px; display: flex; align-items: center; gap: 6px;
+  }
+  .context-badge-remove { cursor: pointer; font-weight: bold; opacity: 0.7; }
+  .context-badge-remove:hover { opacity: 1; color: #ff7875; }
+
+  /* ==========================================================
+     MUNDER DIFFLIN 2D FLOOR PLAN
+     ========================================================== */
+  .floor-container {
+    width: 100%; height: 100%; display: flex; position: relative;
+    background: radial-gradient(circle at 50% 50%, #0d082e 0%, #030114 100%);
+    padding-top: 54px;
+  }
+  .floor-map {
+    flex: 1; position: relative; overflow: hidden; padding: 20px;
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr); gap: 16px;
+  }
+  .desk-card {
+    background: rgba(14, 8, 48, 0.9);
+    border: 1px solid var(--border);
+    border-radius: 12px; padding: 14px;
+    display: flex; flex-direction: column; justify-content: space-between;
+    cursor: pointer; transition: all 0.25s var(--ease-spring);
+    position: relative; overflow: hidden;
+  }
+  .desk-card:hover {
+    border-color: var(--cyan);
+    box-shadow: 0 0 24px rgba(6, 182, 212, 0.35);
+    transform: translateY(-2px);
+  }
+  .desk-card.active-target {
+    border-color: var(--cyan) !important;
+    animation: neonDeskGlow 1.5s infinite;
+  }
+  .desk-header { display: flex; align-items: center; gap: 10px; }
+  .desk-avatar {
+    width: 40px; height: 40px; border-radius: 10px;
+    background: rgba(255,255,255,0.06); border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; flex-shrink: 0;
+  }
+  .desk-meta h4 { font-size: 13px; font-weight: 700; color: #fff; }
+  .desk-meta p { font-size: 10.5px; color: var(--text-muted); }
+  .desk-status {
+    display: flex; align-items: center; justify-content: space-between;
+    font-family: var(--font-mono); font-size: 10px; margin-top: 10px;
+    padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .desk-status-pill {
+    padding: 2px 6px; border-radius: 4px; background: rgba(34,197,94,0.15);
+    color: var(--green); border: 1px solid rgba(34,197,94,0.3);
+  }
+
+  /* SVG LASER CONDUIT */
+  #floor-laser-svg {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    pointer-events: none; z-index: 20;
+  }
+  .laser-beam {
+    stroke: var(--cyan); stroke-width: 3; stroke-dasharray: 8, 6;
+    animation: laserFlow 1s linear infinite; filter: drop-shadow(0 0 10px var(--cyan));
+  }
+
+  .munder-drawer {
+    width: 380px; height: 100%; background: var(--bg-surface);
+    border-left: 1px solid var(--border); display: flex; flex-direction: column;
+    padding: 16px; z-index: 30; flex-shrink: 0;
+  }
+
+  /* CANVASES (GALAXY & 3D OFFICE) */
+  .canvas-fullscreen-container {
+    width: 100%; height: 100%; position: relative; overflow: hidden; padding-top: 54px;
+  }
+  canvas.render-engine { width: 100%; height: 100%; display: block; }
+
+  /* KANBAN BOARD */
+  .kanban-grid {
+    width: 100%; height: 100%; display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 16px; padding: 66px 20px 20px 20px; overflow-x: auto;
+  }
+  .kanban-col {
+    background: rgba(14, 8, 48, 0.7); border: 1px solid var(--border);
+    border-radius: 12px; display: flex; flex-direction: column;
+    padding: 14px; overflow-y: auto; gap: 12px;
+  }
+  .kanban-card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 12px; display: flex; flex-direction: column;
+    gap: 8px; cursor: pointer; transition: all 0.2s;
+  }
+  .kanban-card:hover { border-color: var(--purple-light); }
+
+  /* TERMINAL */
+  .term-container {
+    width: 100%; height: 100%; display: flex; flex-direction: column;
+    padding: 66px 20px 20px 20px; gap: 14px;
+  }
+  .telemetry-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .telemetry-card {
+    background: rgba(14,8,48,0.85); border: 1px solid var(--border);
+    border-radius: 10px; padding: 12px 16px;
+  }
+  .term-box {
+    flex: 1; background: #02010e; border: 1px solid var(--border);
+    border-radius: 10px; padding: 14px; font-family: var(--font-mono);
+    font-size: 11.5px; overflow-y: auto; line-height: 1.6; color: #a78bfa;
+  }
+
+  /* MODALS */
+  .modal-overlay {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.78);
+    backdrop-filter: blur(8px); display: none; align-items: center;
+    justify-content: center; z-index: 200;
+  }
+
+  #os-toast {
+    position: fixed; bottom: 24px; right: 24px;
+    background: var(--purple); color: #fff; padding: 10px 18px;
+    border-radius: 8px; font-size: 12.5px; font-weight: 600;
+    box-shadow: 0 0 24px rgba(139,92,246,0.6);
+    display: none; z-index: 300; animation: fadeInUp 0.22s var(--ease-spring);
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="brand-group">
+    <div class="brand-logo" onclick="openJarvisVoiceModal()" title="Buka Jarvis Voice & Audio Controls">Δ</div>
+    <div>
+      <span class="brand-text">DOLA AI</span>
+      <span class="brand-pill">JARVIS VOICE v4.7</span>
+    </div>
+  </div>
+
+  <!-- NAVIGATION TABS -->
+  <div class="nav-tabs">
+    <button class="nav-tab active" data-tab="chat" onclick="switchTab('chat')">
+      <span>💬</span> AI Agent Chat
+    </button>
+    <button class="nav-tab" data-tab="munder" onclick="switchTab('munder')">
+      <span>🏢</span> Agents Office (2D)
+    </button>
+    <button class="nav-tab" data-tab="galaxy" onclick="switchTab('galaxy')">
+      <span>🪐</span> Cosmic Galaxy
+    </button>
+    <button class="nav-tab" data-tab="office" onclick="switchTab('office')">
+      <span>🏫</span> 3D Agents Office
+    </button>
+    <button class="nav-tab" data-tab="kanban" onclick="switchTab('kanban')">
+      <span>📋</span> Kanban Board
+    </button>
+    <button class="nav-tab" data-tab="terminal" onclick="switchTab('terminal')">
+      <span>⚡</span> System Flow & Telemetry
+    </button>
+    <button class="nav-tab" data-tab="thesis" onclick="switchTab('thesis')">
+      <span>🎓</span> Thesis Research Hub
+    </button>
+  </div>
+
+  <div class="header-actions">
+    <!-- JARVIS VOICE TOGGLE -->
+    <div class="status-pill" onclick="toggleJarvisVoice()" id="voiceTogglePill" style="cursor:pointer; border-color:var(--cyan); color:var(--cyan);" title="Klik untuk mengaktifkan/mematikan suara Jarvis">
+      <span id="voiceIcon">🔊</span>
+      <span id="voiceText">JARVIS VOICE: ON</span>
+    </div>
+    <!-- STOP VOICE BUTTON -->
+    <button id="voiceStopBtn" onclick="stopJarvisSpeech()" class="status-pill" style="display:none; cursor:pointer; background:rgba(239,68,68,0.2); color:#ef4444; border-color:#ef4444;">
+      <span>⏹️</span> Stop
+    </button>
+    <!-- OBSIDIAN MEMORY PILL -->
+    <div class="status-pill" onclick="openMemoryModal()" style="cursor:pointer; border-color: rgba(34,197,94,0.4); color:#4ade80;" title="Klik untuk membuka riwayat memori Obsidian">
+      <span>🧠</span> <span id="vaultNotesHeaderCount">209 NOTES</span>
+      <span id="syncPulseDot" style="width:5px; height:5px; border-radius:50%; background:#10b981; animation:syncBlink 2s infinite;"></span>
+    </div>
+    <button onclick="openApiModal()" class="status-pill" style="cursor:pointer; background:rgba(139,92,246,0.15); color:var(--purple-light);">
+      <span>🔑</span> 7-KEY MESH
+    </button>
+  </div>
+</header>
+
+<!-- MAIN VIEWPORT -->
+<main id="main-viewport">
+
+  <!-- ==========================================================
+       VIEW 1: AI AGENT CHAT & JARVIS VOICE MATRIX
+       ========================================================== -->
+  <div id="panel-chat" class="view-panel active">
+    <div class="chat-layout">
+      <div class="chat-main-column">
+        <!-- JARVIS TOP INTERACTIVE ARC REACTOR HUD -->
+        <div class="jarvis-hud-bar">
+          <div style="display:flex; align-items:center; gap:14px;">
+            <div class="jarvis-arc-reactor" onclick="toggleSpeechListening()" id="arcReactorEl" title="Klik untuk Bicara dengan Jarvis (Push to Talk)">
+              <div class="arc-inner-ring"></div>
+              <div class="arc-core-dot"></div>
+            </div>
+            <div class="jarvis-hud-text">
+              <h3>
+                <span>J.A.R.V.I.S. INTERFACE</span>
+                <span style="font-size:10px; font-weight:500; font-family:var(--font-mono); color:var(--green); background:rgba(16,185,129,0.15); border:1px solid rgba(16,185,129,0.3); padding:1px 6px; border-radius:4px;" id="jarvisStatusBadge">ONLINE</span>
+              </h3>
+              <p id="jarvisStatusSub">"All systems online, Sir. Press [🎙️] or Arc Reactor to speak."</p>
+            </div>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <button onclick="testJarvisVoiceGreeting()" class="status-pill" style="cursor:pointer; background:rgba(6,182,212,0.1); color:var(--cyan); border-color:var(--cyan);">
+              <span>⚡</span> Sapa Saya, Jarvis
+            </button>
+            <button onclick="openJarvisVoiceModal()" class="status-pill" style="cursor:pointer;">
+              <span>⚙️</span> Voice Config
+            </button>
+          </div>
+        </div>
+
+        <!-- CHAT STREAM AREA -->
+        <div class="chat-stream-area" id="chatArea">
+          <div class="msg-row">
+            <div class="msg-avatar ai">Δ</div>
+            <div class="msg-bubble ai">
+              <div style="font-weight:700; color:var(--cyan); margin-bottom:4px; display:flex; align-items:center; gap:6px;">
+                <span>⚡</span> Jarvis Voice Intelligence Matrix v4.7 Aktif
+              </div>
+              <div style="line-height:1.6;">
+                Selamat datang kembali, Sir. Anda dapat <strong>berbicara langsung menggunakan suara</strong> dengan menekan tombol mikrofon <strong>[🎙️]</strong> atau mengklik <strong>Arc Reactor</strong>.
+                Jarvis akan merespons dengan suara pria muda, cerdas, energik, dan berkarisma khas AI Iron Man.
+              </div>
+              <div class="memory-saved-pill" onclick="openMemoryModal()">
+                <span>🧠</span> Obsidian Memory Active • 209 Catatan Terindeks • Silent Auto-Sync Aktif
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ACTIVE CONTEXT TRAY -->
+        <div style="padding:0 20px 6px 20px;">
+          <div class="context-tray" id="activeContextTray"></div>
+        </div>
+
+        <!-- INPUT BAR -->
+        <div class="chat-input-bar">
+          <div class="quick-chips-row">
+            <span class="quick-chip" onclick="setQuickPrompt('Bagaimana metodologi SEM-PLS pada Tesis MM Antonius?')">🎓 Tesis MM SEM-PLS</span>
+            <span class="quick-chip" onclick="setQuickPrompt('Buatkan naskah copywriting B2B formula PAS dengan hook contrarian.')">👓 Copywriting B2B (Dwight)</span>
+            <span class="quick-chip" onclick="setQuickPrompt('Bagaimana optimasi AST Code Memory dan prinsip Ponytail?')">⚡ AST Code (Ryan)</span>
+            <span class="quick-chip" onclick="setQuickPrompt('Audit unit economics dan proyeksi payback period SaaS ini.')">📊 Finansial (Angela)</span>
+            <span class="quick-chip" onclick="setQuickPrompt('Halo Michael, kasih arahan santai untuk produktivitas tim hari ini.')">👔 Daily Chat (Michael)</span>
+          </div>
+
+          <div class="chat-input-row">
+            <button onclick="toggleContextDock()" class="status-pill" style="cursor:pointer; padding:8px 12px; background:rgba(139,92,246,0.15); color:var(--purple-light);">
+              <span>📎</span> Context
+            </button>
+            <select id="agentSelector" onchange="onAgentSelectChange()" class="status-pill" style="cursor:pointer; background:rgba(0,0,0,0.5); color:#fff; border-color:var(--border);">
+              <option value="auto">👑 Omni-Auto Meta-Router (Auto-Select Desk)</option>
+              <option value="michael">👔 Michael Scott (Regional Manager / General)</option>
+              <option value="dwight">👓 Dwight Schrute (CMO & High-Conversion Copy)</option>
+              <option value="toby">📚 Toby Flenderson (Riset Akademik & Tesis MM)</option>
+              <option value="pam">🎨 Pam Beesly (UI/UX Architect & Generative UI)</option>
+              <option value="ryan">⚡ Ryan Howard (Senior Dev & AST Code Memory)</option>
+              <option value="angela">📊 Angela Martin (Head of Finance & Invoicing)</option>
+              <option value="oscar">📈 Oscar Martinez (Financial Modeler & Reconciliation)</option>
+              <option value="creed">🕵️ Creed Bratton (QA Security & OSINT Hunter)</option>
+            </select>
+            <textarea id="chatInputText" class="chat-textarea" rows="1" placeholder="Ketik pesan atau tekan tombol mic untuk bicara..." onkeydown="onChatKeyDown(event)"></textarea>
+
+            <!-- PUSH TO TALK MIC BUTTON -->
+            <button onclick="toggleSpeechListening()" id="micBtn" class="btn-mic" title="Bicara dengan Jarvis (Voice Recognition)">
+              <span>🎙️</span>
+            </button>
+
+            <button onclick="handleSendChat()" class="btn-send">
+              <span>Kirim</span>
+              <span>⚡</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================
+       VIEW 2: MUNDER DIFFLIN 2D AGENT OFFICE
+       ========================================================== -->
+  <div id="panel-munder" class="view-panel">
+    <div class="purpose-banner">
+      <div class="purpose-title">
+        <span>🏢</span> MUNDER DIFFLIN 2D AGENT OFFICE
+        <span class="purpose-desc">Denah lantai kantor interaktif. Klik meja agen untuk konsultasi langsung dan saksikan animasi laser energi dinamis.</span>
+      </div>
+      <div class="purpose-badge">8 MEJA SPESIALIS AKTIF</div>
+    </div>
+
+    <div class="floor-container">
+      <svg id="floor-laser-svg"></svg>
+
+      <div class="floor-map" id="floorMap">
+        <div class="desk-card" id="desk-michael" onclick="selectMunderAgent('michael')">
+          <div class="desk-header">
+            <div class="desk-avatar">👔</div>
+            <div class="desk-meta">
+              <h4>Michael Scott</h4>
+              <p>Omni-Auto Regional Manager</p>
+            </div>
+          </div>
+          <div class="desk-status">
+            <span>Corner Office</span>
+            <span class="desk-status-pill" id="status-michael">ACTIVE BOSS</span>
+          </div>
+        </div>
+
+        <div class="desk-card" id="desk-dwight" onclick="selectMunderAgent('dwight')">
+          <div class="desk-header">
+            <div class="desk-avatar">👓</div>
+            <div class="desk-meta">
+              <h4>Dwight Schrute</h4>
+              <p>CMO & Copywriting Master</p>
+            </div>
+          </div>
+          <div class="desk-status">
+            <span>PAS / Contrarian</span>
+            <span class="desk-status-pill" id="status-dwight">READY</span>
+          </div>
+        </div>
+
+        <div class="desk-card" id="desk-toby" onclick="selectMunderAgent('toby')">
+          <div class="desk-header">
+            <div class="desk-avatar">📚</div>
+            <div class="desk-meta">
+              <h4>Toby Flenderson</h4>
+              <p>Direktur Riset Tesis MM</p>
+            </div>
+          </div>
+          <div class="desk-status">
+            <span>SEM-PLS / Hofstede</span>
+            <span class="desk-status-pill" id="status-toby">READY</span>
+          </div>
+        </div>
+
+        <div class="desk-card" id="desk-pam" onclick="selectMunderAgent('pam')">
+          <div class="desk-header">
+            <div class="desk-avatar">🎨</div>
+            <div class="desk-meta">
+              <h4>Pam Beesly</h4>
+              <p>UI/UX & Generative UI</p>
+            </div>
+          </div>
+          <div class="desk-status">
+            <span>Visual Craft Tokens</span>
+            <span class="desk-status-pill" id="status-pam">READY</span>
+          </div>
+        </div>
+
+        <div class="desk-card" id="desk-ryan" onclick="selectMunderAgent('ryan')">
+          <div class="desk-header">
+            <div class="desk-avatar">⚡</div>
+            <div class="desk-meta">
+              <h4>Ryan Howard</h4>
+              <p>Senior Engineer (AST Memory)</p>
+            </div>
+          </div>
+          <div class="desk-status">
+            <span>Ponytail Discipline</span>
+            <span class="desk-status-pill" id="status-ryan">READY</span>
+          </div>
+        </div>
+
+        <div class="desk-card" id="desk-angela" onclick="selectMunderAgent('angela')">
+          <div class="desk-header">
+            <div class="desk-avatar">📊</div>
+            <div class="desk-meta">
+              <h4>Angela Martin</h4>
+              <p>Head of Accounting & Audit</p>
+            </div>
+          </div>
+          <div class="desk-status">
+            <span>Unit Economics / Invoicing</span>
+            <span class="desk-status-pill" id="status-angela">READY</span>
+          </div>
+        </div>
+
+        <div class="desk-card" id="desk-oscar" onclick="selectMunderAgent('oscar')">
+          <div class="desk-header">
+            <div class="desk-avatar">📈</div>
+            <div class="desk-meta">
+              <h4>Oscar Martinez</h4>
+              <p>Financial Modeler & Stripe</p>
+            </div>
+          </div>
+          <div class="desk-status">
+            <span>Reconciliation / Cashflow</span>
+            <span class="desk-status-pill" id="status-oscar">READY</span>
+          </div>
+        </div>
+
+        <div class="desk-card" id="desk-creed" onclick="selectMunderAgent('creed')">
+          <div class="desk-header">
+            <div class="desk-avatar">🕵️</div>
+            <div class="desk-meta">
+              <h4>Creed Bratton</h4>
+              <p>QA Security & OSINT Hunter</p>
+            </div>
+          </div>
+          <div class="desk-status">
+            <span>Anti-Plagiarism FK-16</span>
+            <span class="desk-status-pill" id="status-creed">READY</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="munder-drawer" id="munderDrawer">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span id="md-avatar" style="font-size:24px;">👔</span>
+            <div>
+              <h3 id="md-name" style="font-size:14px; font-weight:700; color:#fff;">Michael Scott</h3>
+              <p id="md-role" style="font-size:11px; color:var(--purple-light);">Omni-Auto Regional Manager</p>
+            </div>
+          </div>
+          <span class="status-pill">Gemini Flash</span>
+        </div>
+
+        <div id="md-intro" style="font-size:12px; color:#cbd5e1; background:rgba(0,0,0,0.3); padding:10px 12px; border-radius:8px; border:1px solid var(--border); margin-bottom:12px; line-height:1.5;">
+          Halo Antonius! Saya Michael Scott, boss di kantor ini. Apa tugas besar kita hari ini?
+        </div>
+
+        <div style="flex:1; overflow-y:auto; display:flex; flex-direction:column; gap:8px; margin-bottom:12px;" id="md-logs"></div>
+
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <div style="display:flex; gap:6px;">
+            <input type="text" id="md-input" placeholder="Tanya langsung ke agen ini..." class="chat-textarea" style="height:38px; padding:6px 12px;" onkeydown="if(event.key==='Enter') sendMunderDrawerChat()">
+            <button onclick="sendMunderDrawerChat()" class="btn-send" style="height:38px; padding:0 14px;">Kirim</button>
+          </div>
+          <button onclick="triggerOfficeDelegation()" class="status-pill" style="width:100%; justify-content:center; cursor:pointer; background:rgba(250,173,20,0.15); color:var(--gold); border-color:var(--gold);">
+            <span>⚡</span> Delegasikan Sprint Otomatis ke Seluruh Meja
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================
+       VIEW 3: COSMIC GALAXY NEXUS
+       ========================================================== -->
+  <div id="panel-galaxy" class="view-panel">
+    <div class="purpose-banner">
+      <div class="purpose-title">
+        <span>🪐</span> COSMIC GALAXY NEXUS
+        <span class="purpose-desc">Universal Macro View: Seluruh konstelasi multi-agen Dola AI (Tresorverse, Forgeverse, AGY Orbits) mengelilingi inti komputasi emas "宝" (Nexus Bridge).</span>
+      </div>
+      <div style="display:flex; align-items:center; gap:8px;">
+        <span style="font-size:11px; font-family:var(--font-mono); color:var(--text-muted);">SPEED:</span>
+        <button onclick="setGalaxySpeed(0.5)" class="purpose-badge" style="cursor:pointer;">0.5x</button>
+        <button onclick="setGalaxySpeed(1.0)" class="purpose-badge" style="cursor:pointer; background:var(--purple); color:#fff;">1.0x</button>
+        <button onclick="setGalaxySpeed(2.0)" class="purpose-badge" style="cursor:pointer;">2.0x</button>
+        <button onclick="setGalaxySpeed(4.0)" class="purpose-badge" style="cursor:pointer; color:var(--gold);">4.0x</button>
+      </div>
+    </div>
+    <div class="canvas-fullscreen-container">
+      <canvas id="galaxy-canvas" class="render-engine"></canvas>
+    </div>
+  </div>
+
+  <!-- ==========================================================
+       VIEW 4: 3D ISOMETRIC AGENTS OFFICE
+       ========================================================== -->
+  <div id="panel-office" class="view-panel">
+    <div class="purpose-banner">
+      <div class="purpose-title">
+        <span>🏫</span> 3D AGENTS OFFICE & CLASSROOM
+        <span class="purpose-desc">Isometric Micro HQ: 4 Platform Departemen dan 24 meja kerja sub-agen yang dialiri 60 partikel data langsung dari The Brain (209 Catatan Obsidian).</span>
+      </div>
+      <div class="purpose-badge">24 SUB-AGENTS ACTIVE</div>
+    </div>
+    <div class="canvas-fullscreen-container">
+      <canvas id="office-canvas" class="render-engine"></canvas>
+    </div>
+  </div>
+
+  <!-- ==========================================================
+       VIEW 5: KANBAN BOARD
+       ========================================================== -->
+  <div id="panel-kanban" class="view-panel">
+    <div class="purpose-banner">
+      <div class="purpose-title">
+        <span>📋</span> AUTONOMOUS KANBAN SPRINT ENGINE
+        <span class="purpose-desc">Papan pelacakan tugas mandiri seluruh agen dengan gerbang persetujuan kriptografis (Human-in-the-Loop).</span>
+      </div>
+      <div class="purpose-badge">4 COLUMNS • REAL-TIME</div>
+    </div>
+    <div class="kanban-grid">
+      <div class="kanban-col">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <h4 style="font-size:12px; font-weight:700; color:var(--purple-light);">BACKLOG (3)</h4>
+          <span style="font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">QUEUED</span>
+        </div>
+        <div class="kanban-card">
+          <div style="font-size:10px; color:var(--orange); font-family:var(--font-mono);">[TASK-881]</div>
+          <div style="font-size:12.5px; font-weight:600;">Scrape SOTA RAG Multi-Modal Repositories</div>
+          <div style="font-size:11px; color:var(--text-muted);">Assigned to: Creed Bratton (OSINT)</div>
+        </div>
+        <div class="kanban-card">
+          <div style="font-size:10px; color:var(--purple-light); font-family:var(--font-mono);">[TASK-882]</div>
+          <div style="font-size:12.5px; font-weight:600;">Build FastMCP Memory Cache Indexer</div>
+          <div style="font-size:11px; color:var(--text-muted);">Assigned to: Ryan Howard (AST)</div>
+        </div>
+      </div>
+
+      <div class="kanban-col">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <h4 style="font-size:12px; font-weight:700; color:var(--cyan);">IN PROGRESS (2)</h4>
+          <span style="font-size:10px; font-family:var(--font-mono); color:var(--cyan);">RUNNING</span>
+        </div>
+        <div class="kanban-card" style="border-color:rgba(6,182,212,0.4);">
+          <div style="font-size:10px; color:var(--cyan); font-family:var(--font-mono);">[TASK-879]</div>
+          <div style="font-size:12.5px; font-weight:600;">Tesis MM BAB III: Outer & Inner Model SEM-PLS</div>
+          <div style="font-size:11px; color:var(--text-muted);">Assigned to: Toby Flenderson</div>
+          <div style="width:100%; background:rgba(255,255,255,0.1); height:4px; border-radius:2px; overflow:hidden;">
+            <div style="width:78%; height:100%; background:var(--cyan);"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="kanban-col">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <h4 style="font-size:12px; font-weight:700; color:var(--gold);">WAITING APPROVAL (1)</h4>
+          <span style="font-size:10px; font-family:var(--font-mono); color:var(--gold);">GATE</span>
+        </div>
+        <div class="kanban-card" style="border-color:rgba(250,173,20,0.4); background:rgba(250,173,20,0.05);">
+          <div style="font-size:10px; color:var(--gold); font-family:var(--font-mono);">[GATE-04]</div>
+          <div style="font-size:12.5px; font-weight:600;">Deploy Jarvis Voice Model to Client</div>
+          <div style="font-size:11px; color:var(--text-muted);">Cryptographic voice synthesis authorization.</div>
+          <button onclick="signApprovalGate('GATE-04')" class="btn-send" style="height:32px; font-size:11px; justify-content:center; background:var(--gold); color:#000;">
+            APPROVE GATE
+          </button>
+        </div>
+      </div>
+
+      <div class="kanban-col">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <h4 style="font-size:12px; font-weight:700; color:var(--green);">DONE (20)</h4>
+          <span style="font-size:10px; font-family:var(--font-mono); color:var(--green);">VERIFIED</span>
+        </div>
+        <div class="kanban-card" style="opacity:0.8;">
+          <div style="font-size:10px; color:var(--green); font-family:var(--font-mono);">[TASK-880]</div>
+          <div style="font-size:12.5px; font-weight:600;">Jarvis Voice Engine STT & TTS Integration</div>
+          <div style="font-size:11px; color:var(--text-muted);">Male Cool & Energetic Voice Active</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================
+       VIEW 6: RAW SYSTEM FLOW & TERMINAL
+       ========================================================== -->
+  <div id="panel-terminal" class="view-panel">
+    <div class="purpose-banner">
+      <div class="purpose-title">
+        <span>⚡</span> RAW SYSTEM FLOW & TELEMETRY
+        <span class="purpose-desc">Kernel telemetri low-level: monitoring SHA-256 hash log, 352 LLM provider routing, dan konsumsi bus memori internal.</span>
+      </div>
+      <div class="purpose-badge">LIVE KERNEL BUS</div>
+    </div>
+    <div class="term-container">
+      <div class="telemetry-row">
+        <div class="telemetry-card">
+          <div style="font-size:11px; color:var(--text-muted); font-family:var(--font-mono);">OMNIRoute Gateway</div>
+          <div style="font-size:22px; font-weight:800; color:var(--cyan); margin-top:4px;">352 Providers</div>
+          <div style="font-size:10px; color:var(--green);">● Active Latency 142ms</div>
+        </div>
+        <div class="telemetry-card">
+          <div style="font-size:11px; color:var(--text-muted); font-family:var(--font-mono);">GitHub Star Power</div>
+          <div style="font-size:22px; font-weight:800; color:var(--gold); margin-top:4px;">★ 61,564</div>
+          <div style="font-size:10px; color:var(--text-muted);">Top Trending Harvested</div>
+        </div>
+        <div class="telemetry-card">
+          <div style="font-size:11px; color:var(--text-muted); font-family:var(--font-mono);">Cryptographic Ledger</div>
+          <div style="font-size:22px; font-weight:800; color:var(--purple-light); margin-top:4px;">1,842 Hashes</div>
+          <div style="font-size:10px; color:var(--green);">● SHA-256 Verified</div>
+        </div>
+        <div class="telemetry-card">
+          <div style="font-size:11px; color:var(--text-muted); font-family:var(--font-mono);">Obsidian Second Brain</div>
+          <div style="font-size:22px; font-weight:800; color:var(--green); margin-top:4px;" id="termVaultCount">209 Notes</div>
+          <div style="font-size:10px; color:var(--green);">● Auto-Sync Active</div>
+        </div>
+      </div>
+
+      <div class="term-box" id="termLogs">
+        <div>[00:00:01] <span style="color:var(--cyan);">SYSTEM_INIT</span>: Antigravity AGY Swarm Engine v4.7 Iron Man Edition initialized.</div>
+        <div>[00:00:02] <span style="color:var(--gold);">FAILOVER_MESH</span>: Loaded 7 Google Gemini API Keys into round-robin pool.</div>
+        <div>[00:00:03] <span style="color:var(--green);">MEMORY_BUS</span>: Obsidian Vault connected (209 Notes • Chat_History Active).</div>
+        <div>[00:00:04] <span style="color:var(--cyan);">JARVIS_VOICE</span>: Speech Recognition & High-Acoustic Male TTS Engine ready.</div>
+        <div id="termStreamAnchor"></div>
+      </div>
+
+      <div style="display:flex; gap:10px; align-items:center;">
+        <span style="font-family:var(--font-mono); color:var(--cyan); font-size:12px;">dola-os@local:~$</span>
+        <input type="text" id="termCmdInput" placeholder="Ketik perintah (e.g. /status, /voice, /memory, /thesis)..." class="chat-textarea" style="height:36px; padding:6px 12px;" onkeydown="if(event.key==='Enter') executeTermCmd()">
+        <button onclick="executeTermCmd()" class="btn-send" style="height:36px; padding:0 16px;">Run</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================
+       VIEW 7: THESIS RESEARCH HUB
+       ========================================================== -->
+  <div id="panel-thesis" class="view-panel">
+    <div class="purpose-banner">
+      <div class="purpose-title">
+        <span>🎓</span> THESIS RESEARCH HUB — ANTONIUS WIJAYANATA MM
+        <span class="purpose-desc">Kokpit naskah tesis Magister Manajemen: "Sistem SDM dan Adaptasi Budaya PMA China", perumusan hipotesis SEM-PLS, dan ekspor Mendeley RIS 1-klik.</span>
+      </div>
+      <button onclick="downloadThesisRis()" class="btn-send" style="height:32px; font-size:11px; background:var(--green); color:#000;">
+        📥 DOWNLOAD .RIS
+      </button>
+    </div>
+    <div style="width:100%; height:100%; padding:66px 24px 20px 24px; overflow-y:auto; display:flex; flex-direction:column; gap:16px;">
+      <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:18px;">
+        <h3 style="font-size:16px; font-weight:700; color:var(--gold);">Sistem SDM dan Adaptasi Budaya PMA China</h3>
+        <p style="font-size:12px; color:var(--text-muted); margin-top:4px;">Studi Kasus Perusahaan Penanaman Modal Asing (PMA) China di Kawasan Industri Indonesia</p>
+        <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:14px; margin-top:16px;">
+          <div style="background:rgba(255,255,255,0.03); border:1px solid var(--border); border-radius:8px; padding:12px;">
+            <div style="font-size:11px; font-weight:700; color:var(--cyan);">VARIABEL INDEPENDEN (X)</div>
+            <div style="font-size:13px; font-weight:600; margin-top:4px;">Praktik Sistem SDM</div>
+            <div style="font-size:11px; color:var(--text-muted); margin-top:2px;">Rekrutmen, Pelatihan Budaya, Kompensasi, Evaluasi Kinerja.</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.03); border:1px solid var(--border); border-radius:8px; padding:12px;">
+            <div style="font-size:11px; font-weight:700; color:var(--purple-light);">VARIABEL MEDIASI (M)</div>
+            <div style="font-size:13px; font-weight:600; margin-top:4px;">Adaptasi Budaya Kerja</div>
+            <div style="font-size:11px; color:var(--text-muted); margin-top:2px;">Dimensi Hofstede (Power Distance, Collectivism) & Schein.</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.03); border:1px solid var(--border); border-radius:8px; padding:12px;">
+            <div style="font-size:11px; font-weight:700; color:var(--green);">VARIABEL DEPENDEN (Y)</div>
+            <div style="font-size:13px; font-weight:600; margin-top:4px;">Kinerja Karyawan & OCB</div>
+            <div style="font-size:11px; color:var(--text-muted); margin-top:2px;">Organizational Citizenship Behavior & Retensi Talenta Lokal.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- JARVIS VOICE CONFIG MODAL -->
+<div id="voiceModal" class="modal-overlay" onclick="if(event.target===this) closeJarvisVoiceModal()">
+  <div style="background:var(--bg-surface); border:1px solid var(--cyan); border-radius:14px; width:540px; padding:22px; display:flex; flex-direction:column; gap:16px; box-shadow:0 0 35px rgba(6,182,212,0.3);">
+    <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(6,182,212,0.3); padding-bottom:10px;">
+      <div style="display:flex; align-items:center; gap:8px;">
+        <span style="font-size:22px;">🎙️</span>
+        <h3 style="font-size:15px; font-weight:700; color:#fff;">J.A.R.V.I.S. Audio & Voice Matrix</h3>
+      </div>
+      <button onclick="closeJarvisVoiceModal()" style="color:var(--text-muted); font-size:16px; background:none; border:none; cursor:pointer;">✕</button>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:8px;">
+      <label style="font-size:11px; font-family:var(--font-mono); color:var(--text-muted);">Pilih Suara Jarvis (Male Only, Young & Energetic):</label>
+      <select id="voiceSelectDropdown" onchange="onVoiceDropdownChange()" class="chat-textarea" style="height:40px; padding:6px 12px; background:var(--bg-card); color:#fff; border-color:var(--cyan);">
+        <!-- Populated dynamically via JS -->
+      </select>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
+      <div>
+        <label style="font-size:11px; font-family:var(--font-mono); color:var(--text-muted);">Pitch (Nada Suara): <span id="pitchValLabel">1.06</span></label>
+        <input type="range" id="voicePitchRange" min="0.8" max="1.3" step="0.02" value="1.06" oninput="document.getElementById('pitchValLabel').innerText=this.value" style="width:100%;">
+      </div>
+      <div>
+        <label style="font-size:11px; font-family:var(--font-mono); color:var(--text-muted);">Rate (Kecepatan Bicara): <span id="rateValLabel">1.08</span></label>
+        <input type="range" id="voiceRateRange" min="0.8" max="1.4" step="0.02" value="1.08" oninput="document.getElementById('rateValLabel').innerText=this.value" style="width:100%;">
+      </div>
+    </div>
+
+    <div style="display:flex; gap:10px; margin-top:8px;">
+      <button onclick="testJarvisVoiceGreeting()" class="btn-send" style="flex:1; justify-content:center; background:linear-gradient(135deg, var(--cyan), var(--blue));">
+        <span>⚡</span> Uji Suara Jarvis
+      </button>
+      <button onclick="closeJarvisVoiceModal()" class="btn-send" style="background:rgba(255,255,255,0.06); border:1px solid var(--border); color:#fff;">
+        Simpan
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- OBSIDIAN MEMORY MODAL -->
+<div id="memoryModal" class="modal-overlay" onclick="if(event.target===this) closeMemoryModal()">
+  <div style="background:var(--bg-surface); border:1px solid var(--border); border-radius:14px; width:640px; max-height:80vh; padding:22px; display:flex; flex-direction:column; gap:14px;">
+    <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border); padding-bottom:10px;">
+      <div style="display:flex; align-items:center; gap:8px;">
+        <span style="font-size:20px;">🧠</span>
+        <h3 style="font-size:15px; font-weight:700; color:#fff;">Obsidian Second Brain — Memory Inspector</h3>
+      </div>
+      <button onclick="closeMemoryModal()" style="color:var(--text-muted); font-size:16px; background:none; border:none; cursor:pointer;">✕</button>
+    </div>
+    <div style="font-size:12px; color:var(--text-muted); line-height:1.5;">
+      Semua percakapan dan ringkasan tersimpan ke file markdown harian di:
+      <div style="font-family:var(--font-mono); color:var(--cyan); background:rgba(0,0,0,0.4); padding:6px 10px; border-radius:6px; margin-top:4px;">
+        C:\Users\antoni\Dola\obsidian_vault\09_AI_WORKFLOW\Chat_History\
+      </div>
+    </div>
+    <div style="flex:1; overflow-y:auto; display:flex; flex-direction:column; gap:8px;" id="memoryTurnsList"></div>
+    <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--border); padding-top:10px;">
+      <span style="font-size:11px; color:var(--green);" id="memoryStatsLabel">Auto-Syncing with Vault...</span>
+      <button onclick="closeMemoryModal()" class="btn-send" style="height:34px; font-size:12px;">Tutup</button>
+    </div>
+  </div>
+</div>
+
+<!-- CONTEXT DOCK MODAL -->
+<div id="contextDock" class="modal-overlay" onclick="if(event.target===this) toggleContextDock()">
+  <div style="background:var(--bg-surface); border:1px solid var(--border); border-radius:14px; width:540px; padding:20px; display:flex; flex-direction:column; gap:14px;">
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+      <h3 style="font-size:15px; font-weight:700; color:#fff;">📎 Context Ingestion Dock</h3>
+      <button onclick="toggleContextDock()" style="color:var(--text-muted); font-size:16px; background:none; border:none; cursor:pointer;">✕</button>
+    </div>
+    <div style="display:flex; gap:8px;">
+      <button onclick="loadPresetContext('thesis')" class="status-pill" style="flex:1; justify-content:center; cursor:pointer;">Preset Tesis MM</button>
+      <button onclick="loadPresetContext('vault')" class="status-pill" style="flex:1; justify-content:center; cursor:pointer;">Preset 209 Vault Notes</button>
+      <button onclick="loadPresetContext('repos')" class="status-pill" style="flex:1; justify-content:center; cursor:pointer;">Preset 150 Clones</button>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:6px;">
+      <label style="font-size:11px; color:var(--text-muted);">Unggah Dokumen (.txt, .md, .py, .docx, .pdf):</label>
+      <input type="file" multiple onchange="handleFileSelect(event)" style="font-size:12px; color:#fff;">
+    </div>
+    <div style="display:flex; gap:8px;">
+      <input type="text" id="pathInput" placeholder="Atau tempel path file lokal (C:\Users\...)" class="chat-textarea" style="height:38px; padding:6px 12px;">
+      <button onclick="addPathContext()" class="btn-send" style="height:38px; padding:0 14px;">Bind</button>
+    </div>
+  </div>
+</div>
+
+<!-- API KEY MODAL -->
+<div id="apiModal" class="modal-overlay" onclick="if(event.target===this) closeApiModal()">
+  <div style="background:var(--bg-surface); border:1px solid var(--border); border-radius:14px; width:520px; padding:20px; display:flex; flex-direction:column; gap:14px;">
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+      <h3 style="font-size:15px; font-weight:700; color:#fff;">🔑 7-Key Failover Mesh Status</h3>
+      <button onclick="closeApiModal()" style="color:var(--text-muted); font-size:16px; background:none; border:none; cursor:pointer;">✕</button>
+    </div>
+    <div style="background:rgba(0,0,0,0.4); border:1px solid var(--border); border-radius:8px; padding:12px; font-family:var(--font-mono); font-size:11px; display:flex; flex-direction:column; gap:6px;">
+      <div style="color:var(--green);">✓ Key 1: AIzaSyDBt_... [Verified 200 OK]</div>
+      <div style="color:var(--green);">✓ Key 2: AIzaSyDSzG... [Verified 200 OK]</div>
+      <div style="color:var(--green);">✓ Key 3: AIzaSyAqpo... [Verified 200 OK]</div>
+      <div style="color:var(--green);">✓ Key 4: AQ.Ab8RN6L_... [Verified 200 OK]</div>
+      <div style="color:var(--cyan);">✓ Key 5: AQ.Ab8RN6Kl... [Failover Backup]</div>
+      <div style="color:var(--cyan);">✓ Key 6: AQ.Ab8RN6IK... [Failover Backup]</div>
+      <div style="color:var(--cyan);">✓ Key 7: AQ.Ab8RN6JT... [Failover Backup]</div>
+    </div>
+    <button onclick="closeApiModal()" class="btn-send" style="width:100%; justify-content:center;">Tutup</button>
+  </div>
+</div>
+
+<div id="os-toast"></div>
+
+<!-- JAVASCRIPT LOGIC -->
+<script>
+  // 1. CONFIG & 7-KEY MESH
+  const USER_KEY_POOL = [
+    "AIzaSy_REDACTED_BY_SECURITY_POLICY_X1",
+    "AIzaSy_REDACTED_BY_SECURITY_POLICY_X1",
+    "AIzaSy_REDACTED_BY_SECURITY_POLICY_X1",
+    "AQ.REDACTED_BY_SECURITY_POLICY",
+    "AQ.REDACTED_BY_SECURITY_POLICY",
+    "AQ.REDACTED_BY_SECURITY_POLICY",
+    "AQ.REDACTED_BY_SECURITY_POLICY"
+  ];
+
+  const AI_MODELS = [
+    "gemini-flash-latest",
+    "gemini-flash-lite-latest",
+    "gemini-2.5-flash",
+    "gemini-pro-latest"
+  ];
+
+  let localBridgeOnline = false;
+  const activeContexts = [];
+
+  // ==========================================================
+  // 2. J.A.R.V.I.S. VOICE & AUDIO INTELLIGENCE (STT + TTS)
+  // ==========================================================
+  let jarvisVoiceEnabled = true;
+  let jarvisVoices = [];
+  let selectedJarvisVoice = null;
+  let isListening = false;
+  let isSpeaking = false;
+  let speechRecognition = null;
+
+  function initJarvisAudio() {
+    // 1. Load Speech Synthesis (TTS)
+    if ('speechSynthesis' in window) {
+      function loadVoices() {
+        jarvisVoices = window.speechSynthesis.getVoices();
+        if (jarvisVoices.length > 0) {
+          const dropdown = document.getElementById('voiceSelectDropdown');
+          if (dropdown) dropdown.innerHTML = '';
+
+          // Prefer cool young energetic male voices
+          const preferredPatterns = [
+            'ryan online', 'guy online', 'christopher online', 'george', 'david',
+            'google uk english male', 'google us english male', 'ardi online',
+            'male', 'natural'
+          ];
+
+          let bestMatch = null;
+          jarvisVoices.forEach((v, idx) => {
+            const opt = document.createElement('option');
+            opt.value = idx;
+            opt.text = `${v.name} (${v.lang})`;
+            if (dropdown) dropdown.appendChild(opt);
+
+            const vLower = v.name.toLowerCase();
+            if (!bestMatch) {
+              for (const p of preferredPatterns) {
+                if (vLower.includes(p)) {
+                  bestMatch = v;
+                  if (dropdown) dropdown.value = idx;
+                  break;
+                }
+              }
+            }
+          });
+
+          selectedJarvisVoice = bestMatch || jarvisVoices.find(v => v.lang.startsWith('en') || v.lang.startsWith('id')) || jarvisVoices[0];
+        }
+      }
+
+      loadVoices();
+      if (window.speechSynthesis.onvoiceschanged !== undefined) {
+        window.speechSynthesis.onvoiceschanged = loadVoices;
+      }
+    }
+
+    // 2. Load Speech Recognition (STT)
+    const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (SpeechRec) {
+      speechRecognition = new SpeechRec();
+      speechRecognition.continuous = false;
+      speechRecognition.interimResults = true;
+      speechRecognition.lang = 'id-ID';
+
+      speechRecognition.onstart = () => {
+        isListening = true;
+        setJarvisState('LISTENING');
+        document.getElementById('micBtn')?.classList.add('mic-active');
+        showToast("🎙️ Jarvis mendengarkan... Silakan bicara!");
+      };
+
+      speechRecognition.onresult = (e) => {
+        let transcript = '';
+        for (let i = e.resultIndex; i < e.results.length; ++i) {
+          transcript += e.results[i][0].transcript;
+        }
+        const inp = document.getElementById('chatInputText');
+        if (inp) {
+          inp.value = transcript;
+          adjustTextarea(inp);
+        }
+      };
+
+      speechRecognition.onend = () => {
+        isListening = false;
+        document.getElementById('micBtn')?.classList.remove('mic-active');
+        const inp = document.getElementById('chatInputText');
+        if (inp && inp.value.trim().length > 0) {
+          setJarvisState('THINKING');
+          handleSendChat();
+        } else {
+          setJarvisState('IDLE');
+        }
+      };
+
+      speechRecognition.onerror = (err) => {
+        isListening = false;
+        setJarvisState('IDLE');
+        document.getElementById('micBtn')?.classList.remove('mic-active');
+        if (err.error !== 'no-speech') {
+          showToast("Mic Notice: " + err.error);
+        }
+      };
+    }
+  }
+
+  function toggleSpeechListening() {
+    if (!speechRecognition) {
+      showToast("Speech recognition tidak didukung di browser ini. Gunakan Chrome/Edge.");
+      return;
+    }
+    if (isListening) {
+      speechRecognition.stop();
+    } else {
+      if (window.speechSynthesis) window.speechSynthesis.cancel();
+      try {
+        speechRecognition.start();
+      } catch(e) {
+        speechRecognition.stop();
+      }
+    }
+  }
+
+  function setJarvisState(state) {
+    const badge = document.getElementById('jarvisStatusBadge');
+    const sub = document.getElementById('jarvisStatusSub');
+    const reactor = document.getElementById('arcReactorEl');
+
+    if (state === 'LISTENING') {
+      badge.innerText = 'LISTENING...';
+      badge.style.color = '#ef4444';
+      badge.style.borderColor = '#ef4444';
+      sub.innerText = '"Listening to your command, Sir..."';
+      if (reactor) reactor.style.borderColor = '#ef4444';
+    } else if (state === 'THINKING') {
+      badge.innerText = 'NEURAL PROCESSING';
+      badge.style.color = 'var(--gold)';
+      badge.style.borderColor = 'var(--gold)';
+      sub.innerText = '"Computing optimal response via 7-Key Gemini Swarm..."';
+      if (reactor) reactor.style.borderColor = 'var(--gold)';
+    } else if (state === 'SPEAKING') {
+      badge.innerText = 'SPEAKING';
+      badge.style.color = 'var(--cyan)';
+      badge.style.borderColor = 'var(--cyan)';
+      sub.innerText = '"Transmitting audio response stream, Sir."';
+      if (reactor) reactor.style.borderColor = 'var(--cyan)';
+    } else {
+      badge.innerText = 'ONLINE';
+      badge.style.color = 'var(--green)';
+      badge.style.borderColor = 'rgba(16,185,129,0.3)';
+      sub.innerText = '"All systems online, Sir. Press [🎙️] or Arc Reactor to speak."';
+      if (reactor) reactor.style.borderColor = 'var(--cyan)';
+    }
+  }
+
+  function toggleJarvisVoice() {
+    jarvisVoiceEnabled = !jarvisVoiceEnabled;
+    const text = document.getElementById('voiceText');
+    const icon = document.getElementById('voiceIcon');
+    if (jarvisVoiceEnabled) {
+      text.innerText = "JARVIS VOICE: ON";
+      icon.innerText = "🔊";
+      showToast("🔊 Jarvis Voice diaktifkan!");
+    } else {
+      text.innerText = "JARVIS VOICE: OFF";
+      icon.innerText = "🔇";
+      stopJarvisSpeech();
+      showToast("🔇 Jarvis Voice dimatikan.");
+    }
+  }
+
+  function stopJarvisSpeech() {
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+    }
+    isSpeaking = false;
+    setJarvisState('IDLE');
+    document.getElementById('voiceStopBtn').style.display = 'none';
+  }
+
+  function speakJarvis(text) {
+    if (!jarvisVoiceEnabled || !('speechSynthesis' in window)) return;
+
+    window.speechSynthesis.cancel();
+
+    // Clean Markdown syntax for natural human speech
+    let clean = text
+      .replace(/```[\s\S]*?```/g, ' Berikut adalah rincian kodenya pada layar. ')
+      .replace(/\*+/g, '')
+      .replace(/#+/g, '')
+      .replace(/\[\[.*?\]\]/g, '')
+      .replace(/\[(.*?)\]\(.*?\)/g, '$1')
+      .replace(/https?:\/\/\S+/g, '')
+      .replace(/[\u{1F600}-\u{1F64F}\u{1F300}-\u{1F5FF}\u{1F680}-\u{1F6FF}\u{1F700}-\u{1F77F}\u{1F780}-\u{1F7FF}\u{1F800}-\u{1F8FF}\u{1F900}-\u{1F9FF}\u{1FA00}-\u{1FA6F}\u{1FA70}-\u{1FAFF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}]/gu, '')
+      .replace(/\s+/g, ' ')
+      .trim();
+
+    // Cap vocal length to first 85 words so it stays crisp and energetic
+    const words = clean.split(' ');
+    if (words.length > 85) {
+      clean = words.slice(0, 85).join(' ') + '... Rincian selengkapnya telah saya tampilkan pada layar, Sir.';
+    }
+
+    const utter = new SpeechSynthesisUtterance(clean);
+    if (selectedJarvisVoice) utter.voice = selectedJarvisVoice;
+
+    const pitchInput = document.getElementById('voicePitchRange');
+    const rateInput = document.getElementById('voiceRateRange');
+
+    utter.pitch = pitchInput ? parseFloat(pitchInput.value) : 1.06;
+    utter.rate = rateInput ? parseFloat(rateInput.value) : 1.08;
+    utter.volume = 1.0;
+
+    utter.onstart = () => {
+      isSpeaking = true;
+      setJarvisState('SPEAKING');
+      document.getElementById('voiceStopBtn').style.display = 'inline-flex';
+    };
+
+    utter.onend = () => {
+      isSpeaking = false;
+      setJarvisState('IDLE');
+      document.getElementById('voiceStopBtn').style.display = 'none';
+    };
+
+    utter.onerror = () => {
+      isSpeaking = false;
+      setJarvisState('IDLE');
+      document.getElementById('voiceStopBtn').style.display = 'none';
+    };
+
+    window.speechSynthesis.speak(utter);
+  }
+
+  function testJarvisVoiceGreeting() {
+    speakJarvis("Halo Antonius! Sistem Jarvis Swarm OS v4.7 telah online dan beroperasi penuh. Seluruh tujuh API key Gemini dan memori Obsidian Second Brain aktif. Apa perintah Anda hari ini, Sir?");
+  }
+
+  function openJarvisVoiceModal() { document.getElementById('voiceModal').style.display = 'flex'; }
+  function closeJarvisVoiceModal() { document.getElementById('voiceModal').style.display = 'none'; }
+  function onVoiceDropdownChange() {
+    const idx = document.getElementById('voiceSelectDropdown').value;
+    if (jarvisVoices[idx]) {
+      selectedJarvisVoice = jarvisVoices[idx];
+      showToast("Suara Jarvis diubah ke: " + selectedJarvisVoice.name);
+    }
+  }
+
+  // ==========================================================
+  // 3. TAB SWITCHING & SILENT AUTO-SYNC
+  // ==========================================================
+  function switchTab(tabId) {
+    document.querySelectorAll('.nav-tab').forEach(b => {
+      b.classList.remove('active');
+      if (b.getAttribute('data-tab') === tabId) b.classList.add('active');
+    });
+
+    document.querySelectorAll('.view-panel').forEach(p => {
+      p.classList.remove('active');
+      p.style.display = 'none';
+    });
+
+    const target = document.getElementById('panel-' + tabId);
+    if (target) {
+      target.classList.add('active');
+      target.style.display = 'flex';
+    }
+
+    if (tabId === 'galaxy') setTimeout(resizeGalaxyCanvas, 40);
+    if (tabId === 'office') setTimeout(resizeOfficeCanvas, 40);
+    showToast("Mode aktif: " + tabId.toUpperCase());
+  }
+
+  function openApiModal() { document.getElementById('apiModal').style.display = 'flex'; }
+  function closeApiModal() { document.getElementById('apiModal').style.display = 'none'; }
+  function openMemoryModal() {
+    document.getElementById('memoryModal').style.display = 'flex';
+    fetchMemoryTurns();
+  }
+  function closeMemoryModal() { document.getElementById('memoryModal').style.display = 'none'; }
+  function toggleContextDock() {
+    const d = document.getElementById('contextDock');
+    d.style.display = (d.style.display === 'flex') ? 'none' : 'flex';
+  }
+
+  function silentBackgroundSync() {
+    fetch('http://localhost:5050/api/status')
+      .then(r => r.json())
+      .then(d => {
+        localBridgeOnline = true;
+        if (d.vault_notes) {
+          document.getElementById('vaultNotesHeaderCount').innerText = `${d.vault_notes} NOTES`;
+          const tv = document.getElementById('termVaultCount');
+          if (tv) tv.innerText = `${d.vault_notes} Notes`;
+        }
+      })
+      .catch(() => { localBridgeOnline = false; });
+  }
+
+  function checkBridgeConnection(notify = false) {
+    silentBackgroundSync();
+    if (notify) showToast("Memeriksa status AGY Bridge...");
+  }
+
+  function fetchMemoryTurns() {
+    const list = document.getElementById('memoryTurnsList');
+    fetch('http://localhost:5050/api/memory/get')
+      .then(r => r.json())
+      .then(d => {
+        if (!d.turns || d.turns.length === 0) {
+          list.innerHTML = `<div style="font-size:12px; color:var(--text-muted); padding:10px;">Belum ada catatan memori tersimpan untuk sesi ini.</div>`;
+          return;
+        }
+        list.innerHTML = '';
+        d.turns.slice().reverse().forEach(t => {
+          const div = document.createElement('div');
+          div.style.cssText = "background:rgba(255,255,255,0.03); border:1px solid var(--border); border-radius:8px; padding:10px 12px; display:flex; flex-direction:column; gap:4px;";
+          div.innerHTML = `
+            <div style="display:flex; justify-content:space-between; align-items:center; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+              <span>🕒 ${t.timestamp}</span>
+              <span style="color:var(--cyan);">Agent: ${t.agent.toUpperCase()}</span>
+            </div>
+            <div style="font-size:12px; font-weight:600; color:#fff;">User: ${escapeHtml(t.prompt)}</div>
+            <div style="font-size:11.5px; color:#cbd5e1; line-height:1.4;">${escapeHtml(t.reply).slice(0, 180)}...</div>
+          `;
+          list.appendChild(div);
+        });
+        document.getElementById('memoryStatsLabel').innerText = `${d.count} Percakapan Terindeks di Vault`;
+      })
+      .catch(() => {
+        list.innerHTML = `<div style="font-size:12px; color:var(--orange);">Koneksi bridge lokal offline. Memori tersimpan di browser localStorage.</div>`;
+      });
+  }
+
+  // ==========================================================
+  // 4. MUNDER DIFFLIN 2D AGENTS & LASER BEAMS
+  // ==========================================================
+  const munderAgents = {
+    michael: { name: "Michael Scott", role: "Omni-Auto Regional Manager", avatar: "👔", intro: "Halo Antonius! Saya Michael Scott, boss di kantor ini. Apa tugas besar kita hari ini? Saya bisa mendelegasikan ke Dwight, Toby, Ryan, atau Angela!" },
+    dwight: { name: "Dwight Schrute", role: "CMO & Copywriting Master", avatar: "👓", intro: "Fakta! Copywriting biasa adalah pemborosan waktu. Saya siap merumuskan hook contrarian B2B dan naskah iklan formula PAS yang lolos audit FK-17!" },
+    toby: { name: "Toby Flenderson", role: "Direktur Riset Tesis MM", avatar: "📚", intro: "Halo Antonius. Saya mengelola naskah Tesis MM Anda (Sistem SDM dan Adaptasi Budaya PMA China). Saya siap menyusun BAB I-III dan SEM-PLS SmartPLS." },
+    pam: { name: "Pam Beesly", role: "UI/UX Architect & Generative UI", avatar: "🎨", intro: "Hai! Saya Pam. Saya mengurus estetika antarmuka, tata letak kanvas visual, dan sistem desain yang ramah pengguna." },
+    ryan: { name: "Ryan Howard", role: "Senior Systems Engineer (AST Memory)", avatar: "⚡", intro: "Halo. Saya Ryan. Saya menangani eksekusi kode backend, FastMCP indexing, dan arsitektur server tanpa regresi." },
+    angela: { name: "Angela Martin", role: "Head of Accounting & Audit", avatar: "📊", intro: "Angka tidak pernah berbohong. Saya mengaudit proyeksi break-even point, unit economics, dan kepatuhan finansial secara ketat." },
+    oscar: { name: "Oscar Martinez", role: "Financial Modeler & Stripe", avatar: "📈", intro: "Sebenarnya, efisiensi finansial adalah kunci utama. Saya menangani rekonsiliasi faktur dan payback period." },
+    creed: { name: "Creed Bratton", role: "QA Security & OSINT Hunter", avatar: "🕵️", intro: "Ssst. Saya Creed. Saya memeriksa kode dari celah keamanan, memastikan plagiasi FK-16 di bawah 5%, dan memindai web." }
+  };
+
+  let currentSelectedAgent = 'michael';
+
+  function selectMunderAgent(agentKey) {
+    currentSelectedAgent = agentKey;
+    const ag = munderAgents[agentKey] || munderAgents.michael;
+    document.getElementById('md-avatar').innerText = ag.avatar;
+    document.getElementById('md-name').innerText = ag.name;
+    document.getElementById('md-role').innerText = ag.role;
+    document.getElementById('md-intro').innerText = ag.intro;
+
+    document.querySelectorAll('.desk-card').forEach(d => d.classList.remove('active-target'));
+    const targetEl = document.getElementById('desk-' + agentKey);
+    if (targetEl) targetEl.classList.add('active-target');
+
+    document.getElementById('agentSelector').value = agentKey;
+  }
+
+  function drawLaserBeam(fromId, toId) {
+    const fromEl = document.getElementById(fromId);
+    const toEl = document.getElementById(toId);
+    const svg = document.getElementById('floor-laser-svg');
+    if (!fromEl || !toEl || !svg) return;
+
+    const mapRect = document.getElementById('floorMap').getBoundingClientRect();
+    const r1 = fromEl.getBoundingClientRect();
+    const r2 = toEl.getBoundingClientRect();
+
+    const x1 = r1.left - mapRect.left + r1.width / 2;
+    const y1 = r1.top - mapRect.top + r1.height / 2;
+    const x2 = r2.left - mapRect.left + r2.width / 2;
+    const y2 = r2.top - mapRect.top + r2.height / 2;
+
+    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    line.setAttribute('x1', x1); line.setAttribute('y1', y1);
+    line.setAttribute('x2', x2); line.setAttribute('y2', y2);
+    line.setAttribute('class', 'laser-beam');
+    svg.appendChild(line);
+
+    setTimeout(() => { line.remove(); }, 3200);
+  }
+
+  function triggerOfficeDelegation() {
+    showToast("Michael Scott mendelegasikan sprint ke seluruh meja...");
+    const desks = ['desk-dwight', 'desk-toby', 'desk-ryan', 'desk-angela', 'desk-pam', 'desk-creed', 'desk-oscar'];
+    desks.forEach((d, i) => {
+      setTimeout(() => drawLaserBeam('desk-michael', d), i * 200);
+    });
+  }
+
+  async function sendMunderDrawerChat() {
+    const inp = document.getElementById('md-input');
+    const txt = inp.value.trim();
+    if (!txt) return;
+
+    inp.value = '';
+    const logs = document.getElementById('md-logs');
+
+    const uDiv = document.createElement('div');
+    uDiv.style.cssText = "font-size:12px; color:#fff; background:rgba(139,92,246,0.25); border:1px solid var(--purple); padding:8px 12px; border-radius:8px; align-self:flex-end; max-width:90%;";
+    uDiv.innerText = txt;
+    logs.appendChild(uDiv);
+    logs.scrollTop = logs.scrollHeight;
+
+    if (currentSelectedAgent !== 'michael') {
+      drawLaserBeam('desk-michael', 'desk-' + currentSelectedAgent);
+    }
+
+    const loadDiv = document.createElement('div');
+    loadDiv.style.cssText = "font-size:11px; font-family:var(--font-mono); color:var(--cyan);";
+    loadDiv.innerHTML = `<span class="dot-status" style="display:inline-block; margin-right:4px;"></span> ${munderAgents[currentSelectedAgent].name} sedang memproses via Real Gemini AI...`;
+    logs.appendChild(loadDiv);
+    logs.scrollTop = logs.scrollHeight;
+
+    const res = await executeRealAIWithJarvis(txt, currentSelectedAgent, activeContexts);
+    loadDiv.remove();
+
+    const agDiv = document.createElement('div');
+    agDiv.style.cssText = "font-size:12px; color:#e2e8f0; background:rgba(0,0,0,0.4); border:1px solid var(--border); padding:10px 12px; border-radius:8px; line-height:1.6;";
+    agDiv.innerHTML = `
+      <div style="font-size:10px; font-family:var(--font-mono); color:var(--cyan); margin-bottom:4px;">
+        ${res.provider} • ${munderAgents[currentSelectedAgent].name}
+      </div>
+      <div>${escapeHtml(res.text).replace(/\n/g, '<br>')}</div>
+      ${res.memorySaved ? `<div class="memory-saved-pill" onclick="openMemoryModal()">🧠 Saved: [[${res.memoryFile}]]</div>` : ''}
+    `;
+    logs.appendChild(agDiv);
+    logs.scrollTop = logs.scrollHeight;
+
+    // Speak voice output
+    speakJarvis(res.text);
+  }
+
+  // ==========================================================
+  // 5. STREAMING TYPEWRITER EFFECT & CHAT EXECUTION
+  // ==========================================================
+  async function handleSendChat() {
+    const inp = document.getElementById('chatInputText');
+    const p = inp.value.trim();
+    if (!p) return;
+
+    appendUserMessage(p);
+    inp.value = '';
+    adjustTextarea(inp);
+
+    const sel = document.getElementById('agentSelector').value;
+    const targetAgent = (sel === 'auto') ? 'michael' : sel;
+
+    if (targetAgent !== 'michael') {
+      drawLaserBeam('desk-michael', 'desk-' + targetAgent);
+    }
+
+    setJarvisState('THINKING');
+    const area = document.getElementById('chatArea');
+
+    // JARVIS HUD
+    const hudRow = document.createElement('div');
+    hudRow.className = 'msg-row';
+    hudRow.innerHTML = `
+      <div class="msg-avatar ai">Δ</div>
+      <div class="jarvis-thinking-hud" style="flex:1;">
+        <div class="jarvis-header">
+          <div class="jarvis-title">
+            <div class="jarvis-core-spinner"></div>
+            <span>JARVIS NEURAL CORE • COMPUTATION MATRIX</span>
+          </div>
+          <div class="jarvis-waves">
+            <div class="jarvis-wave-bar"></div>
+            <div class="jarvis-wave-bar"></div>
+            <div class="jarvis-wave-bar"></div>
+            <div class="jarvis-wave-bar"></div>
+            <div class="jarvis-wave-bar"></div>
+          </div>
+        </div>
+        <div class="jarvis-steps">
+          <div class="jarvis-step active" id="jstep-1"><span class="jarvis-step-dot"></span> [01/05] Intent Parsing & Acoustic Analysis</div>
+          <div class="jarvis-step" id="jstep-2"><span class="jarvis-step-dot"></span> [02/05] Omni-Auto Meta-Router: ${munderAgents[targetAgent].name}</div>
+          <div class="jarvis-step" id="jstep-3"><span class="jarvis-step-dot"></span> [03/05] 7-Key Gemini Swarm Failover Active</div>
+          <div class="jarvis-step" id="jstep-4"><span class="jarvis-step-dot"></span> [04/05] Memory Persistence: Syncing to Obsidian Second Brain</div>
+          <div class="jarvis-step" id="jstep-5"><span class="jarvis-step-dot"></span> [05/05] Synthesizing Voice & Neural Tokens</div>
+        </div>
+      </div>
+    `;
+    area.appendChild(hudRow);
+    area.scrollTop = area.scrollHeight;
+
+    setTimeout(() => {
+      document.getElementById('jstep-1')?.classList.replace('active', 'done');
+      document.getElementById('jstep-2')?.classList.add('active');
+    }, 400);
+    setTimeout(() => {
+      document.getElementById('jstep-2')?.classList.replace('active', 'done');
+      document.getElementById('jstep-3')?.classList.add('active');
+    }, 850);
+    setTimeout(() => {
+      document.getElementById('jstep-3')?.classList.replace('active', 'done');
+      document.getElementById('jstep-4')?.classList.add('active');
+    }, 1400);
+
+    const res = await executeRealAIWithJarvis(p, targetAgent, activeContexts);
+    hudRow.remove();
+
+    // RENDER RESPONSE CONTAINER
+    const row = document.createElement('div');
+    row.className = 'msg-row';
+    row.innerHTML = `
+      <div class="msg-avatar ai">Δ</div>
+      <div class="msg-bubble ai" style="flex:1;">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px; border-bottom:1px solid rgba(255,255,255,0.06); padding-bottom:6px;">
+          <div style="font-size:11px; font-family:var(--font-mono); color:var(--cyan); display:flex; align-items:center; gap:6px;">
+            <span>👑</span> ${res.provider} • <strong>${munderAgents[targetAgent].name}</strong>
+          </div>
+          <div style="display:flex; align-items:center; gap:6px;">
+            <button onclick="speakJarvis(\`${escapeHtml(res.text).replace(/'/g, "\\'")}\`)" class="status-pill" style="padding:2px 8px; font-size:10px; cursor:pointer;" title="Dengarkan suara">🔊 Bicara</button>
+            <span style="font-size:10px; font-family:var(--font-mono); color:var(--green); background:rgba(34,197,94,0.12); padding:2px 8px; border-radius:4px;">Live Real AI</span>
+          </div>
+        </div>
+        <div id="typewriterTarget" style="line-height:1.65; color:#f1f0fb;"></div>
+        ${res.memorySaved ? `
+          <div class="memory-saved-pill" onclick="openMemoryModal()">
+            <span>💾</span> Disimpan ke Obsidian Vault: [[${res.memoryFile}]] (Memory Turn #${res.memoryTurns})
+          </div>
+        ` : ''}
+      </div>
+    `;
+    area.appendChild(row);
+    area.scrollTop = area.scrollHeight;
+
+    // Trigger Jarvis Voice speech synthesis
+    speakJarvis(res.text);
+
+    // Smooth Typewriter Stream
+    const targetEl = row.querySelector('#typewriterTarget');
+    await streamTextToBubble(targetEl, res.text, area);
+
+    saveLocalChatCache(p, res.text, targetAgent, res.provider);
+  }
+
+  function streamTextToBubble(el, fullText, scrollContainer) {
+    return new Promise(resolve => {
+      let idx = 0;
+      const speed = Math.max(8, Math.min(22, Math.floor(1000 / fullText.length)));
+      const chunkSize = fullText.length > 500 ? 5 : 2;
+
+      function step() {
+        if (idx < fullText.length) {
+          const chunk = fullText.substr(idx, chunkSize);
+          el.innerHTML += escapeHtml(chunk).replace(/\n/g, '<br>');
+          idx += chunkSize;
+          scrollContainer.scrollTop = scrollContainer.scrollHeight;
+          setTimeout(step, speed);
+        } else {
+          el.innerHTML = escapeHtml(fullText).replace(/\n/g, '<br>');
+          scrollContainer.scrollTop = scrollContainer.scrollHeight;
+          resolve();
+        }
+      }
+      step();
+    });
+  }
+
+  async function executeRealAIWithJarvis(prompt, agentKey, contexts = []) {
+    try {
+      const bridgeRes = await fetch('http://localhost:5050/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ prompt, agent: agentKey, contexts })
+      });
+      if (bridgeRes.ok) {
+        const bData = await bridgeRes.json();
+        if (bData.ok && bData.reply) {
+          return {
+            ok: true,
+            provider: bData.provider || "Antigravity AGY Local Bridge",
+            text: bData.reply,
+            memorySaved: bData.memory_saved || false,
+            memoryFile: bData.memory_file || "Dola_Agent_Chat.md",
+            memoryTurns: bData.memory_turns || 1
+          };
+        }
+      }
+    } catch (e) {}
+
+    // Direct Browser Client Fetch with 7-Key Rotation
+    const ag = munderAgents[agentKey] || munderAgents.michael;
+    const systemPrompt = `Anda adalah ${ag.name}, berperan sebagai ${ag.role}. Jawablah secara cerdas, mendalam, dan terstruktur sesuai kepakaran Anda. Gunakan Bahasa Indonesia formal/eksekutif.`;
+
+    let contextSnippet = "";
+    if (contexts && contexts.length > 0) {
+      contextSnippet = "\n\nKonteks Terlampir:\n" + contexts.map(c => `[${c.name}]: ${c.content.slice(0, 4000)}`).join("\n\n");
+    }
+
+    const payload = JSON.stringify({
+      contents: [{ parts: [{ text: `${systemPrompt}${contextSnippet}\n\nPertanyaan/Tugas: ${prompt}` }] }],
+      generationConfig: { temperature: 0.7, maxOutputTokens: 3000 }
+    });
+
+    for (const key of USER_KEY_POOL) {
+      for (const model of AI_MODELS) {
+        let url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`;
+        if (key.startsWith("AIzaSy")) {
+          url += `?key=${key}`;
+        }
+
+        try {
+          const res = await fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'X-goog-api-key': key },
+            body: payload
+          });
+
+          if (res.ok) {
+            const data = await res.json();
+            if (data.candidates && data.candidates[0].content.parts[0].text) {
+              return {
+                ok: true,
+                provider: `Google Gemini (${model}) • Direct Key Mesh`,
+                text: data.candidates[0].content.parts[0].text,
+                memorySaved: false
+              };
+            }
+          }
+        } catch (err) {
+          continue;
+        }
+      }
+    }
+
+    return {
+      ok: false,
+      provider: "System Error",
+      text: "Maaf, seluruh key dan endpoint sedang mengalami kendala jaringan. Pastikan koneksi internet aktif.",
+      memorySaved: false
+    };
+  }
+
+  function appendUserMessage(text) {
+    const area = document.getElementById('chatArea');
+    const r = document.createElement('div');
+    r.className = 'msg-row user-row';
+    r.innerHTML = `<div class="msg-bubble user">${escapeHtml(text).replace(/\n/g, '<br>')}</div><div class="msg-avatar user">AW</div>`;
+    area.appendChild(r);
+    area.scrollTop = area.scrollHeight;
+  }
+
+  function onChatKeyDown(e) {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      handleSendChat();
+    }
+  }
+
+  function setQuickPrompt(t) {
+    const el = document.getElementById('chatInputText');
+    el.value = t;
+    el.focus();
+    adjustTextarea(el);
+  }
+
+  function onAgentSelectChange() {
+    const sel = document.getElementById('agentSelector').value;
+    if (sel !== 'auto') selectMunderAgent(sel);
+  }
+
+  function adjustTextarea(el) {
+    el.style.height = 'auto';
+    el.style.height = Math.min(el.scrollHeight, 120) + 'px';
+  }
+
+  function escapeHtml(t) {
+    const d = document.createElement('div');
+    d.textContent = t;
+    return d.innerHTML;
+  }
+
+  function showToast(msg) {
+    const t = document.getElementById('os-toast');
+    t.innerText = msg;
+    t.style.display = 'block';
+    setTimeout(() => { t.style.display = 'none'; }, 3000);
+  }
+
+  function saveLocalChatCache(userMsg, agentReply, agent, provider) {
+    try {
+      const history = JSON.parse(localStorage.getItem('dola_chat_history') || '[]');
+      history.push({ time: new Date().toLocaleTimeString(), user: userMsg, agent, reply: agentReply, provider });
+      if (history.length > 50) history.shift();
+      localStorage.setItem('dola_chat_history', JSON.stringify(history));
+    } catch(e) {}
+  }
+
+  function handleFileSelect(e) { processFiles(e.target.files); }
+  function processFiles(files) {
+    Array.from(files).forEach(f => {
+      const r = new FileReader();
+      r.onload = ev => {
+        activeContexts.push({ type: 'file', name: f.name, size: (f.size / 1024).toFixed(1) + ' KB', content: ev.target.result.slice(0, 50000) });
+        renderContextTray();
+        showToast(`File "${f.name}" ditambahkan ke konteks!`);
+      };
+      r.readAsText(f);
+    });
+    toggleContextDock();
+  }
+
+  function addPathContext() {
+    const inp = document.getElementById('pathInput');
+    const val = inp.value.trim();
+    if (!val) return;
+    const base = val.split(/[\\/]/).pop() || val;
+    activeContexts.push({ type: 'path', name: base, path: val, size: 'Local Path', content: `[LOCAL FILE: ${val}]\nTerikat ke memori NVMe.` });
+    renderContextTray();
+    inp.value = '';
+    toggleContextDock();
+    showToast(`Path "${base}" terikat ke konteks!`);
+  }
+
+  function loadPresetContext(type) {
+    if (type === 'thesis') {
+      activeContexts.push({ type: 'preset', name: 'Proposal_Tesis_MM_Antonius.md', size: '18.4 KB', content: `[TESIS PROPOSAL ANTONIUS WIJAYANATA]\nJudul: Sistem SDM dan Adaptasi Budaya PMA China\nMetodologi: SEM-PLS SmartPLS.` });
+      showToast("Konteks Tesis MM dimuat!");
+    } else if (type === 'repos') {
+      activeContexts.push({ type: 'preset', name: '150_Cloned_Repositories.catalog', size: '150 Repos', content: `[REPOSITORI KATALOG]\n150 repositori fisik GitHub di C:\\Users\\antoni\\Dola\\clones\\.` });
+      showToast("Katalog 150 Repositori dimuat!");
+    } else if (type === 'vault') {
+      activeContexts.push({ type: 'preset', name: 'Obsidian_Vault_209_Notes.db', size: '209 Notes', content: `[OBSIDIAN SECOND BRAIN]\n209 catatan dengan indeks MOC dan 0 strict orphans.` });
+      showToast("Indeks 209 Obsidian Notes dimuat!");
+    }
+    renderContextTray();
+    toggleContextDock();
+  }
+
+  function renderContextTray() {
+    const t = document.getElementById('activeContextTray');
+    t.innerHTML = '';
+    activeContexts.forEach((c, idx) => {
+      const d = document.createElement('div');
+      d.className = 'context-badge';
+      d.innerHTML = `<span>📎</span><strong>${escapeHtml(c.name)}</strong><span style="opacity:0.6">(${c.size})</span><span class="context-badge-remove" onclick="activeContexts.splice(${idx},1); renderContextTray();">✕</span>`;
+      t.appendChild(d);
+    });
+  }
+
+  // 6. COSMIC GALAXY CANVAS RENDERING
+  const galaxyCanvas = document.getElementById('galaxy-canvas');
+  const gCtx = galaxyCanvas.getContext('2d');
+  let gWidth, gHeight, galaxyTheta = 0;
+  let galaxySpeedMultiplier = 1.0;
+
+  const galaxyStars = Array.from({ length: 250 }, () => ({
+    x: Math.random() * 2000,
+    y: Math.random() * 1200,
+    size: Math.random() * 1.8 + 0.5,
+    speed: Math.random() * 0.4 + 0.1,
+    brightness: Math.random()
+  }));
+
+  const cosmicPlanets = [
+    { name: 'TRESORVERSE', sub: 'FINANCE & TREASURY', radius: 150, speed: 0.005, color: '#faad14', size: 14, moons: [{ name: 'Unit Economics', r: 24, speed: 0.03, color: '#f59e0b' }, { name: 'Stripe Ledger', r: 38, speed: 0.02, color: '#fbbf24' }] },
+    { name: 'FORGEVERSE', sub: 'ENGINEERING & BUILD', radius: 250, speed: 0.0035, color: '#ec4899', size: 16, moons: [{ name: 'Claude 3.7', r: 28, speed: 0.022, color: '#f472b6' }, { name: 'GPT-4o', r: 42, speed: 0.014, color: '#4ade80' }, { name: 'AST Memory', r: 54, speed: 0.011, color: '#a78bfa' }] },
+    { name: 'AGY ORBITS', sub: 'CONCURRENT AGENTS', radius: 360, speed: 0.002, color: '#06b6d4', size: 15, moons: [{ name: 'OSINT Hunter', r: 26, speed: 0.02, color: '#38bdf8' }, { name: 'Kimi 2M', r: 40, speed: 0.016, color: '#22d3ee' }] }
+  ];
+
+  function resizeGalaxyCanvas() {
+    gWidth = galaxyCanvas.width = galaxyCanvas.clientWidth || window.innerWidth;
+    gHeight = galaxyCanvas.height = galaxyCanvas.clientHeight || window.innerHeight;
+  }
+
+  function setGalaxySpeed(s) {
+    galaxySpeedMultiplier = s;
+    showToast(`Kecepatan Orbit: ${s}x`);
+  }
+
+  function renderGalaxy() {
+    if (!gWidth || !gHeight) resizeGalaxyCanvas();
+    gCtx.clearRect(0, 0, gWidth, gHeight);
+
+    const cx = gWidth / 2, cy = gHeight / 2;
+
+    // Starfield
+    gCtx.fillStyle = '#fff';
+    galaxyStars.forEach(s => {
+      s.x -= s.speed * galaxySpeedMultiplier;
+      if (s.x < 0) s.x = gWidth;
+      const alpha = 0.25 + Math.sin(Date.now() * 0.002 + s.brightness * 8) * 0.4;
+      gCtx.globalAlpha = Math.max(0.1, Math.min(1.0, alpha));
+      gCtx.fillRect(s.x, s.y % gHeight, s.size, s.size);
+    });
+    gCtx.globalAlpha = 1.0;
+
+    // Golden Core 宝 ("NEXUS: THE BRIDGE")
+    const pulse = Math.sin(Date.now() * 0.003) * 6;
+    gCtx.beginPath();
+    gCtx.arc(cx, cy, 38 + pulse, 0, Math.PI * 2);
+    gCtx.fillStyle = 'rgba(250, 173, 20, 0.18)';
+    gCtx.fill();
+
+    gCtx.beginPath();
+    gCtx.arc(cx, cy, 26, 0, Math.PI * 2);
+    gCtx.fillStyle = '#faad14';
+    gCtx.shadowColor = '#faad14';
+    gCtx.shadowBlur = 36;
+    gCtx.fill();
+    gCtx.shadowBlur = 0;
+
+    gCtx.font = '900 20px sans-serif';
+    gCtx.fillStyle = '#060218';
+    gCtx.textAlign = 'center';
+    gCtx.fillText('宝', cx, cy + 7);
+
+    gCtx.font = 'bold 12px JetBrains Mono';
+    gCtx.fillStyle = '#faad14';
+    gCtx.fillText('NEXUS: THE BRIDGE', cx, cy - 48);
+
+    galaxyTheta += 0.0025 * galaxySpeedMultiplier;
+
+    cosmicPlanets.forEach((planet, pIdx) => {
+      gCtx.beginPath();
+      gCtx.arc(cx, cy, planet.radius, 0, Math.PI * 2);
+      gCtx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
+      gCtx.lineWidth = 1;
+      gCtx.stroke();
+
+      const a = galaxyTheta * (pIdx + 1) * 0.75;
+      const px = cx + Math.cos(a) * planet.radius;
+      const py = cy + Math.sin(a) * planet.radius;
+
+      gCtx.beginPath();
+      gCtx.arc(px, py, planet.size, 0, Math.PI * 2);
+      gCtx.fillStyle = planet.color;
+      gCtx.shadowColor = planet.color;
+      gCtx.shadowBlur = 20;
+      gCtx.fill();
+      gCtx.shadowBlur = 0;
+
+      gCtx.font = 'bold 11px JetBrains Mono';
+      gCtx.fillStyle = planet.color;
+      gCtx.textAlign = 'center';
+      gCtx.fillText(planet.name, px, py + planet.size + 16);
+
+      planet.moons.forEach((m, mIdx) => {
+        const ma = galaxyTheta * 3 + mIdx * 2;
+        const mx = px + Math.cos(ma) * m.r;
+        const my = py + Math.sin(ma) * m.r;
+        gCtx.beginPath();
+        gCtx.arc(mx, my, 3.5, 0, Math.PI * 2);
+        gCtx.fillStyle = m.color;
+        gCtx.fill();
+      });
+    });
+
+    requestAnimationFrame(renderGalaxy);
+  }
+
+  // 7. 3D ISOMETRIC OFFICE RENDERING
+  const officeCanvas = document.getElementById('office-canvas');
+  const oCtx = officeCanvas.getContext('2d');
+  let oWidth, oHeight;
+
+  const officeDepartments = [
+    { name: 'MARKETING & SEO', color: '#ff7a45', x: -240, y: -90, w: 190, h: 140, agents: [{ name: 'Dwight (Copy)', x: -280, y: -110 }, { name: 'Viral Hook Agent', x: -220, y: -110 }, { name: 'SEO Auditor', x: -280, y: -60 }, { name: 'AEO Engine', x: -220, y: -60 }] },
+    { name: 'EMAILS & CRM', color: '#22c55e', x: 240, y: -90, w: 190, h: 140, agents: [{ name: 'Lead Qualifier', x: 200, y: -110 }, { name: 'Outreach Agent', x: 260, y: -110 }, { name: 'Meeting Sync', x: 200, y: -60 }, { name: 'Nurture Bot', x: 260, y: -60 }] },
+    { name: 'OPERATIONS & CODE', color: '#8b5cf6', x: -240, y: 150, w: 190, h: 140, agents: [{ name: 'Ryan (AST Code)', x: -280, y: 130 }, { name: 'Toby (Tesis MM)', x: -220, y: 130 }, { name: 'Pam (UI/UX)', x: -280, y: 180 }, { name: 'Creed (QA)', x: -220, y: 180 }] },
+    { name: 'FINANCE & TREASURY', color: '#3b82f6', x: 240, y: 150, w: 190, h: 140, agents: [{ name: 'Angela (Audit)', x: 200, y: 130 }, { name: 'Oscar (Stripe)', x: 260, y: 130 }, { name: 'LTV/CAC Engine', x: 230, y: 180 }] }
+  ];
+
+  const officeParticles = Array.from({ length: 60 }, () => ({
+    deptIdx: Math.floor(Math.random() * 4),
+    progress: Math.random(),
+    speed: 0.005 + Math.random() * 0.007
+  }));
+
+  function resizeOfficeCanvas() {
+    oWidth = officeCanvas.width = officeCanvas.clientWidth || window.innerWidth;
+    oHeight = officeCanvas.height = officeCanvas.clientHeight || window.innerHeight;
+  }
+
+  function toIso(x, y) {
+    const cx = oWidth / 2, cy = oHeight / 2 - 20;
+    const ix = cx + (x - y) * 1.3;
+    const iy = cy + (x + y) * 0.65;
+    return { x: ix, y: iy };
+  }
+
+  function renderOffice() {
+    if (!oWidth || !oHeight) resizeOfficeCanvas();
+    oCtx.clearRect(0, 0, oWidth, oHeight);
+
+    const brainPos = toIso(0, 20);
+
+    officeDepartments.forEach(dept => {
+      const pCenter = toIso(dept.x, dept.y + 20);
+      oCtx.beginPath();
+      oCtx.moveTo(brainPos.x, brainPos.y);
+      oCtx.lineTo(pCenter.x, pCenter.y);
+      oCtx.strokeStyle = 'rgba(255, 255, 255, 0.12)';
+      oCtx.lineWidth = 1.5;
+      oCtx.setLineDash([4, 6]);
+      oCtx.stroke();
+      oCtx.setLineDash([]);
+    });
+
+    officeParticles.forEach(p => {
+      p.progress += p.speed;
+      if (p.progress > 1) p.progress = 0;
+      const dept = officeDepartments[p.deptIdx];
+      const pCenter = toIso(dept.x, dept.y + 20);
+      const px = brainPos.x + (pCenter.x - brainPos.x) * p.progress;
+      const py = brainPos.y + (pCenter.y - brainPos.y) * p.progress;
+
+      oCtx.beginPath();
+      oCtx.arc(px, py, 3.5, 0, Math.PI * 2);
+      oCtx.fillStyle = dept.color;
+      oCtx.shadowColor = dept.color;
+      oCtx.shadowBlur = 8;
+      oCtx.fill();
+      oCtx.shadowBlur = 0;
+    });
+
+    officeDepartments.forEach(dept => {
+      drawIsoPlatform(dept.x, dept.y, dept.w, dept.h, dept.color, dept.name);
+      dept.agents.forEach(ag => {
+        drawAgentDesk(ag.x, ag.y, ag.name, dept.color);
+      });
+    });
+
+    drawCentralBrain(0, 20);
+    requestAnimationFrame(renderOffice);
+  }
+
+  function drawIsoPlatform(x, y, w, h, color, name) {
+    const p1 = toIso(x - w/2, y - h/2), p2 = toIso(x + w/2, y - h/2);
+    const p3 = toIso(x + w/2, y + h/2), p4 = toIso(x - w/2, y + h/2);
+
+    oCtx.beginPath();
+    oCtx.moveTo(p1.x, p1.y); oCtx.lineTo(p2.x, p2.y);
+    oCtx.lineTo(p3.x, p3.y); oCtx.lineTo(p4.x, p4.y);
+    oCtx.closePath();
+    oCtx.fillStyle = 'rgba(14, 8, 48, 0.92)';
+    oCtx.fill();
+    oCtx.strokeStyle = color;
+    oCtx.lineWidth = 1.5;
+    oCtx.stroke();
+
+    oCtx.font = 'bold 11px JetBrains Mono';
+    oCtx.fillStyle = color;
+    oCtx.textAlign = 'center';
+    oCtx.fillText(name, (p1.x + p3.x) / 2, (p1.y + p3.y) / 2 - 38);
+  }
+
+  function drawAgentDesk(x, y, name, color) {
+    const pos = toIso(x, y);
+
+    oCtx.fillStyle = '#1e293b';
+    oCtx.fillRect(pos.x - 11, pos.y - 7, 22, 14);
+    oCtx.strokeStyle = 'rgba(255,255,255,0.2)';
+    oCtx.strokeRect(pos.x - 11, pos.y - 7, 22, 14);
+
+    oCtx.fillStyle = '#0f172a';
+    oCtx.fillRect(pos.x - 7, pos.y - 15, 14, 9);
+    oCtx.fillStyle = color;
+    oCtx.fillRect(pos.x - 6, pos.y - 14, 12, 7);
+
+    oCtx.beginPath();
+    oCtx.arc(pos.x, pos.y + 13, 5, 0, Math.PI * 2);
+    oCtx.fillStyle = '#cbd5e1';
+    oCtx.fill();
+
+    oCtx.font = '9px JetBrains Mono';
+    oCtx.fillStyle = '#94a3b8';
+    oCtx.textAlign = 'center';
+    oCtx.fillText(name.split(' ')[0], pos.x, pos.y + 26);
+  }
+
+  function drawCentralBrain(x, y) {
+    const pos = toIso(x, y);
+    const t = Date.now() * 0.002;
+    const r = 28 + Math.sin(t) * 4;
+
+    oCtx.beginPath();
+    oCtx.arc(pos.x, pos.y, r, 0, Math.PI * 2);
+    oCtx.fillStyle = 'rgba(250, 173, 20, 0.15)';
+    oCtx.fill();
+
+    oCtx.beginPath();
+    oCtx.arc(pos.x, pos.y, 20, 0, Math.PI * 2);
+    oCtx.fillStyle = '#faad14';
+    oCtx.shadowColor = '#faad14';
+    oCtx.shadowBlur = 24;
+    oCtx.fill();
+    oCtx.shadowBlur = 0;
+
+    oCtx.font = 'bold 11px JetBrains Mono';
+    oCtx.fillStyle = '#faad14';
+    oCtx.textAlign = 'center';
+    oCtx.fillText('THE BRAIN', pos.x, pos.y - 36);
+
+    oCtx.font = '10px JetBrains Mono';
+    oCtx.fillStyle = '#cbd5e1';
+    oCtx.fillText('209 NOTES', pos.x, pos.y - 22);
+  }
+
+  function signApprovalGate(gateId) {
+    const h = '0x' + Math.random().toString(16).substr(2, 8) + '...' + Math.random().toString(16).substr(2, 4);
+    showToast(`✅ ${gateId} DISETUJUI! Ledger Hash: ${h}`);
+  }
+
+  function executeTermCmd() {
+    const inp = document.getElementById('termCmdInput');
+    const v = inp.value.trim();
+    if (!v) return;
+    inp.value = '';
+
+    const box = document.getElementById('termLogs');
+    const anchor = document.getElementById('termStreamAnchor');
+
+    const divU = document.createElement('div');
+    divU.innerHTML = `<span style="color:#fff;">> ${escapeHtml(v)}</span>`;
+    box.insertBefore(divU, anchor);
+
+    const divR = document.createElement('div');
+    if (v === '/status') {
+      divR.innerHTML = `<span style="color:var(--green);">[OK] AGY Swarm v4.7 Online | 7 Keys Loaded | 209 Obsidian Notes Active | Voice STT/TTS Ready</span>`;
+    } else if (v === '/voice') {
+      divR.innerHTML = `<span style="color:var(--cyan);">[VOICE] Selected Jarvis Male Voice: ${selectedJarvisVoice ? selectedJarvisVoice.name : 'Default'}</span>`;
+      speakJarvis("Sistem audio Jarvis siap menerima input dan mengeluarkan respons suara.");
+    } else if (v === '/memory') {
+      divR.innerHTML = `<span style="color:var(--purple-light);">[MEMORY] Obsidian Vault: 09_AI_WORKFLOW/Chat_History/ Active | Turns Persisted.</span>`;
+    } else if (v === '/thesis') {
+      divR.innerHTML = `<span style="color:var(--gold);">[THESIS] Antonius Wijayanata MM | SEM-PLS SmartPLS Active.</span>`;
+    } else {
+      divR.innerHTML = `<span style="color:var(--cyan);">[EXEC] Command "${escapeHtml(v)}" disintesis oleh Omni-Auto Meta-Router.</span>`;
+    }
+    box.insertBefore(divR, anchor);
+    box.scrollTop = box.scrollHeight;
+  }
+
+  function downloadThesisRis() {
+    const ris = `TY  - THES\nID  - 1#E\nAU  - Wijayanata, Antonius\nTI  - Sistem SDM dan Adaptasi Budaya PMA China\nT2  - Tesis Magister Manajemen\nPB  - Program Studi Magister Manajemen\nCY  - Indonesia\nPY  - 2026\nKW  - SEM-PLS\nER  - \n`;
+    const b = new Blob([ris], { type: 'text/plain;charset=utf-8' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(b);
+    a.download = "Antonius_Tesis_Mendeley.ris";
+    a.click();
+    showToast("Downloaded Antonius_Tesis_Mendeley.ris!");
+  }
+
+  // INITIALIZE ON LOAD
+  window.onload = () => {
+    silentBackgroundSync();
+    initJarvisAudio();
+    selectMunderAgent('michael');
+    resizeGalaxyCanvas();
+    renderGalaxy();
+    resizeOfficeCanvas();
+    renderOffice();
+
+    // Silent background auto-sync every 8 seconds
+    setInterval(silentBackgroundSync, 8000);
+
+    // Restore local storage chat history smoothly
+    try {
+      const h = JSON.parse(localStorage.getItem('dola_chat_history') || '[]');
+      if (h.length > 0) {
+        h.slice(-4).forEach(item => {
+          appendUserMessage(item.user);
+          const area = document.getElementById('chatArea');
+          const row = document.createElement('div');
+          row.className = 'msg-row';
+          row.innerHTML = `
+            <div class="msg-avatar ai">Δ</div>
+            <div class="msg-bubble ai">
+              <div style="font-size:11px; font-family:var(--font-mono); color:var(--cyan); margin-bottom:4px;">
+                ${item.provider || 'Google Gemini'} • <strong>${munderAgents[item.agent]?.name || 'Michael Scott'}</strong>
+              </div>
+              <div style="line-height:1.65; color:#f1f0fb;">${escapeHtml(item.reply).replace(/\n/g, '<br>')}</div>
+              <div class="memory-saved-pill" onclick="openMemoryModal()"><span>💾</span> Restored from Local Memory</div>
+            </div>
+          `;
+          area.appendChild(row);
+        });
+        area.scrollTop = area.scrollHeight;
+      }
+    } catch(e) {}
+  };
+</script>
+</body>
+</html>

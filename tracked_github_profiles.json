@@ -1,0 +1,2182 @@
+[
+  {
+    "username": "karpathy",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "autoresearch",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\autoresearch",
+        "remote": "https://github.com/karpathy/autoresearch.git"
+      },
+      {
+        "name": "llm",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\llm.c",
+        "remote": "https://github.com/karpathy/llm.c.git"
+      },
+      {
+        "name": "makemore",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\makemore",
+        "remote": "https://github.com/karpathy/makemore.git"
+      },
+      {
+        "name": "micrograd",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\micrograd",
+        "remote": "https://github.com/karpathy/micrograd.git"
+      },
+      {
+        "name": "minGPT",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\minGPT",
+        "remote": "https://github.com/karpathy/minGPT.git"
+      },
+      {
+        "name": "nanochat",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\nanochat",
+        "remote": "https://github.com/karpathy/nanochat.git"
+      },
+      {
+        "name": "nanoGPT",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\nanoGPT",
+        "remote": "https://github.com/karpathy/nanoGPT.git"
+      },
+      {
+        "name": "nn-zero-to-hero",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\nn-zero-to-hero",
+        "remote": "https://github.com/karpathy/nn-zero-to-hero.git"
+      }
+    ]
+  },
+  {
+    "username": "Eigenwise",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "atomic-agents",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\atomic-agents",
+        "remote": "https://github.com/Eigenwise/atomic-agents.git"
+      },
+      {
+        "name": "atomic-research-mcp",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\atomic-research-mcp",
+        "remote": "https://github.com/Eigenwise/atomic-research-mcp.git"
+      },
+      {
+        "name": "claude-dev-kitchen",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\claude-dev-kitchen",
+        "remote": "https://github.com/Eigenwise/claude-dev-kitchen.git"
+      },
+      {
+        "name": "code_generation_agent",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\code_generation_agent",
+        "remote": "https://github.com/Eigenwise/code_generation_agent.git"
+      },
+      {
+        "name": "eigenwise-toolshed",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\eigenwise-toolshed",
+        "remote": "https://github.com/Eigenwise/eigenwise-toolshed.git"
+      },
+      {
+        "name": "persistent-memory-agent-example",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\persistent-memory-agent-example",
+        "remote": "https://github.com/Eigenwise/persistent-memory-agent-example.git"
+      },
+      {
+        "name": "tesseron",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\tesseron",
+        "remote": "https://github.com/Eigenwise/tesseron.git"
+      }
+    ]
+  },
+  {
+    "username": "MaxMiksa",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "Auto-Company",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\Auto-Company",
+        "remote": "https://github.com/MaxMiksa/Auto-Company.git"
+      },
+      {
+        "name": "Codex-Workflow-Folder",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\Codex-Workflow-Folder",
+        "remote": "https://github.com/MaxMiksa/Codex-Workflow-Folder.git"
+      },
+      {
+        "name": "gemini-voyager",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\gemini-voyager",
+        "remote": "https://github.com/MaxMiksa/gemini-voyager.git"
+      },
+      {
+        "name": "Gravity",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\Gravity",
+        "remote": "https://github.com/MaxMiksa/Gravity.git"
+      },
+      {
+        "name": "Obsidian-Hover-Annotations",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\Obsidian-Hover-Annotations",
+        "remote": "https://github.com/MaxMiksa/Obsidian-Hover-Annotations.git"
+      },
+      {
+        "name": "Obsidian-MultiColumn-Layout",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\Obsidian-MultiColumn-Layout",
+        "remote": "https://github.com/MaxMiksa/Obsidian-MultiColumn-Layout.git"
+      },
+      {
+        "name": "obsidian-releases",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\obsidian-releases",
+        "remote": "https://github.com/MaxMiksa/obsidian-releases.git"
+      }
+    ]
+  },
+  {
+    "username": "AtomicBot-ai",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "atomic-agent",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\atomic-agent",
+        "remote": "https://github.com/AtomicBot-ai/atomic-agent.git"
+      },
+      {
+        "name": "Atomic-Chat",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\Atomic-Chat",
+        "remote": "https://github.com/AtomicBot-ai/Atomic-Chat.git"
+      },
+      {
+        "name": "atomic-computeruse-mcp",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\atomic-computeruse-mcp",
+        "remote": "https://github.com/AtomicBot-ai/atomic-computeruse-mcp.git"
+      },
+      {
+        "name": "atomic-hermes",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\atomic-hermes",
+        "remote": "https://github.com/AtomicBot-ai/atomic-hermes.git"
+      },
+      {
+        "name": "atomic-llama-cpp-turboquant",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\atomic-llama-cpp-turboquant",
+        "remote": "https://github.com/AtomicBot-ai/atomic-llama-cpp-turboquant.git"
+      },
+      {
+        "name": "atomicbot",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\atomicbot",
+        "remote": "https://github.com/AtomicBot-ai/atomicbot.git"
+      }
+    ]
+  },
+  {
+    "username": "666ghj",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "BettaFish",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\BettaFish",
+        "remote": "https://github.com/666ghj/BettaFish.git"
+      },
+      {
+        "name": "DeepSearchAgent-Demo",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\DeepSearchAgent-Demo",
+        "remote": "https://github.com/666ghj/DeepSearchAgent-Demo.git"
+      },
+      {
+        "name": "MindSpider",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\MindSpider",
+        "remote": "https://github.com/666ghj/MindSpider.git"
+      },
+      {
+        "name": "MiroFish",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\MiroFish",
+        "remote": "https://github.com/666ghj/MiroFish.git"
+      }
+    ]
+  },
+  {
+    "username": "jzOcb",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "baoyu-skills",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\baoyu-skills",
+        "remote": "https://github.com/jzOcb/baoyu-skills.git"
+      },
+      {
+        "name": "ristretto",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\ristretto",
+        "remote": "https://github.com/jzOcb/ristretto.git"
+      },
+      {
+        "name": "self-improving-skill",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\self-improving-skill",
+        "remote": "https://github.com/jzOcb/self-improving-skill.git"
+      },
+      {
+        "name": "writing-style-skill",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\writing-style-skill",
+        "remote": "https://github.com/jzOcb/writing-style-skill.git"
+      }
+    ]
+  },
+  {
+    "username": "nikmcfly",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "kindle-book-skill",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\kindle-book-skill",
+        "remote": "https://github.com/nikmcfly/kindle-book-skill.git"
+      },
+      {
+        "name": "kindle-cover-skill",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\kindle-cover-skill",
+        "remote": "https://github.com/nikmcfly/kindle-cover-skill.git"
+      },
+      {
+        "name": "MiroFish-Offline",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\MiroFish-Offline",
+        "remote": "https://github.com/nikmcfly/MiroFish-Offline.git"
+      },
+      {
+        "name": "vibepatent",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\vibepatent",
+        "remote": "https://github.com/nikmcfly/vibepatent.git"
+      }
+    ]
+  },
+  {
+    "username": "heygen-com",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "heygen-cli",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\heygen-cli",
+        "remote": "https://github.com/heygen-com/heygen-cli.git"
+      },
+      {
+        "name": "skills",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\heygen-skills",
+        "remote": "https://github.com/heygen-com/skills.git"
+      },
+      {
+        "name": "hyperframes",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\hyperframes",
+        "remote": "https://github.com/heygen-com/hyperframes.git"
+      }
+    ]
+  },
+  {
+    "username": "cursor",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "mcp-servers",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\cursor-mcp-servers",
+        "remote": "https://github.com/cursor/mcp-servers.git"
+      },
+      {
+        "name": "plugin-template",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\cursor-plugin-template",
+        "remote": "https://github.com/cursor/plugin-template.git"
+      },
+      {
+        "name": "plugins",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\cursor-plugins",
+        "remote": "https://github.com/cursor/plugins.git"
+      }
+    ]
+  },
+  {
+    "username": "viren040",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "content-seo-orchestrator",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\content-seo-orchestrator",
+        "remote": "https://github.com/viren040/content-seo-orchestrator.git"
+      },
+      {
+        "name": "linkedin-gtm-platform",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\linkedin-gtm-platform",
+        "remote": "https://github.com/viren040/linkedin-gtm-platform.git"
+      }
+    ]
+  },
+  {
+    "username": "elie222",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "botdirectory",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\botdirectory.ai",
+        "remote": "https://github.com/elie222/botdirectory.ai.git"
+      },
+      {
+        "name": "inbox-zero",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\inbox-zero",
+        "remote": "https://github.com/elie222/inbox-zero.git"
+      }
+    ]
+  },
+  {
+    "username": "Kulaxyz",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "self-learning-skills",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\self-learning-skills",
+        "remote": "https://github.com/Kulaxyz/self-learning-skills.git"
+      },
+      {
+        "name": "token-diet",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\token-diet",
+        "remote": "https://github.com/Kulaxyz/token-diet.git"
+      }
+    ]
+  },
+  {
+    "username": "AutomaApp",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "automa",
+        "local_path": "C:\\Users\\antoni\\Dola\\repos\\harvested_loops\\automa-core",
+        "remote": "https://github.com/AutomaApp/automa.git"
+      },
+      {
+        "name": "documentation",
+        "local_path": "C:\\Users\\antoni\\Dola\\repos\\harvested_loops\\automa-docs",
+        "remote": "https://github.com/AutomaApp/documentation.git"
+      }
+    ]
+  },
+  {
+    "username": "hectorg2211",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "clap-trigger",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\clap-trigger",
+        "remote": "https://github.com/hectorg2211/clap-trigger.git"
+      },
+      {
+        "name": "jarvis",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\jarvis-hectorg",
+        "remote": "https://github.com/hectorg2211/jarvis.git"
+      }
+    ]
+  },
+  {
+    "username": "lissy93",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "dashy",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\dashy",
+        "remote": "https://github.com/lissy93/dashy.git"
+      },
+      {
+        "name": "web-check",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\web-check",
+        "remote": "https://github.com/lissy93/web-check.git"
+      }
+    ]
+  },
+  {
+    "username": "BerriAI",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "self-improving-agent",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\self-improving-agent",
+        "remote": "https://github.com/BerriAI/self-improving-agent.git"
+      },
+      {
+        "name": "terraform-google-litellm",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\terraform-google-litellm",
+        "remote": "https://github.com/BerriAI/terraform-google-litellm.git"
+      }
+    ]
+  },
+  {
+    "username": "lencx",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "opsail",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\lencx-opsail",
+        "remote": "https://github.com/lencx/opsail.git"
+      },
+      {
+        "name": "skills",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\lencx-skills",
+        "remote": "https://github.com/lencx/skills.git"
+      }
+    ]
+  },
+  {
+    "username": "chaitanyagiri",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "munder-difflin",
+        "local_path": "C:\\Users\\antoni\\Dola\\repos\\munder-difflin",
+        "remote": "https://github.com/chaitanyagiri/munder-difflin.git"
+      },
+      {
+        "name": "munder-difflin",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\munder-difflin",
+        "remote": "https://github.com/chaitanyagiri/munder-difflin.git"
+      }
+    ]
+  },
+  {
+    "username": "unisone",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "ai-prompts",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\ai-prompts",
+        "remote": "https://github.com/unisone/ai-prompts.git"
+      },
+      {
+        "name": "self-improving-skills",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\self-improving-skills",
+        "remote": "https://github.com/unisone/self-improving-skills.git"
+      }
+    ]
+  },
+  {
+    "username": "exa-labs",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "websets-mcp-server",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\websets-mcp-server",
+        "remote": "https://github.com/exa-labs/websets-mcp-server.git"
+      },
+      {
+        "name": "websets-news-monitor",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\websets-news-monitor",
+        "remote": "https://github.com/exa-labs/websets-news-monitor.git"
+      }
+    ]
+  },
+  {
+    "username": "YishenTu",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "claudian",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\claudian",
+        "remote": "https://github.com/YishenTu/claudian.git"
+      },
+      {
+        "name": "claudian",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\claudian-for-kimi",
+        "remote": "https://github.com/YishenTu/claudian.git"
+      }
+    ]
+  },
+  {
+    "username": "puneetindersingh",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "claude-seo",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\claude-seo",
+        "remote": "https://github.com/puneetindersingh/claude-seo.git"
+      },
+      {
+        "name": "open-seo-crawler",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\open-seo-crawler",
+        "remote": "https://github.com/puneetindersingh/open-seo-crawler.git"
+      }
+    ]
+  },
+  {
+    "username": "rohitg00",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "agentmemory",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\agentmemory",
+        "remote": "https://github.com/rohitg00/agentmemory.git"
+      },
+      {
+        "name": "ai-engineering-from-scratch",
+        "local_path": "C:\\Users\\antoni\\Dola\\repos\\harvested_loops\\ai-engineering-from-scratch",
+        "remote": "https://github.com/rohitg00/ai-engineering-from-scratch.git"
+      }
+    ]
+  },
+  {
+    "username": "Egonex-AI",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "Understand-Anything",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\Understand-Anything",
+        "remote": "https://github.com/Egonex-AI/Understand-Anything.git"
+      }
+    ]
+  },
+  {
+    "username": "CodexLabsLLC",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "Colosseum",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\CodexLabs-Colosseum",
+        "remote": "https://github.com/CodexLabsLLC/Colosseum.git"
+      }
+    ]
+  },
+  {
+    "username": "Vincentwei1021",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "video-shotcraft",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\video-shotcraft",
+        "remote": "https://github.com/Vincentwei1021/video-shotcraft.git"
+      }
+    ]
+  },
+  {
+    "username": "getmaxun",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "maxun",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\maxun",
+        "remote": "https://github.com/getmaxun/maxun.git"
+      }
+    ]
+  },
+  {
+    "username": "spencerpauly",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "awesome-cursor-skills",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\awesome-cursor-skills",
+        "remote": "https://github.com/spencerpauly/awesome-cursor-skills.git"
+      }
+    ]
+  },
+  {
+    "username": "obra",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "superpowers",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\superpowers",
+        "remote": "https://github.com/obra/superpowers.git"
+      }
+    ]
+  },
+  {
+    "username": "meetopenbot",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "openbot",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\meetopenbot-openbot",
+        "remote": "https://github.com/meetopenbot/openbot.git"
+      }
+    ]
+  },
+  {
+    "username": "anthropics",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "skills",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\anthropic-skills",
+        "remote": "https://github.com/anthropics/skills.git"
+      }
+    ]
+  },
+  {
+    "username": "highlight",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "highlight",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\highlight",
+        "remote": "https://github.com/highlight/highlight.git"
+      }
+    ]
+  },
+  {
+    "username": "multica-ai",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "andrej-karpathy-skills",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\andrej-karpathy-skills",
+        "remote": "https://github.com/multica-ai/andrej-karpathy-skills.git"
+      }
+    ]
+  },
+  {
+    "username": "netease-youdao",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "QAnything",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\QAnything",
+        "remote": "https://github.com/netease-youdao/QAnything.git"
+      }
+    ]
+  },
+  {
+    "username": "EmenstaNougat",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "ESP32-BlueJammer",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\ESP32-BlueJammer",
+        "remote": "https://github.com/EmenstaNougat/ESP32-BlueJammer.git"
+      }
+    ]
+  },
+  {
+    "username": "WyattBlue",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "auto-editor",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\auto-editor",
+        "remote": "https://github.com/WyattBlue/auto-editor.git"
+      }
+    ]
+  },
+  {
+    "username": "pijusz",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "mcp-gsc",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\mcp-gsc-pijusz",
+        "remote": "https://github.com/pijusz/mcp-gsc.git"
+      }
+    ]
+  },
+  {
+    "username": "cathrynlavery",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "diagram-design",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\diagram-design",
+        "remote": "https://github.com/cathrynlavery/diagram-design.git"
+      }
+    ]
+  },
+  {
+    "username": "google-deepmind",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "science-skills",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\deepmind-science-skills",
+        "remote": "https://github.com/google-deepmind/science-skills.git"
+      }
+    ]
+  },
+  {
+    "username": "mautic",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "mautic",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\mautic",
+        "remote": "https://github.com/mautic/mautic.git"
+      }
+    ]
+  },
+  {
+    "username": "Auriti-Labs",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "geo-optimizer-skill",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\geo-optimizer-skill",
+        "remote": "https://github.com/Auriti-Labs/geo-optimizer-skill.git"
+      }
+    ]
+  },
+  {
+    "username": "gamma-app",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "pptx-renderer",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\gamma-pptx-renderer",
+        "remote": "https://github.com/gamma-app/pptx-renderer.git"
+      }
+    ]
+  },
+  {
+    "username": "nicobailon",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "visual-explainer",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\visual-explainer",
+        "remote": "https://github.com/nicobailon/visual-explainer.git"
+      }
+    ]
+  },
+  {
+    "username": "microsoft",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "SkillOpt",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\SkillOpt",
+        "remote": "https://github.com/microsoft/SkillOpt.git"
+      }
+    ]
+  },
+  {
+    "username": "keepassxreboot",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "keepassxc",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\keepassxc",
+        "remote": "https://github.com/keepassxreboot/keepassxc.git"
+      }
+    ]
+  },
+  {
+    "username": "lfnovo",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "open-notebook",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\open-notebook",
+        "remote": "https://github.com/lfnovo/open-notebook.git"
+      }
+    ]
+  },
+  {
+    "username": "nightly-labs",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "openbot",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\nightly-labs-openbot",
+        "remote": "https://github.com/nightly-labs/openbot.git"
+      }
+    ]
+  },
+  {
+    "username": "selmakcby",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "loop-engineering",
+        "local_path": "C:\\Users\\antoni\\Dola\\repos\\harvested_loops\\loop-engineering-selmakcby",
+        "remote": "https://github.com/selmakcby/loop-engineering.git"
+      }
+    ]
+  },
+  {
+    "username": "kestra-io",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "kestra",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\kestra",
+        "remote": "https://github.com/kestra-io/kestra.git"
+      }
+    ]
+  },
+  {
+    "username": "wasp-lang",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "open-saas",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\open-saas",
+        "remote": "https://github.com/wasp-lang/open-saas.git"
+      }
+    ]
+  },
+  {
+    "username": "ob-f",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "OpenBot",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\ob-f-openbot",
+        "remote": "https://github.com/ob-f/OpenBot.git"
+      }
+    ]
+  },
+  {
+    "username": "TencentCloud",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "TencentDB-Agent-Memory",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\TencentDB-Agent-Memory",
+        "remote": "https://github.com/TencentCloud/TencentDB-Agent-Memory.git"
+      }
+    ]
+  },
+  {
+    "username": "metabase",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "metabase",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\metabase",
+        "remote": "https://github.com/metabase/metabase.git"
+      }
+    ]
+  },
+  {
+    "username": "ai-boost",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "awesome-harness-engineering",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\ai-boost-awesome-harness",
+        "remote": "https://github.com/ai-boost/awesome-harness-engineering.git"
+      }
+    ]
+  },
+  {
+    "username": "rhprasad0",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "airgap-aiops",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\airgap-aiops",
+        "remote": "https://github.com/rhprasad0/airgap-aiops.git"
+      }
+    ]
+  },
+  {
+    "username": "midday-ai",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "midday",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\midday",
+        "remote": "https://github.com/midday-ai/midday.git"
+      }
+    ]
+  },
+  {
+    "username": "ShareX",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "ShareX",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\ShareX",
+        "remote": "https://github.com/ShareX/ShareX.git"
+      }
+    ]
+  },
+  {
+    "username": "coder",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "code-server",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\code-server",
+        "remote": "https://github.com/coder/code-server.git"
+      }
+    ]
+  },
+  {
+    "username": "drumih",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "turbo-fieldfare",
+        "local_path": "C:\\Users\\antoni\\Dola\\repos\\turbo-fieldfare",
+        "remote": "https://github.com/drumih/turbo-fieldfare.git"
+      }
+    ]
+  },
+  {
+    "username": "johannesjo",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "super-productivity",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\super-productivity",
+        "remote": "https://github.com/johannesjo/super-productivity.git"
+      }
+    ]
+  },
+  {
+    "username": "dyamin",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "MEGA",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\MEGA",
+        "remote": "https://github.com/dyamin/MEGA.git"
+      }
+    ]
+  },
+  {
+    "username": "Shubhamsaboo",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "awesome-llm-apps",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\awesome-llm-apps",
+        "remote": "https://github.com/Shubhamsaboo/awesome-llm-apps.git"
+      }
+    ]
+  },
+  {
+    "username": "typesense",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "typesense",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\typesense",
+        "remote": "https://github.com/typesense/typesense.git"
+      }
+    ]
+  },
+  {
+    "username": "xcloudplatform",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "Colosseum",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\xcloud-Colosseum",
+        "remote": "https://github.com/xcloudplatform/Colosseum.git"
+      }
+    ]
+  },
+  {
+    "username": "stophobia",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "deerflow2",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\deerflow2.0-enhanced",
+        "remote": "https://github.com/stophobia/deerflow2.0-enhanced.git"
+      }
+    ]
+  },
+  {
+    "username": "formbricks",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "formbricks",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\formbricks",
+        "remote": "https://github.com/formbricks/formbricks.git"
+      }
+    ]
+  },
+  {
+    "username": "LoicHmh",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "openviking",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\LoicHmh-openviking",
+        "remote": "https://github.com/LoicHmh/openviking.git"
+      }
+    ]
+  },
+  {
+    "username": "mukul975",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "Anthropic-Cybersecurity-Skills",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\Anthropic-Cybersecurity-Skills",
+        "remote": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills.git"
+      }
+    ]
+  },
+  {
+    "username": "zammad",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "zammad",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\zammad",
+        "remote": "https://github.com/zammad/zammad.git"
+      }
+    ]
+  },
+  {
+    "username": "gaasher",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "Agent-Loop-Skills",
+        "local_path": "C:\\Users\\antoni\\Dola\\repos\\harvested_loops\\agent-loop-skills",
+        "remote": "https://github.com/gaasher/Agent-Loop-Skills.git"
+      }
+    ]
+  },
+  {
+    "username": "aidongise-cell",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "prism-scanner",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\prism-scanner",
+        "remote": "https://github.com/aidongise-cell/prism-scanner.git"
+      }
+    ]
+  },
+  {
+    "username": "grammarly",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "gector",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\grammarly-gector",
+        "remote": "https://github.com/grammarly/gector.git"
+      }
+    ]
+  },
+  {
+    "username": "stablyai",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "orca",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\orca",
+        "remote": "https://github.com/stablyai/orca.git"
+      }
+    ]
+  },
+  {
+    "username": "Tencent-Hunyuan",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "Hy4-preview",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\Hy4-preview",
+        "remote": "https://github.com/Tencent-Hunyuan/Hy4-preview.git"
+      }
+    ]
+  },
+  {
+    "username": "InternScience",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "Awesome-Scientific-Skills",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\Awesome-Scientific-Skills",
+        "remote": "https://github.com/InternScience/Awesome-Scientific-Skills.git"
+      }
+    ]
+  },
+  {
+    "username": "tinyhumansai",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "openhuman",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\openhuman",
+        "remote": "https://github.com/tinyhumansai/openhuman.git"
+      }
+    ]
+  },
+  {
+    "username": "appwrite",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "appwrite",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\appwrite",
+        "remote": "https://github.com/appwrite/appwrite.git"
+      }
+    ]
+  },
+  {
+    "username": "penpot",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "penpot",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\penpot",
+        "remote": "https://github.com/penpot/penpot.git"
+      }
+    ]
+  },
+  {
+    "username": "affaan-m",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "ECC",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\ECC",
+        "remote": "https://github.com/affaan-m/ECC.git"
+      }
+    ]
+  },
+  {
+    "username": "soirihiroka",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "shrimply",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\soirihiroka-shrimply",
+        "remote": "https://github.com/soirihiroka/shrimply.git"
+      }
+    ]
+  },
+  {
+    "username": "neo4j-labs",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "agent-memory",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\neo4j-agent-memory",
+        "remote": "https://github.com/neo4j-labs/agent-memory.git"
+      }
+    ]
+  },
+  {
+    "username": "vitorallo",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "claude-code-local",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\claude-code-local-vitorallo",
+        "remote": "https://github.com/vitorallo/claude-code-local.git"
+      }
+    ]
+  },
+  {
+    "username": "awesome-skills",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "loop-finder-skill",
+        "local_path": "C:\\Users\\antoni\\Dola\\repos\\harvested_loops\\loop-finder-skill",
+        "remote": "https://github.com/awesome-skills/loop-finder-skill.git"
+      }
+    ]
+  },
+  {
+    "username": "xmpuspus",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "airgap",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\airgap",
+        "remote": "https://github.com/xmpuspus/airgap.git"
+      }
+    ]
+  },
+  {
+    "username": "jixserver",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "free-for-dev",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\free-for-dev",
+        "remote": "https://github.com/jixserver/free-for-dev.git"
+      }
+    ]
+  },
+  {
+    "username": "toeverything",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "AFFiNE",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\AFFiNE",
+        "remote": "https://github.com/toeverything/AFFiNE.git"
+      }
+    ]
+  },
+  {
+    "username": "smtg-ai",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "claude-squad",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\claude-squad",
+        "remote": "https://github.com/smtg-ai/claude-squad.git"
+      }
+    ]
+  },
+  {
+    "username": "arcboxlabs",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "arcbox",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\arcbox",
+        "remote": "https://github.com/arcboxlabs/arcbox.git"
+      }
+    ]
+  },
+  {
+    "username": "volcengine",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "OpenViking",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\OpenViking",
+        "remote": "https://github.com/volcengine/OpenViking.git"
+      }
+    ]
+  },
+  {
+    "username": "jamovi",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "jamovi",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\jamovi",
+        "remote": "https://github.com/jamovi/jamovi.git"
+      }
+    ]
+  },
+  {
+    "username": "pallets",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "flask",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\flask",
+        "remote": "https://github.com/pallets/flask.git"
+      }
+    ]
+  },
+  {
+    "username": "the-open-agent",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "openagent",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\openagent",
+        "remote": "https://github.com/the-open-agent/openagent.git"
+      }
+    ]
+  },
+  {
+    "username": "brittanyellich",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "loop-board",
+        "local_path": "C:\\Users\\antoni\\Dola\\repos\\harvested_loops\\loop-board",
+        "remote": "https://github.com/brittanyellich/loop-board.git"
+      }
+    ]
+  },
+  {
+    "username": "lee259",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "oh-my-claudian",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\oh-my-claudian",
+        "remote": "https://github.com/lee259/oh-my-claudian.git"
+      }
+    ]
+  },
+  {
+    "username": "phioranex",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "Claude-code-local",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\claude-code-local-phioranex",
+        "remote": "https://github.com/phioranex/Claude-code-local.git"
+      }
+    ]
+  },
+  {
+    "username": "apache",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "cloudberry",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\cloudberry",
+        "remote": "https://github.com/apache/cloudberry.git"
+      }
+    ]
+  },
+  {
+    "username": "codetwentyfive",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "claw-code-local",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\claw-code-local",
+        "remote": "https://github.com/codetwentyfive/claw-code-local.git"
+      }
+    ]
+  },
+  {
+    "username": "souzatharsis",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "podcastfy",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\podcastfy",
+        "remote": "https://github.com/souzatharsis/podcastfy.git"
+      }
+    ]
+  },
+  {
+    "username": "Mxtiv",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "BlueJammer",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\BlueJammer",
+        "remote": "https://github.com/Mxtiv/BlueJammer.git"
+      }
+    ]
+  },
+  {
+    "username": "b-nnett",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "grok-bot-0",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\grok-bot-reconstructed",
+        "remote": "https://github.com/b-nnett/grok-bot-0.18-reconstructed.git"
+      }
+    ]
+  },
+  {
+    "username": "asgeirtj",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "system_prompts_leaks",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\system_prompts_leaks",
+        "remote": "https://github.com/asgeirtj/system_prompts_leaks.git"
+      }
+    ]
+  },
+  {
+    "username": "solvespace",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "solvespace",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\solvespace",
+        "remote": "https://github.com/solvespace/solvespace.git"
+      }
+    ]
+  },
+  {
+    "username": "opf",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "openproject",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\openproject",
+        "remote": "https://github.com/opf/openproject.git"
+      }
+    ]
+  },
+  {
+    "username": "TIGER-AI-Lab",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "OpenResearcher",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\OpenResearcher",
+        "remote": "https://github.com/TIGER-AI-Lab/OpenResearcher.git"
+      }
+    ]
+  },
+  {
+    "username": "wilsonfreitas",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "awesome-quant",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\awesome-quant",
+        "remote": "https://github.com/wilsonfreitas/awesome-quant.git"
+      }
+    ]
+  },
+  {
+    "username": "walkinglabs",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "awesome-harness-engineering",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\walkinglabs-awesome-harness",
+        "remote": "https://github.com/walkinglabs/awesome-harness-engineering.git"
+      }
+    ]
+  },
+  {
+    "username": "github",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "github-mcp-server",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\github-mcp-server",
+        "remote": "https://github.com/github/github-mcp-server.git"
+      }
+    ]
+  },
+  {
+    "username": "weaviate",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "weaviate",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\weaviate",
+        "remote": "https://github.com/weaviate/weaviate.git"
+      }
+    ]
+  },
+  {
+    "username": "AminForou",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "mcp-gsc",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\mcp-gsc-aminforou",
+        "remote": "https://github.com/AminForou/mcp-gsc.git"
+      }
+    ]
+  },
+  {
+    "username": "FlorianBruniaux",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "claude-code-ultimate-guide",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\claude-code-ultimate-guide",
+        "remote": "https://github.com/FlorianBruniaux/claude-code-ultimate-guide.git"
+      }
+    ]
+  },
+  {
+    "username": "Jiaaqiliu",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "Awesome-Harness-Engineering",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\Jiaaqiliu-awesome-harness",
+        "remote": "https://github.com/Jiaaqiliu/Awesome-Harness-Engineering.git"
+      }
+    ]
+  },
+  {
+    "username": "markdoc",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "markdoc",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\markdoc",
+        "remote": "https://github.com/markdoc/markdoc.git"
+      }
+    ]
+  },
+  {
+    "username": "wechaty",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "wechaty",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\wechaty",
+        "remote": "https://github.com/wechaty/wechaty.git"
+      }
+    ]
+  },
+  {
+    "username": "jacob-bd",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "gemini-notebook-mcp-cli",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\gemini-notebook-mcp-cli",
+        "remote": "https://github.com/jacob-bd/gemini-notebook-mcp-cli.git"
+      }
+    ]
+  },
+  {
+    "username": "jegly",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "Box",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\Box",
+        "remote": "https://github.com/jegly/Box.git"
+      }
+    ]
+  },
+  {
+    "username": "eigent-ai",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "eigent",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\eigent",
+        "remote": "https://github.com/eigent-ai/eigent.git"
+      }
+    ]
+  },
+  {
+    "username": "CopilotKit",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "CopilotKit",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\copilotkit-openbot",
+        "remote": "https://github.com/CopilotKit/CopilotKit.git"
+      }
+    ]
+  },
+  {
+    "username": "riponcm",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "GemType",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\GemType",
+        "remote": "https://github.com/riponcm/GemType.git"
+      }
+    ]
+  },
+  {
+    "username": "hardikpandya",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "stop-slop",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\stop-slop",
+        "remote": "https://github.com/hardikpandya/stop-slop.git"
+      }
+    ]
+  },
+  {
+    "username": "TryGhost",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "Ghost",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\Ghost",
+        "remote": "https://github.com/TryGhost/Ghost.git"
+      }
+    ]
+  },
+  {
+    "username": "mfahsold",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "montage-ai",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\montage-ai",
+        "remote": "https://github.com/mfahsold/montage-ai.git"
+      }
+    ]
+  },
+  {
+    "username": "thedotmack",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "claude-mem",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\claude-mem",
+        "remote": "https://github.com/thedotmack/claude-mem.git"
+      }
+    ]
+  },
+  {
+    "username": "stanfordnlp",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "dspy",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\dspy",
+        "remote": "https://github.com/stanfordnlp/dspy.git"
+      }
+    ]
+  },
+  {
+    "username": "rustdesk",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "rustdesk",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\rustdesk",
+        "remote": "https://github.com/rustdesk/rustdesk.git"
+      }
+    ]
+  },
+  {
+    "username": "open-free-llm-api",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "awesome-freellm-apis",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\open-free-llm-api",
+        "remote": "https://github.com/open-free-llm-api/awesome-freellm-apis.git"
+      }
+    ]
+  },
+  {
+    "username": "anyproto",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "anytype-ts",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\anytype-ts",
+        "remote": "https://github.com/anyproto/anytype-ts.git"
+      }
+    ]
+  },
+  {
+    "username": "beekeeper-studio",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "beekeeper-studio",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\beekeeper-studio",
+        "remote": "https://github.com/beekeeper-studio/beekeeper-studio.git"
+      }
+    ]
+  },
+  {
+    "username": "FatihMakes",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "Mark-XXXIX-OR",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\mark-xxxix-jarvis",
+        "remote": "https://github.com/FatihMakes/Mark-XXXIX-OR.git"
+      }
+    ]
+  },
+  {
+    "username": "teng-lin",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "notebooklm-py",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\notebooklm-py",
+        "remote": "https://github.com/teng-lin/notebooklm-py.git"
+      }
+    ]
+  },
+  {
+    "username": "maxmilian",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "loop-engineering",
+        "local_path": "C:\\Users\\antoni\\Dola\\repos\\harvested_loops\\loop-engineering-maxmilian",
+        "remote": "https://github.com/maxmilian/loop-engineering.git"
+      }
+    ]
+  },
+  {
+    "username": "peteryxu",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "Shubham-awesome-llm-apps",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\peteryxu-awesome-llm-apps",
+        "remote": "https://github.com/peteryxu/Shubham-awesome-llm-apps.git"
+      }
+    ]
+  },
+  {
+    "username": "letta-ai",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "letta",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\letta",
+        "remote": "https://github.com/letta-ai/letta.git"
+      }
+    ]
+  },
+  {
+    "username": "elder-plinius",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "G0DM0D3",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\G0DM0D3",
+        "remote": "https://github.com/elder-plinius/G0DM0D3.git"
+      }
+    ]
+  },
+  {
+    "username": "Openpanel-dev",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "openpanel",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\openpanel",
+        "remote": "https://github.com/Openpanel-dev/openpanel.git"
+      }
+    ]
+  },
+  {
+    "username": "nizos",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "tdd-guard",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\tdd-guard",
+        "remote": "https://github.com/nizos/tdd-guard.git"
+      }
+    ]
+  },
+  {
+    "username": "OthmanAdi",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "planning-with-files",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\planning-with-files",
+        "remote": "https://github.com/OthmanAdi/planning-with-files.git"
+      }
+    ]
+  },
+  {
+    "username": "google-antigravity",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "antigravity-sdk-python",
+        "local_path": "C:\\Users\\antoni\\Dola\\repos\\antigravity-sdk-python",
+        "remote": "https://github.com/google-antigravity/antigravity-sdk-python.git"
+      }
+    ]
+  },
+  {
+    "username": "jazzninja",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "SHRIMPLY",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\jazzninja-shrimply",
+        "remote": "https://github.com/jazzninja/SHRIMPLY.git"
+      }
+    ]
+  },
+  {
+    "username": "0xK3vin",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "MegaMemory",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\MegaMemory",
+        "remote": "https://github.com/0xK3vin/MegaMemory.git"
+      }
+    ]
+  },
+  {
+    "username": "Haehnchen",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "my-mega-memory",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\my-mega-memory",
+        "remote": "https://github.com/Haehnchen/my-mega-memory.git"
+      }
+    ]
+  },
+  {
+    "username": "jftuga",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "transcript-critic",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\transcript-critic",
+        "remote": "https://github.com/jftuga/transcript-critic.git"
+      }
+    ]
+  },
+  {
+    "username": "AffineFoundation",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "affine",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\affine-foundation",
+        "remote": "https://github.com/AffineFoundation/affine.git"
+      }
+    ]
+  },
+  {
+    "username": "K-Dense-AI",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "scientific-agent-skills",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\scientific-agent-skills",
+        "remote": "https://github.com/K-Dense-AI/scientific-agent-skills.git"
+      }
+    ]
+  },
+  {
+    "username": "nicedreamzapp",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "claude-code-local",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\claude-code-local-nicedreamz",
+        "remote": "https://github.com/nicedreamzapp/claude-code-local.git"
+      }
+    ]
+  },
+  {
+    "username": "mattpocock",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "skills",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\mattpocock-skills",
+        "remote": "https://github.com/mattpocock/skills.git"
+      }
+    ]
+  },
+  {
+    "username": "openagents-org",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "openagents",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\openagents",
+        "remote": "https://github.com/openagents-org/openagents.git"
+      }
+    ]
+  },
+  {
+    "username": "cactus-compute",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "cactus",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\cactus",
+        "remote": "https://github.com/cactus-compute/cactus.git"
+      }
+    ]
+  },
+  {
+    "username": "CodeAbra",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "iai-personal-memory-engine",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\iai-personal-memory-engine",
+        "remote": "https://github.com/CodeAbra/iai-personal-memory-engine.git"
+      }
+    ]
+  },
+  {
+    "username": "NousResearch",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "hermes-agent",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\hermes-agent",
+        "remote": "https://github.com/NousResearch/hermes-agent.git"
+      }
+    ]
+  },
+  {
+    "username": "takumiyoshikawa",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "skill-loop",
+        "local_path": "C:\\Users\\antoni\\Dola\\repos\\harvested_loops\\skill-loop-takumi",
+        "remote": "https://github.com/takumiyoshikawa/skill-loop.git"
+      }
+    ]
+  },
+  {
+    "username": "Forward-Future",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "loopy",
+        "local_path": "C:\\Users\\antoni\\Dola\\repos\\harvested_loops\\loopy",
+        "remote": "https://github.com/Forward-Future/loopy.git"
+      }
+    ]
+  },
+  {
+    "username": "haddock-development",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "claude-reflect-system",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\claude-reflect-system",
+        "remote": "https://github.com/haddock-development/claude-reflect-system.git"
+      }
+    ]
+  },
+  {
+    "username": "serenakeyitan",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "citation-check-skill",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\citation-check-skill",
+        "remote": "https://github.com/serenakeyitan/citation-check-skill.git"
+      }
+    ]
+  },
+  {
+    "username": "truelockmc",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "streambert",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\streambert",
+        "remote": "https://github.com/truelockmc/streambert.git"
+      }
+    ]
+  },
+  {
+    "username": "ismailperim",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "briefd",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\briefd",
+        "remote": "https://github.com/ismailperim/briefd.git"
+      }
+    ]
+  },
+  {
+    "username": "amardeeplakshkar",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "awesome-free-llm-apis",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\awesome-free-llm-apis",
+        "remote": "https://github.com/amardeeplakshkar/awesome-free-llm-apis.git"
+      }
+    ]
+  },
+  {
+    "username": "199-biotechnologies",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "claude-skill-seo-geo-optimizer",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\claude-skill-seo-geo-optimizer",
+        "remote": "https://github.com/199-biotechnologies/claude-skill-seo-geo-optimizer.git"
+      }
+    ]
+  },
+  {
+    "username": "our-ark",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "enoch",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\enoch",
+        "remote": "https://github.com/our-ark/enoch.git"
+      }
+    ]
+  },
+  {
+    "username": "usebruno",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "bruno",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\bruno",
+        "remote": "https://github.com/usebruno/bruno.git"
+      }
+    ]
+  },
+  {
+    "username": "alphaXiv",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "OpenResearch",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\OpenResearch",
+        "remote": "https://github.com/alphaXiv/OpenResearch.git"
+      }
+    ]
+  },
+  {
+    "username": "jingyaogong",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "minimind-o",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\minimind-o",
+        "remote": "https://github.com/jingyaogong/minimind-o.git"
+      }
+    ]
+  },
+  {
+    "username": "xai-org",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "grok-build",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\grok-build",
+        "remote": "https://github.com/xai-org/grok-build.git"
+      }
+    ]
+  },
+  {
+    "username": "3b1b",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "manim",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\manim",
+        "remote": "https://github.com/3b1b/manim.git"
+      }
+    ]
+  },
+  {
+    "username": "yanliudesign",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "offer-toolkit-skill",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\offer-toolkit-skill",
+        "remote": "https://github.com/yanliudesign/offer-toolkit-skill.git"
+      }
+    ]
+  },
+  {
+    "username": "bytedance",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "deer-flow",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\deer-flow",
+        "remote": "https://github.com/bytedance/deer-flow.git"
+      }
+    ]
+  },
+  {
+    "username": "MichelangeloConserva",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "Colosseum",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\Michelangelo-Colosseum",
+        "remote": "https://github.com/MichelangeloConserva/Colosseum.git"
+      }
+    ]
+  },
+  {
+    "username": "Picrew",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "awesome-agent-harness",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\Picrew-awesome-agent-harness",
+        "remote": "https://github.com/Picrew/awesome-agent-harness.git"
+      }
+    ]
+  },
+  {
+    "username": "FUY25",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "Loop",
+        "local_path": "C:\\Users\\antoni\\Dola\\repos\\harvested_loops\\loop-fuy25",
+        "remote": "https://github.com/FUY25/Loop.git"
+      }
+    ]
+  },
+  {
+    "username": "austindixson",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "mulch",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\mulch",
+        "remote": "https://github.com/austindixson/mulch.git"
+      }
+    ]
+  },
+  {
+    "username": "every-app",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "open-seo",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\open-seo",
+        "remote": "https://github.com/every-app/open-seo.git"
+      }
+    ]
+  },
+  {
+    "username": "firefliesai",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "fireflies-node-sdk",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\fireflies-node-sdk",
+        "remote": "https://github.com/firefliesai/fireflies-node-sdk.git"
+      }
+    ]
+  },
+  {
+    "username": "continuedev",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "continue",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\continue",
+        "remote": "https://github.com/continuedev/continue.git"
+      }
+    ]
+  },
+  {
+    "username": "fleetbase",
+    "url": "https://github.com/=repositories",
+    "repos": [
+      {
+        "name": "fleetbase",
+        "local_path": "C:\\Users\\antoni\\Dola\\clones\\fleetbase",
+        "remote": "https://github.com/fleetbase/fleetbase.git"
+      }
+    ]
+  },
+  {
+    "username": "nearform",
+    "url": "https://github.com/nearform?tab=repositories",
+    "repos": [
+      {
+        "name": "gauth",
+        "local_path": "C:\\Users\\antoni\\Dola\\repos\\harvested_gauth\\nearform-gauth",
+        "remote": "https://github.com/nearform/gauth.git"
+      }
+    ]
+  },
+  {
+    "username": "backdrop-contrib",
+    "url": "https://github.com/backdrop-contrib?tab=repositories",
+    "repos": [
+      {
+        "name": "gauth",
+        "local_path": "C:\\Users\\antoni\\Dola\\repos\\harvested_gauth\\backdrop-gauth",
+        "remote": "https://github.com/backdrop-contrib/gauth.git"
+      }
+    ]
+  }
+]

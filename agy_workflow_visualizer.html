@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AGY Autonomous Workflow Visualizer</title>
+<style>
+  :root {
+    --bg-base: #080c14;
+    --bg-card: #0e1424;
+    --bg-card-hover: #141c32;
+    --border: rgba(255, 255, 255, 0.08);
+    --border-accent: rgba(255, 122, 69, 0.4);
+    --orange: #ff7a45;
+    --orange-glow: rgba(255, 122, 69, 0.25);
+    --orange-bright: #ff9c6e;
+    --cyan: #36cfc9;
+    --green: #52c41a;
+    --purple: #9254de;
+    --blue: #4096ff;
+    --text-primary: #f0f3f8;
+    --text-secondary: #8c9ba5;
+    --text-muted: #596773;
+    --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --font-mono: 'Fira Code', Consolas, Monaco, 'Courier New', monospace;
+    --font-serif: Georgia, Cambria, 'Times New Roman', serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    background-image: 
+      radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+      radial-gradient(circle at 50% 30%, rgba(255, 122, 69, 0.05) 0%, transparent 60%);
+    background-size: 24px 24px, 100% 100%;
+  }
+
+  /* Top Bar */
+  header {
+    padding: 18px 32px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(12px);
+    background: rgba(8, 12, 20, 0.85);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .brand-logo {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--orange) 30%, #b3471c 100%);
+    box-shadow: 0 0 16px var(--orange-glow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 14px;
+    color: #fff;
+  }
+
+  .brand-title {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+
+  .brand-title span {
+    color: var(--orange);
+  }
+
+  .telemetry-bar {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--text-secondary);
+  }
+
+  .telemetry-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .dot-online {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 8px var(--green);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+  }
+
+  /* Navigation Tabs */
+  .tab-nav {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px 24px;
+    background: rgba(14, 20, 36, 0.6);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .tab-btn {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    padding: 8px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .tab-btn:hover {
+    color: var(--text-primary);
+    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  .tab-btn.active {
+    background: rgba(255, 122, 69, 0.12);
+    border-color: var(--orange);
+    color: var(--orange-bright);
+    box-shadow: 0 0 12px rgba(255, 122, 69, 0.15);
+  }
+
+  .tab-btn span.num {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    opacity: 0.7;
+  }
+
+  /* Main Container */
+  main {
+    flex: 1;
+    max-width: 1280px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 32px 24px;
+  }
+
+  .view-section {
+    display: none;
+    animation: fadeIn 0.3s ease;
+  }
+
+  .view-section.active {
+    display: block;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Hero Header in View */
+  .view-hero {
+    text-align: center;
+    margin-bottom: 36px;
+  }
+
+  .view-category {
+    font-size: 12px;
+    font-family: var(--font-mono);
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 8px;
+  }
+
+  .view-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 6px;
+    letter-spacing: -0.5px;
+  }
+
+  .view-subtitle {
+    font-size: 24px;
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: var(--orange-bright);
+  }
+
+  /* 01. WORKSPACE VIEW */
+  .workspace-container {
+    display: grid;
+    grid-template-columns: 1fr 340px 1fr;
+    gap: 24px;
+    align-items: center;
+  }
+
+  .agent-col {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .agent-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 18px;
+    transition: all 0.25s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .agent-card:hover {
+    border-color: var(--border-accent);
+    background: var(--bg-card-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  }
+
+  .agent-card.active-selected {
+    border-color: var(--orange);
+    box-shadow: 0 0 16px var(--orange-glow);
+  }
+
+  .agent-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+
+  .agent-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .agent-icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+  }
+
+  .agent-name {
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  .agent-id {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  .agent-body {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .agent-body .cmd {
+    color: var(--text-primary);
+  }
+
+  .agent-body .success {
+    color: var(--orange-bright);
+    margin-top: 4px;
+    display: block;
+  }
+
+  /* Center Radar HUD */
+  .radar-hud {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 380px;
+  }
+
+  .radar-circle {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .radar-inner {
+    width: 190px;
+    height: 190px;
+    border-radius: 50%;
+    border: 1px dashed rgba(255, 122, 69, 0.3);
+    position: absolute;
+    animation: rotateClockwise 24s linear infinite;
+  }
+
+  .radar-arc {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    border-top-color: var(--orange);
+    border-right-color: var(--orange);
+    position: absolute;
+    animation: rotateClockwise 12s linear infinite;
+    opacity: 0.8;
+  }
+
+  .radar-arc-reverse {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    border-bottom-color: var(--cyan);
+    position: absolute;
+    animation: rotateCounterClockwise 8s linear infinite;
+    opacity: 0.6;
+  }
+
+  @keyframes rotateClockwise {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes rotateCounterClockwise {
+    from { transform: rotate(360deg); }
+    to { transform: rotate(0deg); }
+  }
+
+  .radar-core {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #ff9c6e 20%, #ff7a45 60%, #871400 100%);
+    box-shadow: 0 0 24px var(--orange-glow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 800;
+    font-family: var(--font-mono);
+    letter-spacing: 0.5px;
+    z-index: 10;
+    text-align: center;
+  }
+
+  .radar-label {
+    margin-top: 18px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+  }
+
+  .workspace-footer {
+    text-align: center;
+    margin-top: 36px;
+    font-size: 14px;
+    color: var(--text-secondary);
+  }
+
+  .workspace-footer strong {
+    color: var(--text-primary);
+  }
+
+  /* 02. BRAIN VIEW */
+  .brain-grid {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 24px;
+  }
+
+  .tree-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+  }
+
+  .tree-header {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--orange);
+    font-family: var(--font-mono);
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .tree-item {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+    transition: all 0.15s ease;
+  }
+
+  .tree-item:hover {
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text-primary);
+  }
+
+  .tree-item.active {
+    background: rgba(255, 122, 69, 0.12);
+    color: var(--orange-bright);
+    border: 1px solid rgba(255, 122, 69, 0.3);
+  }
+
+  .preview-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .preview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 16px;
+  }
+
+  .preview-title {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    color: var(--orange-bright);
+    font-weight: 600;
+  }
+
+  .preview-content {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--text-primary);
+    white-space: pre-wrap;
+    background: #090e18;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    overflow-y: auto;
+    max-height: 440px;
+  }
+
+  .hash-log-strip {
+    margin-top: 16px;
+    padding: 12px 16px;
+    background: rgba(255, 122, 69, 0.05);
+    border: 1px dashed rgba(255, 122, 69, 0.3);
+    border-radius: 8px;
+    display: flex;
+    gap: 24px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--orange-bright);
+  }
+
+  /* 03. ACCESS VIEW */
+  .access-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .access-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px;
+  }
+
+  .access-card-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .access-card-title span.badge {
+    font-size: 11px;
+    font-family: var(--font-mono);
+    background: rgba(255, 122, 69, 0.15);
+    color: var(--orange-bright);
+    padding: 4px 10px;
+    border-radius: 12px;
+  }
+
+  .tool-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .tool-item {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .tool-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .tool-name {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--cyan);
+    font-weight: 600;
+  }
+
+  .tool-desc {
+    font-size: 12px;
+    color: var(--text-secondary);
+  }
+
+  .tool-hash {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+
+  .btn-approve {
+    background: var(--orange);
+    color: #fff;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .btn-approve:hover {
+    background: #ff9c6e;
+    box-shadow: 0 0 10px var(--orange-glow);
+  }
+
+  .btn-approve.approved {
+    background: var(--green);
+    cursor: default;
+  }
+
+  /* 04. COMPOUNDING MAP VIEW */
+  .compounding-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .domain-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px;
+    transition: all 0.2s ease;
+  }
+
+  .domain-card:hover {
+    border-color: var(--border-accent);
+    transform: translateY(-2px);
+  }
+
+  .domain-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+
+  .domain-name {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  .domain-pct {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--orange);
+  }
+
+  .progress-track {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 14px;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--orange), #ff9c6e);
+    border-radius: 3px;
+  }
+
+  .domain-desc {
+    font-size: 12px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  /* Footer */
+  footer {
+    padding: 24px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+  }
+
+  /* Interactive Simulation Toast */
+  #simToast {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: #141c32;
+    border: 1px solid var(--orange);
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    display: none;
+    z-index: 1000;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <div class="brand-logo">Δ</div>
+    <div>
+      <div class="brand-title">AGY <span>WORKFLOW VISUALIZER</span></div>
+      <div style="font-size: 11px; color: var(--text-muted); font-family: var(--font-mono);">Tri-Pillar Autonomous Engine • S154</div>
+    </div>
+  </div>
+
+  <div class="telemetry-bar">
+    <div class="telemetry-item">
+      <div class="dot-online"></div>
+      <span>JARVIS • ONLINE</span>
+    </div>
+    <div class="telemetry-item">
+      <span>CPU:</span> <strong style="color:var(--text-primary)">14%</strong>
+    </div>
+    <div class="telemetry-item">
+      <span>AGENTS:</span> <strong style="color:var(--orange-bright)">7 CONCURRENT</strong>
+    </div>
+    <div class="telemetry-item">
+      <span>SKILLS:</span> <strong style="color:var(--cyan)">154 ACTIVE</strong>
+    </div>
+    <button id="simBtn" style="background: rgba(255, 122, 69, 0.15); border: 1px solid var(--orange); color: var(--orange-bright); padding: 4px 12px; border-radius: 14px; font-family: var(--font-mono); font-size: 11px; cursor: pointer;">
+      ▶ LIVE STREAM
+    </button>
+  </div>
+</header>
+
+<div class="tab-nav">
+  <button class="tab-btn active" onclick="switchTab('workspace')">
+    <span class="num">01</span> THE WORKSPACE
+  </button>
+  <button class="tab-btn" onclick="switchTab('brain')">
+    <span class="num">02</span> THE BRAIN
+  </button>
+  <button class="tab-btn" onclick="switchTab('access')">
+    <span class="num">03</span> THE ACCESS
+  </button>
+  <button class="tab-btn" onclick="switchTab('compounding')">
+    <span class="num">04</span> COMPOUNDING MAP
+  </button>
+</div>
+
+<main>
+
+  <!-- 01. THE WORKSPACE VIEW -->
+  <section id="tab-workspace" class="view-section active">
+    <div class="view-hero">
+      <div class="view-category">01 • THE WORKSPACE</div>
+      <div class="view-title">Every agent gets</div>
+      <div class="view-subtitle">its own workspace.</div>
+    </div>
+
+    <div class="workspace-container">
+      <!-- Left Column: Claude, Kimi, DeepSeek -->
+      <div class="agent-col">
+        <div class="agent-card" onclick="selectAgent('Claude Code')">
+          <div class="agent-header">
+            <div class="agent-meta">
+              <div class="agent-icon" style="color: #ff7a45;">✴</div>
+              <div class="agent-name">Claude Code</div>
+            </div>
+            <div class="agent-id">06</div>
+          </div>
+          <div class="agent-body">
+            <div>&gt; read brain/offer.md</div>
+            <div>&gt; draft follow-up #2</div>
+            <span class="success">✓ 3 drafts → review</span>
+          </div>
+        </div>
+
+        <div class="agent-card" onclick="selectAgent('Kimi')">
+          <div class="agent-header">
+            <div class="agent-meta">
+              <div class="agent-icon" style="color: #36cfc9;">◐</div>
+              <div class="agent-name">Kimi</div>
+            </div>
+            <div class="agent-id">05</div>
+          </div>
+          <div class="agent-body">
+            <div>&gt; monitor inbox</div>
+            <div style="color: var(--text-muted);">2 replies flagged</div>
+            <div>&gt; draft answers</div>
+          </div>
+        </div>
+
+        <div class="agent-card" onclick="selectAgent('DeepSeek')">
+          <div class="agent-header">
+            <div class="agent-meta">
+              <div class="agent-icon" style="color: #4096ff;">🐋</div>
+              <div class="agent-name">DeepSeek</div>
+            </div>
+            <div class="agent-id">04</div>
+          </div>
+          <div class="agent-body">
+            <div>&gt; read brain/voice.md</div>
+            <div>&gt; draft captions x4</div>
+            <span class="success">✓ 4 drafts saved</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Center Orbital Radar HUD -->
+      <div class="radar-hud">
+        <div class="radar-circle">
+          <div class="radar-arc"></div>
+          <div class="radar-arc-reverse"></div>
+          <div class="radar-inner"></div>
+          <div class="radar-core">AGY<br>CORE</div>
+        </div>
+        <div class="radar-label">SHARED MEMORY BUS</div>
+      </div>
+
+      <!-- Right Column: Codex, Gemini, Grok -->
+      <div class="agent-col">
+        <div class="agent-card" onclick="selectAgent('Codex')">
+          <div class="agent-header">
+            <div class="agent-meta">
+              <div class="agent-icon" style="color: #52c41a;">⚙</div>
+              <div class="agent-name">Codex</div>
+            </div>
+            <div class="agent-id">01</div>
+          </div>
+          <div class="agent-body">
+            <div>&gt; pull metrics.csv</div>
+            <div>&gt; build weekly-report.md</div>
+            <span class="success">✓ report drafted</span>
+          </div>
+        </div>
+
+        <div class="agent-card" onclick="selectAgent('Gemini')">
+          <div class="agent-header">
+            <div class="agent-meta">
+              <div class="agent-icon" style="color: #ff9c6e;">✦</div>
+              <div class="agent-name">Gemini</div>
+            </div>
+            <div class="agent-id">02</div>
+          </div>
+          <div class="agent-body">
+            <div>&gt; classify 12 replies</div>
+            <div style="color: var(--text-muted);">hot: 3 • warm: 5</div>
+            <span class="success">✓ 3 meetings proposed</span>
+          </div>
+        </div>
+
+        <div class="agent-card" onclick="selectAgent('Grok')">
+          <div class="agent-header">
+            <div class="agent-meta">
+              <div class="agent-icon" style="color: #f0f3f8;">⊘</div>
+              <div class="agent-name">Grok</div>
+            </div>
+            <div class="agent-id">03</div>
+          </div>
+          <div class="agent-body">
+            <div>&gt; scan 14 sources</div>
+            <div style="color: var(--text-muted);">dedupe • 9 kept</div>
+            <span class="success">✓ notes filed</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="workspace-footer">
+      All running at once, on the same context. Orchestrated under <strong>Dola AI / Antigravity Omni-Auto Engine</strong>.
+    </div>
+  </section>
+
+  <!-- 02. THE BRAIN VIEW -->
+  <section id="tab-brain" class="view-section">
+    <div class="view-hero">
+      <div class="view-category">02 • THE BRAIN</div>
+      <div class="view-title">What they read</div>
+      <div class="view-subtitle">before they act.</div>
+    </div>
+
+    <div class="brain-grid">
+      <div class="tree-card">
+        <div class="tree-header">📁 Directive Tree</div>
+        <div style="font-size: 11px; color: var(--text-muted); margin-bottom: 8px; font-family: var(--font-mono);">brain/</div>
+        <div class="tree-item active" onclick="loadBrainFile('company')">📄 company.md</div>
+        <div class="tree-item" onclick="loadBrainFile('offer')">📄 offer.md</div>
+        <div class="tree-item" onclick="loadBrainFile('customers')">📄 customers.md</div>
+        <div class="tree-item" onclick="loadBrainFile('voice')">📄 voice.md</div>
+        
+        <div style="font-size: 11px; color: var(--text-muted); margin: 16px 0 8px 0; font-family: var(--font-mono);">processes/</div>
+        <div class="tree-item" onclick="loadBrainFile('proposal')">⚡ proposal-flow.md</div>
+        <div class="tree-item" onclick="loadBrainFile('followup')">⚡ follow-up.md</div>
+        <div class="tree-item" onclick="loadBrainFile('invoicing')">⚡ invoicing.md</div>
+      </div>
+
+      <div class="preview-card">
+        <div class="preview-header">
+          <div class="preview-title" id="previewTitle">brain/company.md</div>
+          <div style="font-size: 11px; font-family: var(--font-mono); color: var(--text-muted);">SOURCE: C:\Users\antoni\Dola\brain\</div>
+        </div>
+        <div class="preview-content" id="previewBody"># 🏢 Company Context & Identity
+- Name: Dola AI Autonomous Enterprise
+- Core Mission: Hyper-efficient, zero-token-waste autonomous AI agent architecture combining DeepMind reasoning, forensic evidence validation, and automated multi-channel delivery.
+- Operating Model: 24/7 autonomous background worker squads with human-in-the-loop approval gates.
+- Core Standard: Dola AI v4.0 Master Engine & Publication Shield (FK-16 <= 5%, FK-17 zero AI clichés, FK-19 authentic verified citations).</div>
+        
+        <div class="hash-log-strip">
+          <div>0x3f31 ▸ brain/voice.md loaded</div>
+          <div>0x3f32 ▸ diff reviewed</div>
+          <div>0x3f33 ▸ tool: sheets.append</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03. THE ACCESS VIEW -->
+  <section id="tab-access" class="view-section">
+    <div class="view-hero">
+      <div class="view-category">03 • THE ACCESS</div>
+      <div class="view-title">Then let them act</div>
+      <div class="view-subtitle">on your behalf.</div>
+    </div>
+
+    <div class="access-grid">
+      <!-- Tool Execution Timeline -->
+      <div class="access-card">
+        <div class="access-card-title">
+          <span>⚡ Live Tool Calls & Wire</span>
+          <span class="badge">WIRED APIS</span>
+        </div>
+        <div class="tool-list">
+          <div class="tool-item">
+            <div class="tool-info">
+              <div class="tool-name">crm.search</div>
+              <div class="tool-desc">3 leads routed to pipeline</div>
+              <div class="tool-hash">HASH: 0x3f36 • brain/offer.md loaded</div>
+            </div>
+            <div style="color: var(--green); font-size: 12px; font-family: var(--font-mono);">EXECUTED</div>
+          </div>
+
+          <div class="tool-item">
+            <div class="tool-info">
+              <div class="tool-name">calendar.find</div>
+              <div class="tool-desc">Proposed 3 meeting windows</div>
+              <div class="tool-hash">HASH: 0x3f4d • Gemini agent</div>
+            </div>
+            <div style="color: var(--green); font-size: 12px; font-family: var(--font-mono);">EXECUTED</div>
+          </div>
+
+          <div class="tool-item">
+            <div class="tool-info">
+              <div class="tool-name">sheets.append</div>
+              <div class="tool-desc">Telemetry metrics logged to master sheet</div>
+              <div class="tool-hash">HASH: 0x3f50 • Codex worker</div>
+            </div>
+            <div style="color: var(--green); font-size: 12px; font-family: var(--font-mono);">EXECUTED</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Human Approval Queue -->
+      <div class="access-card">
+        <div class="access-card-title">
+          <span>🛡️ Human-in-the-Loop Approval Queue</span>
+          <span class="badge" style="background: rgba(255, 77, 79, 0.15); color: #ff7875;">PENDING GATES</span>
+        </div>
+        <div class="tool-list">
+          <div class="tool-item" id="gate1">
+            <div class="tool-info">
+              <div class="tool-name" style="color: var(--orange-bright);">crm.update</div>
+              <div class="tool-desc">Update Stage: Hot Enterprise Proposal ($12k)</div>
+              <div class="tool-hash">HASH: 0x3f2d • Claude Code</div>
+            </div>
+            <button class="btn-approve" onclick="approveGate('gate1')">APPROVE</button>
+          </div>
+
+          <div class="tool-item" id="gate2">
+            <div class="tool-info">
+              <div class="tool-name" style="color: var(--orange-bright);">gmail.send</div>
+              <div class="tool-desc">Send Follow-Up #2 (Audited against FK-17)</div>
+              <div class="tool-hash">HASH: 0x3f2e • Kimi agent</div>
+            </div>
+            <button class="btn-approve" onclick="approveGate('gate2')">APPROVE</button>
+          </div>
+
+          <div class="tool-item" id="gate3">
+            <div class="tool-info">
+              <div class="tool-name" style="color: var(--orange-bright);">git.push</div>
+              <div class="tool-desc">Merge batch #31 skill branches into main</div>
+              <div class="tool-hash">HASH: 0x3f2f • AGY supervisor</div>
+            </div>
+            <button class="btn-approve" onclick="approveGate('gate3')">APPROVE</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04. COMPOUNDING MAP VIEW -->
+  <section id="tab-compounding" class="view-section">
+    <div class="view-hero">
+      <div class="view-category">THEN IT COMPOUNDS</div>
+      <div class="view-title">Lock those three in.</div>
+      <div class="view-subtitle">The system levels up.</div>
+    </div>
+
+    <div class="compounding-grid">
+      <div class="domain-card">
+        <div class="domain-header">
+          <div class="domain-name">💼 Sales & Inbound</div>
+          <div class="domain-pct">92%</div>
+        </div>
+        <div class="progress-track"><div class="progress-fill" style="width: 92%;"></div></div>
+        <div class="domain-desc">Automated lead routing, ICP score matching, and calendar proposal dispatch.</div>
+      </div>
+
+      <div class="domain-card">
+        <div class="domain-header">
+          <div class="domain-name">📣 Marketing & Copy</div>
+          <div class="domain-pct">88%</div>
+        </div>
+        <div class="progress-track"><div class="progress-fill" style="width: 88%;"></div></div>
+        <div class="domain-desc">Multi-channel scriptwriting, FK-17 anti-AI cliché filtering, and viral hook generation.</div>
+      </div>
+
+      <div class="domain-card">
+        <div class="domain-header">
+          <div class="domain-name">⚙️ Operations & QA</div>
+          <div class="domain-pct">95%</div>
+        </div>
+        <div class="progress-track"><div class="progress-fill" style="width: 95%;"></div></div>
+        <div class="domain-desc">Surgical codebase editing, test-driven validation, and PR automated review loops.</div>
+      </div>
+
+      <div class="domain-card">
+        <div class="domain-header">
+          <div class="domain-name">🤝 Deals & Closing</div>
+          <div class="domain-pct">78%</div>
+        </div>
+        <div class="progress-track"><div class="progress-fill" style="width: 78%;"></div></div>
+        <div class="domain-desc">Contract draft assembly, dual-language specification generation, and milestone tracking.</div>
+      </div>
+
+      <div class="domain-card">
+        <div class="domain-header">
+          <div class="domain-name">💬 Customer Success</div>
+          <div class="domain-pct">85%</div>
+        </div>
+        <div class="progress-track"><div class="progress-fill" style="width: 85%;"></div></div>
+        <div class="domain-desc">24/7 ticket triage, FAQ knowledge retrieval, and personalized nurture sequences.</div>
+      </div>
+
+      <div class="domain-card">
+        <div class="domain-header">
+          <div class="domain-name">📊 Back Office & Finance</div>
+          <div class="domain-pct">91%</div>
+        </div>
+        <div class="progress-track"><div class="progress-fill" style="width: 91%;"></div></div>
+        <div class="domain-desc">Milestone invoicing, bank reconciliation, and weekly telemetry brief synthesis.</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div id="simToast"></div>
+
+<footer>
+  Dola AI v4.0 • Antigravity Agent Runtime • Zero Slop • 154 Super-Skills Synchronized
+</footer>
+
+<script>
+  function switchTab(tabId) {
+    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll('.view-section').forEach(sec => sec.classList.remove('active'));
+    
+    event.currentTarget.classList.add('active');
+    document.getElementById('tab-' + tabId).classList.add('active');
+  }
+
+  const brainFiles = {
+    company: `# 🏢 Company Context & Identity\\n- Name: Dola AI Autonomous Enterprise\\n- Core Mission: Hyper-efficient, zero-token-waste autonomous AI agent architecture combining DeepMind reasoning, forensic evidence validation, and automated multi-channel delivery.\\n- Operating Model: 24/7 autonomous background worker squads with human-in-the-loop approval gates.\\n- Core Standard: Dola AI v4.0 Master Engine & Publication Shield (FK-16 <= 5%, FK-17 zero AI clichés, FK-19 authentic verified citations).`,
+    offer: `# 💎 Core Value Propositions & Offerings\\n1. Autonomous Research & Academic Synthesis:\\n   - End-to-end thesis, journal manuscripts, and PRISMA systematic literature reviews.\\n   - Dual-language matched manuscripts (.docx), presentation decks (.pptx), and Mendeley RIS libraries (.ris).\\n2. Agentic Software Engineering & Tooling:\\n   - Zero-regression, surgical codebase refactoring, MCP integrations, automated testing.\\n   - Self-contained, ultra-lightweight frontend dashboards and visual workflow monitors.\\n3. Enterprise Business & Financial Intelligence:\\n   - Unit economics models, multi-source competitive OSINT, lead routing, automated CRM workflows.`,
+    customers: `# 👥 Ideal Client Profiles (ICP) & Stakeholders\\n- Segment A — Academic & Scientific Researchers: Need 100% verified literature reviews, zero-hallucination citations, and Mendeley RIS integration.\\n- Segment B — Enterprise Founders & CTOs: Need production-grade multi-agent backend systems with clear audit trails, zero SaaS bloat, and offline-first local deployment.\\n- Segment C — Growth Agencies & Content Operators: Need high-density copywriting, automated multi-channel scheduling, and real-time social intelligence.`,
+    voice: `# 🎙️ Brand Voice & Editorial Guidelines\\n- Tone: Formal, dense, objective, executive, and academically rigorous.\\n- FK-17 Iron Rule: Zero AI clichés (ban phrases like "in conclusion", "it is worth noting", "testament to", "delve", "tapestry").\\n- Evidence Standard: Every factual claim must cite an authentic source or DOI [N#E].\\n- Clarity: High-density information delivery. No redundant filler or artificial transitions.`,
+    proposal: `# 📋 Process: Inbound Proposal & Contract Flow\\n1. Lead Detection: crm.search scans inbound requests and identifies client intent.\\n2. Context Matching: Agent loads brain/company.md and brain/offer.md to select scope.\\n3. Proposal Drafting: AGY drafts dual-language proposal specifications and milestone breakdown.\\n4. Human Review Gate: Triggers approval.queued notification for human sign-off.\\n5. Dispatch & Notification: Upon approval, generates client-facing PDF/DOCX and sends invite.`,
+    followup: `# 🔄 Process: Multi-Tier Client Nurture & Follow-Up\\n1. Trigger Condition: Lead proposal delivered with no response after 48 hours.\\n2. Context Load: Agent inspects previous email thread and notes from brain/customers.md.\\n3. Drafting Strategy: Generate high-value, value-add touchpoint without high-pressure sales phrasing.\\n4. Audit: Output draft to inbox.drafts and notify user via audit hash 0x3f...`,
+    invoicing: `# 💳 Process: Milestone Invoicing & Payment Reconciliation\\n1. Milestone Completion: Code merged to main or research draft reviewed with 0 errors.\\n2. Invoice Generation: Pull billing rates and generate invoice record with cryptographic reference.\\n3. Ledger Update: Append record to sheets.append and local ledger.\\n4. Reconciliation: Match incoming bank/crypto payment and mark milestone closed in CRM.`
+  };
+
+  function loadBrainFile(key) {
+    document.querySelectorAll('.tree-item').forEach(item => item.classList.remove('active'));
+    event.currentTarget.classList.add('active');
+    
+    const titles = {
+      company: "brain/company.md",
+      offer: "brain/offer.md",
+      customers: "brain/customers.md",
+      voice: "brain/voice.md",
+      proposal: "processes/proposal-flow.md",
+      followup: "processes/follow-up.md",
+      invoicing: "processes/invoicing.md"
+    };
+
+    document.getElementById('previewTitle').innerText = titles[key];
+    document.getElementById('previewBody').innerText = brainFiles[key].replace(/\\n/g, '\\n');
+  }
+
+  function approveGate(elementId) {
+    const el = document.getElementById(elementId);
+    const btn = el.querySelector('button');
+    btn.innerText = "✓ APPROVED";
+    btn.classList.add('approved');
+    btn.disabled = true;
+    showToast("Gate Approved! Cryptographic ledger updated with signature 0x3f" + Math.floor(Math.random()*8999+1000));
+  }
+
+  function selectAgent(name) {
+    showToast(name + " workspace active: context loaded from C:\\Users\\antoni\\Dola\\brain\\");
+  }
+
+  function showToast(msg) {
+    const toast = document.getElementById('simToast');
+    toast.innerText = msg;
+    toast.style.display = 'block';
+    setTimeout(() => { toast.style.display = 'none'; }, 3000);
+  }
+
+  // Live Stream simulation
+  let simActive = false;
+  let simInterval = null;
+  const simEvents = [
+    "0x3f4e ▸ approval.queued (crm.update)",
+    "0x3f4f ▸ diff reviewed (main branch)",
+    "0x3f50 ▸ tool: sheets.append (weekly metrics)",
+    "0x3f51 ▸ handoff → human (proposal review)",
+    "0x3f52 ▸ ctx window 71% (Kimi Moonshot)",
+    "0x3f53 ▸ worktree clean (Claude Code)",
+    "0x3f2a ▸ brain/offer.md loaded",
+    "0x3f2b ▸ ctx window 84% (AGY Core)"
+  ];
+
+  document.getElementById('simBtn').addEventListener('click', function() {
+    simActive = !simActive;
+    if (simActive) {
+      this.innerText = "⏸ PAUSE STREAM";
+      this.style.background = "rgba(82, 196, 26, 0.2)";
+      this.style.borderColor = "var(--green)";
+      this.style.color = "var(--green)";
+      simInterval = setInterval(() => {
+        const randEvt = simEvents[Math.floor(Math.random() * simEvents.length)];
+        showToast("⚡ TELEMETRY: " + randEvt);
+      }, 3500);
+    } else {
+      this.innerText = "▶ LIVE STREAM";
+      this.style.background = "rgba(255, 122, 69, 0.15)";
+      this.style.borderColor = "var(--orange)";
+      this.style.color = "var(--orange-bright)";
+      clearInterval(simInterval);
+    }
+  });
+</script>
+
+</body>
+</html>

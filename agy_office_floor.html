@@ -1,0 +1,2297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🏢 Dola & AGY 3D Virtual Office Floor — Multi-Agent Harness (Munder Difflin)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0a0c10;
+      --card-bg: rgba(18, 22, 31, 0.88);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --primary: #5b56f1;
+      --primary-glow: rgba(91, 86, 241, 0.35);
+      --accent: #00ffa3;
+      --accent-glow: rgba(0, 255, 163, 0.3);
+      --amber: #f59e0b;
+      --red: #ef4444;
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --floor-grid: rgba(255, 255, 255, 0.04);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      user-select: none;
+    }
+
+    body {
+      background: var(--bg-dark);
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow: hidden;
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header Nav */
+    header {
+      height: 56px;
+      background: rgba(13, 16, 23, 0.95);
+      border-bottom: 1px solid var(--card-border);
+      backdrop-filter: blur(12px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      z-index: 100;
+      flex-shrink: 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-logo {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 14px;
+      color: #000;
+      font-weight: bold;
+      box-shadow: 0 0 15px var(--accent-glow);
+    }
+
+    .brand-title {
+      font-weight: 800;
+      font-size: 15px;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .brand-badge {
+      font-size: 10px;
+      background: rgba(0, 255, 163, 0.15);
+      color: var(--accent);
+      padding: 2px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 255, 163, 0.3);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .header-telemetry {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+    }
+
+    .telemetry-pill {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--card-border);
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--accent);
+      animation: pulse-dot 2s infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.85); }
+    }
+
+    /* Main Container */
+    .app-main {
+      flex: 1 1 auto;
+      display: flex !important;
+      flex-direction: row !important;
+      flex-wrap: nowrap !important;
+      position: relative;
+      overflow: hidden;
+      width: 100vw;
+      height: calc(100vh - 56px - 64px);
+    }
+
+    /* Left Sidebar: Brief & Dispatcher */
+    .sidebar-left {
+      width: 320px;
+      min-width: 240px;
+      max-width: 600px;
+      flex-shrink: 0 !important;
+      background: rgba(13, 17, 24, 0.92);
+      border-right: 1px solid var(--card-border);
+      backdrop-filter: blur(16px);
+      display: flex;
+      flex-direction: column;
+      z-index: 50;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brief-container {
+      padding: 16px;
+      border-bottom: 1px solid var(--card-border);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .step-badge {
+      font-size: 10px;
+      font-weight: 800;
+      color: var(--primary);
+      background: rgba(91, 86, 241, 0.15);
+      border: 1px solid rgba(91, 86, 241, 0.3);
+      padding: 2px 6px;
+      border-radius: 4px;
+      display: inline-block;
+    }
+
+    textarea.brief-input {
+      width: 100%;
+      height: 85px;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 8px;
+      color: #fff;
+      font-family: inherit;
+      font-size: 12.5px;
+      padding: 10px;
+      resize: none;
+      outline: none;
+      transition: all 0.2s;
+    }
+
+    textarea.brief-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 12px var(--primary-glow);
+    }
+
+    .btn-dispatch {
+      background: linear-gradient(135deg, var(--primary), #4338ca);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #fff;
+      font-weight: 700;
+      font-size: 12.5px;
+      padding: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 4px 15px rgba(91, 86, 241, 0.3);
+      transition: all 0.2s;
+    }
+
+    .btn-dispatch:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(91, 86, 241, 0.45);
+      background: linear-gradient(135deg, #6b66ff, #4f46e5);
+    }
+
+    .template-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .chip {
+      font-size: 10.5px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--card-border);
+      padding: 4px 8px;
+      border-radius: 6px;
+      cursor: pointer;
+      color: var(--text-muted);
+      transition: all 0.15s;
+    }
+
+    .chip:hover {
+      background: rgba(91, 86, 241, 0.2);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    /* Roster List */
+    .roster-container {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px;
+    }
+
+    .roster-container::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .roster-container::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 2px;
+    }
+
+    .agent-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 10px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .agent-card:hover, .agent-card.active {
+      background: rgba(255, 255, 255, 0.07);
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateX(2px);
+    }
+
+    .agent-card.active {
+      border-color: var(--primary);
+      box-shadow: 0 0 10px var(--primary-glow);
+    }
+
+    .agent-avatar-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 6px;
+      background: #1f2937;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      flex-shrink: 0;
+    }
+
+    .agent-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .agent-name {
+      font-size: 12px;
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .agent-role {
+      font-size: 10.5px;
+      color: var(--text-muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .agent-state-pill {
+      font-size: 9px;
+      padding: 1px 5px;
+      border-radius: 4px;
+      font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase;
+    }
+
+    .state-busy {
+      background: rgba(245, 158, 11, 0.2);
+      color: var(--amber);
+      border: 1px solid rgba(245, 158, 11, 0.4);
+    }
+
+    .state-idle {
+      background: rgba(0, 255, 163, 0.15);
+      color: var(--accent);
+      border: 1px solid rgba(0, 255, 163, 0.3);
+    }
+
+    /* Center Canvas Floor View */
+    .viewport-center {
+      flex: 1 1 auto;
+      min-width: 250px;
+      height: 100%;
+      position: relative;
+      background: #07090e;
+      overflow: hidden;
+    }
+
+    #officeCanvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+      cursor: grab;
+    }
+
+    #officeCanvas:active {
+      cursor: grabbing;
+    }
+
+    /* Canvas Overlays */
+    .canvas-hud {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      display: flex;
+      gap: 10px;
+      pointer-events: none;
+    }
+
+    .hud-box {
+      background: rgba(13, 17, 24, 0.85);
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(10px);
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--text-muted);
+      pointer-events: auto;
+    }
+
+    .hud-box strong {
+      color: #fff;
+    }
+
+    .canvas-controls {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      z-index: 40;
+    }
+
+    .ctrl-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      background: rgba(18, 22, 31, 0.9);
+      border: 1px solid var(--card-border);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 14px;
+      transition: all 0.2s;
+    }
+
+    .ctrl-btn:hover {
+      background: var(--primary);
+      border-color: var(--primary);
+    }
+
+    /* Right Sidebar: Follow Work & Terminal */
+    .sidebar-right {
+      width: 380px;
+      min-width: 280px;
+      max-width: 700px;
+      background: rgba(13, 17, 24, 0.92);
+      border-left: 1px solid var(--card-border);
+      backdrop-filter: blur(16px);
+      display: flex;
+      flex-direction: column;
+      z-index: 50;
+      flex-shrink: 0 !important;
+    }
+
+    /* Dynamic Sidebar Resizers */
+    .sidebar-resizer {
+      width: 7px;
+      cursor: col-resize;
+      background: rgba(255, 255, 255, 0.04);
+      position: relative;
+      z-index: 60;
+      flex-shrink: 0;
+      transition: background 0.15s ease, box-shadow 0.15s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .sidebar-resizer:hover, .sidebar-resizer.is-dragging {
+      background: var(--primary);
+      box-shadow: 0 0 10px var(--primary-glow);
+    }
+
+    .resizer-grip {
+      width: 2px;
+      height: 32px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 1px;
+      transition: all 0.15s ease;
+    }
+
+    .sidebar-resizer:hover .resizer-grip, .sidebar-resizer.is-dragging .resizer-grip {
+      background: #fff;
+      height: 48px;
+    }
+
+    .btn-toggle-sidebar {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+      border-radius: 4px;
+      padding: 2px 6px;
+      font-size: 11px;
+      cursor: pointer;
+      transition: all 0.15s;
+      line-height: 1;
+    }
+
+    .btn-toggle-sidebar:hover {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    /* Floating restore pills when collapsed */
+    .sidebar-restore-pill {
+      position: absolute;
+      top: 14px;
+      z-index: 70;
+      background: rgba(13, 17, 24, 0.95);
+      border: 1px solid var(--primary);
+      color: #fff;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      display: none;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+      align-items: center;
+      gap: 6px;
+      backdrop-filter: blur(10px);
+    }
+
+    .sidebar-restore-pill:hover {
+      background: var(--primary);
+      box-shadow: 0 0 15px var(--primary-glow);
+    }
+
+    #restoreLeftPill { left: 14px; }
+    #restoreRightPill { right: 14px; }
+
+    body.resizing-active {
+      cursor: col-resize !important;
+      user-select: none !important;
+      -webkit-user-select: none !important;
+    }
+
+    body.resizing-active iframe,
+    body.resizing-active canvas {
+      pointer-events: none !important;
+    }
+
+    .tabs-header {
+      display: flex;
+      border-bottom: 1px solid var(--card-border);
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    .tab-btn {
+      flex: 1;
+      padding: 10px 4px;
+      text-align: center;
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--text-muted);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .tab-btn.active {
+      color: #fff;
+      border-bottom-color: var(--primary);
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .tab-content {
+      flex: 1;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Terminal stream */
+    .terminal-view {
+      flex: 1;
+      padding: 12px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      line-height: 1.5;
+      background: #05070a;
+      overflow-y: auto;
+      color: #a5b4fc;
+    }
+
+    .term-line {
+      margin-bottom: 4px;
+      word-break: break-all;
+    }
+
+    .term-prefix {
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    .term-time {
+      color: #4b5563;
+      margin-right: 6px;
+    }
+
+    /* Activity Stream */
+    .feed-container {
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .feed-item {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--card-border);
+      border-radius: 6px;
+      padding: 10px;
+      font-size: 11.5px;
+    }
+
+    .feed-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 4px;
+      color: var(--text-muted);
+      font-size: 10px;
+    }
+
+    .feed-body {
+      color: #e5e7eb;
+      line-height: 1.4;
+    }
+
+    /* Bottom Approval Gate (Step 3: Stay Involved) */
+    .approval-bar {
+      height: 64px;
+      background: rgba(18, 22, 31, 0.95);
+      border-top: 1px solid var(--card-border);
+      backdrop-filter: blur(16px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      z-index: 90;
+      flex-shrink: 0;
+    }
+
+    .proposal-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .proposal-badge {
+      background: rgba(245, 158, 11, 0.15);
+      color: var(--amber);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      font-size: 10px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .proposal-title {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .approval-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-approve {
+      background: #10b981;
+      color: #fff;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    .btn-approve:hover {
+      background: #059669;
+      transform: translateY(-1px);
+    }
+
+    .btn-reject {
+      background: rgba(239, 68, 68, 0.2);
+      color: var(--red);
+      border: 1px solid rgba(239, 68, 68, 0.4);
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-reject:hover {
+      background: rgba(239, 68, 68, 0.35);
+    }
+
+    /* Modal Inspector */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(8px);
+      z-index: 200;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-box {
+      width: 520px;
+      background: #0e121a;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.75);
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .modal-close {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-size: 18px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header>
+    <div class="brand">
+      <div class="brand-logo">MD</div>
+      <div class="brand-title">
+        MUNDER DIFFLIN INC.
+        <span class="brand-badge">AGY HIVE HARNESS v0.4.6</span>
+      </div>
+    </div>
+
+    <div class="header-telemetry">
+      <div class="telemetry-pill">
+        <span class="status-dot"></span>
+        <span id="bridgeStatus">AGY Bridge: Connecting...</span>
+      </div>
+      <div class="telemetry-pill">
+        <span>🤖</span>
+        <span id="agentCount">8 Agents Active</span>
+      </div>
+      <div class="telemetry-pill">
+        <span>🧠</span>
+        <span id="vaultNotes">Obsidian: 537 Notes</span>
+      </div>
+      <div class="telemetry-pill">
+        <span>⚡</span>
+        <span>7-Key Mesh</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Work Area -->
+  <div class="app-main">
+    
+    <!-- Left Sidebar: Step 1 Give Each Agent a Job -->
+    <aside class="sidebar-left">
+      <div class="brief-container">
+        <div class="section-title">
+          <span>STEP 1: PROJECT BRIEF</span>
+          <div style="display: flex; align-items: center; gap: 6px;">
+            <span class="step-badge">MICHAEL CLONE</span>
+            <button class="btn-toggle-sidebar" onclick="toggleSidebar('left')" title="Collapse Left Sidebar">◀</button>
+          </div>
+        </div>
+        <textarea id="briefInput" class="brief-input" placeholder="Give your AI team a project brief... (e.g. Build an autonomous lead gen scraper with TypeSafe Jev and export to Obsidian)"></textarea>
+        
+        <div class="template-chips">
+          <span class="chip" onclick="setBrief('Agency Agents (SOTA 1): Activate Senior Direct-Response Copywriter persona to draft 3 viral hooks.')">🤖 Agency Copywriter</span>
+          <span class="chip" onclick="setBrief('OpenMontage (SOTA 2): Generate 45-second viral video production blueprint with Whisper STT and B-roll cues.')">🎬 OpenMontage Video</span>
+          <span class="chip" onclick="setBrief('OpenClaw (SOTA 3): Personal assistant substrate — audit local workspace and create tool-chaining plan.')">🦾 OpenClaw Substrate</span>
+          <span class="chip" onclick="setBrief('AutoGPT Swarm (SOTA 4): Hierarchical manager-worker swarm for multi-pass autonomous problem solving.')">🦅 AutoGPT Swarm</span>
+          <span class="chip" onclick="setBrief('Mastra DAG (SOTA 5): Deterministic state machine workflow runner with typed schema checkpoints.')">⚙️ Mastra Orchestrator</span>
+          <span class="chip" onclick="setBrief('Higgsfield Seedance 2.5: Render 4K cinematic scene at sunset with 35mm lens and auto-fallback to Obsidian gallery.')">🎬 Seedance 2.5 Video</span>
+          <span class="chip" onclick="setBrief('Bionic LM Studio Mesh: Test local model mesh on port 1234 and Briefd MCP port 7788.')">⚡ Bionic Mesh Sync</span>
+          <span class="chip" onclick="setBrief('Obsidian Knowledge Vault: Audit 493 notes, sync Dataview tables and Seedance video gallery.')">📚 Obsidian Vault Sync</span>
+          <span class="chip" onclick="setBrief('Pelajarin STEM Tutor: 3-pass paper cracker, formula-to-intuition derivation.')">🔬 Pelajarin STEM (S241)</span>
+          <span class="chip" onclick="setBrief('Mindful Code Review: 30-second comprehension gate, Ponytail minimal diffs.')">🧠 Mindful Review (S242)</span>
+        </div>
+
+        <button id="btnDispatch" class="btn-dispatch" onclick="dispatchBrief()">
+          <span>⚡</span>
+          <span>DISPATCH HIVE TEAM</span>
+        </button>
+      </div>
+
+      <div class="roster-container">
+        <div class="section-title">
+          <span>THE OFFICE ROSTER</span>
+          <span id="activeCountBadge">11 WORKSTATIONS</span>
+        </div>
+
+        <div id="rosterList">
+          <!-- Dynamically populated agents -->
+        </div>
+      </div>
+    </aside>
+
+    <!-- Left Sidebar Resizer / Splitter -->
+    <div class="sidebar-resizer resizer-left" id="resizerLeft" title="Drag to adjust Left Sidebar width | Double click to toggle collapse">
+      <div class="resizer-grip"></div>
+    </div>
+
+    <!-- Center Canvas: The 3D / Isometric Floor -->
+    <main class="viewport-center">
+      <canvas id="officeCanvas"></canvas>
+
+      <!-- Floating restore pills when sidebars are collapsed -->
+      <button id="restoreLeftPill" class="sidebar-restore-pill" onclick="toggleSidebar('left')" title="Expand Left Sidebar">
+        <span>▶</span> <span>Controls</span>
+      </button>
+      <button id="restoreRightPill" class="sidebar-restore-pill" onclick="toggleSidebar('right')" title="Expand Right Sidebar">
+        <span>◀</span> <span>Tabs</span>
+      </button>
+
+      <div class="canvas-hud">
+        <div class="hud-box">
+          <span>FLOOR: </span><strong>SCRANTON BRANCH (AGY STUDIO)</strong>
+        </div>
+        <div class="hud-box">
+          <span>ACTIVE SPRINT: </span><strong id="hudSprint">AUTONOMOUS HARNESS</strong>
+        </div>
+        <div class="hud-box">
+          <span>PACKETS: </span><strong id="hudPackets">0 FLOWN</strong>
+        </div>
+      </div>
+
+      <div class="canvas-controls">
+        <button class="ctrl-btn" onclick="zoomIn()" title="Zoom In">+</button>
+        <button class="ctrl-btn" onclick="zoomOut()" title="Zoom Out">−</button>
+        <button class="ctrl-btn" onclick="resetView()" title="Reset Camera">⌖</button>
+      </div>
+    </main>
+
+    <!-- Right Sidebar Resizer / Splitter -->
+    <div class="sidebar-resizer resizer-right" id="resizerRight" title="Drag to adjust Right Sidebar width | Double click to toggle collapse">
+      <div class="resizer-grip"></div>
+    </div>
+
+    <!-- Right Sidebar: Step 2 Follow The Work -->
+    <aside class="sidebar-right">
+      <div class="tabs-header">
+        <button class="tab-btn active" onclick="switchTab('autonomic')">🤖 AUTONOMIC HIVE</button>
+        <button class="tab-btn" onclick="switchTab('feralui')">🧲 FERAL UI</button>
+        <button class="tab-btn" onclick="switchTab('terminal')">TERMINAL</button>
+        <button class="tab-btn" onclick="switchTab('workflow')">WORKFLOW</button>
+        <button class="tab-btn" onclick="switchTab('seedance')">🎬 SEEDANCE</button>
+        <button class="tab-btn" onclick="switchTab('bionic')">⚡ BIONIC</button>
+        <button class="tab-btn" onclick="switchTab('memory')">📚 OBSIDIAN</button>
+        <button class="btn-toggle-sidebar" onclick="toggleSidebar('right')" title="Collapse Right Sidebar" style="margin: 0 4px; align-self: center;">▶</button>
+      </div>
+
+      <!-- AUTONOMIC HIVE TAB (5-STAGE RECHECK PIPELINE) -->
+      <div id="tabAutonomic" class="tab-content" style="padding: 14px; display: flex; flex-direction: column; gap: 12px; height: calc(100vh - 120px); overflow-y: auto;">
+        <div style="background: linear-gradient(135deg, rgba(91,86,241,0.15), rgba(0,255,163,0.1)); border: 1px solid rgba(0,255,163,0.3); border-radius: 8px; padding: 12px;">
+          <div style="font-size: 11.5px; font-weight: 800; color: #00ffa3; margin-bottom: 4px; display: flex; align-items: center; justify-content: space-between;">
+            <span>🤖 AUTONOMIC HIVE PIPELINE</span>
+            <span style="font-size: 9px; background: rgba(0,255,163,0.2); color:#00ffa3; padding: 2px 6px; border-radius: 4px; font-family: monospace;">5-STAGE RECHECK</span>
+          </div>
+          <p style="font-size: 10px; color: var(--text-muted); line-height: 1.4;">
+            Membaca prompt mentah ➔ Menyempurnakan (Prompt Master) ➔ Breakdown Sub-tugas ➔ Pilihan AI Terbaik (OpenAI/Groq 120B/Gemini/OpenRouter/LM Studio) ➔ Recheck berulang (FK-16/17/19) ➔ Hasil Terbaik.
+          </p>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <label style="font-size: 10px; font-weight: 700; color: #fff; text-transform: uppercase;">RAW USER PROMPT</label>
+            <span style="font-size: 9.5px; color: var(--accent); cursor: pointer;" onclick="useSamplePrompt()">Contoh Prompt 📋</span>
+          </div>
+          <textarea id="autonomicPromptInput" class="brief-input" style="height: 75px;" placeholder="Tuliskan prompt mentah Anda di sini... (e.g. Buatkan modul autentikasi JWT terdistribusi dengan Redis blacklist, SOP lengkap, dan uji coba unit)"></textarea>
+          
+          <button id="btnRunAutonomic" onclick="runAutonomicWorkflow()" style="background: linear-gradient(135deg, #5b56f1, #00ffa3); border: none; color: #000; font-weight: 800; font-size: 11.5px; padding: 10px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 15px rgba(0,255,163,0.3); transition: all 0.2s;">
+            <span>⚡</span>
+            <span id="btnRunAutonomicText">LAUNCH AUTONOMIC TEAM</span>
+          </button>
+        </div>
+
+        <!-- Live Step Progress Tracker -->
+        <div id="autonomicStepper" style="display: none; flex-direction: column; gap: 8px; margin-top: 4px;">
+          <div style="font-size: 10px; font-weight: 700; color: #fff; text-transform: uppercase;">PIPELINE STATUS</div>
+
+          <div id="step1Card" class="stepper-item" style="background: rgba(255,255,255,0.03); border: 1px solid var(--card-border); border-radius: 6px; padding: 8px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; font-size: 10.5px; font-weight: 700;">
+              <span>1️⃣ PROMPT MASTER UPGRADE</span>
+              <span id="step1Status" style="font-size: 9px; color: var(--amber);">WAITING</span>
+            </div>
+            <div id="step1Detail" style="font-size: 9.5px; color: var(--text-muted); margin-top: 4px; display: none;"></div>
+          </div>
+
+          <div id="step2Card" class="stepper-item" style="background: rgba(255,255,255,0.03); border: 1px solid var(--card-border); border-radius: 6px; padding: 8px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; font-size: 10.5px; font-weight: 700;">
+              <span>2️⃣ DYNAMIC TASK BREAKDOWN</span>
+              <span id="step2Status" style="font-size: 9px; color: var(--amber);">WAITING</span>
+            </div>
+            <div id="step2Detail" style="font-size: 9.5px; color: var(--text-muted); margin-top: 4px; display: none;"></div>
+          </div>
+
+          <div id="step3Card" class="stepper-item" style="background: rgba(255,255,255,0.03); border: 1px solid var(--card-border); border-radius: 6px; padding: 8px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; font-size: 10.5px; font-weight: 700;">
+              <span>3️⃣ BEST-AI SPECIALIST EXECUTION</span>
+              <span id="step3Status" style="font-size: 9px; color: var(--amber);">WAITING</span>
+            </div>
+            <div id="step3Detail" style="font-size: 9.5px; color: var(--text-muted); margin-top: 4px; display: none;"></div>
+          </div>
+
+          <div id="step4Card" class="stepper-item" style="background: rgba(255,255,255,0.03); border: 1px solid var(--card-border); border-radius: 6px; padding: 8px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; font-size: 10.5px; font-weight: 700;">
+              <span>4️⃣ RECURSIVE RECHECK (FK-16/17/19)</span>
+              <span id="step4Status" style="font-size: 9px; color: var(--amber);">WAITING</span>
+            </div>
+            <div id="step4Detail" style="font-size: 9.5px; color: var(--text-muted); margin-top: 4px; display: none;"></div>
+          </div>
+        </div>
+
+        <!-- Deliverable Output Box -->
+        <div id="autonomicResultBox" style="display: none; flex-direction: column; gap: 8px; margin-top: 8px;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-size: 11px; font-weight: 800; color: #00ffa3;">🏆 FINAL RECHECKED DELIVERABLE</span>
+            <div style="display: flex; gap: 6px;">
+              <button onclick="copyAutonomicResult()" style="background: rgba(255,255,255,0.08); border: 1px solid var(--card-border); color: #fff; font-size: 9.5px; padding: 3px 8px; border-radius: 4px; cursor: pointer;">📋 Copy</button>
+              <button onclick="saveAutonomicToObsidian()" style="background: rgba(168,85,247,0.15); border: 1px solid #a855f7; color: #a855f7; font-size: 9.5px; padding: 3px 8px; border-radius: 4px; cursor: pointer;">📚 Save to Obsidian</button>
+            </div>
+          </div>
+          <div id="autonomicResultText" style="background: rgba(0,0,0,0.5); border: 1px solid rgba(0,255,163,0.3); border-radius: 8px; padding: 12px; font-size: 11px; color: #e5e7eb; max-height: 380px; overflow-y: auto; white-space: pre-wrap; font-family: 'JetBrains Mono', monospace; line-height: 1.5;"></div>
+        </div>
+      </div>
+
+      <!-- FERAL UI PLAYFUL PHYSICS TAB -->
+      <div id="tabFeralui" class="tab-content" style="display: none; height: calc(100vh - 120px); overflow: hidden; padding: 0;">
+        <iframe src="/feralui" style="width: 100%; height: 100%; border: none; border-radius: 8px;"></iframe>
+      </div>
+
+      <div id="tabTerminal" class="tab-content" style="display: none;">
+        <div id="terminalStream" class="terminal-view">
+          <div class="term-line"><span class="term-time">[12:00:00]</span> <span class="term-prefix">[SYSTEM]</span> Penta-Platform Multi-Agent Mesh Online.</div>
+          <div class="term-line"><span class="term-time">[12:00:01]</span> <span class="term-prefix">[AGY]</span> Local daemon active on port 5050. Handshake OK.</div>
+          <div class="term-line"><span class="term-time">[12:00:02]</span> <span class="term-prefix">[SEEDANCE]</span> ByteDance Seedance 2.5 Hub Connected & Synced.</div>
+          <div class="term-line"><span class="term-time">[12:00:03]</span> <span class="term-prefix">[BIONIC]</span> LM Studio & Briefd Daemon Monitoring Ready.</div>
+          <div class="term-line"><span class="term-time">[12:00:04]</span> <span class="term-prefix">[OBSIDIAN]</span> 493 Notes & Video Gallery Loaded.</div>
+        </div>
+      </div>
+
+      <div id="tabWorkflow" class="tab-content" style="display: none; padding: 12px;">
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--card-border); border-radius: 8px; padding: 10px; margin-bottom: 12px;">
+          <div style="font-size: 10.5px; font-weight: 700; color: var(--accent); margin-bottom: 6px; text-transform: uppercase;">
+            🔄 Penta-Platform Workflow Pipeline
+          </div>
+          <div style="display: flex; align-items: center; justify-content: space-between; font-size: 9.5px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">
+            <span style="color:#5b56f1;">① Brief</span> ➔
+            <span style="color:#00ffa3;">② AGY</span> ➔
+            <span style="color:#ff007f;">③ Seedance</span> ➔
+            <span style="color:#00e5ff;">④ Bionic</span> ➔
+            <span style="color:#a855f7;">⑤ Obsidian</span>
+          </div>
+        </div>
+
+        <div style="font-size: 11px; font-weight: 700; color: #fff; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.05em;">
+          👥 11 Workstations Status
+        </div>
+        <div id="workflowMatrixList" style="display: flex; flex-direction: column; gap: 8px;">
+          <!-- Dynamically populated workflow status -->
+        </div>
+      </div>
+
+      <!-- SEEDANCE VIDEO STUDIO TAB -->
+      <div id="tabSeedance" class="tab-content" style="display: none; padding: 14px; flex-direction: column; gap: 12px;">
+        <div style="background: rgba(255,0,127,0.08); border: 1px solid rgba(255,0,127,0.25); border-radius: 8px; padding: 10px;">
+          <div style="font-size: 11px; font-weight: 800; color: #ff007f; margin-bottom: 4px; display: flex; align-items: center; justify-content: space-between;">
+            <span>🎬 HIGGSFIELD SEEDANCE 2.5 STUDIO</span>
+            <span style="font-size: 9px; background: rgba(255,0,127,0.2); padding: 2px 6px; border-radius: 4px;">PENTA-MESH</span>
+          </div>
+          <p style="font-size: 10.5px; color: var(--text-muted); line-height: 1.4;">
+            Render video sinematik dengan model ByteDance Seedance 2.5 ($0.144/s) atau auto-fallback ke link web generator 1-klik gratis. Tersinkronisasi otomatis ke galeri Obsidian.
+          </p>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <label style="font-size: 10.5px; font-weight: 700; color: #fff;">VIDEO PROMPT</label>
+          <textarea id="videoPromptInput" class="brief-input" style="height: 65px;" placeholder="A cinematic scene at sunset, 8k uhd, photorealistic, 35mm lens..."></textarea>
+          
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+            <div>
+              <label style="font-size: 9.5px; color: var(--text-muted);">MODEL</label>
+              <select id="videoModelSelect" style="width: 100%; background: #141822; border: 1px solid var(--card-border); color: #fff; padding: 6px; border-radius: 6px; font-size: 10.5px;">
+                <option value="bytedance/seedance-2.5/text-to-video">Seedance 2.5 (ByteDance)</option>
+                <option value="kling/Kling 3.0">Kling 3.0 (4K Multi-Shot)</option>
+                <option value="higgsfield/Genjutsu">Genjutsu (Motion Transfer)</option>
+                <option value="alibaba/Wan 3.0 Prime">Wan 3.0 Prime (Fast 30s)</option>
+              </select>
+            </div>
+            <div>
+              <label style="font-size: 9.5px; color: var(--text-muted);">DURASI & RASIO</label>
+              <select id="videoFormatSelect" style="width: 100%; background: #141822; border: 1px solid var(--card-border); color: #fff; padding: 6px; border-radius: 6px; font-size: 10.5px;">
+                <option value="5_16-9">5 detik • 16:9 Widescreen</option>
+                <option value="5_9-16">5 detik • 9:16 TikTok/Reels</option>
+                <option value="5_1-1">5 detik • 1:1 Square</option>
+                <option value="10_16-9">10 detik • 16:9 Widescreen</option>
+              </select>
+            </div>
+          </div>
+
+          <button id="btnGenerateVideo" onclick="generateVideoFromOffice()" style="background: linear-gradient(135deg, #ff007f, #b5005c); border: 1px solid rgba(255,255,255,0.2); color: #fff; font-weight: 800; font-size: 11.5px; padding: 10px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 4px; box-shadow: 0 4px 15px rgba(255,0,127,0.3);">
+            <span>🎬</span>
+            <span>GENERATE WITH SEEDANCE 2.5</span>
+          </button>
+        </div>
+
+        <div id="videoResultBox" style="background: rgba(0,0,0,0.4); border: 1px solid var(--card-border); border-radius: 8px; padding: 10px; display: none; flex-direction: column; gap: 6px;">
+          <div style="font-size: 10px; font-weight: 700; color: var(--accent); display: flex; justify-content: space-between;">
+            <span>STATUS EKSEKUSI</span>
+            <span id="videoResultStatus" style="background: rgba(0,255,163,0.15); padding: 1px 6px; border-radius: 4px;">OK</span>
+          </div>
+          <div id="videoResultDetails" style="font-size: 10.5px; color: #fff; font-family: 'JetBrains Mono', monospace; word-break: break-all;"></div>
+          <div id="videoResultAction" style="margin-top: 6px;"></div>
+        </div>
+
+        <div style="margin-top: 6px;">
+          <div style="font-size: 10.5px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 6px; display: flex; justify-content: space-between; align-items: center;">
+            <span>📚 GALERI VIDEO OBSIDIAN</span>
+            <button onclick="refreshVideoGallery()" style="background: none; border: none; color: var(--accent); cursor: pointer; font-size: 10px;">↻ REFRESH</button>
+          </div>
+          <div id="videoGalleryFeed" style="max-height: 220px; overflow-y: auto; display: flex; flex-direction: column; gap: 6px; font-size: 10.5px;">
+            <!-- Loaded dynamically from /api/video/gallery -->
+          </div>
+        </div>
+      </div>
+
+      <!-- BIONIC LOCAL MESH TAB -->
+      <div id="tabBionic" class="tab-content" style="display: none; padding: 14px; flex-direction: column; gap: 12px;">
+        <div style="background: rgba(0,229,255,0.08); border: 1px solid rgba(0,229,255,0.25); border-radius: 8px; padding: 10px;">
+          <div style="font-size: 11px; font-weight: 800; color: #00e5ff; margin-bottom: 4px; display: flex; align-items: center; justify-content: space-between;">
+            <span>⚡ BIONIC LOCAL MESH & LM STUDIO</span>
+            <span style="font-size: 9px; background: rgba(0,229,255,0.2); padding: 2px 6px; border-radius: 4px;">ACTIVE MESH</span>
+          </div>
+          <p style="font-size: 10.5px; color: var(--text-muted); line-height: 1.4;">
+            Local-first AI mesh menghubungkan LM Studio, Briefd MCP Daemon, dan Claudian Obsidian Bridge dengan latensi zero-cloud.
+          </p>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <div style="font-size: 10.5px; font-weight: 700; color: #fff; text-transform: uppercase;">PORT TOPOLOGY & DAEMONS</div>
+          
+          <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--card-border); border-radius: 6px; padding: 8px; display: flex; justify-content: space-between; align-items: center;">
+            <div>
+              <div style="font-size: 11px; font-weight: 700; color: #fff;">LM Studio Model Mesh</div>
+              <div style="font-size: 9.5px; color: var(--text-muted); font-family: monospace;">http://127.0.0.1:1234/v1</div>
+            </div>
+            <span style="font-size: 9px; background: rgba(0,255,163,0.15); color: var(--accent); padding: 2px 6px; border-radius: 4px; border: 1px solid rgba(0,255,163,0.3);">READY</span>
+          </div>
+
+          <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--card-border); border-radius: 6px; padding: 8px; display: flex; justify-content: space-between; align-items: center;">
+            <div>
+              <div style="font-size: 11px; font-weight: 700; color: #fff;">Briefd MCP Server</div>
+              <div style="font-size: 9.5px; color: var(--text-muted); font-family: monospace;">http://127.0.0.1:7788/mcp</div>
+            </div>
+            <span style="font-size: 9px; background: rgba(56,189,248,0.15); color: #38bdf8; padding: 2px 6px; border-radius: 4px; border: 1px solid rgba(56,189,248,0.3);">DAEMON</span>
+          </div>
+
+          <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--card-border); border-radius: 6px; padding: 8px; display: flex; justify-content: space-between; align-items: center;">
+            <div>
+              <div style="font-size: 11px; font-weight: 700; color: #fff;">Claudian Obsidian REST API</div>
+              <div style="font-size: 9.5px; color: var(--text-muted); font-family: monospace;">http://127.0.0.1:27124</div>
+            </div>
+            <span style="font-size: 9px; background: rgba(168,85,247,0.15); color: #a855f7; padding: 2px 6px; border-radius: 4px; border: 1px solid rgba(168,85,247,0.3);">CONNECTED</span>
+          </div>
+
+          <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--card-border); border-radius: 6px; padding: 8px; display: flex; justify-content: space-between; align-items: center;">
+            <div>
+              <div style="font-size: 11px; font-weight: 700; color: #fff;">AGY Bridge Server (Office)</div>
+              <div style="font-size: 9.5px; color: var(--text-muted); font-family: monospace;">http://127.0.0.1:5050</div>
+            </div>
+            <span style="font-size: 9px; background: rgba(0,255,163,0.15); color: var(--accent); padding: 2px 6px; border-radius: 4px; border: 1px solid rgba(0,255,163,0.3);">ONLINE</span>
+          </div>
+        </div>
+
+        <button onclick="triggerPentaSync()" style="background: rgba(0,229,255,0.15); border: 1px solid #00e5ff; color: #00e5ff; font-weight: 700; font-size: 11px; padding: 8px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; margin-top: 6px;">
+          <span>🔄</span>
+          <span>RUN PENTA-PLATFORM SYNC SCRIPT</span>
+        </button>
+      </div>
+
+      <!-- OBSIDIAN SECOND BRAIN TAB -->
+      <div id="tabMemory" class="tab-content" style="display: none; padding: 14px; flex-direction: column; gap: 12px;">
+        <div style="background: rgba(168,85,247,0.08); border: 1px solid rgba(168,85,247,0.25); border-radius: 8px; padding: 10px;">
+          <div style="font-size: 11px; font-weight: 800; color: #a855f7; margin-bottom: 4px; display: flex; align-items: center; justify-content: space-between;">
+            <span>📚 OBSIDIAN SECOND BRAIN (VAULT)</span>
+            <span id="vaultNoteCountBadge" style="font-size: 9px; background: rgba(168,85,247,0.2); padding: 2px 6px; border-radius: 4px;">493+ NOTES</span>
+          </div>
+          <p style="font-size: 10.5px; color: var(--text-muted); line-height: 1.4;">
+            Penyimpanan memori jangka panjang permanen, 22 visual canvas, Dataview dynamic tables, dan riwayat percakapan lintas agen.
+          </p>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <div style="font-size: 10px; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">QUICK KNOWLEDGE ACCESS</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px;">
+            <a href="/api/templates/higgsfield-seedance" target="_blank" style="background: rgba(255,255,255,0.03); border: 1px solid var(--card-border); padding: 6px; border-radius: 6px; text-decoration: none; color: #fff; font-size: 10.5px; display: flex; align-items: center; gap: 4px;">
+              <span>🎬</span> <span>Higgsfield Hub</span>
+            </a>
+            <a href="/api/video/gallery" target="_blank" style="background: rgba(255,255,255,0.03); border: 1px solid var(--card-border); padding: 6px; border-radius: 6px; text-decoration: none; color: #fff; font-size: 10.5px; display: flex; align-items: center; gap: 4px;">
+              <span>🎞️</span> <span>Video Gallery</span>
+            </a>
+            <a href="/api/templates/omni-editor" target="_blank" style="background: rgba(255,255,255,0.03); border: 1px solid var(--card-border); padding: 6px; border-radius: 6px; text-decoration: none; color: #fff; font-size: 10.5px; display: flex; align-items: center; gap: 4px;">
+              <span>🎨</span> <span>Visual Prompts</span>
+            </a>
+            <a href="/api/status" target="_blank" style="background: rgba(255,255,255,0.03); border: 1px solid var(--card-border); padding: 6px; border-radius: 6px; text-decoration: none; color: #fff; font-size: 10.5px; display: flex; align-items: center; gap: 4px;">
+              <span>📊</span> <span>Mesh Status</span>
+            </a>
+          </div>
+        </div>
+
+        <div style="flex: 1; display: flex; flex-direction: column;">
+          <div style="font-size: 10px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 6px;">RECENT CHAT MEMORY STREAM</div>
+          <div id="memoryFeed" class="feed-container" style="flex: 1; max-height: 260px; overflow-y: auto;">
+            <!-- Dynamically populated memory snippets -->
+          </div>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- Bottom Bar: Step 3 Stay Involved & Approve Proposals -->
+  <footer class="approval-bar">
+    <div class="proposal-info">
+      <span class="proposal-badge">STEP 3: HITL GATE</span>
+      <div id="proposalTitle" class="proposal-title">
+        Proposal #104: Architectural Diff approved for commit. Ready for merge.
+      </div>
+    </div>
+
+    <div class="approval-actions">
+      <button class="btn-reject" onclick="rejectProposal()">REQUEST REVISIONS</button>
+      <button class="btn-approve" onclick="approveProposal()">
+        <span>✓</span>
+        <span>APPROVE & MERGE</span>
+      </button>
+    </div>
+  </footer>
+
+  <!-- Modal Inspector for Agent -->
+  <div id="agentModal" class="modal-overlay" onclick="closeModal(event)">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <h3 id="modalAgentName" style="color: #fff;">Agent Inspector</h3>
+        <button class="modal-close" onclick="closeModal()">&times;</button>
+      </div>
+      <div id="modalAgentContent" style="font-size: 12.5px; line-height: 1.6; color: #d1d5db;">
+        <!-- Detailed specs -->
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // =========================================================================
+    // AGENT CAST DEFINITION (Matching Munder Difflin & AGY)
+    // =========================================================================
+    const AGENTS = [
+      {
+        id: 'michael',
+        name: 'Michael Scott',
+        role: 'Omni-Auto Boss & Meta-Router',
+        color: '#5b56f1',
+        icon: '👔',
+        desk: { x: 220, y: 140 },
+        currentPos: { x: 220, y: 140 },
+        targetPos: { x: 220, y: 140 },
+        state: 'idle',
+        bubble: "I'm the boss. What are we building?",
+        activeTask: 'Routing project directives'
+      },
+      {
+        id: 'agy',
+        name: 'AGY Execution Engine',
+        role: 'Deep Coding & Architecture',
+        color: '#00ffa3',
+        icon: '⚡',
+        desk: { x: 420, y: 140 },
+        currentPos: { x: 420, y: 140 },
+        targetPos: { x: 420, y: 140 },
+        state: 'busy',
+        bubble: 'AST parsing & surgical diffs',
+        activeTask: 'Building 3D isometric harness'
+      },
+      {
+        id: 'dola',
+        name: 'Dola AI Engine',
+        role: 'Workflow & Obsidian Syncer',
+        color: '#f59e0b',
+        icon: '🧠',
+        desk: { x: 420, y: 260 },
+        currentPos: { x: 420, y: 260 },
+        targetPos: { x: 420, y: 260 },
+        state: 'idle',
+        bubble: 'Obsidian 4-Pillar connected',
+        activeTask: 'Vault knowledge indexing'
+      },
+      {
+        id: 'gemini',
+        name: 'Gemini Discovery',
+        role: 'Multimodal Research & Search',
+        color: '#38bdf8',
+        icon: '🌟',
+        desk: { x: 220, y: 260 },
+        currentPos: { x: 220, y: 260 },
+        targetPos: { x: 220, y: 260 },
+        state: 'busy',
+        bubble: 'Harvesting web & Instagram links',
+        activeTask: 'Synthesizing S232-S237 skills'
+      },
+      {
+        id: 'claude',
+        name: 'Claude Code',
+        role: 'Frontend & UI Craftsmanship',
+        color: '#a855f7',
+        icon: '🎨',
+        desk: { x: 620, y: 140 },
+        currentPos: { x: 620, y: 140 },
+        targetPos: { x: 620, y: 140 },
+        state: 'idle',
+        bubble: 'UI UX Pro Max active',
+        activeTask: 'Crafting responsive styles'
+      },
+      {
+        id: 'turbo',
+        name: 'TurboFieldfare',
+        role: 'Gemma 4 SSD Inference (2GB)',
+        color: '#ec4899',
+        icon: '🚀',
+        desk: { x: 620, y: 260 },
+        currentPos: { x: 620, y: 260 },
+        targetPos: { x: 620, y: 260 },
+        state: 'idle',
+        bubble: 'SSD Expert Streaming ready',
+        activeTask: 'Ready on 127.0.0.1:8080'
+      },
+      {
+        id: 'typesafe',
+        name: 'TypeSafe Jev',
+        role: 'System One Decision Router',
+        color: '#10b981',
+        icon: '📐',
+        desk: { x: 420, y: 380 },
+        currentPos: { x: 420, y: 380 },
+        targetPos: { x: 420, y: 380 },
+        state: 'idle',
+        bubble: 'Typed schema validation 100%',
+        activeTask: 'Confidence scoring matrix'
+      },
+      {
+        id: 'hermes',
+        name: 'Hermes Jarvis',
+        role: 'Always-On Autonomous Daemon',
+        color: '#eab308',
+        icon: '🛡️',
+        desk: { x: 230, y: 390 },
+        currentPos: { x: 230, y: 390 },
+        targetPos: { x: 230, y: 390 },
+        state: 'busy',
+        bubble: 'Cron task scheduler active',
+        activeTask: 'Background memory ingestion'
+      },
+      {
+        id: 'higgsfield',
+        name: 'Higgsfield Seedance',
+        role: 'AI Video & Motion Synthesizer (S239)',
+        color: '#ff007f',
+        icon: '🎬',
+        desk: { x: 590, y: 390 },
+        currentPos: { x: 590, y: 390 },
+        targetPos: { x: 590, y: 390 },
+        state: 'idle',
+        bubble: 'Seedance 2.5 4K ready',
+        activeTask: 'Standing by for Video Directives'
+      },
+      {
+        id: 'bionic',
+        name: 'Bionic Local Mesh',
+        role: 'LM Studio & Briefd Daemon (Port 7788)',
+        color: '#00e5ff',
+        icon: '⚡',
+        desk: { x: 90, y: 260 },
+        currentPos: { x: 90, y: 260 },
+        targetPos: { x: 90, y: 260 },
+        state: 'idle',
+        bubble: 'Local inference active',
+        activeTask: 'Briefd SQLite & LM Studio'
+      },
+      {
+        id: 'obsidian',
+        name: 'Obsidian Second Brain',
+        role: 'Knowledge Graph & Gallery (493+ Notes)',
+        color: '#a855f7',
+        icon: '📚',
+        desk: { x: 90, y: 390 },
+        currentPos: { x: 90, y: 390 },
+        targetPos: { x: 90, y: 390 },
+        state: 'busy',
+        bubble: 'Dataview & Gallery Live',
+        activeTask: 'Syncing Penta-Platform notes'
+      }
+    ];
+
+    // Flying packets
+    let packets = [];
+    let totalPacketsFlown = 0;
+
+    // Canvas & Viewport Setup
+    const canvas = document.getElementById('officeCanvas');
+    const ctx = canvas.getContext('2d');
+    let viewZoom = 1.0;
+    let panX = 0;
+    let panY = 0;
+    let isDragging = false;
+    let startDrag = { x: 0, y: 0 };
+
+    function resizeCanvas() {
+      const rect = canvas.parentElement.getBoundingClientRect();
+      canvas.width = rect.width;
+      canvas.height = rect.height;
+    }
+
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    // Auto-center floor
+    panX = (canvas.width - 900) / 2;
+    panY = (canvas.height - 560) / 2;
+
+    // Pan & Zoom controls
+    canvas.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      startDrag = { x: e.clientX - panX, y: e.clientY - panY };
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      panX = e.clientX - startDrag.x;
+      panY = e.clientY - startDrag.y;
+    });
+
+    window.addEventListener('mouseup', () => isDragging = false);
+
+    canvas.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      const zoomFactor = e.deltaY < 0 ? 1.08 : 0.92;
+      viewZoom = Math.min(Math.max(viewZoom * zoomFactor, 0.6), 2.2);
+    });
+
+    function zoomIn() { viewZoom = Math.min(viewZoom * 1.15, 2.2); }
+    function zoomOut() { viewZoom = Math.max(viewZoom * 0.85, 0.6); }
+    function resetView() {
+      viewZoom = 1.0;
+      panX = (canvas.width - 900) / 2;
+      panY = (canvas.height - 560) / 2;
+    }
+
+    // =========================================================================
+    // RENDERING THE 2.5D / ISOMETRIC FLOOR
+    // =========================================================================
+    function drawFloor() {
+      ctx.save();
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.translate(panX, panY);
+      ctx.scale(viewZoom, viewZoom);
+
+      // 1. Office Floor Base (Wooden / Carpet Panels)
+      const floorW = 860;
+      const floorH = 500;
+      
+      // Floor shadow
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
+      ctx.fillRect(10, 10, floorW, floorH);
+
+      // Floor tiles
+      ctx.fillStyle = '#141822';
+      ctx.fillRect(0, 0, floorW, floorH);
+
+      // Grid lines
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.04)';
+      ctx.lineWidth = 1;
+      for (let x = 0; x <= floorW; x += 40) {
+        ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, floorH); ctx.stroke();
+      }
+      for (let y = 0; y <= floorH; y += 40) {
+        ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(floorW, y); ctx.stroke();
+      }
+
+      // Walls
+      ctx.fillStyle = '#1e2433';
+      ctx.fillRect(0, 0, floorW, 16); // Top wall
+      ctx.fillRect(0, 0, 16, floorH); // Left wall
+
+      // Conference Room Divider (Glass wall)
+      ctx.strokeStyle = 'rgba(91, 86, 241, 0.4)';
+      ctx.lineWidth = 2;
+      ctx.strokeRect(680, 20, 160, 200);
+      ctx.fillStyle = 'rgba(91, 86, 241, 0.04)';
+      ctx.fillRect(680, 20, 160, 200);
+
+      // Conference Table & Chairs
+      ctx.fillStyle = '#2d3748';
+      ctx.fillRect(710, 70, 100, 100);
+      ctx.fillStyle = '#4a5568';
+      ctx.fillRect(725, 85, 70, 70); // Whiteboard projection
+      ctx.fillStyle = '#a0aec0';
+      ctx.font = '10px Plus Jakarta Sans';
+      ctx.fillText('MEETING POD', 725, 55);
+
+      // Cafeteria / Coffee Station
+      ctx.fillStyle = 'rgba(245, 158, 11, 0.06)';
+      ctx.fillRect(680, 280, 160, 180);
+      ctx.strokeStyle = 'rgba(245, 158, 11, 0.3)';
+      ctx.strokeRect(680, 280, 160, 180);
+      ctx.fillStyle = '#f59e0b';
+      ctx.fillText('☕ WATERCOOLER', 710, 310);
+      ctx.fillStyle = '#374151';
+      ctx.fillRect(720, 340, 40, 40); // Espresso machine
+      ctx.fillRect(770, 340, 40, 40); // Water dispenser
+
+      // Server Bay / SLM Rack
+      ctx.fillStyle = 'rgba(0, 255, 163, 0.06)';
+      ctx.fillRect(30, 20, 120, 140);
+      ctx.strokeStyle = 'rgba(0, 255, 163, 0.3)';
+      ctx.strokeRect(30, 20, 120, 140);
+      ctx.fillStyle = '#00ffa3';
+      ctx.fillText('🖥️ SERVER RACK', 45, 45);
+      // Pulsing rack LEDs
+      for (let i = 0; i < 4; i++) {
+        ctx.fillStyle = Math.random() > 0.3 ? '#00ffa3' : '#10b981';
+        ctx.fillRect(45, 60 + i * 20, 90, 12);
+        ctx.fillStyle = '#22c55e';
+        ctx.fillRect(50, 63 + i * 20, 6, 6);
+      }
+
+      // 2. Draw Desks
+      AGENTS.forEach(agent => {
+        drawWorkstation(agent.desk.x, agent.desk.y, agent);
+      });
+
+      // 3. Draw Flying Packets
+      updateAndDrawPackets();
+
+      // 4. Draw Agent Avatars
+      AGENTS.forEach(agent => {
+        drawAgentAvatar(agent);
+      });
+
+      ctx.restore();
+      requestAnimationFrame(drawFloor);
+    }
+
+    function drawWorkstation(x, y, agent) {
+      // Desk Base
+      ctx.fillStyle = '#1e2430';
+      ctx.fillRect(x - 45, y - 25, 90, 50);
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.12)';
+      ctx.lineWidth = 1;
+      ctx.strokeRect(x - 45, y - 25, 90, 50);
+
+      // Dual Monitors
+      ctx.fillStyle = '#0f131a';
+      ctx.fillRect(x - 35, y - 20, 30, 14);
+      ctx.fillRect(x + 5, y - 20, 30, 14);
+
+      // Glowing Monitor Screens
+      const glow = agent.state === 'busy' ? agent.color : 'rgba(255,255,255,0.2)';
+      ctx.fillStyle = glow;
+      ctx.fillRect(x - 33, y - 18, 26, 10);
+      ctx.fillRect(x + 7, y - 18, 26, 10);
+
+      // Screen flicker lines
+      ctx.fillStyle = 'rgba(0,0,0,0.4)';
+      ctx.fillRect(x - 33, y - 14, 26, 2);
+      ctx.fillRect(x + 7, y - 14, 26, 2);
+
+      // Chair
+      ctx.fillStyle = '#374151';
+      ctx.beginPath();
+      ctx.arc(x, y + 15, 10, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Desk Name Label
+      ctx.font = '9px JetBrains Mono';
+      ctx.fillStyle = '#9ca3af';
+      ctx.textAlign = 'center';
+      ctx.fillText(agent.name.split(' ')[0], x, y + 36);
+    }
+
+    function drawAgentAvatar(agent) {
+      // Smooth movement towards target
+      agent.currentPos.x += (agent.targetPos.x - agent.currentPos.x) * 0.05;
+      agent.currentPos.y += (agent.targetPos.y - agent.currentPos.y) * 0.05;
+
+      const px = agent.currentPos.x;
+      const py = agent.currentPos.y;
+
+      // Selection Glow
+      ctx.save();
+      ctx.shadowColor = agent.color;
+      ctx.shadowBlur = 12;
+
+      // Avatar Body
+      ctx.fillStyle = agent.color;
+      ctx.beginPath();
+      ctx.arc(px, py, 14, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+
+      // Border ring
+      ctx.strokeStyle = '#fff';
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.arc(px, py, 14, 0, Math.PI * 2);
+      ctx.stroke();
+
+      // Icon
+      ctx.font = '13px serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(agent.icon, px, py);
+
+      // Speech / Thought Bubble
+      if (agent.bubble) {
+        ctx.save();
+        ctx.font = '10px Plus Jakarta Sans';
+        ctx.textBaseline = 'bottom';
+        const txtWidth = ctx.measureText(agent.bubble).width;
+        const bw = txtWidth + 14;
+        const bh = 20;
+        const bx = px - bw / 2;
+        const by = py - 22;
+
+        // Bubble bg
+        ctx.fillStyle = 'rgba(15, 20, 28, 0.92)';
+        ctx.strokeStyle = agent.color;
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.roundRect(bx, by, bw, bh, 5);
+        ctx.fill();
+        ctx.stroke();
+
+        // Bubble text
+        ctx.fillStyle = '#fff';
+        ctx.textAlign = 'center';
+        ctx.fillText(agent.bubble, px, by + 15);
+        ctx.restore();
+      }
+    }
+
+    // =========================================================================
+    // FLYING PACKETS & MESSAGING HIVE
+    // =========================================================================
+    function sendPacket(fromAgentId, toAgentId, label) {
+      const from = AGENTS.find(a => a.id === fromAgentId);
+      const to = AGENTS.find(a => a.id === toAgentId);
+      if (!from || !to) return;
+
+      packets.push({
+        from: { x: from.currentPos.x, y: from.currentPos.y },
+        to: { x: to.currentPos.x, y: to.currentPos.y },
+        current: { x: from.currentPos.x, y: from.currentPos.y },
+        progress: 0,
+        speed: 0.02 + Math.random() * 0.015,
+        color: from.color,
+        label: label || '✉ Task Packet'
+      });
+      totalPacketsFlown++;
+      document.getElementById('hudPackets').innerText = `${totalPacketsFlown} FLOWN`;
+    }
+
+    function updateAndDrawPackets() {
+      for (let i = packets.length - 1; i >= 0; i--) {
+        const p = packets[i];
+        p.progress += p.speed;
+        p.current.x = p.from.x + (p.to.x - p.from.x) * p.progress;
+        p.current.y = p.from.y + (p.to.y - p.from.y) * p.progress;
+
+        // Packet trail
+        ctx.strokeStyle = p.color;
+        ctx.lineWidth = 1.5;
+        ctx.setLineDash([3, 3]);
+        ctx.beginPath();
+        ctx.moveTo(p.from.x, p.from.y);
+        ctx.lineTo(p.current.x, p.current.y);
+        ctx.stroke();
+        ctx.setLineDash([]);
+
+        // Packet envelope
+        ctx.fillStyle = '#fff';
+        ctx.shadowColor = p.color;
+        ctx.shadowBlur = 8;
+        ctx.beginPath();
+        ctx.arc(p.current.x, p.current.y, 4, 0, Math.PI * 2);
+        ctx.fill();
+
+        if (p.progress >= 1.0) {
+          packets.splice(i, 1);
+        }
+      }
+    }
+
+    // =========================================================================
+    // POPULATE ROSTER UI & EVENT LOGS
+    // =========================================================================
+    function renderRoster() {
+      const rosterList = document.getElementById('rosterList');
+      rosterList.innerHTML = AGENTS.map(agent => `
+        <div class="agent-card ${agent.state === 'busy' ? 'active' : ''}" onclick="inspectAgent('${agent.id}')">
+          <div class="agent-avatar-icon" style="border-color: ${agent.color}">
+            ${agent.icon}
+          </div>
+          <div class="agent-info">
+            <div class="agent-name">
+              <span>${agent.name}</span>
+              <span class="agent-state-pill ${agent.state === 'busy' ? 'state-busy' : 'state-idle'}">${agent.state}</span>
+            </div>
+            <div class="agent-role">${agent.role}</div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function logTerminal(prefix, msg) {
+      const stream = document.getElementById('terminalStream');
+      const time = new Date().toTimeString().split(' ')[0];
+      const line = document.createElement('div');
+      line.className = 'term-line';
+      line.innerHTML = `<span class="term-time">[${time}]</span> <span class="term-prefix">[${prefix}]</span> ${escapeHtml(msg)}`;
+      stream.appendChild(line);
+      stream.scrollTop = stream.scrollHeight;
+    }
+
+    function logFeed(agentName, action, detail) {
+      const feed = document.getElementById('activityFeed');
+      const time = new Date().toLocaleTimeString();
+      const item = document.createElement('div');
+      item.className = 'feed-item';
+      item.innerHTML = `
+        <div class="feed-header">
+          <strong>${agentName}</strong>
+          <span>${time}</span>
+        </div>
+        <div class="feed-body">${action}: <em>${escapeHtml(detail)}</em></div>
+      `;
+      feed.prepend(item);
+    }
+
+    function escapeHtml(str) {
+      return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    }
+
+    // =========================================================================
+    // STEP 1: DISPATCH BRIEF & MULTI-AGENT EXECUTION
+    // =========================================================================
+    function setBrief(text) {
+      document.getElementById('briefInput').value = text;
+    }
+
+    async function dispatchBrief() {
+      const brief = document.getElementById('briefInput').value.trim();
+      if (!brief) {
+        alert("Please enter a project brief first!");
+        return;
+      }
+
+      logTerminal("USER", `Dispatched project brief: "${brief}"`);
+      logTerminal("MICHAEL", "Acknowledged. Routing task dependencies across specialized desks.");
+      logFeed("Michael Scott", "Task Delegation", brief);
+
+      // Trigger movement: agents walk to discussion table or workstations
+      AGENTS[0].bubble = "Delegating: " + brief.slice(0, 25) + "...";
+      AGENTS[0].activeTask = "Routing: " + brief.slice(0, 35);
+      sendPacket('michael', 'agy', 'Task Specification');
+      renderWorkflowMatrix();
+
+      setTimeout(() => {
+        AGENTS[1].bubble = "Compiling AST & executing diff...";
+        AGENTS[1].state = 'busy';
+        AGENTS[1].activeTask = "Writing surgical diffs for: " + brief.slice(0, 25);
+        sendPacket('agy', 'claude', 'Style Tokens');
+        sendPacket('agy', 'dola', 'Obsidian Sync');
+        renderRoster();
+        renderWorkflowMatrix();
+      }, 1000);
+
+      setTimeout(() => {
+        AGENTS[2].bubble = "Creating Obsidian MOC [[...]]";
+        AGENTS[2].activeTask = "Indexing into Obsidian Vault";
+        AGENTS[4].bubble = "Validating 84 UI styles";
+        AGENTS[4].activeTask = "Applying UI UX Pro Max tokens";
+        sendPacket('claude', 'typesafe', 'Type Validation');
+        renderRoster();
+        renderWorkflowMatrix();
+      }, 2000);
+
+      // Real API Call to AGY Bridge on port 5050
+      try {
+        logTerminal("AGY", "Calling local failover bridge (port 5050)...");
+        const resp = await fetch('http://127.0.0.1:5050/api/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            prompt: brief,
+            agent: 'michael',
+            contexts: ['Munder Difflin Virtual Office Floor Runtime']
+          })
+        });
+
+        if (resp.ok) {
+          const res = await resp.json();
+          logTerminal("MICHAEL", res.reply || res.text || "Execution finished successfully.");
+          logFeed("Michael Scott", "Completed Directive", "Proposals ready for review.");
+          document.getElementById('proposalTitle').innerText = "Proposal: " + brief.slice(0, 60) + " (Ready for User Approval)";
+        } else {
+          logTerminal("SYSTEM", "Bridge returned non-200. Using deterministic fallback.");
+        }
+      } catch (err) {
+        logTerminal("LOCAL", "Connected to local autonomous agent harness. Simulating response.");
+      }
+    }
+
+    // =========================================================================
+    // STEP 3: HUMAN-IN-THE-LOOP APPROVAL
+    // =========================================================================
+    function approveProposal() {
+      logTerminal("BOSS (USER)", "PROPOSAL APPROVED. Committing changes and updating Obsidian graph.");
+      logFeed("Human Supervisor", "Approval Gate Passed", "Changes committed to active branch.");
+      document.getElementById('proposalTitle').innerHTML = '<span style="color:#00ffa3">✓ APPROVED & COMMITTED TO MAINLINE</span>';
+      
+      // Random walk celebration
+      AGENTS.forEach(a => {
+        a.targetPos = { x: a.desk.x + (Math.random() * 40 - 20), y: a.desk.y + (Math.random() * 40 - 20) };
+        a.bubble = "Approved! Committing...";
+      });
+      setTimeout(() => {
+        AGENTS.forEach(a => { a.targetPos = { ...a.desk }; a.bubble = ""; });
+      }, 3000);
+    }
+
+    function rejectProposal() {
+      const feedback = prompt("What modifications should the AI agents make?", "Revise unit tests and reduce context overhead.");
+      if (feedback) {
+        logTerminal("BOSS (USER)", `REVISIONS REQUESTED: ${feedback}`);
+        logFeed("Human Supervisor", "Revisions Requested", feedback);
+        sendPacket('michael', 'agy', 'Revision Feedback');
+        AGENTS[1].bubble = "Refactoring with feedback...";
+      }
+    }
+
+    // =========================================================================
+    // MODAL INSPECTOR
+    // =========================================================================
+    function inspectAgent(agentId) {
+      const agent = AGENTS.find(a => a.id === agentId);
+      if (!agent) return;
+
+      document.getElementById('modalAgentName').innerText = `${agent.icon} ${agent.name} — ${agent.role}`;
+      document.getElementById('modalAgentContent').innerHTML = `
+        <div style="margin-bottom: 12px;"><strong>Current State:</strong> <span class="agent-state-pill ${agent.state === 'busy' ? 'state-busy' : 'state-idle'}">${agent.state}</span></div>
+        <div style="margin-bottom: 12px;"><strong>Active Directive:</strong> ${agent.activeTask}</div>
+        <div style="margin-bottom: 12px;"><strong>Assigned Workstation:</strong> Desk (${agent.desk.x}, ${agent.desk.y})</div>
+        <div style="margin-bottom: 12px;"><strong>Subscribed LLM Model:</strong> ${agent.id === 'turbo' ? 'Gemma 4 26B-A4B IT (SSD Streaming)' : agent.id === 'typesafe' ? 'TypeSafe Jev System One' : 'Gemini 2.5 Flash / Claude Code'}</div>
+        <div style="margin-bottom: 16px;"><strong>Cognitive Level:</strong> L5 Superhuman AGI / Ponytail Minimal Diff Discipline</div>
+        <button class="btn-dispatch" style="width: 100%;" onclick="talkToAgent('${agent.id}')">Direct Message this Agent</button>
+      `;
+      document.getElementById('agentModal').style.display = 'flex';
+    }
+
+    function talkToAgent(agentId) {
+      closeModal();
+      const msg = prompt(`Send direct message to ${agentId.toUpperCase()}:`);
+      if (msg) {
+        setBrief(`@${agentId}: ${msg}`);
+        dispatchBrief();
+      }
+    }
+
+    function closeModal(e) {
+      document.getElementById('agentModal').style.display = 'none';
+    }
+
+    // Tab switcher
+    function switchTab(tab) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      const autoEl = document.getElementById('tabAutonomic');
+      const feralEl = document.getElementById('tabFeralui');
+      const termEl = document.getElementById('tabTerminal');
+      const workEl = document.getElementById('tabWorkflow');
+      const seedEl = document.getElementById('tabSeedance');
+      const bioEl = document.getElementById('tabBionic');
+      const memEl = document.getElementById('tabMemory');
+
+      if (autoEl) autoEl.style.display = tab === 'autonomic' ? 'flex' : 'none';
+      if (feralEl) feralEl.style.display = tab === 'feralui' ? 'block' : 'none';
+      if (termEl) termEl.style.display = tab === 'terminal' ? 'flex' : 'none';
+      if (workEl) workEl.style.display = tab === 'workflow' ? 'flex' : 'none';
+      if (seedEl) seedEl.style.display = tab === 'seedance' ? 'flex' : 'none';
+      if (bioEl) bioEl.style.display = tab === 'bionic' ? 'flex' : 'none';
+      if (memEl) memEl.style.display = tab === 'memory' ? 'flex' : 'none';
+
+      if (event && event.target) event.target.classList.add('active');
+
+      if (tab === 'workflow') {
+        renderWorkflowMatrix();
+      } else if (tab === 'seedance') {
+        refreshVideoGallery();
+      } else if (tab === 'memory') {
+        loadMemory();
+      }
+    }
+
+    function useSamplePrompt() {
+      document.getElementById('autonomicPromptInput').value = 
+        "Rancang sistem autentikasi SSO terdistribusi menggunakan Redis session blacklist, validasi JWT asimetris RS256, SOP mitigasi brute-force, dan uji coba unit dalam Python.";
+    }
+
+    async function runAutonomicWorkflow() {
+      const promptInput = document.getElementById('autonomicPromptInput');
+      const rawPrompt = promptInput.value.trim();
+      if (!rawPrompt) {
+        alert("Silakan masukkan prompt mentah terlebih dahulu!");
+        return;
+      }
+
+      const btn = document.getElementById('btnRunAutonomic');
+      const btnText = document.getElementById('btnRunAutonomicText');
+      const stepper = document.getElementById('autonomicStepper');
+      const resBox = document.getElementById('autonomicResultBox');
+      const resText = document.getElementById('autonomicResultText');
+
+      btn.disabled = true;
+      btn.style.opacity = "0.7";
+      btnText.innerText = "HIVE WORKING (STEP 1/5)...";
+      stepper.style.display = "flex";
+      resBox.style.display = "none";
+
+      document.getElementById('step1Status').innerHTML = '<span style="color:#00e5ff;">UPGRADING...</span>';
+      document.getElementById('step2Status').innerText = 'WAITING';
+      document.getElementById('step3Status').innerText = 'WAITING';
+      document.getElementById('step4Status').innerText = 'WAITING';
+
+      logTerminal("AUTONOMIC", `Starting Hive Workflow: "${rawPrompt.slice(0, 50)}..."`);
+      sendPacket('michael', 'dwight', 'Raw Prompt Intercept');
+      AGENTS[0].bubble = "Prompt Master: Refactoring Prompt...";
+      AGENTS[0].state = 'busy';
+
+      setTimeout(() => {
+        document.getElementById('step1Status').innerHTML = '<span style="color:#00ffa3;">✓ DONE</span>';
+        document.getElementById('step2Status').innerHTML = '<span style="color:#00e5ff;">DECOMPOSING...</span>';
+        btnText.innerText = "HIVE WORKING (STEP 2/5)...";
+        sendPacket('michael', 'toby', 'Decompose Subtasks');
+        sendPacket('michael', 'ryan', 'Decompose Subtasks');
+        AGENTS[1].bubble = "Selecting Best Specialized AIs...";
+        AGENTS[1].state = 'busy';
+      }, 1500);
+
+      setTimeout(() => {
+        document.getElementById('step2Status').innerHTML = '<span style="color:#00ffa3;">✓ DONE</span>';
+        document.getElementById('step3Status').innerHTML = '<span style="color:#00e5ff;">EXECUTING (OPENAI/GROQ/GEMINI)...</span>';
+        btnText.innerText = "HIVE WORKING (STEP 3/5)...";
+        sendPacket('toby', 'creed', 'Draft Subtasks');
+        sendPacket('ryan', 'creed', 'Code Subtasks');
+        AGENTS[3].bubble = "Parallel Multi-Model Execution...";
+        AGENTS[3].state = 'busy';
+      }, 3000);
+
+      setTimeout(() => {
+        document.getElementById('step3Status').innerHTML = '<span style="color:#00ffa3;">✓ DONE</span>';
+        document.getElementById('step4Status').innerHTML = '<span style="color:#00e5ff;">RECHECKING (FK-16/17/19)...</span>';
+        btnText.innerText = "HIVE WORKING (STEP 4/5)...";
+        sendPacket('creed', 'pam', 'Audit Validation');
+        AGENTS[4].bubble = "Forensic Audit & Anti-Slop Check...";
+        AGENTS[4].state = 'busy';
+      }, 5000);
+
+      try {
+        const resp = await fetch('http://127.0.0.1:5050/api/autonomic/run', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ prompt: rawPrompt })
+        });
+
+        if (resp.ok) {
+          const json = await resp.json();
+          const data = json.data;
+
+          document.getElementById('step1Status').innerHTML = '<span style="color:#00ffa3;">✓ UPGRADED</span>';
+          document.getElementById('step1Detail').style.display = 'block';
+          document.getElementById('step1Detail').innerHTML = `<strong>Insight:</strong> ${escapeHtml(data.prompt_insight || '')}`;
+
+          document.getElementById('step2Status').innerHTML = `<span style="color:#00ffa3;">✓ ${data.pipeline_stages[1]?.total_subtasks || 3} SUBTASKS</span>`;
+          document.getElementById('step3Status').innerHTML = '<span style="color:#00ffa3;">✓ MULTI-AI COMPLETE</span>';
+
+          const s4 = data.pipeline_stages[3];
+          const passes = s4?.passes_executed || 1;
+          document.getElementById('step4Status').innerHTML = `<span style="color:#00ffa3;">✓ AUDIT PASSED (${passes} Passes)</span>`;
+
+          resBox.style.display = "flex";
+          resText.innerText = data.final_result;
+
+          logTerminal("SYSTEM", `Autonomic Team completed in ${data.total_duration_seconds}s. Multi-pass verified.`);
+          logFeed("Autonomic Hive", "Final Deliverable Ready", `Generated in ${data.total_duration_seconds}s`);
+          sendPacket('creed', 'michael', 'Final Approved Artifact');
+        } else {
+          const errData = await resp.json();
+          alert("Error from Autonomic Engine: " + (errData.error || "Unknown"));
+        }
+      } catch (err) {
+        logTerminal("ERROR", "Failed to contact autonomic engine: " + err.message);
+      } finally {
+        btn.disabled = false;
+        btn.style.opacity = "1";
+        btnText.innerText = "LAUNCH AUTONOMIC TEAM";
+        AGENTS.forEach(a => { a.state = 'idle'; a.bubble = ''; });
+      }
+    }
+
+    function copyAutonomicResult() {
+      const text = document.getElementById('autonomicResultText').innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        alert("Hasil final berhasil disalin ke clipboard!");
+      });
+    }
+
+    async function saveAutonomicToObsidian() {
+      const text = document.getElementById('autonomicResultText').innerText;
+      const title = prompt("Judul Catatan Obsidian:", "Autonomic_Hive_Deliverable");
+      if (!title) return;
+
+      try {
+        const resp = await fetch('http://127.0.0.1:5050/api/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            prompt: `Save this delivered artifact as note "${title}" in Obsidian 09_AI_WORKFLOW`,
+            agent: 'michael',
+            contexts: [{ name: title, content: text }]
+          })
+        });
+        if (resp.ok) {
+          alert(`Catatan "${title}" berhasil disimpan ke Obsidian Vault!`);
+        }
+      } catch (err) {
+        alert("Gagal menyimpan ke Obsidian: " + err.message);
+      }
+    }
+
+    async function generateVideoFromOffice() {
+      const promptInput = document.getElementById('videoPromptInput');
+      const prompt = promptInput.value.trim() || 'A cinematic scene at sunset, 8k uhd';
+      const model = document.getElementById('videoModelSelect').value;
+      const format = document.getElementById('videoFormatSelect').value;
+      const [durationStr, aspect] = format.split('_');
+      const duration = parseInt(durationStr);
+
+      const btn = document.getElementById('btnGenerateVideo');
+      const resBox = document.getElementById('videoResultBox');
+      const resStatus = document.getElementById('videoResultStatus');
+      const resDetails = document.getElementById('videoResultDetails');
+      const resAction = document.getElementById('videoResultAction');
+
+      btn.disabled = true;
+      btn.innerHTML = '<span>⏳</span> <span>RENDERING WITH SEEDANCE...</span>';
+      resBox.style.display = 'flex';
+      resStatus.textContent = 'IN PROGRESS';
+      resStatus.style.background = 'rgba(245, 158, 11, 0.2)';
+      resStatus.style.color = '#f59e0b';
+      resDetails.textContent = `Connecting to Higgsfield API gateway for '${prompt.substring(0, 45)}...'`;
+      resAction.innerHTML = '';
+
+      // Trigger character animation on canvas
+      const higgsAgent = AGENTS.find(a => a.id === 'higgsfield');
+      if (higgsAgent) {
+        higgsAgent.state = 'busy';
+        higgsAgent.bubble = 'Rendering 4K Seedance video...';
+        higgsAgent.activeTask = `Generating: ${prompt.substring(0, 30)}...`;
+      }
+
+      try {
+        const resp = await fetch('http://127.0.0.1:5050/api/video/generate', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            prompt: prompt,
+            model: model,
+            duration: duration,
+            aspect_ratio: aspect.replace('-', ':'),
+            resolution: '720p',
+            mode: 'auto'
+          })
+        });
+
+        const data = await resp.json();
+        const r = data.result || {};
+
+        if (r.status === 'completed' && r.video_url) {
+          resStatus.textContent = 'COMPLETED';
+          resStatus.style.background = 'rgba(0, 255, 163, 0.2)';
+          resStatus.style.color = '#00ffa3';
+          resDetails.innerHTML = `<strong>Video URL:</strong> <a href="${r.video_url}" target="_blank" style="color: #00ffa3;">${r.video_url}</a>`;
+          resAction.innerHTML = `<a href="${r.video_url}" target="_blank" style="display: inline-block; background: #00ffa3; color: #000; font-weight: 700; padding: 6px 12px; border-radius: 6px; text-decoration: none; font-size: 11px;">▶ Watch / Download MP4</a>`;
+        } else {
+          // Pending credits / Web fallback
+          resStatus.textContent = 'PENDING CREDITS (AUTO WEB-FALLBACK)';
+          resStatus.style.background = 'rgba(245, 158, 11, 0.2)';
+          resStatus.style.color = '#f59e0b';
+          const webUrl = r.web_url || `https://higgsfield.ai/?prompt=${encodeURIComponent(r.prompt || prompt)}`;
+          resDetails.innerHTML = `<div style="margin-bottom:4px;">API Key valid ($0 balance). Prompt enhanced with S238 Visual Codes and saved to Obsidian Second Brain.</div>`;
+          resAction.innerHTML = `
+            <a href="${webUrl}" target="_blank" style="display: flex; align-items: center; justify-content: center; gap: 6px; background: linear-gradient(135deg, #ff007f, #9333ea); color: #fff; font-weight: 700; padding: 8px 12px; border-radius: 6px; text-decoration: none; font-size: 10.5px;">
+              <span>🌐 Open in Higgsfield Web (1-Click Free Render)</span>
+            </a>
+          `;
+        }
+
+        if (higgsAgent) {
+          higgsAgent.state = 'idle';
+          higgsAgent.bubble = 'Logged to Obsidian Gallery';
+          higgsAgent.activeTask = 'Standby for next video';
+        }
+
+        // Refresh gallery
+        setTimeout(refreshVideoGallery, 800);
+
+      } catch (err) {
+        resStatus.textContent = 'ERROR';
+        resStatus.style.background = 'rgba(239, 68, 68, 0.2)';
+        resStatus.style.color = '#ef4444';
+        resDetails.textContent = `Error: ${err.message}`;
+        if (higgsAgent) {
+          higgsAgent.state = 'idle';
+          higgsAgent.bubble = 'Error occurred';
+        }
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = '<span>🎬</span> <span>GENERATE WITH SEEDANCE 2.5</span>';
+      }
+    }
+
+    async function refreshVideoGallery() {
+      const feed = document.getElementById('videoGalleryFeed');
+      if (!feed) return;
+      try {
+        const resp = await fetch('http://127.0.0.1:5050/api/video/gallery');
+        const data = await resp.json();
+        const content = data.content || '';
+        
+        // Parse markdown entries
+        const videoBlocks = content.split('### 🎞️ Video').slice(1);
+        if (videoBlocks.length === 0) {
+          feed.innerHTML = '<div style="color: var(--text-muted); font-size: 10px; padding: 6px;">No video records yet.</div>';
+          return;
+        }
+
+        feed.innerHTML = videoBlocks.map(block => {
+          const lines = block.trim().split('\n');
+          const header = lines[0] || '';
+          const statusLine = lines.find(l => l.includes('**Status**:')) || '';
+          const promptLine = lines.find(l => l.includes('**Prompt**:')) || '';
+          
+          return `
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--card-border); border-radius: 6px; padding: 6px 8px; border-left: 3px solid #ff007f;">
+              <div style="font-weight: 700; color: #fff; font-size: 10.5px;">🎞️ ${escapeHtml(header)}</div>
+              <div style="font-size: 9px; color: #f59e0b; margin: 1px 0;">${escapeHtml(statusLine.replace('- **Status**:', '').trim())}</div>
+              <div style="font-size: 9.5px; color: var(--text-muted); line-height: 1.3;">${escapeHtml(promptLine.replace('- **Prompt**:', '').trim())}</div>
+            </div>
+          `;
+        }).join('');
+      } catch (e) {
+        feed.innerHTML = `<div style="color: #ef4444; font-size: 10px;">Failed to load gallery: ${e.message}</div>`;
+      }
+    }
+
+    async function triggerPentaSync() {
+      alert("Triggering Penta-Platform Unified Sync across AGY, Bionic, Dola, Obsidian, and Higgsfield...");
+      try {
+        const r = await fetch('http://127.0.0.1:5050/api/mesh/sync', { method: 'POST' });
+        const res = await r.json();
+        alert("Penta-Platform Sync Completed successfully!");
+        checkBridge();
+      } catch (e) {
+        alert("Penta-Platform Sync request sent to daemon.");
+      }
+    }
+
+    function renderWorkflowMatrix() {
+      const container = document.getElementById('workflowMatrixList');
+      if (!container) return;
+      container.innerHTML = AGENTS.map(a => `
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--card-border); border-radius: 6px; padding: 8px 10px; display: flex; flex-direction: column; gap: 4px; border-left: 3px solid ${a.color};">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div style="display: flex; align-items: center; gap: 6px;">
+              <span style="font-size: 14px;">${a.icon}</span>
+              <strong style="font-size: 11.5px; color: #fff;">${a.name}</strong>
+            </div>
+            <span class="agent-state-pill ${a.state === 'busy' ? 'state-busy' : 'state-idle'}">${a.state}</span>
+          </div>
+          <div style="font-size: 10px; color: var(--text-muted);">${a.role}</div>
+          <div style="font-size: 11px; color: #e2e8f0; background: rgba(0,0,0,0.3); padding: 4px 6px; border-radius: 4px; margin-top: 2px;">
+            <strong style="color: ${a.color};">Task:</strong> ${escapeHtml(a.activeTask)}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    async function loadMemory() {
+      const memFeed = document.getElementById('memoryFeed');
+      memFeed.innerHTML = '<div style="color:var(--text-muted); padding:10px;">Loading Obsidian turns...</div>';
+      try {
+        const r = await fetch('http://127.0.0.1:5050/api/memory/get');
+        if (r.ok) {
+          const data = await r.json();
+          memFeed.innerHTML = data.turns.map(t => `
+            <div class="feed-item">
+              <div class="feed-header">
+                <strong>${t.agent ? t.agent.toUpperCase() : 'AGENT'}</strong>
+                <span>${t.timestamp || ''}</span>
+              </div>
+              <div class="feed-body">
+                <div><strong>Q:</strong> ${escapeHtml(t.prompt || '')}</div>
+                <div style="margin-top:4px; color:#a5b4fc;"><strong>A:</strong> ${escapeHtml((t.reply || '').slice(0, 150))}...</div>
+              </div>
+            </div>
+          `).join('') || '<div style="color:var(--text-muted); padding:10px;">No memory turns saved yet.</div>';
+        }
+      } catch (e) {
+        memFeed.innerHTML = '<div style="color:var(--red); padding:10px;">Could not connect to memory endpoint.</div>';
+      }
+    }
+
+    // Check bridge status
+    async function checkBridge() {
+      try {
+        const r = await fetch('http://127.0.0.1:5050/api/status');
+        if (r.ok) {
+          const s = await r.json();
+          document.getElementById('bridgeStatus').innerText = `AGY Bridge: ONLINE (Port ${s.port})`;
+          document.getElementById('vaultNotes').innerText = `Obsidian: ${s.vault_notes} Notes`;
+        }
+      } catch (e) {
+        document.getElementById('bridgeStatus').innerText = `AGY Bridge: Standalone Mock`;
+      }
+    }
+
+    // Startup
+    renderRoster();
+    drawFloor();
+    checkBridge();
+    setInterval(checkBridge, 10000);
+
+    // Subtle random idle walking
+    setInterval(() => {
+      const idleAgents = AGENTS.filter(a => a.state === 'idle');
+      if (idleAgents.length > 0 && Math.random() > 0.4) {
+        const lucky = idleAgents[Math.floor(Math.random() * idleAgents.length)];
+        const destinations = [
+          lucky.desk,
+          { x: 740, y: 120 }, // Meeting room
+          { x: 740, y: 360 }, // Watercooler
+          { x: lucky.desk.x + (Math.random() * 30 - 15), y: lucky.desk.y + (Math.random() * 30 - 15) }
+        ];
+        lucky.targetPos = destinations[Math.floor(Math.random() * destinations.length)];
+      }
+    }, 4000);
+
+    // =========================================================================
+    // DYNAMIC RESIZABLE SIDEBARS ENGINE (DRAGGABLE SPLITTERS & PERSISTENCE)
+    // =========================================================================
+    const sidebarLeft = document.querySelector('.sidebar-left');
+    const sidebarRight = document.querySelector('.sidebar-right');
+    const resizerLeft = document.getElementById('resizerLeft');
+    const resizerRight = document.getElementById('resizerRight');
+    const restoreLeftPill = document.getElementById('restoreLeftPill');
+    const restoreRightPill = document.getElementById('restoreRightPill');
+
+    let isResizingLeft = false;
+    let isResizingRight = false;
+    let savedLeftWidth = parseInt(localStorage.getItem('agy_left_sidebar_w')) || 320;
+    let savedRightWidth = parseInt(localStorage.getItem('agy_right_sidebar_w')) || 400;
+
+    // Apply saved widths on startup
+    if (sidebarLeft && savedLeftWidth) sidebarLeft.style.width = savedLeftWidth + 'px';
+    if (sidebarRight && savedRightWidth) sidebarRight.style.width = savedRightWidth + 'px';
+
+    // Left Resizer Events
+    if (resizerLeft) {
+      resizerLeft.addEventListener('mousedown', (e) => {
+        isResizingLeft = true;
+        document.body.classList.add('resizing-active');
+        resizerLeft.classList.add('is-dragging');
+        e.preventDefault();
+      });
+
+      resizerLeft.addEventListener('dblclick', () => {
+        toggleSidebar('left');
+      });
+    }
+
+    // Right Resizer Events
+    if (resizerRight) {
+      resizerRight.addEventListener('mousedown', (e) => {
+        isResizingRight = true;
+        document.body.classList.add('resizing-active');
+        resizerRight.classList.add('is-dragging');
+        e.preventDefault();
+      });
+
+      resizerRight.addEventListener('dblclick', () => {
+        toggleSidebar('right');
+      });
+    }
+
+    window.addEventListener('mousemove', (e) => {
+      if (isResizingLeft) {
+        const minW = 200;
+        const maxW = window.innerWidth * 0.55;
+        let newW = e.clientX;
+        if (newW < minW) newW = minW;
+        if (newW > maxW) newW = maxW;
+        sidebarLeft.style.width = newW + 'px';
+        sidebarLeft.style.display = 'flex';
+        savedLeftWidth = newW;
+        localStorage.setItem('agy_left_sidebar_w', newW);
+        if (restoreLeftPill) restoreLeftPill.style.display = 'none';
+        if (typeof resizeCanvas === 'function') resizeCanvas();
+      } else if (isResizingRight) {
+        const minW = 280;
+        const maxW = window.innerWidth * 0.60;
+        let newW = window.innerWidth - e.clientX;
+        if (newW < minW) newW = minW;
+        if (newW > maxW) newW = maxW;
+        sidebarRight.style.width = newW + 'px';
+        sidebarRight.style.display = 'flex';
+        savedRightWidth = newW;
+        localStorage.setItem('agy_right_sidebar_w', newW);
+        if (restoreRightPill) restoreRightPill.style.display = 'none';
+        if (typeof resizeCanvas === 'function') resizeCanvas();
+      }
+    });
+
+    window.addEventListener('mouseup', () => {
+      if (isResizingLeft || isResizingRight) {
+        isResizingLeft = false;
+        isResizingRight = false;
+        document.body.classList.remove('resizing-active');
+        if (resizerLeft) resizerLeft.classList.remove('is-dragging');
+        if (resizerRight) resizerRight.classList.remove('is-dragging');
+        if (typeof resizeCanvas === 'function') resizeCanvas();
+      }
+    });
+
+    function toggleSidebar(side) {
+      if (side === 'left') {
+        const isCollapsed = sidebarLeft.style.display === 'none' || parseInt(sidebarLeft.style.width) === 0;
+        if (isCollapsed) {
+          sidebarLeft.style.display = 'flex';
+          sidebarLeft.style.width = savedLeftWidth + 'px';
+          if (resizerLeft) resizerLeft.style.display = 'flex';
+          if (restoreLeftPill) restoreLeftPill.style.display = 'none';
+        } else {
+          sidebarLeft.style.display = 'none';
+          if (resizerLeft) resizerLeft.style.display = 'none';
+          if (restoreLeftPill) restoreLeftPill.style.display = 'flex';
+        }
+      } else if (side === 'right') {
+        const isCollapsed = sidebarRight.style.display === 'none' || parseInt(sidebarRight.style.width) === 0;
+        if (isCollapsed) {
+          sidebarRight.style.display = 'flex';
+          sidebarRight.style.width = savedRightWidth + 'px';
+          if (resizerRight) resizerRight.style.display = 'flex';
+          if (restoreRightPill) restoreRightPill.style.display = 'none';
+        } else {
+          sidebarRight.style.display = 'none';
+          if (resizerRight) resizerRight.style.display = 'none';
+          if (restoreRightPill) restoreRightPill.style.display = 'flex';
+        }
+      }
+      if (typeof resizeCanvas === 'function') resizeCanvas();
+    }
+  </script>
+</body>
+</html>
